@@ -15,7 +15,8 @@
     "angular-mocks": "1.4.9"
   },
   "resolutions": {
-    "angular": "1.4.9"
+    "angular": "1.4.9",
+    "angular-messages": "1.4.9"
   },
   "appPath": "app",
   "moduleName": "serinaApp"
