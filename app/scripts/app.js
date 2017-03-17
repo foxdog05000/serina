@@ -19,6 +19,10 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/hub', {
+        templateUrl: 'views/hub/hub.html',
+        controller: 'HubCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
