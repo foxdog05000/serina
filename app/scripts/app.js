@@ -24,6 +24,6 @@ angular
         controller: 'HubCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/hub'
       });
   });
