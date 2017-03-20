@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center center">
     <div flex-xs flex-gt-xs="30" layout="column">
-        <md-card ng-repeat="lang in listLangs">
+        <md-card ng-repeat="lang in listLangs track by lang">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Traduction : {{lang | uppercase}}</span>
