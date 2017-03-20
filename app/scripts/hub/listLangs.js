@@ -18,7 +18,7 @@ angular.module('serinaApp').directive('listLangs', function (DataAccessor, $mdTo
         DataAccessor.addLang(scope.addLang.code).then(function (response) {
           $mdToast.show(
             $mdToast.simple()
-              .textContent('Langue ajouter avec succés !')
+              .textContent('Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !')
               .position('top right')
               .hideDelay(3000)
           );
@@ -26,11 +26,11 @@ angular.module('serinaApp').directive('listLangs', function (DataAccessor, $mdTo
         }, function (response) {
           $mdToast.show(
             $mdToast.simple()
-              .textContent("Impossible d'ajouter la langue" + scope.addLang.code)
+              .textContent("Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'")
               .position('top right')
               .hideDelay(3000)
           );
-          console.error("Impossible d'ajouter la langue" + scope.addLang.code, response);
+          console.error("Impossible d'ajouter la langue '" + scope.addLang.code + "'", response);
         });
       };
 
