@@ -2,8 +2,13 @@
 
 angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http) {
   return {
+
     getListLang: function () {
       return $http.get($rootScope.endPoint + '/list-lang');
+    },
+
+    addLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase());
     }
   }
 });

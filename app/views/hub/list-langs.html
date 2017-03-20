@@ -21,6 +21,10 @@
                 </md-button>
             </md-card-actions>
         </md-card>
+
+        <md-card ng-if="listLangs.length === 0">
+            <img ng-src="images/no-languages.png" class="md-card-image" alt="">
+        </md-card>
     </div>
 
     <div flex-xs flex-gt-xs="30" layout="column">
@@ -39,7 +43,7 @@
                 </md-input-container>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-raised md-primary">
+                <md-button ng-disabled="addLang.code.length !== 2" ng-click="addLang()" class="md-raised md-primary">
                     <md-icon class="material-icons">add</md-icon> Ajouter
                 </md-button>
             </md-card-actions>

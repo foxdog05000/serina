@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
   res.send('Hello Node !');
 });
 
-app.get('/create/:lang', function (req, res) {
+app.get(pathApi +'/create/:lang', function (req, res) {
   var file = pathJsonFile + req.params.lang + '.json';
   var obj = {};
 
