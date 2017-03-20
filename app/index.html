@@ -16,28 +16,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- endbuild -->
 </head>
-<body ng-app="serinaApp">
+<body ng-app="serinaApp" ng-cloak>
     <md-toolbar class="md-hue-2">
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
                 <md-icon class="material-icons">menu</md-icon>
             </md-button>
 
-            <h2 flex md-truncate>Toolbar with Disabled/Enabled Icon Buttons</h2>
-
-            <!-- <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="img/icons/favorite.svg"</md-icon>
-            </md-button>
-
-            <md-button class="md-icon-button" aria-label="More">
-                <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-            </md-button> -->
+            <h2 flex md-truncate>Listes des langues</h2>
         </div>
     </md-toolbar>
 
     <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
         <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+            <h1 class="md-toolbar-tools">Serina</h1>
         </md-toolbar>
 
         <md-content layout-margin>
@@ -63,7 +55,9 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/commons/services/DataAccessor.js"></script>
     <script src="scripts/hub/hubController.js"></script>
+    <script src="scripts/hub/listLangs.js"></script>
     <!-- endbuild -->
 </body>
 </html>

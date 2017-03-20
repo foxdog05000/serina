@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('serinaApp').factory('DataAccessor', function () {
+angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http) {
   return {
-    getListLangTranslate: function () {
-      return $http.get($rootScope.endPoint + '/api/list-lang-translate');
+    getListLang: function () {
+      return $http.get($rootScope.endPoint + '/list-lang');
     }
   }
 });
