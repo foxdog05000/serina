@@ -15,7 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,6 +24,15 @@ angular
         controller: 'HubCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/hub'
       });
+  })
+  .run(function ($rootScope, $mdSidenav) {
+    $rootScope.toggleLeft = buildToggler('left');
+
+    function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      };
+    }
   });
