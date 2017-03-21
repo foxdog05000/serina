@@ -9,6 +9,10 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
 
     addLang: function (lang) {
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase());
+    },
+
+    deleteLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase());
     }
   }
 });

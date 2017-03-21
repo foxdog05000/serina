@@ -24,6 +24,16 @@ angular.module('serinaApp').directive('listLangs', function (DataAccessor, Toast
         });
       };
 
+      scope.deleteLang = function (lang) {
+        DataAccessor.deleteLang(lang).then(function () {
+          Toast.showCustomToast('check', 'Langue "' + lang.toUpperCase() + '" supprimé avec succés !' , 'good', 'HubCtrl');
+          scope.getListLang();
+        }, function (response) {
+          Toast.showCustomToast('warning', "Impossible de supprimer la langue '" +lang.toUpperCase() + "'" , 'fail', 'HubCtrl');
+          console.error("Impossible de supprimer la langue '" + lang + "'", response);
+        });
+      }
+
       scope.getListLang();
 
     }

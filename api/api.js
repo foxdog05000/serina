@@ -19,14 +19,26 @@ app.get('/', function (req, res) {
   res.send('Hello Node !');
 });
 
-app.get(pathApi +'/create/:lang', function (req, res) {
+app.get(pathApi + '/create/:lang', function (req, res) {
   var file = pathJsonFile + req.params.lang + '.json';
   var obj = {};
 
   jsonfile.writeFile(file, obj, function (err) {
-    if (err) { console.error('Error on create json file', err); };
+    if (err) { return console.log('Error on create json file', err); };
     res.sendStatus(200)
   })
+});
+
+app.get(pathApi + '/delete/:lang', function (req, res) {
+  fs.stat(pathJsonFile + req.params.lang + '.json', function (err, stats) {
+    if (err) { return console.error(err); }
+
+    fs.unlink(pathJsonFile + req.params.lang + '.json', function (err) {
+       if (err) { return console.log(err); }
+       console.log('file "' + req.params.lang + '.json" deleted successfully');
+       res.sendStatus(200);
+    });
+  });
 });
 
 app.get(pathApi + '/list-lang', function (req, res) {
