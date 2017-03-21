@@ -32,8 +32,20 @@
             <h1 class="md-toolbar-tools">Serina</h1>
         </md-toolbar>
 
-        <md-content layout-margin>
-            <p>This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.</p>
+        <md-content>
+            <md-list>
+                <md-list-item class="secondary-button-padding" ng-href="#/list-langs">
+                    <md-icon class="material-icons">list</md-icon>
+                    <p>Liste des langues</p>
+                </md-list-item>
+
+                <md-divider></md-divider>
+
+                <md-list-item class="secondary-button-padding" ng-click="open()">
+                    <md-icon class="material-icons">settings</md-icon>
+                    <p>Paramètres</p>
+                </md-list-item>
+            </md-list>
         </md-content>
    </md-sidenav>
 
