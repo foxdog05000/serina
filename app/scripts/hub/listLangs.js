@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serinaApp').directive('listLangs', function (DataAccessor, $mdToast) {
+angular.module('serinaApp').directive('listLangs', function (DataAccessor, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/hub/list-langs.html',
@@ -15,21 +15,11 @@ angular.module('serinaApp').directive('listLangs', function (DataAccessor, $mdTo
       };
 
       scope.addLang = function () {
-        DataAccessor.addLang(scope.addLang.code).then(function (response) {
-          $mdToast.show(
-            $mdToast.simple()
-              .textContent('Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !')
-              .position('top right')
-              .hideDelay(3000)
-          );
+        DataAccessor.addLang(scope.addLang.code).then(function () {
+          Toast.showCustomToast('check', 'Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !' , 'good', 'HubCtrl');
           scope.getListLang();
         }, function (response) {
-          $mdToast.show(
-            $mdToast.simple()
-              .textContent("Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'")
-              .position('top right')
-              .hideDelay(3000)
-          );
+          Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'" , 'fail', 'HubCtrl');
           console.error("Impossible d'ajouter la langue '" + scope.addLang.code + "'", response);
         });
       };
