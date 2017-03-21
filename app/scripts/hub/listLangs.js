@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serinaApp').directive('listLangs', function (DataAccessor, Toast) {
+angular.module('serinaApp').directive('listLangs', function ($location, DataAccessor, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/hub/list-langs.html',
@@ -30,9 +30,13 @@ angular.module('serinaApp').directive('listLangs', function (DataAccessor, Toast
           Toast.showCustomToast('check', 'Langue "' + lang.toUpperCase() + '" supprimé avec succés !' , 'good', 'HubCtrl');
           scope.getListLang();
         }, function (response) {
-          Toast.showCustomToast('warning', "Impossible de supprimer la langue '" +lang.toUpperCase() + "'" , 'fail', 'HubCtrl');
+          Toast.showCustomToast('warning', "Impossible de supprimer la langue '" + lang.toUpperCase() + "'" , 'fail', 'HubCtrl');
           console.error("Impossible de supprimer la langue '" + lang + "'", response);
         });
+      }
+
+      scope.openLang = function (lang) {
+        $location.path('/lang/' + lang.toLowerCase());
       }
 
       scope.getListLang();

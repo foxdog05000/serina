@@ -13,6 +13,10 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
 
     deleteLang: function (lang) {
       return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase());
+    },
+
+    openLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/open/' + lang.toLowerCase());
     }
   }
 });

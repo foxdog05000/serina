@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/hub/hub.html',
         controller: 'HubCtrl'
       })
+      .when('/lang/:lang', {
+        templateUrl: 'views/lang/lang.html',
+        controller: 'LangCtrl'
+      })
       .otherwise({
         redirectTo: '/hub'
       });

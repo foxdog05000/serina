@@ -19,6 +19,19 @@ app.get('/', function (req, res) {
   res.send('Hello Node !');
 });
 
+app.get(pathApi + '/list-lang', function (req, res) {
+  fs.readdir(pathJsonFile, function (err, files) {
+    if (err) { throw err; }
+
+    var langs = { listLangs: []};
+    files.forEach(function (file) {
+      langs.listLangs.push(file.substring(0, 2));
+    });
+
+    res.send(langs);
+  });
+});
+
 app.get(pathApi + '/create/:lang', function (req, res) {
   var file = pathJsonFile + req.params.lang + '.json';
   var obj = {};
@@ -41,17 +54,8 @@ app.get(pathApi + '/delete/:lang', function (req, res) {
   });
 });
 
-app.get(pathApi + '/list-lang', function (req, res) {
-  fs.readdir(pathJsonFile, function (err, files) {
-    if (err) { throw err; }
-
-    var langs = { listLangs: []};
-    files.forEach(function (file) {
-      langs.listLangs.push(file.substring(0, 2));
-    });
-
-    res.send(langs);
-  });
+app.get(pathApi + '/open/:lang', function (req, res) {
+  res.sendFile(pathJsonFile + req.params.lang + '.json');
 });
 
 app.listen(3000, function () {
