@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('serinaApp').factory('Toast', function ($rootScope, $mdToast) {
+angular.module('serinaApp').factory('Toast', function ($mdToast) {
   return {
     showCustomToast: function (icon, text, consequence, ctrl) {
       $mdToast.show({
