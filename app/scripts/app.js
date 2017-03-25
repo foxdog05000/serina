@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc overview
@@ -29,15 +29,15 @@ angular
       })
       .otherwise({
         redirectTo: '/hub'
-      });
+      })
   })
   .run(function ($rootScope, $mdSidenav) {
     $rootScope.endPoint = 'http://localhost:3000/api'
-    $rootScope.toggleLeft = buildToggler('left');
+    $rootScope.toggleLeft = buildToggler('left')
 
-    function buildToggler(componentId) {
-      return function() {
-        $mdSidenav(componentId).toggle();
-      };
+    function buildToggler (componentId) {
+      return function () {
+        $mdSidenav(componentId).toggle()
+      }
     }
-  });
+  })

@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
 angular.module('serinaApp').controller('HubCtrl', function ($rootScope) {
 
-  $rootScope.pageTitle = 'Listes des langues';
+  $rootScope.pageTitle = 'Listes des langues'
 
-});
+})
