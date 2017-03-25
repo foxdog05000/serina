@@ -14,10 +14,10 @@
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button ng-click="openLang(lang)" class="md-raised md-primary">
-                    <md-icon class="material-icons">edit</md-icon> Editer
+                    <md-icon>edit</md-icon> Editer
                 </md-button>
                 <md-button ng-click="deleteLang(lang)" class="md-raised md-warn">
-                    <md-icon class="material-icons">delete</md-icon> Supprimer
+                    <md-icon>delete</md-icon> Supprimer
                 </md-button>
             </md-card-actions>
         </md-card>
@@ -38,13 +38,13 @@
             <md-card-content>
                 <md-input-container>
                     <label>Langue</label>
-                    <md-icon class="material-icons">translate</md-icon>
+                    <md-icon>translate</md-icon>
                     <input type="text" ng-model="addLang.code" md-maxlength="2" required md-no-asterisk>
                 </md-input-container>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button ng-disabled="addLang.code.length !== 2" ng-click="addLang()" class="md-raised md-primary">
-                    <md-icon class="material-icons">add</md-icon> Ajouter
+                    <md-icon>add</md-icon> Ajouter
                 </md-button>
             </md-card-actions>
         </md-card>
