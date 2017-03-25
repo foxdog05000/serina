@@ -13,10 +13,29 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- endbuild -->
 </head>
-<body ng-app="serinaApp">
+<body ng-app="serinaApp" ng-cloak>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                <md-icon class="material-icons">menu</md-icon>
+            </md-button>
 
+            <h2 flex md-truncate>{{pageTitle}}</h2>
+        </div>
+    </md-toolbar>
+
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+        <md-toolbar class="md-theme-indigo">
+            <h1 class="md-toolbar-tools">Serina</h1>
+        </md-toolbar>
+
+        <md-content layout-margin>
+            <p>This sidenav is not showing any backdrop, where users can click on it, to close the sidenav.</p>
+        </md-content>
+   </md-sidenav>
 
     <div ng-view=""></div>
 
@@ -28,7 +47,6 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
@@ -37,7 +55,11 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/hub/hubCtrl.js"></script>
+    <script src="scripts/commons/services/DataAccessor.js"></script>
+    <script src="scripts/commons/services/Toast.js"></script>
+    <script src="scripts/hub/hubController.js"></script>
+    <script src="scripts/hub/listLangs.js"></script>
+    <script src="scripts/lang/LangController.js"></script>
     <!-- endbuild -->
 </body>
 </html>

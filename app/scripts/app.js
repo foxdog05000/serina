@@ -15,7 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngMaterial'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,7 +23,21 @@ angular
         templateUrl: 'views/hub/hub.html',
         controller: 'HubCtrl'
       })
+      .when('/lang/:lang', {
+        templateUrl: 'views/lang/lang.html',
+        controller: 'LangCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/hub'
       });
+  })
+  .run(function ($rootScope, $mdSidenav) {
+    $rootScope.endPoint = 'http://localhost:3000/api'
+    $rootScope.toggleLeft = buildToggler('left');
+
+    function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      };
+    }
   });
