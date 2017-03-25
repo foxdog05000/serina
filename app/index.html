@@ -34,14 +34,14 @@
 
         <md-content>
             <md-list>
-                <md-list-item class="secondary-button-padding" ng-href="#/list-langs">
+                <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/list-langs">
                     <md-icon>list</md-icon>
                     <p>Liste des langues</p>
                 </md-list-item>
 
                 <md-divider></md-divider>
 
-                <md-list-item class="secondary-button-padding" ng-click="open()">
+                <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/settings">
                     <md-icon>settings</md-icon>
                     <p>Paramètres</p>
                 </md-list-item>
