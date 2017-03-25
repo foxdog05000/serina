@@ -15,14 +15,25 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
       }
 
       scope.addLang = function () {
-        DataAccessor.addLang(scope.addLang.code).then(function () {
-          Toast.showCustomToast('check', 'Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !', 'good', 'HubCtrl')
-          scope.addLang.code = undefined
-          scope.getListLang()
-        }, function (response) {
-          Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'", 'fail', 'HubCtrl')
-          console.error("Impossible d'ajouter la langue '" + scope.addLang.code + "'", response)
+        var langNotExist = true
+        angular.forEach(scope.listLangs, function (lang) {
+          if (lang === scope.addLang.code.toLowerCase()) {
+            langNotExist = false
+          }
         })
+
+        if (langNotExist) {
+          DataAccessor.addLang(scope.addLang.code).then(function () {
+            Toast.showCustomToast('check', 'Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !', 'good', 'HubCtrl')
+            scope.addLang.code = undefined
+            scope.getListLang()
+          }, function (response) {
+            Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'", 'fail', 'HubCtrl')
+            console.error("Impossible d'ajouter la langue '" + scope.addLang.code + "'", response)
+          })
+        } else {
+          Toast.showCustomToast('info_outline', "La lange '" + scope.addLang.code.toUpperCase() + "' existe déjà !", 'medium', 'HubCtrl')
+        }
       }
 
       scope.deleteLang = function (lang, ev) {
