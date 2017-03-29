@@ -7,16 +7,21 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.get($rootScope.endPoint + '/list-lang')
     },
 
+    openLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/open/' + lang.toLowerCase())
+    },
+
     addLang: function (lang) {
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase())
     },
 
-    deleteLang: function (lang) {
-      return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
+    addGroup: function (groupName) {
+      return $http.get($rootScope.endPoint + '/group/' + groupName.toLowerCase() + '/add')
     },
 
-    openLang: function (lang) {
-      return $http.get($rootScope.endPoint + '/open/' + lang.toLowerCase())
+    deleteLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
     }
+
   }
 })
