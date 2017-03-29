@@ -1,4 +1,4 @@
-<div class="list-groups" layout-xs="column" layout="row" layout-align="center">
+<div class="level" layout-xs="column" layout="row" layout-align="center">
     <div flex-xs flex-gt-xs="30" layout="column">
         <md-card ng-repeat="group in listGroups">
             <md-card-title>
@@ -16,6 +16,10 @@
                 </md-button>
             </md-card-actions>
         </md-card>
+
+        <md-button class="md-primary md-raised">
+            <md-icon>add</md-icon> Ajouter un groupe
+        </md-button>
     </div>
 
     <div flex-xs flex-gt-xs="30" layout="column">
@@ -34,5 +38,9 @@
                 </md-input-container>
             </md-card-content>
         </md-card>
+
+        <md-button class="md-primary md-raised">
+            <md-icon>add</md-icon> Ajouter une traduction
+        </md-button>
     </div>
 </div>
