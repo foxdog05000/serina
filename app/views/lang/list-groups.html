@@ -1,16 +1,38 @@
-<div class="list-groups">
-    <md-card ng-repeat="group in listGroups">
-        <md-card-title>
-            <span class="">{{group}}</span>
-            <span class=""><md-icon>box</md-icon></span>
-        </md-card-title>
-        <md-card-actions>
-            <md-button class="md-primary md-raised">
-                <md-icon>edit</md-icon> Editer
-            </md-button>
-            <md-button class="md-warn md-raised">
-                <md-icon>Supprimer</md-icon>
-            </md-button>
-        </md-card-actions>
-    </md-card>
+<div class="list-groups" layout-xs="column" layout="row" layout-align="center">
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card ng-repeat="group in listGroups">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{group}}</span>
+                    <span class="md-subhead"><md-icon>box</md-icon></span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions>
+                <md-button class="md-primary md-raised">
+                    <md-icon>edit</md-icon> Editer
+                </md-button>
+                <md-button class="md-warn md-raised">
+                    <md-icon>Supprimer</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+    <div flex-xs flex-gt-xs="30" layout="column">
+        <md-card ng-repeat="trad in listTrad">
+            <md-card-content>
+                <md-input-container>
+                    <label>Clé</label>
+                    <md-icon>key</md-icon>
+                    <input type="text" ng-model="trad.key">
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Message</label>
+                    <md-icon>label</md-icon>
+                    <input type="text" ng-model="trad.trad">
+                </md-input-container>
+            </md-card-content>
+        </md-card>
+    </div>
 </div>
