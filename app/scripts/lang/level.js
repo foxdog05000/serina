@@ -32,7 +32,7 @@ angular.module('serinaApp').directive('level', function ($routeParams, DataAcces
           cancel: 'Annuler'
         }
         Dialog.showPrompt(options).then(function (groupName) {
-          DataAccessor.addGroup(groupName).then(function (response) {
+          DataAccessor.addGroup(groupName).then(function () {
             scope.listGroups.push(groupName)
             Toast.showCustomToast('check', 'Groupe "' + groupName + '" ajouté avec succés !', 'good')
           }, function (response) {
