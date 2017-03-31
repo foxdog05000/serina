@@ -27,27 +27,7 @@
         </div>
     </md-toolbar>
 
-    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-        <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Serina</h1>
-        </md-toolbar>
-
-        <md-content>
-            <md-list>
-                <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/list-langs">
-                    <md-icon>list</md-icon>
-                    <p>Liste des langues</p>
-                </md-list-item>
-
-                <md-divider></md-divider>
-
-                <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/settings">
-                    <md-icon>settings</md-icon>
-                    <p>Paramètres</p>
-                </md-list-item>
-            </md-list>
-        </md-content>
-   </md-sidenav>
+    <side-nav></side-nav>
 
     <div ng-view=""></div>
 
@@ -70,6 +50,7 @@
     <script src="scripts/commons/services/DataAccessor.js"></script>
     <script src="scripts/commons/services/Toast.js"></script>
     <script src="scripts/commons/services/Dialog.js"></script>
+    <script src="scripts/commons/directives/sideNav.js"></script>
     <script src="scripts/hub/hubController.js"></script>
     <script src="scripts/hub/listLangs.js"></script>
     <script src="scripts/lang/LangController.js"></script>
