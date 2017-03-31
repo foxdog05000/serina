@@ -1,0 +1,22 @@
+<div flex-xs flex-gt-xs="30" layout="column">
+    <md-card ng-repeat="group in listGroups">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{group}}</span>
+                <span class="md-subhead"><md-icon>box</md-icon></span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-actions>
+            <md-button class="md-primary md-raised">
+                <md-icon>edit</md-icon> Editer
+            </md-button>
+            <md-button class="md-warn md-raised">
+                <md-icon>delete</md-icon> Supprimer
+            </md-button>
+        </md-card-actions>
+    </md-card>
+
+    <md-button ng-click="openDialogAddGroup($event)" class="md-primary md-raised">
+        <md-icon>add</md-icon> Ajouter un groupe
+    </md-button>
+</div>

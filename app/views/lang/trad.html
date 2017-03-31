@@ -1,0 +1,21 @@
+<div flex-xs flex-gt-xs="30" layout="column">
+    <md-card ng-repeat="trad in listTrad">
+        <md-card-content>
+            <md-input-container>
+                <label>Clé</label>
+                <md-icon>key</md-icon>
+                <input type="text" ng-model="trad.key">
+            </md-input-container>
+
+            <md-input-container>
+                <label>Message</label>
+                <md-icon>label</md-icon>
+                <input type="text" ng-model="trad.trad">
+            </md-input-container>
+        </md-card-content>
+    </md-card>
+
+    <md-button ng-click="addTrad()" class="md-primary md-raised">
+        <md-icon>add</md-icon> Ajouter une traduction
+    </md-button>
+</div>
