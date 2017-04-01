@@ -3,7 +3,7 @@
 angular.module('serinaApp').directive('trad', function (DataAccessor, Toast) {
   return {
     restrict: 'E',
-    templateURl: 'views/lang/trad.html',
+    templateUrl: 'views/lang/trad.html',
     link: function (scope) {
 
       scope.addTrad = function () {

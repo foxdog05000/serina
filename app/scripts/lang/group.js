@@ -3,7 +3,7 @@
 angular.module('serinaApp').directive('group', function (DataAccessor, Dialog, Toast) {
   return {
     restrict: 'E',
-    templateURl: 'views/lang/group.html',
+    templateUrl: 'views/lang/group.html',
     link: function (scope) {
 
       scope.openDialogAddGroup = function (ev) {
@@ -25,7 +25,7 @@ angular.module('serinaApp').directive('group', function (DataAccessor, Dialog, T
           })
         })
       }
-      
+
     }
   }
 })
