@@ -69,24 +69,22 @@ app.get(pathApi + '/open/:lang', function (req, res) {
 app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
   var groupName = req.params.groupName
   var file = pathJsonFile + req.params.lang + '.json'
-  jsonfile.readFile(file, function (req, obj) {
-    obj[groupName] = {}
-    jsonfile.writeFile(file, obj, function (err) {
-      if (err) { return console.log('Error on add group name on json file', err) }
-      res.sendStatus(200)
-    })
+  var obj = readFile(req.params.lang)
+  obj[groupName] = {}
+  jsonfile.writeFile(file, obj, function (err) {
+    if (err) { return console.log('Error on add group name on json file', err) }
+    res.sendStatus(200)
   })
 })
 
 app.post(pathApi + '/:lang/trad/add', function (req, res) {
   var trad = req.body
   var file = pathJsonFile + req.params.lang + '.json'
-  jsonfile.readFile(file, function (req, obj) {
-    obj[trad.key] = trad.trad
-    jsonfile.writeFile(file, obj, function (err) {
-      if (err) { return console.log('Error on add group name on json file', err) }
-      res.sendStatus(200)
-    })
+  var obj = readFile(req.params.lang)
+  obj[trad.key] = trad.trad
+  jsonfile.writeFile(file, obj, function (err) {
+    if (err) { return console.log('Error on add group name on json file', err) }
+    res.sendStatus(200)
   })
 })
 
