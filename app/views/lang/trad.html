@@ -1,21 +1,38 @@
-<div flex-xs flex-gt-xs="30" layout="column">
-    <md-card ng-repeat="trad in listTrad">
-        <md-card-content>
-            <md-input-container>
-                <label>Clé</label>
-                <md-icon>key</md-icon>
-                <input type="text" ng-model="trad.key">
-            </md-input-container>
+<md-card ng-repeat="trad in listTrad">
+    <md-card-content layout="column">
+        <md-menu layout="row" flex="33" layout-align="end start" md-position-mode="target-right target">
+          <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdMenu, $event)">
+            <md-icon md-menu-origin>more_vert</md-icon>
+          </md-button>
+          <md-menu-content width="2">
+            <md-menu-item>
+              <md-button ng-click="sendNewTrad(trad, $event)">
+                <md-icon>save</md-icon> Enregistrer
+              </md-button>
+            </md-menu-item>
+            <md-divider></md-divider>
+            <md-menu-item>
+              <md-button ng-click="">
+                <md-icon>delete</md-icon> Supprimer
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
 
-            <md-input-container>
-                <label>Message</label>
-                <md-icon>label</md-icon>
-                <input type="text" ng-model="trad.trad">
-            </md-input-container>
-        </md-card-content>
-    </md-card>
+        <md-input-container>
+            <label>Clé</label>
+            <md-icon>bookmark</md-icon>
+            <input type="text" ng-model="trad.key">
+        </md-input-container>
 
-    <md-button ng-click="addTrad()" class="md-primary md-raised">
-        <md-icon>add</md-icon> Ajouter une traduction
-    </md-button>
-</div>
+        <md-input-container>
+            <label>Message</label>
+            <md-icon>label</md-icon>
+            <input type="text" ng-model="trad.trad">
+        </md-input-container>
+    </md-card-content>
+</md-card>
+
+<md-button ng-click="addTrad()" class="md-primary md-raised">
+    <md-icon>add</md-icon> Ajouter une traduction
+</md-button>

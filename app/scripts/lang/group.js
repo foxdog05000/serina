@@ -16,7 +16,7 @@ angular.module('serinaApp').directive('group', function (DataAccessor, Dialog, T
           cancel: 'Annuler'
         }
         Dialog.showPrompt(options).then(function (groupName) {
-          DataAccessor.addGroup(groupName).then(function () {
+          DataAccessor.addGroup(scope.currentLang, groupName).then(function () {
             scope.listGroups.push(groupName)
             Toast.showCustomToast('check', 'Groupe "' + groupName + '" ajouté avec succés !', 'good')
           }, function (response) {

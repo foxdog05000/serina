@@ -2,6 +2,7 @@
 
 angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope, $routeParams, DataAccessor) {
   $rootScope.pageTitle = 'Langue : ' + $routeParams.lang.toUpperCase()
+  var originatorEv
 
   var getListGroupsAndTrad = function (langJson) {
     $scope.listGroups = []
@@ -15,7 +16,13 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
     })
   }
 
-  DataAccessor.openLang($routeParams.lang.toLowerCase()).then(function (response) {
+  $scope.openMenu = function ($mdMenu, ev) {
+    originatorEv = ev
+    $mdMenu.open(ev)
+  }
+
+  $scope.currentLang = $routeParams.lang.toLowerCase()
+  DataAccessor.openLang($scope.currentLang).then(function (response) {
     getListGroupsAndTrad(response.data)
   }, function (response) {
     console.error('Error', response)

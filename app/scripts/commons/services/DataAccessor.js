@@ -15,16 +15,24 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase())
     },
 
-    addGroup: function (groupName) {
-      return $http.get($rootScope.endPoint + '/group/' + groupName.toLowerCase() + '/add')
+    addGroup: function (lang, groupName) {
+      return $http.get($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/' + groupName.toLowerCase() + '/add')
     },
 
-    addTrad: function (trad) {
-      return $http.post($rootScope.endPoint + '/trad/add', trad)
+    addTrad: function (lang, trad) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/add', trad)
     },
 
     deleteLang: function (lang) {
       return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
+    },
+
+    deleteGroup: function (lang, groupName) {
+      return $http.get($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/' + groupName.toLowerCase() + '/del')
+    },
+
+    deleteTrad: function (lang, trad) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/del', trad)
     }
 
   }
