@@ -18,8 +18,17 @@ app.use(bodyParser.json())
 
 function readFile (lang) {
   var file = pathJsonFile + lang + '.json'
-  jsonfile.readFile(file, function (req, obj) {
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log(errorMessage, err) }
     return obj
+  })
+}
+
+function writeFile (lang) {
+  var file = pathJsonFile + lang + '.json'
+  jsonfile.writeFile(file, obj, function (err) {
+    if (err) { return console.log(errorMessage, err) }
+    res.sendStatus(200)
   })
 }
 
