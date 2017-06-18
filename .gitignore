@@ -4,3 +4,5 @@
 /.sass-cache
 /bower_components
 /api/json/translate/*.json
+
+api/dist/
