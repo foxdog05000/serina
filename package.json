@@ -36,7 +36,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower update"
   },
   "dependencies": {
     "body-parser": "^1.17.1",

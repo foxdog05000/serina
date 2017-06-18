@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "1.4.9",
+    "angular-aria": "1.4.9",
     "angular-animate": "1.4.9",
     "angular-aria": "1.4.9",
     "angular-cookies": "1.4.9",
@@ -17,6 +18,7 @@
   },
   "resolutions": {
     "angular": "1.4.9",
+    "angular-aria": "1.4.9",
     "angular-messages": "1.4.9"
   },
   "appPath": "app",
