@@ -2,11 +2,11 @@
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{group}}</span>
-            <span class="md-subhead"><md-icon>box</md-icon></span>
+            <span class="md-subhead"><md-icon>folder</md-icon></span>
         </md-card-title-text>
     </md-card-title>
     <md-card-actions>
-        <md-button class="md-primary md-raised">
+        <md-button class="md-primary md-raised" ng-click="openGroup(group)">
             <md-icon>edit</md-icon> Editer
         </md-button>
         <md-button class="md-warn md-raised">

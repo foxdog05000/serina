@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('group', function (DataAccessor, Dialog, Toast) {
+angular.module('serinaApp').directive('group', function ($location, DataAccessor, Dialog, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/lang/group.html',
@@ -24,6 +24,11 @@ angular.module('serinaApp').directive('group', function (DataAccessor, Dialog, T
             console.error('Error on add new group', response)
           })
         })
+      }
+
+      scope.openGroup = function (group) {
+        var currentUrl = $location.path()
+        $location.path(currentUrl + '/' + group)
       }
 
     }
