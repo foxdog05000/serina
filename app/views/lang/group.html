@@ -1,4 +1,4 @@
-<md-card ng-repeat="group in listGroups">
+<md-card ng-repeat="group in listGroups | orderBy: group">
     <md-card-title>
         <md-card-title-text>
             <span class="md-headline">{{group}}</span>

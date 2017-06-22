@@ -1,4 +1,4 @@
-<md-card ng-repeat="trad in listTrad">
+<md-card ng-repeat="trad in listTrad | orderBy: 'key'">
     <md-card-content layout="column">
         <md-menu layout="row" flex="33" layout-align="end start" md-position-mode="target-right target">
             <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdMenu, $event)">
