@@ -27,6 +27,10 @@ angular
         templateUrl: 'views/lang/lang.html',
         controller: 'LangCtrl'
       })
+      .when('/lang/:lang/:group*', {
+        templateUrl: 'views/lang/lang.html',
+        controller: 'LangCtrl'
+      })
       .otherwise({
         redirectTo: '/hub'
       })
