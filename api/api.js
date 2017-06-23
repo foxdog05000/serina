@@ -16,22 +16,6 @@ app.use(function (req, res, next) {
 })
 app.use(bodyParser.json())
 
-function readFile (lang) {
-  var file = pathJsonFile + lang + '.json'
-  jsonfile.readFile(file, function (err, obj) {
-    if (err) { console.log(errorMessage, err) }
-    return obj
-  })
-}
-
-function writeFile (lang) {
-  var file = pathJsonFile + lang + '.json'
-  jsonfile.writeFile(file, obj, function (err) {
-    if (err) { return console.log(errorMessage, err) }
-    res.sendStatus(200)
-  })
-}
-
 app.get('/', function (req, res) {
   res.send('Hello Node !')
 })
@@ -78,22 +62,26 @@ app.get(pathApi + '/open/:lang', function (req, res) {
 app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
   var groupName = req.params.groupName
   var file = pathJsonFile + req.params.lang + '.json'
-  var obj = readFile(req.params.lang)
-  obj[groupName] = {}
-  jsonfile.writeFile(file, obj, function (err) {
-    if (err) { return console.log('Error on add group name on json file', err) }
-    res.sendStatus(200)
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log('Error on read json file', err) }
+    obj[groupName] = {}
+    jsonfile.writeFile(file, obj, function (err) {
+      if (err) { return console.log('Error on add group name on json file', err) }
+      res.sendStatus(200)
+    })
   })
 })
 
 app.post(pathApi + '/:lang/trad/add', function (req, res) {
   var trad = req.body
   var file = pathJsonFile + req.params.lang + '.json'
-  var obj = readFile(req.params.lang)
-  obj[trad.key] = trad.trad
-  jsonfile.writeFile(file, obj, function (err) {
-    if (err) { return console.log('Error on add group name on json file', err) }
-    res.sendStatus(200)
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log('Error on read json file', err) }
+    obj[trad.key] = trad.trad
+    jsonfile.writeFile(file, obj, function (err) {
+      if (err) { return console.log('Error on add group name on json file', err) }
+      res.sendStatus(200)
+    })
   })
 })
 
