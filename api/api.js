@@ -1,12 +1,12 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var jsonfile = require('jsonfile')
-var path = require('path')
-var fs = require('fs')
-var app = express()
+let express = require('express')
+let bodyParser = require('body-parser')
+let jsonfile = require('jsonfile')
+let path = require('path')
+let fs = require('fs')
+let app = express()
 
-var pathJsonFile = path.join(__dirname, '/json/translate/')
-var pathApi = '/api'
+let pathJsonFile = path.join(__dirname, '/json/translate/')
+let pathApi = '/api'
 jsonfile.spaces = 2
 
 app.use(function (req, res, next) {
@@ -24,7 +24,7 @@ app.get(pathApi + '/list-lang', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
 
-    var langs = { listLangs: [] }
+    let langs = { listLangs: [] }
     files.forEach(function (file) {
       langs.listLangs.push(file.substring(0, 2))
     })
@@ -34,8 +34,8 @@ app.get(pathApi + '/list-lang', function (req, res) {
 })
 
 app.get(pathApi + '/create/:lang', function (req, res) {
-  var file = pathJsonFile + req.params.lang + '.json'
-  var obj = {}
+  let file = pathJsonFile + req.params.lang + '.json'
+  let obj = {}
 
   jsonfile.writeFile(file, obj, function (err) {
     if (err) { return console.log('Error on create json file', err) }
@@ -60,8 +60,8 @@ app.get(pathApi + '/open/:lang', function (req, res) {
 })
 
 app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
-  var groupName = req.params.groupName
-  var file = pathJsonFile + req.params.lang + '.json'
+  let groupName = req.params.groupName
+  let file = pathJsonFile + req.params.lang + '.json'
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
     obj[groupName] = {}
@@ -73,8 +73,8 @@ app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
 })
 
 app.post(pathApi + '/:lang/trad/add', function (req, res) {
-  var trad = req.body
-  var file = pathJsonFile + req.params.lang + '.json'
+  let trad = req.body
+  let file = pathJsonFile + req.params.lang + '.json'
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
     obj[trad.key] = trad.trad
@@ -86,5 +86,5 @@ app.post(pathApi + '/:lang/trad/add', function (req, res) {
 })
 
 app.listen(3000, function () {
-  console.log('Api listening on port 3000 !')
+  console.log('Api listening on port localhost:3000 !')
 })
