@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('trad', function (DataAccessor, DataManager, Toast) {
+angular.module('serinaApp').directive('trad', function ($routeParams, DataAccessor, DataManager, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/lang/trad.html',
@@ -13,7 +13,7 @@ angular.module('serinaApp').directive('trad', function (DataAccessor, DataManage
       scope.sendTrad = function (trad, ev) {
         ev.stopPropagation()
         if (trad.key !== '' && trad.trad !== '') {
-          DataAccessor.addTrad(scope.currentLang, trad).then(function () {
+          DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
             Toast.showCustomToast('check', 'Nouvelle traduction ajouté avec succés !', 'good')
           }, function (response) {
             Toast.showCustomToast('warning', "Erreur lors de l'ajout de la nouvelle traduction ! ", 'fail')

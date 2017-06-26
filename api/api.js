@@ -72,12 +72,31 @@ app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
   })
 })
 
+function searchGroup (obj, groups, trad, i) {
+  for (let key in obj) {
+    if (key === groups[i]) {
+      if (key === groups[i] && i === groups.length - 1) {
+        obj[key][trad.key] = trad.trad
+        return obj
+      }
+      i++
+      searchGroup(obj[key], groups, trad, i)
+    }
+  }
+}
+
 app.post(pathApi + '/:lang/trad/add', function (req, res) {
-  let trad = req.body
+  let trad = req.body.trad
+  let groups = req.body.groups.split('/')
   let file = pathJsonFile + req.params.lang + '.json'
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
-    obj[trad.key] = trad.trad
+    if (groups === undefined) {
+      obj[trad.key] = trad.trad
+    } else {
+      let i = 0
+      searchGroup(obj, groups, trad, i)
+    }
     jsonfile.writeFile(file, obj, function (err) {
       if (err) { return console.log('Error on add group name on json file', err) }
       res.sendStatus(200)
