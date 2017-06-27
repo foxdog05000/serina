@@ -1,19 +1,9 @@
-<md-card ng-repeat="group in listGroups | orderBy: group">
-    <md-card-title>
-        <md-card-title-text>
-            <span class="md-headline">{{group}}</span>
-            <span class="md-subhead"><md-icon>folder</md-icon></span>
-        </md-card-title-text>
-    </md-card-title>
-    <md-card-actions>
-        <md-button class="md-primary md-raised" ng-click="openGroup(group)">
-            <md-icon>edit</md-icon> Editer
-        </md-button>
-        <md-button class="md-warn md-raised">
-            <md-icon>delete</md-icon> Supprimer
-        </md-button>
-    </md-card-actions>
-</md-card>
+<md-list>
+    <md-list-item ng-repeat="group in listGroups | orderBy: group" ng-click="openGroup(group)">
+        <p class="md-headline">{{group}}</p>
+        <md-icon class="md-secondary md-hue-3 md-warn" ng-click="doSecondaryAction($event)" aria-label="delete group">delete</md-icon>
+  </md-list-item>
+</md-list>
 
 <md-button ng-click="openDialogAddGroup($event)" class="md-primary md-raised">
     <md-icon>add</md-icon> Ajouter un groupe
