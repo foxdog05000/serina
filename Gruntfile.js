@@ -447,19 +447,19 @@ module.exports = function (grunt) {
 
     // Build app electron
     electron: {
-     build: {
-       options: {
-         name: 'serina',
-         dir: 'dist',
-         out: 'packages',
-         electronVersion: '1.6.11',
-         platform: 'win32',
-         arch: 'x64',
-         overwrite: true,
-         icon: 'icons/icon-x64.ico'
-       }
-     }
-   },
+      build: {
+        options: {
+          name: 'serina',
+          dir: 'dist',
+          out: 'packages',
+          electronVersion: '1.6.11',
+          platform: 'win32',
+          arch: 'x64',
+          overwrite: true,
+          icon: 'icons/icon-x64.ico'
+        }
+      }
+    },
 
     // Test settings
     karma: {
@@ -521,7 +521,7 @@ module.exports = function (grunt) {
   grunt.registerTask('package', [
     'build',
     'electron'
-  ])
+  ]);
 
   grunt.registerTask('default', [
     'newer:jshint',

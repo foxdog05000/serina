@@ -17,7 +17,7 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
       if (angular.isObject(trad)) {
         $scope.listGroups.push(key)
       } else {
-        $scope.listTrad.push({key, trad})
+        $scope.listTrad.push({key: key, trad: trad})
       }
     })
   }
