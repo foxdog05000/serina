@@ -12,7 +12,7 @@ Run `grunt serve` for preview on `localhost:9000`.
 
 And run API node in `/api` and listen `localhost:3000`.
 ```
-node api.js
+npm start
 ```
 
 ## Testing
