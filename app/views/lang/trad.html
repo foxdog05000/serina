@@ -1,23 +1,10 @@
 <md-card ng-repeat="trad in listTrad | orderBy: 'key'">
     <md-card-content layout="column">
-        <md-menu layout="row" flex="33" layout-align="end start" md-position-mode="target-right target">
-            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdMenu, $event)">
-                <md-icon md-menu-origin>more_vert</md-icon>
-            </md-button>
-            <md-menu-content width="2">
-                <md-menu-item>
-                    <md-button ng-click="sendTrad(trad, $event)" ng-disabled="!trad.key && !trad.trad">
-                        <md-icon>save</md-icon> Enregistrer
-                    </md-button>
-                </md-menu-item>
-                <md-divider></md-divider>
-                <md-menu-item>
-                    <md-button ng-click="deleteTrad(trad, $event)">
-                        <md-icon>delete</md-icon> Supprimer
-                    </md-button>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
+        <div layout layout-align="end start">
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="sendTrad(trad, $event)" ng-disabled="!trad.key && !trad.trad"><md-icon>save</md-icon></md-button>
+            <md-button class="md-icon-button" ng-click="deleteTrad(trad, $event)"><md-icon>delete</md-icon></md-button>
+        </div>
 
         <md-input-container>
             <label>Clé</label>
