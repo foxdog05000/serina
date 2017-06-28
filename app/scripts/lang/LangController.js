@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope, $routeParams, DataAccessor) {
+angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope, $routeParams, DataAccessor, Breadcrumb) {
   $rootScope.pageTitle = 'Langue : ' + $routeParams.lang.toUpperCase()
   var originatorEv
 
@@ -34,6 +34,7 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
   $scope.currentLang = $routeParams.lang.toLowerCase()
   DataAccessor.openLang($scope.currentLang).then(function (response) {
     getListGroupsAndTrad(response.data, $routeParams.group)
+    $rootScope.pageTitle = Breadcrumb.buildBreadcrumb($rootScope.pageTitle, $routeParams.group)
   }, function (response) {
     console.error('Error', response)
   })
