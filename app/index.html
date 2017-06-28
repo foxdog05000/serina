@@ -23,7 +23,9 @@
                 <md-icon>menu</md-icon>
             </md-button>
 
-            <h2 flex md-truncate>{{pageTitle}}</h2>
+            <h2 flex md-truncate class="breadcrumb">
+                <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">{{item.label}}</a>
+            </h2>
         </div>
     </md-toolbar>
 

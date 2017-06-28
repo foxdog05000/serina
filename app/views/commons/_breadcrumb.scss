@@ -1,0 +1,11 @@
+.breadcrumb {
+  a {
+    display: inline;
+
+    &+a:before {
+      color: $white;
+      content: ">";
+      padding: 8px;
+    }
+  }
+}

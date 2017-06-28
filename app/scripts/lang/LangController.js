@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope, $routeParams, DataAccessor, Breadcrumb) {
-  $rootScope.pageTitle = 'Langue : ' + $routeParams.lang.toUpperCase()
+  $rootScope.breadcrumb = [{ label: $routeParams.lang.toUpperCase(), href: '/lang/' + $routeParams.lang.toLowerCase() }]
   var originatorEv
 
   var getListGroupsAndTrad = function (content, groups) {
@@ -34,8 +34,8 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
   $scope.currentLang = $routeParams.lang.toLowerCase()
   DataAccessor.openLang($scope.currentLang).then(function (response) {
     getListGroupsAndTrad(response.data, $routeParams.group)
-    $rootScope.pageTitle = Breadcrumb.buildBreadcrumb($rootScope.pageTitle, $routeParams.group)
+    $rootScope.breadcrumb = Breadcrumb.buildBreadcrumb($rootScope.breadcrumb, $routeParams.group)
   }, function (response) {
-    console.error('Error', response)
+    console.error('Error on open lang' + $scope.currentLang, response)
   })
 })

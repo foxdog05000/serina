@@ -2,6 +2,6 @@
 
 angular.module('serinaApp').controller('HubCtrl', function ($rootScope) {
 
-  $rootScope.pageTitle = 'Listes des langues'
+  $rootScope.breadcrumb = [{ label: 'Listes des langues', href: '/hub' }]
 
 })

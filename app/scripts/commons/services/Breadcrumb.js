@@ -7,7 +7,10 @@ angular.module('serinaApp').factory('Breadcrumb', function () {
       var breadcrumb = currentBreadcrumb
       groups = angular.isUndefined(groups) ? groups : groups.split('/')
       angular.forEach(groups, function (group) {
-        breadcrumb += ' > ' + group
+        breadcrumb.push({
+          label: group,
+          href: '/' + group
+        })
       })
       return breadcrumb
     }
