@@ -1,4 +1,4 @@
-# serina
+# serina (Dev in progress)
 
 ## Recover dependancies
 Before launch app and api, recover dependencies npm and bower
@@ -19,6 +19,6 @@ npm start
 
 Running `grunt test` will run the unit tests with karma.
 
-## Build app and API on Electron app
+## Build app and API on Electron app (In progress : missing files for build electron app for the moment)
 
 Run `grunt build` for building electron app via grunt-electron-packager.  
