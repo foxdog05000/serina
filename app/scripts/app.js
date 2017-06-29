@@ -1,13 +1,5 @@
 'use strict'
 
-/**
- * @ngdoc overview
- * @name serinaApp
- * @description
- * # serinaApp
- *
- * Main module of the application.
- */
 angular
   .module('serinaApp', [
     'ngAnimate',

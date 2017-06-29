@@ -20,6 +20,21 @@ app.get('/', function (req, res) {
   res.send('Hello Node !')
 })
 
+function createFolderIsNotExist(pathFolder) {
+  if (!fs.existsSync(path.join(__dirname, pathFolder))) {
+    fs.mkdir(path.join(__dirname, pathFolder), function (err) {
+      if(!err || (err && err.code === 'EEXIST')){
+        console.log('Successful creation for the ' + pathFolder + ' folder on path ' + __dirname)
+      } else {
+        console.log('Error on create folder ' + pathFolder + ' on path ' + __dirname, err)
+      }
+    })
+  }
+}
+
+createFolderIsNotExist('/json/')
+createFolderIsNotExist('/json/translate/')
+
 app.get(pathApi + '/list-lang', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
