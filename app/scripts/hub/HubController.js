@@ -1,7 +1,7 @@
 'use strict'
 
-angular.module('serinaApp').controller('HubCtrl', function ($rootScope) {
+angular.module('serinaApp').controller('HubCtrl', function ($rootScope, $i18next) {
 
-  $rootScope.breadcrumb = [{ label: 'Listes des langues', href: '/hub' }]
+  $rootScope.breadcrumb = [{ label: $i18next.t('sideMenu.listOfLanguages'), href: '/hub' }]
 
 })

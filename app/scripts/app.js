@@ -27,16 +27,6 @@ angular
       .otherwise({
         redirectTo: '/hub'
       })
-  })
-  .run(function ($rootScope, $mdSidenav) {
-    $rootScope.endPoint = 'http://localhost:3000/api'
-    $rootScope.toggleLeft = buildToggler('left')
-
-    function buildToggler (componentId) {
-      return function () {
-        $mdSidenav(componentId).toggle()
-      }
-    }
 
     window.i18next.use(window.i18nextXHRBackend)
 
@@ -52,4 +42,14 @@ angular
     }, function (err, t) {
       console.log('resources loaded')
     })
+  })
+  .run(function ($rootScope, $mdSidenav) {
+    $rootScope.endPoint = 'http://localhost:3000/api'
+    $rootScope.toggleLeft = buildToggler('left')
+
+    function buildToggler (componentId) {
+      return function () {
+        $mdSidenav(componentId).toggle()
+      }
+    }
   })
