@@ -36,4 +36,19 @@ angular
         $mdSidenav(componentId).toggle()
       }
     }
+
+    window.i18next.use(window.i18nextXHRBackend)
+
+    window.i18next.init({
+      debug: true,
+      lng: 'fr', // If not given, i18n will detect the browser language.
+      fallbackLng: '', // Default is dev
+      backend: {
+        loadPath: '../locales/{{lng}}/{{ns}}.json'
+      },
+      useCookie: false,
+      useLocalStorage: false
+    }, function (err, t) {
+      console.log('resources loaded')
+    })
   })
