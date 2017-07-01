@@ -41,7 +41,7 @@ angular
 
     window.i18next.init({
       debug: true,
-      lng: 'fr', // If not given, i18n will detect the browser language.
+      lng: 'en', // If not given, i18n will detect the browser language.
       fallbackLng: '', // Default is dev
       backend: {
         loadPath: '../locales/{{lng}}/{{ns}}.json'
