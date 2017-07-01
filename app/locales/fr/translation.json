@@ -1,12 +1,12 @@
 {
   "sideMenu": {
-    "hub": "Liste des langues",
+    "listOfLanguages": "Liste des langues",
     "settings": "Paramètres",
-    "jsonOfTranslations": "JSON des langues"
+    "jsonOfLanguages": "JSON des langues"
   },
   "pages": {
     "hub": {
-      "addLang": "Ajouter une nouvelle langue",
+      "addLanguage": "Ajouter une nouvelle langue",
       "noLanguages": "Aucunes langues"
     }
   },
@@ -17,8 +17,8 @@
       "edit": "Editer",
       "return": "Retour"
     },
-    "language": "langue",
-    "translation": "traduction",
+    "language": "Langue",
+    "translation": "Traduction",
     "format": "Format",
     "aGroup": "un groupe",
     "aTranslation": "une traduction",

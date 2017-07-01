@@ -1,12 +1,12 @@
 {
   "sideMenu": {
-    "hub": "List of languages",
+    "listOfLanguages": "List of languages",
     "settings": "Settings",
-    "jsonOfTranslations": "JSON of translations"
+    "jsonOfLanguages": "JSON of translations"
   },
   "pages": {
     "hub": {
-      "addLang": "Add new language",
+      "addLanguage": "Add new language",
       "noLanguages": "No languages"
     }
   },
@@ -17,8 +17,8 @@
       "edit": "Edit",
       "return": "Return"
     },
-    "language": "language",
-    "translation": "translation",
+    "language": "Language",
+    "translation": "Translation",
     "format": "Format",
     "aGroup": "a group",
     "aTranslation": "a translation",
