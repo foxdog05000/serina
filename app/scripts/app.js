@@ -7,7 +7,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngMaterial'
+    'ngMaterial',
+    'jm.i18next'
   ])
   .config(function ($routeProvider) {
     $routeProvider

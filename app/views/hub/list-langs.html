@@ -3,8 +3,8 @@
         <md-card ng-repeat="lang in listLangs track by lang">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Traduction : {{lang | uppercase}}</span>
-                    <span class="md-subhead">Format: i18next</span>
+                    <span class="md-headline">{{'commons.translation' | i18next}} : {{lang | uppercase}}</span>
+                    <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
                 </md-card-title-text>
                 <md-card-title-media>
                     <div class="md-media-sm card-media">
@@ -14,16 +14,17 @@
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button ng-click="openLang(lang)" class="md-raised md-primary">
-                    <md-icon>edit</md-icon> Editer
+                    <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
                 </md-button>
                 <md-button ng-click="deleteLang(lang, $event)" class="md-raised md-warn">
-                    <md-icon>delete</md-icon> Supprimer
+                    <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
                 </md-button>
             </md-card-actions>
         </md-card>
 
         <md-card ng-if="listLangs.length === 0">
-            <img ng-src="images/no-languages.png" class="md-card-image" alt="">
+          <p>{{'pages.hub.noLanguages' | i18next}}</p>
+          <img ng-src="images/no-languages.png" class="md-card-image" alt="">
         </md-card>
     </div>
 
@@ -32,19 +33,19 @@
             <img ng-src="images/languages.jpg" class="md-card-image" alt="">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Ajouter une nouvelle langue</span>
+                    <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
                 <md-input-container>
-                    <label>Langue</label>
+                    <label>{{'commons.language' | i18next}}</label>
                     <md-icon>translate</md-icon>
                     <input type="text" ng-model="addLang.code" md-maxlength="2" required md-no-asterisk>
                 </md-input-container>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button ng-disabled="addLang.code.length !== 2" ng-click="addLang()" class="md-raised md-primary">
-                    <md-icon>add</md-icon> Ajouter
+                    <md-icon>add</md-icon> {{'commons.actions.add' | i18next}}
                 </md-button>
             </md-card-actions>
         </md-card>

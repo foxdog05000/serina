@@ -7,13 +7,13 @@
         </div>
 
         <md-input-container>
-            <label>Clé</label>
+            <label>{{'commons.key' | i18next}}</label>
             <md-icon>bookmark</md-icon>
             <input type="text" ng-model="trad.key">
         </md-input-container>
 
         <md-input-container>
-            <label>Message</label>
+            <label>{{'commons.message' | i18next}}</label>
             <md-icon>label</md-icon>
             <input type="text" ng-model="trad.trad">
         </md-input-container>
@@ -21,5 +21,5 @@
 </md-card>
 
 <md-button ng-click="addTrad()" class="md-primary md-raised">
-    <md-icon>add</md-icon> Ajouter une traduction
+    <md-icon>add</md-icon> {{'commons.actions.add' | i18next}} {{'commons.aTranslation' | i18next}}
 </md-button>
