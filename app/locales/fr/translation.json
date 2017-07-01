@@ -1,0 +1,28 @@
+{
+  "sideMenu": {
+    "hub": "Liste des langues",
+    "settings": "Paramètres",
+    "jsonOfTranslations": "JSON des langues"
+  },
+  "pages": {
+    "hub": {
+      "addLang": "Ajouter une nouvelle langue",
+      "noLanguages": "Aucunes langues"
+    }
+  },
+  "commons": {
+    "actions": {
+      "add": "Ajouter",
+      "delete": "Supprimer",
+      "edit": "Editer",
+      "return": "Retour"
+    },
+    "language": "langue",
+    "translation": "traduction",
+    "format": "Format",
+    "aGroup": "un groupe",
+    "aTranslation": "une traduction",
+    "key": "clé",
+    "message": "méssage"
+  }
+}
