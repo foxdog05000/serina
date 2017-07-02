@@ -36,6 +36,6 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
     getListGroupsAndTrad(response.data, $routeParams.group)
     $rootScope.breadcrumb = Breadcrumb.buildBreadcrumb($rootScope.breadcrumb, $routeParams.group)
   }, function (response) {
-    console.error('Error on open lang' + $scope.currentLang, response)
+    console.error('Error on open language ' + $scope.currentLang, response)
   })
 })

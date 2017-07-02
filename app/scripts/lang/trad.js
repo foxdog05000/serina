@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('trad', function ($routeParams, DataAccessor, DataManager, Toast) {
+angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, DataAccessor, DataManager, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/lang/trad.html',
@@ -14,10 +14,10 @@ angular.module('serinaApp').directive('trad', function ($routeParams, DataAccess
         ev.stopPropagation()
         if (trad.key !== '' && trad.trad !== '') {
           DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
-            Toast.showCustomToast('check', 'Nouvelle traduction ajouté avec succés !', 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success'), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', "Erreur lors de l'ajout de la nouvelle traduction ! ", 'fail')
-            console.error("Erreur lors de l'ajout de la nouvelle traduction !", response)
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail'), 'fail')
+            console.error('Error while adding new translation', response)
           })
         }
       }
@@ -28,10 +28,10 @@ angular.module('serinaApp').directive('trad', function ($routeParams, DataAccess
           scope.listTrad = DataManager.remove(scope.listTrad, trad)
         } else {
           DataAccessor.deleteTrad(scope.currentLang, trad).then(function () {
-            Toast.showCustomToast('check', 'Traduction supprimé avec succés !', 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTrad.success'), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', 'Impossible de supprimer la traduction ' + trad, 'fail')
-            console.error('Impossible de supprimer la traduction', response)
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTrad.fail', {'trad': trad}), 'fail')
+            console.error('Unable to delete translation', response)
           })
         }
       }

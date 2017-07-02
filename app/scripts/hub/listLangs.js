@@ -10,7 +10,7 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
         DataAccessor.getListLang().then(function (response) {
           scope.listLangs = response.data.listLangs
         }, function (response) {
-          console.error('Impossible de récupérer la liste des langues', response)
+          console.error('Unable to retrieve language list', response)
         })
       }
 
@@ -29,7 +29,7 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
             scope.getListLang()
           }, function (response) {
             Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'", 'fail', 'HubCtrl')
-            console.error("Impossible d'ajouter la langue '" + scope.addLang.code + "'", response)
+            console.error('Unable to add language "' + scope.addLang.code + '"', response)
           })
         } else {
           Toast.showCustomToast('info_outline', "La lange '" + scope.addLang.code.toUpperCase() + "' existe déjà !", 'medium', 'HubCtrl')
@@ -43,7 +43,7 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
             scope.getListLang()
           }, function (response) {
             Toast.showCustomToast('warning', "Impossible de supprimer la langue '" + lang.toUpperCase() + "'", 'fail', 'HubCtrl')
-            console.error("Impossible de supprimer la langue '" + lang + "'", response)
+            console.error('Unable to delete language "' + lang + '"', response)
           })
         })
       }

@@ -19,9 +19,9 @@ angular.module('serinaApp').directive('group', function ($location, $i18next, Da
         Dialog.showPrompt(options).then(function (groupName) {
           DataAccessor.addGroup(scope.currentLang, groupName).then(function () {
             scope.listGroups.push(groupName)
-            Toast.showCustomToast('check', 'Groupe "' + groupName + '" ajouté avec succés !', 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', {'groupName': groupName}), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', "Impossible d'ajouter le nouveau groupe !", 'fail')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.addGroup.fail', {'groupName': groupName}), 'fail')
             console.error('Error on add new group', response)
           })
         })

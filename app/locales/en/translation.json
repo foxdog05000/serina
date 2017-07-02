@@ -26,6 +26,20 @@
       },
       "confirmTitle": "Are you sure ?"
     },
+    "toast": {
+      "addTrad": {
+        "success": "New translation added with success !",
+        "fail": "Error adding new translation !"
+      },
+      "deleteTrad": {
+        "success": "TTranslation successfully deleted!",
+        "fail": "Unable to delete translation {{trad}}"
+      },
+      "addGroup": {
+        "success": "Group {{groupName}} added successfully !",
+        "fail": "Unable to add group {{groupName}} !"
+      }
+    },
     "language": "Language",
     "translation": "Translation",
     "format": "Format",

@@ -26,6 +26,20 @@
       },
       "confirmTitle": "Êtes-vous sur ?"
     },
+    "toast": {
+      "addTrad": {
+        "success": "Nouvelle traduction ajouté avec succés !",
+        "fail": "Erreur lors de l'ajout de la nouvelle traduction !"
+      },
+      "deleteTrad": {
+        "success": "Traduction supprimé avec succés !",
+        "fail": "Impossible de supprimer la traduction {{trad}}"
+      },
+      "addGroup": {
+        "success": "Groupe {{groupName}} ajouté avec succés !",
+        "fail": "Impossible d'ajouter le groupe {{groupName}} !"
+      }
+    },
     "language": "Langue",
     "translation": "Traduction",
     "format": "Format",
