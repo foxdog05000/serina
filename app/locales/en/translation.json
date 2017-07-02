@@ -15,7 +15,16 @@
       "add": "Add",
       "delete": "Delete",
       "edit": "Edit",
-      "return": "Return"
+      "return": "Return",
+      "validate": "Validate",
+      "cancel": "Cancel"
+    },
+    "dialog": {
+      "addGroup": {
+        "title": "Add new group",
+        "placeholder": "Name of groupe"
+      },
+      "confirmTitle": "Are you sure ?"
     },
     "language": "Language",
     "translation": "Translation",

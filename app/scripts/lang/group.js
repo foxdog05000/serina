@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('group', function ($location, DataAccessor, Dialog, Toast) {
+angular.module('serinaApp').directive('group', function ($location, $i18next, DataAccessor, Dialog, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/lang/group.html',
@@ -8,13 +8,14 @@ angular.module('serinaApp').directive('group', function ($location, DataAccessor
 
       scope.openDialogAddGroup = function (ev) {
         var options = {
-          title: 'Ajouter un nouveau groupe',
-          placeholder: 'groupName',
-          ariaLabel: 'Add new groupe',
+          title: $i18next.t('commons.dialog.addGroup.title'),
+          placeholder: $i18next.t('commons.dialog.addGroup.placeholder'),
+          ariaLabel: $i18next.t('commons.dialog.addGroup.title'),
           targetEvent: ev,
-          ok: 'Ajouter',
-          cancel: 'Annuler'
+          ok: $i18next.t('commons.actions.add'),
+          cancel: $i18next.t('commons.actions.cancel')
         }
+
         Dialog.showPrompt(options).then(function (groupName) {
           DataAccessor.addGroup(scope.currentLang, groupName).then(function () {
             scope.listGroups.push(groupName)
