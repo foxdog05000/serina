@@ -1,15 +1,15 @@
 'use strict'
 
-angular.module('serinaApp').factory('Dialog', function ($mdDialog) {
+angular.module('serinaApp').factory('Dialog', function ($mdDialog, $i18next) {
   return {
 
     showConfirm: function (ev) {
       var dialog = $mdDialog.confirm()
-        .title('Êtes-vous sûr ?')
-        .ariaLabel('Are you sure ?')
+        .title($i18next.t('commons.dialog.confirmTitle'))
+        .ariaLabel($i18next.t('commons.dialog.confirmTitle'))
         .targetEvent(ev)
-        .ok('Valider')
-        .cancel('Annuler')
+        .ok($i18next.t('commons.actions.validate'))
+        .cancel($i18next.t('commons.actions.cancel'))
 
       return $mdDialog.show(dialog)
     },
