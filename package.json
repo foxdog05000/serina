@@ -2,7 +2,6 @@
   "name": "serina",
   "author": "Florian Armand Alias Foxdog05000",
   "version": "0.0.1",
-  "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "babel-cli": "^6.24.1",
