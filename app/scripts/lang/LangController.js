@@ -34,7 +34,7 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
   $scope.currentLang = $routeParams.lang.toLowerCase()
   DataAccessor.openLang($scope.currentLang).then(function (response) {
     getListGroupsAndTrad(response.data, $routeParams.group)
-    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $routeParams.group)
+    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLang, $routeParams.group)
   }, function (response) {
     console.error('Error on open language ' + $scope.currentLang, response)
   })
