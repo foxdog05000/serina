@@ -44,8 +44,15 @@ angular
     })
   })
   .run(function ($rootScope, $mdSidenav) {
+    $rootScope.loading = true
     $rootScope.endPoint = 'http://localhost:3000/api'
     $rootScope.toggleLeft = buildToggler('left')
+
+    setTimeout(function () {
+      $rootScope.$apply(function () {
+        $rootScope.loading = false
+      })
+    }, 750)
 
     function buildToggler (componentId) {
       return function () {
