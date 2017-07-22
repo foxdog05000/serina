@@ -20,10 +20,10 @@ app.get('/', function (req, res) {
   res.send('Hello Node !')
 })
 
-function createFolderIsNotExist(pathFolder) {
+function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
     fs.mkdir(path.join(__dirname, pathFolder), function (err) {
-      if(!err || (err && err.code === 'EEXIST')){
+      if (!err || (err && err.code === 'EEXIST')) {
         console.log('Successful creation for the ' + pathFolder + ' folder on path ' + __dirname)
       } else {
         console.log('Error on create folder ' + pathFolder + ' on path ' + __dirname, err)
