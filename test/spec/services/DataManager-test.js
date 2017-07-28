@@ -2,7 +2,6 @@
 
 describe('DataManager Service', function () {
   var mock, DataManager
-  var lang = 'en'
   beforeEach(module('serinaApp'))
 
   beforeEach(function () {
