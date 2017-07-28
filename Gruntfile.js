@@ -262,6 +262,7 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/views/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '!<%= yeoman.dist %>/images/lang/*',
           '<%= yeoman.dist %>/views/fonts/*'
         ]
       }
@@ -412,6 +413,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '*.html',
+            'locales/{,*/}*.*',
             'images/{,*/}*.{webp}',
             'views/fonts/{,*/}*.*'
           ]
@@ -420,6 +422,15 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          cwd: 'bower_components/material-design-icons/iconfont',
+          dest: '<%=yeoman.dist %>/styles',
+          src: [
+            'MaterialIcons-Regular.ttf',
+            'MaterialIcons-Regular.woff',
+            'MaterialIcons-Regular.woff2'
+          ]
         }]
       },
       styles: {
