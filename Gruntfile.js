@@ -415,7 +415,9 @@ module.exports = function (grunt) {
             '*.html',
             'locales/{,*/}*.*',
             'images/{,*/}*.{webp}',
-            'views/fonts/{,*/}*.*'
+            'views/fonts/{,*/}*.*',
+            'main.js',
+            'package.json'
           ]
         }, {
           expand: true,
