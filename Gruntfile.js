@@ -167,7 +167,11 @@ module.exports = function (grunt) {
           ]
         }]
       },
-      server: '.tmp'
+      server: '.tmp',
+      package: {
+        dot: true,
+        src: 'packages/*'
+      }
     },
 
     // Add vendor prefixed styles
@@ -427,8 +431,62 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
+          cwd: 'api/dist',
+          dest: '<%= yeoman.dist %>',
+          src: 'api.js'
+        }, {
+          expand: true,
+          cwd: 'node_modules/',
+          dest: '<%= yeoman.dist %>/node_modules',
+          src: [
+            'accepts/**',
+            'array-flatten/**',
+            'body-parser/**',
+            'bytes/**',
+            'content-disposition/**',
+            'content-type/**',
+            'cookie-signature/**',
+            'debug/**',
+            'depd/**',
+            'destroy/**',
+            'ee-first/**',
+            'encodeurl/**',
+            'escape-html/**',
+            'express/**',
+            'finalhandler/**',
+            'forwarded/**',
+            'iconv-lite/**',
+            'inherits/**',
+            'ipaddr.js/**',
+            'jsonfile/**',
+            'media-typer/**',
+            'merge-descriptors/**',
+            'methods/**',
+            'mime/**',
+            'mime-db/**',
+            'mime-types/**',
+            'ms/**',
+            'negotiator/**',
+            'on-finished/**',
+            'parseurl/**',
+            'path-to-regexp/**',
+            'proxy-addr/**',
+            'qs/**',
+            'range-parser/**',
+            'raw-body/**',
+            'send/**',
+            'serve-static/**',
+            'setprototypeof/**',
+            'statuses/**',
+            'type-is/**',
+            'unpipe/**',
+            'utils-merge/**',
+            'vary/**'
+          ]
+        }, {
+          expand: true,
           cwd: 'bower_components/material-design-icons/iconfont',
-          dest: '<%=yeoman.dist %>/styles',
+          dest: '<%= yeoman.dist %>/styles',
           src: [
             'MaterialIcons-Regular.ttf',
             'MaterialIcons-Regular.woff',
@@ -461,7 +519,7 @@ module.exports = function (grunt) {
 
     // Build app electron
     electron: {
-      build: {
+      buildWin32: {
         options: {
           name: 'serina',
           dir: 'dist',
@@ -470,6 +528,20 @@ module.exports = function (grunt) {
           platform: 'win32',
           arch: 'x64',
           overwrite: true,
+          prune: false,
+          icon: 'icons/icon-x64.ico'
+        }
+      },
+      buildLinux: {
+        options: {
+          name: 'serina',
+          dir: 'dist',
+          out: 'packages',
+          electronVersion: '1.6.11',
+          platform: 'linux',
+          arch: 'x64',
+          overwrite: true,
+          prune: false,
           icon: 'icons/icon-x64.ico'
         }
       }
@@ -516,6 +588,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'clean:package',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
