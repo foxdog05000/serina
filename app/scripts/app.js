@@ -35,7 +35,7 @@ angular
       lng: 'en', // If not given, i18n will detect the browser language.
       fallbackLng: '', // Default is dev
       backend: {
-        loadPath: '../locales/{{lng}}/{{ns}}.json'
+        loadPath: '../app/locales/{{lng}}/{{ns}}.json'
       },
       useCookie: false,
       useLocalStorage: false
