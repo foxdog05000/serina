@@ -4,5 +4,9 @@ node_js:
     - "6.9.1"
     - "4.6.1"
 sudo: false
+notifications:
+  email: false
+before_script:
+  - bower install
 script:
     - npm run package
