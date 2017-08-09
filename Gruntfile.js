@@ -531,7 +531,6 @@ module.exports = function (grunt) {
           electronVersion: '1.6.11',
           platform: 'win32',
           arch: 'x64',
-          force: true,
           overwrite: true,
           prune: false,
           icon: 'icons/icon-x64.ico'
@@ -545,7 +544,6 @@ module.exports = function (grunt) {
           electronVersion: '1.6.11',
           platform: 'linux',
           arch: 'x64',
-          force: true,
           overwrite: true,
           prune: false,
           icon: 'icons/icon-x64.ico'
@@ -613,7 +611,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('package', [
     'build',
-    'electron'
+    'electron:buildLinux'
   ]);
 
   grunt.registerTask('default', [
