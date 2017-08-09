@@ -19,5 +19,5 @@ npm start
 
 Running `grunt test` will run the unit tests with karma.
 
-## Build app and API on Electron app (Win32 : ready / Linux : in progress)
+## Build app and API on Electron app (Win32 : ready / Linux : ready)
 Run `grunt package` for building electron app via grunt-electron-packager.  
