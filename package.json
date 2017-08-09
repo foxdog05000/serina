@@ -1,6 +1,7 @@
 {
   "name": "serina",
   "author": "Florian Armand Alias Foxdog05000",
+  "license": "MIT",
   "version": "0.0.1",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -50,7 +51,7 @@
     "build": "rimraf api/dist/ && babel ./api/ --out-dir api/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node api/dist/api.js",
     "package": "npm run build && grunt package",
-    "postinstall": "bower update"
+    "postinstall": "bower install"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
