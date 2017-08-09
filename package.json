@@ -45,7 +45,7 @@
   },
   "main": "api/api.js",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=7.0.0"
   },
   "scripts": {
     "build": "rimraf api/dist/ && babel ./api/ --out-dir api/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
