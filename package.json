@@ -3,6 +3,27 @@
   "author": "Florian Armand Alias Foxdog05000",
   "license": "MIT",
   "version": "0.0.1",
+  "main": "api/api.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foxdog05000/serina.git"
+  },
+  "keywords": [
+    "electron",
+    "translation",
+    "gui",
+    "graphical",
+    "i18next"
+  ],
+  "bugs": {
+    "url": "https://github.com/foxdog05000/serina/issues"
+  },
+  "homepage": "https://github.com/foxdog05000/serina#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonfile": "^2.4.0"
+  },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "babel-cli": "^6.24.1",
@@ -43,19 +64,10 @@
     "rimraf": "^2.6.1",
     "time-grunt": "^1.0.0"
   },
-  "main": "api/api.js",
-  "engines": {
-    "node": ">=7.0.0"
-  },
   "scripts": {
     "build": "rimraf api/dist/ && babel ./api/ --out-dir api/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node api/dist/api.js",
     "package": "npm run build && grunt package",
     "postinstall": "bower install"
-  },
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "jsonfile": "^2.4.0"
   }
 }
