@@ -611,7 +611,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('package', [
     'build',
-    'electron'
+    'electron:buildLinux'
   ]);
 
   grunt.registerTask('default', [
