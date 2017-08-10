@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
+
 # serina (Dev in progress)
 
 ## Recover dependancies
