@@ -25,7 +25,7 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
         if (langNotExist) {
           DataAccessor.addLang(scope.addLang.code).then(function () {
             Toast.showCustomToast('check', 'Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !', 'good', 'HubCtrl')
-            scope.addLang.code = undefined
+            scope.addLang.code = ''
             scope.getListLang()
           }, function (response) {
             Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'", 'fail', 'HubCtrl')

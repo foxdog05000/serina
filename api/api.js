@@ -16,24 +16,45 @@ app.use(function (req, res, next) {
 })
 app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-  res.send('Hello Node !')
-})
+function isDefined (value) {
+  return value !== undefined
+}
 
 function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
     fs.mkdir(path.join(__dirname, pathFolder), function (err) {
       if (!err || (err && err.code === 'EEXIST')) {
-        console.log('Successful creation for the ' + pathFolder + ' folder on path ' + __dirname)
+        console.log('Successful creation for the', pathFolder, 'folder on path', __dirname)
       } else {
-        console.log('Error on create folder ' + pathFolder + ' on path ' + __dirname, err)
+        console.log('Error on create folder', pathFolder, 'on path', __dirname, err)
       }
     })
   }
 }
 
+function searchGroup (obj, groups, value, i) {
+  for (let key in obj) {
+    if (key === groups[i]) {
+      if (key === groups[i] && i === groups.length - 1) {
+        if (typeof value === 'object') {
+          obj[key][value.key] = value.trad
+        } else {
+          obj[key][value] = {}
+        }
+        return obj
+      }
+      i++
+      searchGroup(obj[key], groups, value, i)
+    }
+  }
+}
+
 createFolderIsNotExist('/json/')
 createFolderIsNotExist('/json/translate/')
+
+app.get('/', function (req, res) {
+  res.send('Hello Node !')
+})
 
 app.get(pathApi + '/list-lang', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
@@ -74,12 +95,17 @@ app.get(pathApi + '/open/:lang', function (req, res) {
   res.sendFile(pathJsonFile + req.params.lang + '.json')
 })
 
-app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
-  let groupName = req.params.groupName
+app.post(pathApi + '/:lang/group/add', function (req, res) {
+  let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
-    obj[groupName] = {}
+    if (!isDefined(groups)) {
+      obj[req.params.groupName] = {}
+    } else {
+      let i = 0
+      searchGroup(obj, groups, req.body.groupName, i)
+    }
     jsonfile.writeFile(file, obj, function (err) {
       if (err) { return console.log('Error on add group name on json file', err) }
       res.sendStatus(200)
@@ -87,26 +113,13 @@ app.get(pathApi + '/:lang/group/:groupName/add', function (req, res) {
   })
 })
 
-function searchGroup (obj, groups, trad, i) {
-  for (let key in obj) {
-    if (key === groups[i]) {
-      if (key === groups[i] && i === groups.length - 1) {
-        obj[key][trad.key] = trad.trad
-        return obj
-      }
-      i++
-      searchGroup(obj[key], groups, trad, i)
-    }
-  }
-}
-
 app.post(pathApi + '/:lang/trad/add', function (req, res) {
   let trad = req.body.trad
-  let groups = req.body.groups.split('/')
+  let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
-    if (groups === undefined) {
+    if (!isDefined(groups)) {
       obj[trad.key] = trad.trad
     } else {
       let i = 0
@@ -119,6 +132,6 @@ app.post(pathApi + '/:lang/trad/add', function (req, res) {
   })
 })
 
-app.listen(3000, function () {
-  console.log('Api listening on port localhost:3000 !')
+let server = app.listen(3000, 'localhost', function () {
+  console.log('API listen on ' + server.address().address + ':' + server.address().port + ' !')
 })

@@ -15,8 +15,8 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase())
     },
 
-    addGroup: function (lang, groupName) {
-      return $http.get($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/' + groupName.toLowerCase() + '/add')
+    addGroup: function (lang, groups, groupName) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/add', {groupName: groupName.toLowerCase(), groups: groups})
     },
 
     addTrad: function (lang, groups, trad) {
