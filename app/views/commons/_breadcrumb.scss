@@ -1,9 +1,14 @@
 .breadcrumb {
   a {
     display: inline;
+    color: rgba($white, .7);
+
+    &:last-child {
+      color: $white;
+    }
 
     &+a:before {
-      color: $white;
+      color: rgba($white, .7);
       content: ">";
       padding: 8px;
     }
