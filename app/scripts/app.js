@@ -10,7 +10,7 @@ angular
     'ngMaterial',
     'jm.i18next'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
       .when('/hub', {
         templateUrl: 'views/hub/hub.html',
@@ -43,6 +43,17 @@ angular
       err ? console.error('error load translation', err) : null
       console.log('resources loaded')
     })
+
+    var customGreen = $mdThemingProvider.extendPalette('green', {
+      'contrastDefaultColor': 'light'
+    })
+
+    $mdThemingProvider.definePalette('custom-green', customGreen)
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('custom-green')
+      .accentPalette('orange')
+      .warnPalette('red')
   })
   .run(function ($rootScope, $mdSidenav) {
     $rootScope.loading = true
