@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
 
-# serina (Dev in progress)
+![Preview of Serina](https://github.com/foxdog05000/serina/blob/master/sample.jpg)
+
+# Serina (Dev in progress)
 
 ## Recover dependancies
 Before launch app and api, recover dependencies npm and bower
