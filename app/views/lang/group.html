@@ -1,8 +1,10 @@
-<md-list>
-    <md-list-item ng-repeat="group in listGroups | orderBy: group" ng-click="openGroup(group)">
-        <p class="md-headline">{{group}}</p>
-        <md-icon class="md-secondary md-hue-3 md-warn" ng-click="doSecondaryAction($event)" aria-label="delete group">delete</md-icon>
-  </md-list-item>
+<md-list flex>
+    <div class="md-whiteframe-2dp">
+        <md-list-item ng-repeat="group in listGroups | orderBy: group" ng-click="openGroup(group)">
+            <p class="md-headline">{{group}}</p>
+            <md-icon class="md-secondary md-hue-3 md-warn" ng-click="doSecondaryAction($event)" aria-label="delete group">delete</md-icon>
+        </md-list-item>
+    </div>
 </md-list>
 
 <md-button ng-click="openDialogAddGroup($event)" class="md-primary md-raised">
