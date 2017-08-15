@@ -38,6 +38,10 @@
       "addGroup": {
         "success": "Groupe {{groupName}} ajouté avec succés !",
         "fail": "Impossible d'ajouter le groupe {{groupName}} !"
+      },
+      "deleteGroup": {
+        "success": "Groupe supprimé avec succés !",
+        "fail": "Impossible de supprimer le groupe {{groupName}}"
       }
     },
     "language": "Langue",

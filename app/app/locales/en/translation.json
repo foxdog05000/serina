@@ -32,12 +32,16 @@
         "fail": "Error adding new translation !"
       },
       "deleteTrad": {
-        "success": "TTranslation successfully deleted!",
+        "success": "Translation successfully deleted!",
         "fail": "Unable to delete translation {{trad}}"
       },
       "addGroup": {
         "success": "Group {{groupName}} added successfully !",
         "fail": "Unable to add group {{groupName}} !"
+      },
+      "deleteGroup": {
+        "success": "Group successfully deleted !",
+        "fail": "Unable to delete group {{groupName}}"
       }
     },
     "language": "Language",
