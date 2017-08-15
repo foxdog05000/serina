@@ -40,6 +40,7 @@ angular
       useCookie: false,
       useLocalStorage: false
     }, function (err, t) {
+      err ? console.error('error load translation', err) : null
       console.log('resources loaded')
     })
   })
