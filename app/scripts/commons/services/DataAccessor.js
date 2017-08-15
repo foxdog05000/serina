@@ -24,15 +24,15 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     deleteLang: function (lang) {
-      return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
+      return $http.post($rootScope.endPoint + '/delete/' + lang.toLowerCase())
     },
 
-    deleteGroup: function (lang, groupName) {
-      return $http.get($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/' + groupName.toLowerCase() + '/del')
+    deleteGroup: function (lang, groups, groupName) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/del', {groupName: groupName.toLowerCase(), groups: groups})
     },
 
-    deleteTrad: function (lang, trad) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/del', trad)
+    deleteTrad: function (lang, groups, trad) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/del', {trad: trad, groups: groups})
     }
 
   }

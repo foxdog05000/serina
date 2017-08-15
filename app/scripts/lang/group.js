@@ -27,6 +27,18 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
         })
       }
 
+      scope.openDialogDeleteGroup = function (ev, groupName) {
+        Dialog.showConfirm(ev).then(function () {
+          console.log('groupName', groupName)
+          DataAccessor.deleteGroup(scope.currentLang, $routeParams.group, groupName).then(function () {
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteGroup.success', {'groupName': groupName}), 'good')
+          }, function (response) {
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteGroup.fail', {'groupName': groupName}), 'fail')
+            console.error('Error on delete group', response)
+          })
+        })
+      }
+
       scope.openGroup = function (group) {
         var currentUrl = $location.path()
         $location.path(currentUrl + '/' + group)

@@ -32,19 +32,28 @@ function createFolderIsNotExist (pathFolder) {
   }
 }
 
-function searchGroup (obj, groups, value, i) {
+function searchGroup (obj, groups, value, action, i) {
   for (let key in obj) {
     if (key === groups[i]) {
       if (key === groups[i] && i === groups.length - 1) {
-        if (typeof value === 'object') {
-          obj[key][value.key] = value.trad
-        } else {
-          obj[key][value] = {}
+        if (action === 'add' || action === 'upd') {
+          if (typeof value === 'object') {
+            obj[key][value.key] = value.trad
+          } else {
+            obj[key][value] = {}
+          }
+          return obj
+        } else if (action === 'del') {
+          if (typeof value === 'object') {
+            delete obj[key][value.key]
+          } else {
+            delete obj[key][value]
+          }
+          return obj
         }
-        return obj
       }
       i++
-      searchGroup(obj[key], groups, value, i)
+      searchGroup(obj[key], groups, value, action, i)
     }
   }
 }
@@ -104,10 +113,28 @@ app.post(pathApi + '/:lang/group/add', function (req, res) {
       obj[req.params.groupName] = {}
     } else {
       let i = 0
-      searchGroup(obj, groups, req.body.groupName, i)
+      searchGroup(obj, groups, req.body.groupName, 'add', i)
     }
     jsonfile.writeFile(file, obj, function (err) {
       if (err) { return console.log('Error on add group name on json file', err) }
+      res.sendStatus(200)
+    })
+  })
+})
+
+app.post(pathApi + '/:lang/group/del', function (req, res) {
+  let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
+  let file = pathJsonFile + req.params.lang + '.json'
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log('Error on read json file', err) }
+    if (!isDefined(groups)) {
+      delete obj[req.params.groupName]
+    } else {
+      let i = 0
+      searchGroup(obj, groups, req.body.groupName, 'del', i)
+    }
+    jsonfile.writeFile(file, obj, function (err) {
+      if (err) { return console.log('Error on delete group name on json file', err) }
       res.sendStatus(200)
     })
   })
@@ -123,10 +150,29 @@ app.post(pathApi + '/:lang/trad/add', function (req, res) {
       obj[trad.key] = trad.trad
     } else {
       let i = 0
-      searchGroup(obj, groups, trad, i)
+      searchGroup(obj, groups, trad, 'add', i)
     }
     jsonfile.writeFile(file, obj, function (err) {
-      if (err) { return console.log('Error on add group name on json file', err) }
+      if (err) { return console.log('Error on add trad on json file', err) }
+      res.sendStatus(200)
+    })
+  })
+})
+
+app.post(pathApi + '/:lang/trad/del', function (req, res) {
+  let trad = req.body.trad
+  let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
+  let file = pathJsonFile + req.params.lang + '.json'
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log('Error on read json file', err) }
+    if (!isDefined(groups)) {
+      delete obj[trad.key]
+    } else {
+      let i = 0
+      searchGroup(obj, groups, trad, 'del', i)
+    }
+    jsonfile.writeFile(file, obj, function (err) {
+      if (err) { return console.log('Error on delete trad on json file', err) }
       res.sendStatus(200)
     })
   })
