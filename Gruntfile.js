@@ -609,15 +609,28 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('package', [
-    'build',
-    'electron:buildLinux'
-  ]);
-
-  grunt.registerTask('package:win32', [
-    'build',
-    'electron:buildWin32'
-  ]);
+  grunt.registerTask('package', 'Package electron app', function (target) {
+    switch (target) {
+      case 'linux':
+        grunt.task.run([
+          'build',
+          'electron:buildLinux'
+        ]);
+        break;
+      case 'win32':
+        grunt.task.run([
+          'build',
+          'electron:buildWin32'
+        ]);
+        break;
+      default:
+      grunt.task.run([
+        'build',
+        'electron:buildLinux',
+        'electron:buildWin32'
+      ]);
+    }
+  });
 
   grunt.registerTask('default', [
     'newer:jshint',
