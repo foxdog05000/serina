@@ -24,7 +24,7 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     deleteLang: function (lang) {
-      return $http.post($rootScope.endPoint + '/delete/' + lang.toLowerCase())
+      return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
     },
 
     deleteGroup: function (lang, groups, groupName) {

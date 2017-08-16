@@ -31,7 +31,7 @@ angular
     window.i18next.use(window.i18nextXHRBackend)
 
     window.i18next.init({
-      debug: true,
+      debug: false,
       lng: 'en', // If not given, i18n will detect the browser language.
       fallbackLng: '', // Default is dev
       backend: {
@@ -41,7 +41,7 @@ angular
       useLocalStorage: false
     }, function (err, t) {
       err ? console.error('error load translation', err) : null
-      console.log('resources loaded')
+      console.log('Translation loaded')
     })
 
     var customGreen = $mdThemingProvider.extendPalette('green', {
