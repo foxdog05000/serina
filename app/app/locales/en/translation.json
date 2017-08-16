@@ -28,20 +28,20 @@
     },
     "toast": {
       "addTrad": {
-        "success": "New translation added with success !",
-        "fail": "Error adding new translation !"
+        "success": "Translation '{{trad}}' added with success",
+        "fail": "Error adding translation '{{trad}}' "
       },
       "deleteTrad": {
-        "success": "Translation successfully deleted!",
-        "fail": "Unable to delete translation {{trad}}"
+        "success": "Translation '{{trad}}' successfully deleted",
+        "fail": "Unable to delete translation '{{trad}}'"
       },
       "addGroup": {
-        "success": "Group {{groupName}} added successfully !",
-        "fail": "Unable to add group {{groupName}} !"
+        "success": "Group '{{groupName}}' added successfully",
+        "fail": "Unable to add group '{{groupName}}'"
       },
       "deleteGroup": {
-        "success": "Group successfully deleted !",
-        "fail": "Unable to delete group {{groupName}}"
+        "success": "Group '{{groupName}}' successfully deleted",
+        "fail": "Unable to delete group '{{groupName}}'"
       }
     },
     "language": "Language",

@@ -15,9 +15,9 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
         if (trad.key !== '' && trad.trad !== '') {
           DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
             trad.save = true
-            Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success'), 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success', {trad: trad.key}), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail'), 'fail')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail', {trad: trad.key}), 'fail')
             console.error('Error while adding new translation', response)
           })
         }
@@ -30,9 +30,9 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
         } else {
           DataAccessor.deleteTrad(scope.currentLang, $routeParams.group, trad).then(function () {
             scope.listTrad = DataManager.remove(scope.listTrad, trad)
-            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTrad.success'), 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTrad.success', {trad: trad.key}), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTrad.fail', {'trad': trad}), 'fail')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTrad.fail', {trad: trad.key}), 'fail')
             console.error('Unable to delete translation', response)
           })
         }

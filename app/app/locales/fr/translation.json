@@ -28,20 +28,20 @@
     },
     "toast": {
       "addTrad": {
-        "success": "Nouvelle traduction ajouté avec succés !",
-        "fail": "Erreur lors de l'ajout de la nouvelle traduction !"
+        "success": "Traduction '{{trad}}' ajouté avec succés !",
+        "fail": "Erreur lors de l'ajout de la traduction '{{trad}}' !"
       },
       "deleteTrad": {
-        "success": "Traduction supprimé avec succés !",
-        "fail": "Impossible de supprimer la traduction {{trad}}"
+        "success": "Traduction '{{trad}}' supprimé avec succés !",
+        "fail": "Impossible de supprimer la traduction '{{trad}}'"
       },
       "addGroup": {
-        "success": "Groupe {{groupName}} ajouté avec succés !",
-        "fail": "Impossible d'ajouter le groupe {{groupName}} !"
+        "success": "Groupe '{{groupName}}' ajouté avec succés !",
+        "fail": "Impossible d'ajouter le groupe '{{groupName}}' !"
       },
       "deleteGroup": {
-        "success": "Groupe supprimé avec succés !",
-        "fail": "Impossible de supprimer le groupe {{groupName}}"
+        "success": "Groupe '{{groupName}}' supprimé avec succés !",
+        "fail": "Impossible de supprimer le groupe '{{groupName}}'"
       }
     },
     "language": "Langue",
