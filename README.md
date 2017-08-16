@@ -8,7 +8,7 @@
 ## Recover dependancies
 Before launch app and api, recover dependencies npm and bower
 ```
-yarn (or npm install && bower update)
+yarn (or npm install && bower install)
 ```
 
 ## Development app + API
