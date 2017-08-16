@@ -614,6 +614,11 @@ module.exports = function (grunt) {
     'electron:buildLinux'
   ]);
 
+  grunt.registerTask('package:win32', [
+    'build',
+    'electron:buildWin32'
+  ]);
+
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
