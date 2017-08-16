@@ -36,6 +36,8 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
         }
       }
 
+      scope.addLang.code = ''
+
       scope.deleteLang = function (lang, ev) {
         Dialog.showConfirm(ev).then(function () {
           DataAccessor.deleteLang(lang).then(function () {
