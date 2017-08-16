@@ -7,13 +7,14 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
     link: function (scope) {
 
       scope.addTrad = function () {
-        scope.listTrad.push({key: '', trad: ''})
+        scope.listTrad.push({key: '', trad: '', save: false})
       }
 
       scope.sendTrad = function (trad, ev) {
         ev.stopPropagation()
         if (trad.key !== '' && trad.trad !== '') {
           DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+            trad.save = true
             Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success'), 'good')
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail'), 'fail')
@@ -24,7 +25,7 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
 
       scope.deleteTrad = function (trad, ev) {
         ev.stopPropagation()
-        if (trad.key === '' && trad.trad === '') {
+        if (!trad.save) {
           scope.listTrad = DataManager.remove(scope.listTrad, trad)
         } else {
           DataAccessor.deleteTrad(scope.currentLang, $routeParams.group, trad).then(function () {
