@@ -24,6 +24,10 @@ angular
         templateUrl: 'views/lang/lang.html',
         controller: 'LangCtrl'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings/settings.html',
+        controller: 'SettingsCtrl'
+      })
       .otherwise({
         redirectTo: '/hub'
       })
