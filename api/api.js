@@ -110,7 +110,7 @@ app.post(pathApi + '/:lang/group/add', function (req, res) {
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
     if (!isDefined(groups)) {
-      obj[req.params.groupName] = {}
+      obj[req.body.groupName] = {}
     } else {
       let i = 0
       searchGroup(obj, groups, req.body.groupName, 'add', i)
