@@ -16,9 +16,7 @@ app.use(function (req, res, next) {
 })
 app.use(bodyParser.json())
 
-function isDefined (value) {
-  return value !== undefined
-}
+function isDefined (value) { return value !== undefined }
 
 function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
