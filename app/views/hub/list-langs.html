@@ -37,13 +37,13 @@
 
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
         <md-card>
+            <img ng-src="images/languages.jpg" class="md-card-image" alt="">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
+                </md-card-title-text>
+            </md-card-title>
             <form ng-submit="addLang()">
-                <img ng-src="images/languages.jpg" class="md-card-image" alt="">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
-                    </md-card-title-text>
-                </md-card-title>
                 <md-card-content>
                     <md-input-container>
                         <label>{{'commons.language' | i18next}}</label>
