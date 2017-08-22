@@ -26,7 +26,7 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
               console.error('Error on add new group', response)
             })
           } else {
-            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addGroup.groupExist', {'groupName': groupName}), 'medium',)
+            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addGroup.groupExist', {'groupName': groupName}), 'medium')
           }
         })
       }
