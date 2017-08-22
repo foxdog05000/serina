@@ -8,14 +8,14 @@
 ## Recover dependancies
 Before launch app and api, recover dependencies npm and bower
 ```
-yarn (or npm install && bower install)
+yarn (or : npm install && bower install)
 ```
 
 ## Development app + API
 
-Run `grunt serve` for preview on `localhost:9000`.
+Run `grunt serve` for app preview on `localhost:9000`.
 
-And run API node in `/api` and listen `localhost:3000`.
+And run API node in `/api` and api on listen `localhost:7777`.
 ```
 npm start
 ```
@@ -25,5 +25,5 @@ npm start
 Running `grunt test` will run the unit tests with karma.
 
 ## Build app and API on Electron app (Win32 : ready / Linux : ready)
-Run `grunt package` for building (linux and win32) electron app via grunt-electron-packager.
-_Run grunt package:linux or grunt package:win32 to build a specific version_  
+Run `grunt package` for building (linux and win32) electron app via grunt-electron-packager.   
+_Run grunt package:linux or grunt package:win32 to build a specific version_

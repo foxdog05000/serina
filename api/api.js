@@ -180,6 +180,6 @@ app.post(pathApi + '/:lang/trad/del', function (req, res) {
   })
 })
 
-let server = app.listen(3000, 'localhost', function () {
+let server = app.listen(7777, 'localhost', function () {
   console.log('API listen on ' + server.address().address + ':' + server.address().port + ' !')
 })

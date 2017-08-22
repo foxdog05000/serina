@@ -39,7 +39,7 @@ angular
       lng: 'en', // If not given, i18n will detect the browser language.
       fallbackLng: '', // Default is dev
       backend: {
-        loadPath: '../app/locales/{{lng}}/{{ns}}.json'
+        loadPath: '../app/locales/{{lng}}/translation.json'
       },
       useCookie: false,
       useLocalStorage: false
@@ -61,7 +61,7 @@ angular
   })
   .run(function ($rootScope, $mdSidenav) {
     $rootScope.loading = true
-    $rootScope.endPoint = 'http://localhost:3000/api'
+    $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
 
     setTimeout(function () {
