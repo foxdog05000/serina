@@ -11,7 +11,7 @@ angular.module('serinaApp').factory('DataManager', function () {
             itemFind = true
           }
         }
-        if (type === 'trad') {
+        if (type === 'trad' && list.length > 1) {
           if (element.key === item) {
             itemFind = true
           }
