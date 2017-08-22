@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('listLangs', function ($location, DataAccessor, Toast, Dialog) {
+angular.module('serinaApp').directive('listLangs', function ($i18next, $location, DataAccessor, Toast, Dialog) {
   return {
     restrict: 'E',
     templateUrl: 'views/hub/list-langs.html',
@@ -24,15 +24,15 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
 
         if (langNotExist) {
           DataAccessor.addLang(scope.addLang.code).then(function () {
-            Toast.showCustomToast('check', 'Langue "' + scope.addLang.code.toUpperCase() + '" ajouter avec succés !', 'good', 'HubCtrl')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.addLang.success', {lang: scope.addLang.code.toUpperCase()}), 'good', 'HubCtrl')
             scope.addLang.code = ''
             scope.getListLang()
           }, function (response) {
-            Toast.showCustomToast('warning', "Impossible d'ajouter la langue '" + scope.addLang.code.toUpperCase() + "'", 'fail', 'HubCtrl')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.addLang.fail', {lang: scope.addLang.code.toUpperCase()}), 'fail', 'HubCtrl')
             console.error('Unable to add language "' + scope.addLang.code + '"', response)
           })
         } else {
-          Toast.showCustomToast('info_outline', "La lange '" + scope.addLang.code.toUpperCase() + "' existe déjà !", 'medium', 'HubCtrl')
+          Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addLang.langExist', {lang: scope.addLang.code.toUpperCase()}), 'medium', 'HubCtrl')
         }
       }
 
@@ -41,10 +41,10 @@ angular.module('serinaApp').directive('listLangs', function ($location, DataAcce
       scope.deleteLang = function (lang, ev) {
         Dialog.showConfirm(ev).then(function () {
           DataAccessor.deleteLang(lang).then(function () {
-            Toast.showCustomToast('check', 'Langue "' + lang.toUpperCase() + '" supprimé avec succés !', 'good', 'HubCtrl')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteLang.success', {lang: scope.addLang.code.toUpperCase()}), 'good', 'HubCtrl')
             scope.getListLang()
           }, function (response) {
-            Toast.showCustomToast('warning', "Impossible de supprimer la langue '" + lang.toUpperCase() + "'", 'fail', 'HubCtrl')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteLang.fail', {lang: scope.addLang.code.toUpperCase()}), 'fail', 'HubCtrl')
             console.error('Unable to delete language "' + lang + '"', response)
           })
         })

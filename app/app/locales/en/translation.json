@@ -27,6 +27,15 @@
       "confirmTitle": "Are you sure ?"
     },
     "toast": {
+      "addLang": {
+        "success": "Lang '{{lang}}' added with success",
+        "fail": "Error adding lang '{{lang}}'",
+        "langExist": "Lang '{{lang}}' already exist"
+      },
+      "deleteLang": {
+        "success": "Lang '{{lang}}' successfully deleted",
+        "fail": "Unable to delete lang '{{lang}}'"
+      },
       "addTrad": {
         "success": "Translation '{{trad}}' added with success",
         "fail": "Error adding translation '{{trad}}' ",

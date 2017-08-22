@@ -27,6 +27,15 @@
       "confirmTitle": "Êtes-vous sur ?"
     },
     "toast": {
+      "addLang": {
+        "success": "Langue '{{lang}}' ajouté avec succés",
+        "fail": "Erreur lors de l'ajout de la langue '{{lang}}'",
+        "langExist": "La langue '{{lang}}' existe déjà"
+      },
+      "deleteLang": {
+        "success": "Langue '{{lang}}' supprimé avec succés",
+        "fail": "Impossible de supprimer la langue '{{lang}}'"
+      },
       "addTrad": {
         "success": "Traduction '{{trad}}' ajouté avec succés",
         "fail": "Erreur lors de l'ajout de la traduction '{{trad}}'",
