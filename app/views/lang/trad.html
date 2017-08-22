@@ -1,5 +1,5 @@
-<md-card ng-if="listTrad.length > 1">
-    <md-subheader>{{'commons.translation' | i18next}}</md-subheader>
+<md-card ng-if="listTrad.length > 0">
+    <md-subheader>{{'commons.translation' | i18next}}<span ng-if="listTrad.length > 1">s</span></md-subheader>
 </md-card>
 
 <md-card ng-repeat="trad in listTrad | orderBy: 'key'">
