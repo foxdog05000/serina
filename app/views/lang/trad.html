@@ -1,3 +1,7 @@
+<md-card ng-if="listTrad.length > 1">
+    <md-subheader>{{'commons.translation' | i18next}}</md-subheader>
+</md-card>
+
 <md-card ng-repeat="trad in listTrad | orderBy: 'key'">
     <md-card-content layout="column">
         <div layout layout-align="end start">

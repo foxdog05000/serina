@@ -1,4 +1,8 @@
 .lang {
+  md-list-item, .md-subheader {
+    background-color: $white;
+  }
+
   trad {
     .layout-column {
       padding: 0 16px;

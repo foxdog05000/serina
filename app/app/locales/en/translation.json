@@ -58,6 +58,7 @@
     },
     "language": "Language",
     "translation": "Translation",
+    "group": "Group",
     "format": "Format",
     "aGroup": "a group",
     "aTranslation": "a translation",
