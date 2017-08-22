@@ -29,7 +29,8 @@
     "toast": {
       "addTrad": {
         "success": "Translation '{{trad}}' added with success",
-        "fail": "Error adding translation '{{trad}}' "
+        "fail": "Error adding translation '{{trad}}' ",
+        "tradExist": "Translation '{{trad}}' already exist"
       },
       "deleteTrad": {
         "success": "Translation '{{trad}}' successfully deleted",
@@ -37,7 +38,8 @@
       },
       "addGroup": {
         "success": "Group '{{groupName}}' added successfully",
-        "fail": "Unable to add group '{{groupName}}'"
+        "fail": "Unable to add group '{{groupName}}'",
+        "groupExist": "Group '{{groupName}}' already exist"
       },
       "deleteGroup": {
         "success": "Group '{{groupName}}' successfully deleted",

@@ -28,19 +28,21 @@
     },
     "toast": {
       "addTrad": {
-        "success": "Traduction '{{trad}}' ajouté avec succés !",
-        "fail": "Erreur lors de l'ajout de la traduction '{{trad}}' !"
+        "success": "Traduction '{{trad}}' ajouté avec succés",
+        "fail": "Erreur lors de l'ajout de la traduction '{{trad}}'",
+        "tradExist": "La traduction '{{trad}}' exite déjà"
       },
       "deleteTrad": {
-        "success": "Traduction '{{trad}}' supprimé avec succés !",
+        "success": "Traduction '{{trad}}' supprimé avec succés",
         "fail": "Impossible de supprimer la traduction '{{trad}}'"
       },
       "addGroup": {
-        "success": "Groupe '{{groupName}}' ajouté avec succés !",
-        "fail": "Impossible d'ajouter le groupe '{{groupName}}' !"
+        "success": "Groupe '{{groupName}}' ajouté avec succés",
+        "fail": "Impossible d'ajouter le groupe '{{groupName}}'",
+        "groupExist": "Le groupe '{{groupName}}' existe déjà"
       },
       "deleteGroup": {
-        "success": "Groupe '{{groupName}}' supprimé avec succés !",
+        "success": "Groupe '{{groupName}}' supprimé avec succés",
         "fail": "Impossible de supprimer le groupe '{{groupName}}'"
       }
     },

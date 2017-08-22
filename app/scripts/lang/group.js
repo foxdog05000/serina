@@ -17,13 +17,17 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
         }
 
         Dialog.showPrompt(options).then(function (groupName) {
-          DataAccessor.addGroup(scope.currentLang, $routeParams.group, groupName).then(function () {
-            scope.listGroups.push(groupName)
-            Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', {'groupName': groupName}), 'good')
-          }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.addGroup.fail', {'groupName': groupName}), 'fail')
-            console.error('Error on add new group', response)
-          })
+          if (!DataManager.find(scope.listGroups, groupName, 'group')) {
+            DataAccessor.addGroup(scope.currentLang, $routeParams.group, groupName).then(function () {
+              scope.listGroups.push(groupName)
+              Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', {'groupName': groupName}), 'good')
+            }, function (response) {
+              Toast.showCustomToast('warning', $i18next.t('commons.toast.addGroup.fail', {'groupName': groupName}), 'fail')
+              console.error('Error on add new group', response)
+            })
+          } else {
+            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addGroup.groupExist', {'groupName': groupName}), 'medium',)
+          }
         })
       }
 

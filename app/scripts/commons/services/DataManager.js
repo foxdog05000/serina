@@ -3,6 +3,23 @@
 angular.module('serinaApp').factory('DataManager', function () {
   return {
 
+    find: function (list, item, type) {
+      var itemFind = false;
+      angular.forEach(list, function (element) {
+        if (type === 'group') {
+          if (element === item) {
+            itemFind = true
+          }
+        }
+        if (type === 'trad') {
+          if (element.key === item) {
+            itemFind = true
+          }
+        }
+      })
+      return itemFind
+    },
+
     remove: function (list, item) {
       var result = []
       angular.forEach(list, function (element) {

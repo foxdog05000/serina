@@ -12,14 +12,22 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
 
       scope.sendTrad = function (trad, ev) {
         ev.stopPropagation()
-        if (trad.key !== '' && trad.trad !== '') {
-          DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
-            trad.save = true
-            Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success', {trad: trad.key}), 'good')
-          }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail', {trad: trad.key}), 'fail')
-            console.error('Error while adding new translation', response)
-          })
+        if (!trad.save) {
+          if (trad.key !== '' && trad.trad !== '' && !DataManager.find(scope.listTrad, trad.key, 'trad')) {
+            DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+              trad.save = true
+              Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success', {trad: trad.key}), 'good')
+            }, function (response) {
+              Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail', {trad: trad.key}), 'fail')
+              console.error('Error while adding new translation', response)
+            })
+          } else {
+            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addTrad.tradExist', {trad: trad.key}), 'medium')
+            scope.listTrad = DataManager.remove(scope.listTrad, trad)
+          }
+        } else {
+          // MAJ TRAD
+          console.log('Maj trad ', trad)
         }
       }
 
