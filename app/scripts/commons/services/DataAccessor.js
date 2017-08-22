@@ -11,6 +11,10 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.get($rootScope.endPoint + '/open/' + lang.toLowerCase())
     },
 
+    downloadLang: function (lang) {
+      return $http.get($rootScope.endPoint + '/download/' + lang.toLowerCase())
+    },
+
     addLang: function (lang) {
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase())
     },

@@ -12,7 +12,14 @@
                     </div>
                 </md-card-title-media>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
+            <md-card-actions layout="row">
+                <md-button ng-click="downloadLang(lang)" class="md-primary md-icon-button">
+                    <md-tooltip md-direction="right">{{'commons.actions.download' | i18next}}</md-tooltip>
+                    <md-icon>get_app</md-icon>
+                </md-button>
+
+                <span flex></span>
+
                 <md-button ng-click="openLang(lang)" class="md-raised md-primary">
                     <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
                 </md-button>

@@ -102,6 +102,10 @@ app.get(pathApi + '/open/:lang', function (req, res) {
   res.sendFile(pathJsonFile + req.params.lang + '.json')
 })
 
+app.get(pathApi + '/download/:lang', function (req, res) {
+  res.sendFile(pathJsonFile + req.params.lang + '.json')
+})
+
 app.post(pathApi + '/:lang/group/add', function (req, res) {
   let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'

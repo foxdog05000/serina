@@ -14,6 +14,7 @@
     "actions": {
       "add": "Ajouter",
       "delete": "Supprimer",
+      "download": "Télécharger",
       "edit": "Editer",
       "return": "Retour",
       "validate": "Valider",
