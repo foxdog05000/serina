@@ -2,8 +2,12 @@
     <md-card-content layout="column">
         <div layout layout-align="end start">
             <span flex></span>
-            <md-button class="md-icon-button" ng-click="sendTrad(trad, $event)" ng-disabled="!trad.key || !trad.trad"><md-icon>save</md-icon></md-button>
-            <md-button class="md-icon-button" ng-click="deleteTrad(trad, $event)"><md-icon>delete</md-icon></md-button>
+            <md-button class="md-icon-button" ng-click="sendTrad(trad, $event)" ng-if="!trad.save || trad.modified" ng-disabled="!trad.key || !trad.trad">
+                <md-icon>save</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="deleteTrad(trad, $event)">
+                <md-icon>delete</md-icon>
+            </md-button>
         </div>
 
         <md-input-container>

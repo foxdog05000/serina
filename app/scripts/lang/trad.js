@@ -6,8 +6,23 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
     templateUrl: 'views/lang/trad.html',
     link: function (scope) {
 
+      scope.$watch('listTrad', function (newValue, oldValue) {
+        if (newValue !== oldValue && oldValue !== undefined) {
+          for (var iterator = 0; iterator < oldValue.length; iterator++) {
+            if ((newValue[iterator].key === scope.listTrad[iterator].key || newValue[iterator].trad === scope.listTrad[iterator].trad) && (newValue[iterator].save && oldValue[iterator].save) && (newValue[iterator].modified && oldValue[iterator].modified)) {
+              scope.listTrad[iterator].modified = false
+              break
+            }
+
+            if ((newValue[iterator].key !== oldValue[iterator].key || newValue[iterator].trad !== oldValue[iterator].trad) && (newValue[iterator].save && oldValue[iterator].save)) {
+              scope.listTrad[iterator].modified = true
+            }
+          }
+        }
+      }, true)
+
       scope.addTrad = function () {
-        scope.listTrad.push({key: '', trad: '', save: false})
+        scope.listTrad.push({key: '', trad: '', save: false, modified: false})
       }
 
       scope.sendTrad = function (trad, ev) {
@@ -26,8 +41,9 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
             scope.listTrad = DataManager.remove(scope.listTrad, trad)
           }
         } else {
-          // MAJ TRAD
-          console.log('Maj trad ', trad)
+          // TODO MAJ TRAD
+          console.log('Maj trad', trad)
+          trad.modified = false
         }
       }
 
