@@ -113,6 +113,63 @@ app.get(pathApi + '/download/:lang', function (req, res) {
   res.sendFile(pathJsonFile + req.params.lang + '.json')
 })
 
+// app.post(pathApi + '/:lang/group/:action', function (req, res) {
+//   const action = req.params.action
+//   let file = pathJsonFile + req.params.lang + '.json'
+//   const groupsIsDefined = isDefined(req.body.groups)
+//   const groups = groupsIsDefined ? req.body.groups.split('/') : undefined
+//   let group = req.body.group
+//
+//   jsonfile.readFile(file, function (err, obj) {
+//     if (err) { console.log('Error on read json file', err) }
+//
+//     switch (action) {
+//       case 'add':
+//
+//         break;
+//       case 'upd':
+//
+//         break;
+//       case 'del':
+//
+//         break;
+//     }
+//
+//     jsonfile.writeFile(file, obj, function (err) {
+//       if (err) { return console.log('Error on ' + action + ' group name on json file', err) }
+//       res.sendStatus(200)
+//     })
+//   }
+// })
+//
+// app.post(pathApi + '/:lang/trad/:action', function (req, res) {
+//   const action = req.params.action
+//   let file = pathJsonFile + req.params.lang + '.json'
+//   const groupsIsDefined = isDefined(req.body.groups)
+//   const groups = groupsIsDefined ? req.body.groups.split('/') : undefined
+//   let trad = req.body.trad
+//
+//   jsonfile.readFile(file, function (err, obj) {
+//     if (err) { console.log('Error on read json file', err) }
+//     switch (action) {
+//       case 'add':
+//
+//         break;
+//       case 'upd':
+//
+//         break;
+//       case 'del':
+//
+//         break;
+//     }
+//
+//     jsonfile.writeFile(file, obj, function (err) {
+//       if (err) { return console.log('Error on ' + action + ' trad on json file', err) }
+//       res.sendStatus(200)
+//     })
+//   }
+// })
+
 app.post(pathApi + '/:lang/group/add', function (req, res) {
   let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'
