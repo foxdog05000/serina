@@ -20,7 +20,7 @@ angular
         templateUrl: 'views/lang/lang.html',
         controller: 'LangCtrl'
       })
-      .when('/lang/:lang/:group*', {
+      .when('/lang/:lang/:levels*', {
         templateUrl: 'views/lang/lang.html',
         controller: 'LangCtrl'
       })
