@@ -7,19 +7,19 @@ angular.module('serinaApp').factory('Breadcrumb', function () {
       return [{label: label, href: href}]
     },
 
-    build: function (currentBreadcrumb, lang, groups) {
+    build: function (currentBreadcrumb, lang, levels) {
       var breadcrumb = currentBreadcrumb
       var currentLevel = 1
 
-      groups = angular.isUndefined(groups) ? groups : groups.split('/')
-      angular.forEach(groups, function (group) {
+      levels = angular.isUndefined(levels) ? levels : levels.split('/')
+      angular.forEach(levels, function (level) {
         var hrefComputed = ''
         for (var iterator = 0; iterator < currentLevel; iterator++) {
-          hrefComputed += '/' + groups[iterator]
+          hrefComputed += '/' + levels[iterator]
         }
-        
+
         breadcrumb.push({
-          label: group,
+          label: level,
           href: '/lang/' + lang + hrefComputed
         })
         currentLevel++
