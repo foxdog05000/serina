@@ -4,13 +4,13 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
   $rootScope.breadcrumb = Breadcrumb.init($routeParams.lang.toUpperCase(), '/lang/' + $routeParams.lang.toLowerCase())
   var originatorEv
 
-  var getListGroupsAndTrad = function (content, groups) {
+  var getListGroupsAndTrad = function (content, levels) {
     $scope.listGroups = []
     $scope.listTrad = []
 
-    if (!angular.isUndefined(groups)) {
-      groups = groups.replace(/\//g, '.')
-      content = eval('content.' + groups)
+    if (!angular.isUndefined(levels)) {
+      levels = levels.replace(/\//g, '.')
+      content = eval('content.' + levels)
     }
 
     angular.forEach(content, function (trad, key) {
@@ -33,8 +33,8 @@ angular.module('serinaApp').controller('LangCtrl', function ($rootScope, $scope,
 
   $scope.currentLang = $routeParams.lang.toLowerCase()
   DataAccessor.openLang($scope.currentLang).then(function (response) {
-    getListGroupsAndTrad(response.data, $routeParams.group)
-    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLang, $routeParams.group)
+    getListGroupsAndTrad(response.data, $routeParams.levels)
+    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLang, $routeParams.levels)
   }, function (response) {
     console.error('Error on open language ' + $scope.currentLang, response)
   })

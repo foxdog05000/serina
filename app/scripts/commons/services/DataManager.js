@@ -4,7 +4,7 @@ angular.module('serinaApp').factory('DataManager', function () {
   return {
 
     find: function (list, item, type) {
-      let itemFind = false
+      var itemFind = false
       angular.forEach(list, function (element) {
         if (type === 'group') {
           if (element === item) {
@@ -21,7 +21,7 @@ angular.module('serinaApp').factory('DataManager', function () {
     },
 
     remove: function (list, item) {
-      let result = []
+      var result = []
       angular.forEach(list, function (element) {
         if (element !== item) {
           result.push(element)

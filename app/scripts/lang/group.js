@@ -18,7 +18,7 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
         Dialog.showPrompt(options).then(function (groupName) {
           if (!DataManager.find(scope.listGroups, groupName, 'group')) {
-            DataAccessor.addGroup(scope.currentLang, $routeParams.group, groupName).then(function () {
+            DataAccessor.addGroup(scope.currentLang, $routeParams.levels, groupName).then(function () {
               scope.listGroups.push(groupName)
               Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', {'groupName': groupName}), 'good')
             }, function (response) {
@@ -45,10 +45,10 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
         Dialog.showPrompt(options).then(function (groupName) {
           if (originalGroupName !== groupName) {
-            DataAccessor.majGroup(scope.currentLang, $routeParams.group, groupName, originalGroupName).then(function () {
+            DataAccessor.majGroup(scope.currentLang, $routeParams.levels, groupName, originalGroupName).then(function () {
               Toast.showCustomToast('check', $i18next.t('commons.toast.majGroup.success', {'groupName': groupName}), 'good')
               angular.forEach(scope.listGroups, function (value, index) {
-                if (value == originalGroupName) {
+                if (value === originalGroupName) {
                   scope.listGroups[index] = groupName
                 }
               })
@@ -62,7 +62,7 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
       scope.openDialogDeleteGroup = function (ev, groupName) {
         Dialog.showConfirm(ev).then(function () {
-          DataAccessor.deleteGroup(scope.currentLang, $routeParams.group, groupName).then(function () {
+          DataAccessor.deleteGroup(scope.currentLang, $routeParams.levels, groupName).then(function () {
             scope.listGroups = DataManager.remove(scope.listGroups, groupName)
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteGroup.success', {'groupName': groupName}), 'good')
           }, function (response) {

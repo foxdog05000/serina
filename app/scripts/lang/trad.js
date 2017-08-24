@@ -34,7 +34,7 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
         ev.stopPropagation()
         if (!trad.save) {
           if (trad.key !== '' && trad.trad !== '' && !DataManager.find(scope.listTrad, trad.key, 'trad')) {
-            DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+            DataAccessor.addTrad(scope.currentLang, $routeParams.levels, trad).then(function () {
               trad.save = true
               trad.nbModified = 0
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success', {trad: trad.key}), 'good')
@@ -47,8 +47,7 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
             scope.listTrad = DataManager.remove(scope.listTrad, trad)
           }
         } else {
-          console.log('Maj trad', trad)
-          DataAccessor.majTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+          DataAccessor.majTrad(scope.currentLang, $routeParams.levels, trad).then(function () {
             trad.modified = false
             Toast.showCustomToast('check', $i18next.t('commons.toast.majTrad.success', {trad: trad.key}), 'good')
           }, function (response) {
@@ -63,7 +62,7 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
         if (!trad.save) {
           scope.listTrad = DataManager.remove(scope.listTrad, trad)
         } else {
-          DataAccessor.deleteTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+          DataAccessor.deleteTrad(scope.currentLang, $routeParams.levels, trad).then(function () {
             scope.listTrad = DataManager.remove(scope.listTrad, trad)
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTrad.success', {trad: trad.key}), 'good')
           }, function (response) {

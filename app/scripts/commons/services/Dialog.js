@@ -4,7 +4,7 @@ angular.module('serinaApp').factory('Dialog', function ($mdDialog, $i18next) {
   return {
 
     showConfirm: function (ev) {
-      const dialog = $mdDialog.confirm()
+      var dialog = $mdDialog.confirm()
         .title($i18next.t('commons.dialog.confirmTitle'))
         .ariaLabel($i18next.t('commons.dialog.confirmTitle'))
         .targetEvent(ev)
@@ -14,7 +14,7 @@ angular.module('serinaApp').factory('Dialog', function ($mdDialog, $i18next) {
     },
 
     showPrompt: function (options) {
-      const dialog = $mdDialog.prompt()
+      var dialog = $mdDialog.prompt()
         .title(options.title)
         .textContent(options.textContent)
         .placeholder(options.placeholder)
