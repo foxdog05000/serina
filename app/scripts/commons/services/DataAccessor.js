@@ -19,32 +19,32 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.get($rootScope.endPoint + '/create/' + lang.toLowerCase())
     },
 
-    addGroup: function (lang, groups, groupName) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/add', {groupName: groupName.toLowerCase(), groups: groups})
-    },
-
-    addTrad: function (lang, groups, trad) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/add', {trad: trad, groups: groups})
-    },
-
-    majGroup: function (lang, groups, groupName, originalGroupName) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/maj', {groupName: groupName.toLowerCase(), groups: groups, originalGroupName: originalGroupName})
-    },
-
-    majTrad: function (lang, groups, trad) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/maj', {trad: trad, groups: groups})
-    },
-
     deleteLang: function (lang) {
       return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
     },
 
-    deleteGroup: function (lang, groups, groupName) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/del', {groupName: groupName.toLowerCase(), groups: groups})
+    addGroup: function (lang, levels, groupName) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/add', {groupName: groupName.toLowerCase(), levels: levels})
     },
 
-    deleteTrad: function (lang, groups, trad) {
-      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/del', {trad: trad, groups: groups})
+    majGroup: function (lang, levels, groupName, originalGroupName) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/maj', {groupName: groupName.toLowerCase(), levels: levels, originalGroupName: originalGroupName})
+    },
+
+    deleteGroup: function (lang, levels, groupName) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/group/del', {groupName: groupName.toLowerCase(), levels: levels})
+    },
+
+    addTranslation: function (lang, levels, translation) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/translation/add', {translation: translation, levels: levels})
+    },
+
+    majTranslation: function (lang, levels, translation) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/translation/maj', {translation: translation, levels: levels})
+    },
+
+    deleteTranslation: function (lang, levels, translation) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/translation/del', {translation: translation, levels: levels})
     }
 
   }
