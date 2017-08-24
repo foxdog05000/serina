@@ -30,7 +30,7 @@ function createFolderIsNotExist (pathFolder) {
   }
 }
 
-function searchGroup (obj, groups, value, action, i) {
+function searchGroup (obj, groups, value, action, i, newGroupName) {
   for (let key in obj) {
     if (key === groups[i]) {
       if (key === groups[i] && i === groups.length - 1) {
@@ -38,7 +38,14 @@ function searchGroup (obj, groups, value, action, i) {
           if (typeof value === 'object') {
             obj[key][value.key] = value.trad
           } else {
-            obj[key][value] = {}
+            if (action === 'add') {
+              obj[key][value] = {}
+            }
+            if (action === 'upd') {
+              var copyGroup = obj[key][value]
+              delete obj[key][value]
+              obj[key][newGroupName] = copyGroup
+            }
           }
           return obj
         } else if (action === 'del') {
@@ -51,7 +58,7 @@ function searchGroup (obj, groups, value, action, i) {
         }
       }
       i++
-      searchGroup(obj[key], groups, value, action, i)
+      searchGroup(obj[key], groups, value, action, i, newGroupName)
     }
   }
 }
@@ -135,7 +142,7 @@ app.post(pathApi + '/:lang/group/maj', function (req, res) {
       obj[req.body.groupName] = copyGroup
     } else {
       let i = 0
-      searchGroup(obj, groups, req.body.originalGroupName, 'upd', i)
+      searchGroup(obj, groups, req.body.originalGroupName, 'upd', i, req.body.groupName)
     }
     jsonfile.writeFile(file, obj, function (err) {
       if (err) { return console.log('Error on update group name on json file', err) }
