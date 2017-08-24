@@ -11,11 +11,16 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
           for (var iterator = 0; iterator < oldValue.length; iterator++) {
             if ((newValue[iterator].key === scope.listTrad[iterator].key || newValue[iterator].trad === scope.listTrad[iterator].trad) && (newValue[iterator].save && oldValue[iterator].save) && (newValue[iterator].modified && oldValue[iterator].modified)) {
               scope.listTrad[iterator].modified = false
+              scope.listTrad[iterator].modified = 0
               break
             }
 
             if ((newValue[iterator].key !== oldValue[iterator].key || newValue[iterator].trad !== oldValue[iterator].trad) && (newValue[iterator].save && oldValue[iterator].save)) {
+              if (scope.listTrad[iterator].nbModified === 0) {
+                scope.listTrad[iterator].originalKey = oldValue[iterator].key
+              }
               scope.listTrad[iterator].modified = true
+              scope.listTrad[iterator].nbModified++
             }
           }
         }
@@ -31,6 +36,7 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
           if (trad.key !== '' && trad.trad !== '' && !DataManager.find(scope.listTrad, trad.key, 'trad')) {
             DataAccessor.addTrad(scope.currentLang, $routeParams.group, trad).then(function () {
               trad.save = true
+              trad.nbModified = 0
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTrad.success', {trad: trad.key}), 'good')
             }, function (response) {
               Toast.showCustomToast('warning', $i18next.t('commons.toast.addTrad.fail', {trad: trad.key}), 'fail')

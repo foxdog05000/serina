@@ -151,7 +151,6 @@ app.post(pathApi + '/:lang/group/maj', function (req, res) {
   })
 })
 
-
 app.post(pathApi + '/:lang/group/del', function (req, res) {
   let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'
@@ -196,7 +195,12 @@ app.post(pathApi + '/:lang/trad/maj', function (req, res) {
   jsonfile.readFile(file, function (err, obj) {
     if (err) { console.log('Error on read json file', err) }
     if (!isDefined(groups)) {
-      obj[trad.key] = trad.trad
+      if (req.body.trad.originalKey === trad.key) {
+        obj[trad.key] = trad.trad
+      } else {
+        delete obj[trad.originalKey]
+        obj[trad.key] = trad.trad
+      }
     } else {
       let i = 0
       searchGroup(obj, groups, trad, 'upd', i)
