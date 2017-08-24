@@ -41,7 +41,6 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
             scope.listTrad = DataManager.remove(scope.listTrad, trad)
           }
         } else {
-          // TODO MAJ TRAD
           console.log('Maj trad', trad)
           DataAccessor.majTrad(scope.currentLang, $routeParams.group, trad).then(function () {
             trad.modified = false

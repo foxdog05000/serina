@@ -25,6 +25,10 @@
         "title": "Ajouter un nouveau groupe",
         "placeholder": "Nom du groupe"
       },
+      "majGroup": {
+        "title": "Renommer le groupe",
+        "placeholder": "Nouveau nom du groupe"
+      },
       "confirmTitle": "Êtes-vous sur ?"
     },
     "toast": {
@@ -42,6 +46,10 @@
         "fail": "Erreur lors de l'ajout de la traduction '{{trad}}'",
         "tradExist": "La traduction '{{trad}}' exite déjà"
       },
+      "majTrad": {
+        "success": "Traduction '{{trad}}' renommé avec succés",
+        "fail": "Impossible de renommé la traduction '{{trad}}'"
+      },
       "deleteTrad": {
         "success": "Traduction '{{trad}}' supprimé avec succés",
         "fail": "Impossible de supprimer la traduction '{{trad}}'"
@@ -50,6 +58,10 @@
         "success": "Groupe '{{groupName}}' ajouté avec succés",
         "fail": "Impossible d'ajouter le groupe '{{groupName}}'",
         "groupExist": "Le groupe '{{groupName}}' existe déjà"
+      },
+      "majGroup": {
+        "success": "Group '{{groupName}}' renommé avec succés",
+        "fail": "Impossible de renommé le groupe '{{groupName}}'"
       },
       "deleteGroup": {
         "success": "Groupe '{{groupName}}' supprimé avec succés",

@@ -3,6 +3,7 @@
         <md-subheader ng-if="listGroups.length > 0" class="md-no-sticky">{{'commons.group' | i18next}}<span ng-if="listGroups.length > 1">s</span></md-subheader>
         <md-list-item ng-repeat="group in listGroups | orderBy: group" ng-click="openGroup(group)">
             <p class="md-headline">{{group}}</p>
+            <md-icon class="md-secondary md-hue-3" ng-click="opendDialogUpdateGroupe($event, group)" aria-label="update group">edit</md-icon>
             <md-icon class="md-secondary md-hue-3 md-warn" ng-click="openDialogDeleteGroup($event, group)" aria-label="delete group">delete</md-icon>
         </md-list-item>
     </div>

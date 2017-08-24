@@ -23,7 +23,11 @@
     "dialog": {
       "addGroup": {
         "title": "Add new group",
-        "placeholder": "Name of groupe"
+        "placeholder": "Name of group"
+      },
+      "majGroup": {
+        "title": "Rename group",
+        "placeholder": "New name of group"
       },
       "confirmTitle": "Are you sure ?"
     },
@@ -42,6 +46,10 @@
         "fail": "Error adding translation '{{trad}}' ",
         "tradExist": "Translation '{{trad}}' already exist"
       },
+      "majTrad": {
+        "success": "Translation '{{trad}}' renamed successfully",
+        "fail": "Unable to rename translation '{{trad}}'"
+      },
       "deleteTrad": {
         "success": "Translation '{{trad}}' successfully deleted",
         "fail": "Unable to delete translation '{{trad}}'"
@@ -50,6 +58,10 @@
         "success": "Group '{{groupName}}' added successfully",
         "fail": "Unable to add group '{{groupName}}'",
         "groupExist": "Group '{{groupName}}' already exist"
+      },
+      "majGroup": {
+        "success": "Group '{{groupName}}' renamed successfully",
+        "fail": "Unable to rename group '{{groupName}}'"
       },
       "deleteGroup": {
         "success": "Group '{{groupName}}' successfully deleted",

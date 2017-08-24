@@ -124,6 +124,27 @@ app.post(pathApi + '/:lang/group/add', function (req, res) {
   })
 })
 
+app.post(pathApi + '/:lang/group/maj', function (req, res) {
+  let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
+  let file = pathJsonFile + req.params.lang + '.json'
+  jsonfile.readFile(file, function (err, obj) {
+    if (err) { console.log('Error on read json file', err) }
+    if (!isDefined(groups)) {
+      var copyGroup = obj[req.body.originalGroupName]
+      delete obj[req.body.originalGroupName]
+      obj[req.body.groupName] = copyGroup
+    } else {
+      let i = 0
+      searchGroup(obj, groups, req.body.originalGroupName, 'upd', i)
+    }
+    jsonfile.writeFile(file, obj, function (err) {
+      if (err) { return console.log('Error on update group name on json file', err) }
+      res.sendStatus(200)
+    })
+  })
+})
+
+
 app.post(pathApi + '/:lang/group/del', function (req, res) {
   let groups = isDefined(req.body.groups) ? req.body.groups.split('/') : undefined
   let file = pathJsonFile + req.params.lang + '.json'
