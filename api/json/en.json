@@ -1,0 +1,51 @@
+{
+  "sideMenu": {
+    "listOfLanguages": "List of languages",
+    "settings": "Settings",
+    "jsonOfLanguages": "JSON of translations"
+  },
+  "pages": {
+    "hub": {
+      "addLanguage": "Add new language",
+      "noLanguages": "No languages"
+    }
+  },
+  "commons": {
+    "actions": {
+      "add": "Add",
+      "delete": "Delete",
+      "edit": "Edit",
+      "return": "Return",
+      "validate": "Validate",
+      "cancel": "Cancel"
+    },
+    "dialog": {
+      "addGroup": {
+        "title": "Add new group",
+        "placeholder": "Name of groupe"
+      },
+      "confirmTitle": "Are you sure ?"
+    },
+    "toast": {
+      "addTrad": {
+        "success": "New translation added with success !",
+        "fail": "Error adding new translation !"
+      },
+      "deleteTrad": {
+        "success": "TTranslation successfully deleted!",
+        "fail": "Unable to delete translation {{trad}}"
+      },
+      "addGroup": {
+        "success": "Group {{groupName}} added successfully !",
+        "fail": "Unable to add group {{groupName}} !"
+      }
+    },
+    "language": "Language",
+    "translation": "Translation",
+    "format": "Format",
+    "aGroup": "a group",
+    "aTranslation": "a translation",
+    "key": "key",
+    "message": "message"
+  }
+}

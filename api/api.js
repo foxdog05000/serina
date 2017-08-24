@@ -5,7 +5,7 @@ let path = require('path')
 let fs = require('fs')
 let app = express()
 
-const pathJsonFile = path.join(__dirname, '/json/translate/')
+const pathJsonFile = path.join(__dirname, '/json/')
 const pathApi = '/api'
 jsonfile.spaces = 2
 
@@ -201,5 +201,4 @@ app.post(pathApi + '/:lang/translation/:action', function (req, res) {
 const server = app.listen(7777, 'localhost', function () {
   console.log('API listen on ' + server.address().address + ':' + server.address().port + ' !')
   createFolderIsNotExist('/json/')
-  createFolderIsNotExist('/json/translate/')
 })
