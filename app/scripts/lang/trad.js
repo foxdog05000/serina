@@ -43,7 +43,13 @@ angular.module('serinaApp').directive('trad', function ($routeParams, $i18next, 
         } else {
           // TODO MAJ TRAD
           console.log('Maj trad', trad)
-          trad.modified = false
+          DataAccessor.majTrad(scope.currentLang, $routeParams.group, trad).then(function () {
+            trad.modified = false
+            Toast.showCustomToast('check', $i18next.t('commons.toast.majTrad.success', {trad: trad.key}), 'good')
+          }, function (response) {
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.majTrad.fail', {trad: trad.key}), 'fail')
+            console.error('Error while update translation', response)
+          })
         }
       }
 

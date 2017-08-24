@@ -27,6 +27,10 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
       return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/add', {trad: trad, groups: groups})
     },
 
+    majTrad: function (lang, groups, trad) {
+      return $http.post($rootScope.endPoint + '/' + lang.toLowerCase() + '/trad/maj', {trad: trad, groups: groups})
+    },
+
     deleteLang: function (lang) {
       return $http.get($rootScope.endPoint + '/delete/' + lang.toLowerCase())
     },
