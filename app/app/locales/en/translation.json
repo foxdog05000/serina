@@ -41,18 +41,18 @@
         "success": "Lang '{{lang}}' successfully deleted",
         "fail": "Unable to delete lang '{{lang}}'"
       },
-      "addTrad": {
-        "success": "Translation '{{trad}}' added with success",
-        "fail": "Error adding translation '{{trad}}' ",
-        "tradExist": "Translation '{{trad}}' already exist"
+      "addTranslation": {
+        "success": "Translation '{{translation}}' added with success",
+        "fail": "Error adding translation '{{translation}}' ",
+        "translationExist": "Translation '{{translation}}' already exist"
       },
-      "majTrad": {
-        "success": "Translation '{{trad}}' renamed successfully",
-        "fail": "Unable to rename translation '{{trad}}'"
+      "majTranslation": {
+        "success": "Translation '{{translation}}' renamed successfully",
+        "fail": "Unable to rename translation '{{translation}}'"
       },
-      "deleteTrad": {
-        "success": "Translation '{{trad}}' successfully deleted",
-        "fail": "Unable to delete translation '{{trad}}'"
+      "deleteTranslation": {
+        "success": "Translation successfully deleted",
+        "fail": "Unable to delete translation '{{translation}}'"
       },
       "addGroup": {
         "success": "Group '{{groupName}}' added successfully",
@@ -64,7 +64,7 @@
         "fail": "Unable to rename group '{{groupName}}'"
       },
       "deleteGroup": {
-        "success": "Group '{{groupName}}' successfully deleted",
+        "success": "Group successfully deleted",
         "fail": "Unable to delete group '{{groupName}}'"
       }
     },

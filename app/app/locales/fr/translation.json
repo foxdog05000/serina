@@ -41,18 +41,18 @@
         "success": "Langue '{{lang}}' supprimé avec succés",
         "fail": "Impossible de supprimer la langue '{{lang}}'"
       },
-      "addTrad": {
-        "success": "Traduction '{{trad}}' ajouté avec succés",
-        "fail": "Erreur lors de l'ajout de la traduction '{{trad}}'",
-        "tradExist": "La traduction '{{trad}}' exite déjà"
+      "addTranslation": {
+        "success": "Traduction '{{translation}}' ajouté avec succés",
+        "fail": "Erreur lors de l'ajout de la traduction '{{translation}}'",
+        "translationExist": "La traduction '{{translation}}' exite déjà"
       },
-      "majTrad": {
-        "success": "Traduction '{{trad}}' renommé avec succés",
-        "fail": "Impossible de renommé la traduction '{{trad}}'"
+      "majTranslation": {
+        "success": "Traduction '{{translation}}' renommé avec succés",
+        "fail": "Impossible de renommé la traduction '{{translation}}'"
       },
-      "deleteTrad": {
-        "success": "Traduction '{{trad}}' supprimé avec succés",
-        "fail": "Impossible de supprimer la traduction '{{trad}}'"
+      "deleteTranslation": {
+        "success": "Traduction supprimé avec succés",
+        "fail": "Impossible de supprimer la traduction '{{translation}}'"
       },
       "addGroup": {
         "success": "Groupe '{{groupName}}' ajouté avec succés",
@@ -64,7 +64,7 @@
         "fail": "Impossible de renommé le groupe '{{groupName}}'"
       },
       "deleteGroup": {
-        "success": "Groupe '{{groupName}}' supprimé avec succés",
+        "success": "Groupe supprimé avec succés",
         "fail": "Impossible de supprimer le groupe '{{groupName}}'"
       }
     },
