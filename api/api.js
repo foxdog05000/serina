@@ -41,7 +41,7 @@ function targetLevelForAction (obj, levels, i, action, value, newValue) {
       if (key === levels[i] && i === levels.length - 1) {
         if (action === ADD || action === UPD) {
           if (isObject(value)) {
-            obj[key][value.key] = value.trad
+            obj[key][value.key] = value.value
           } else {
             if (action === ADD) {
               obj[key][value] = {}
@@ -67,19 +67,19 @@ function targetLevelForAction (obj, levels, i, action, value, newValue) {
   }
 }
 
-app.get(pathApi + '/list-lang', function (req, res) {
+app.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
-    let langs = { listLangs: [] }
+    let languages = { listLanguages: [] }
     files.forEach(function (file) {
-      langs.listLangs.push(file.substring(0, 2))
+      languages.listLanguages.push(file.substring(0, 2))
     })
-    res.send(langs)
+    res.send(languages)
   })
 })
 
-app.get(pathApi + '/create/:lang', function (req, res) {
-  let file = pathJsonFile + req.params.lang + '.json'
+app.get(pathApi + '/create/:language', function (req, res) {
+  let file = pathJsonFile + req.params.language + '.json'
   let obj = {}
 
   jsonfile.writeFile(file, obj, function (err) {
@@ -88,29 +88,29 @@ app.get(pathApi + '/create/:lang', function (req, res) {
   })
 })
 
-app.get(pathApi + '/delete/:lang', function (req, res) {
-  fs.stat(pathJsonFile + req.params.lang + '.json', function (err, stats) {
+app.get(pathApi + '/delete/:language', function (req, res) {
+  fs.stat(pathJsonFile + req.params.language + '.json', function (err, stats) {
     if (err) { return console.error(err) }
 
-    fs.unlink(pathJsonFile + req.params.lang + '.json', function (err) {
+    fs.unlink(pathJsonFile + req.params.language + '.json', function (err) {
       if (err) { return console.log(err) }
-      console.log('file "' + req.params.lang + '.json" deleted successfully')
+      console.log('file "' + req.params.language + '.json" deleted successfully')
       res.sendStatus(200)
     })
   })
 })
 
-app.get(pathApi + '/open/:lang', function (req, res) {
-  res.sendFile(pathJsonFile + req.params.lang + '.json')
+app.get(pathApi + '/open/:language', function (req, res) {
+  res.sendFile(pathJsonFile + req.params.language + '.json')
 })
 
-app.get(pathApi + '/download/:lang', function (req, res) {
-  res.sendFile(pathJsonFile + req.params.lang + '.json')
+app.get(pathApi + '/download/:language', function (req, res) {
+  res.sendFile(pathJsonFile + req.params.language + '.json')
 })
 
-app.post(pathApi + '/:lang/group/:action', function (req, res) {
+app.post(pathApi + '/:language/group/:action', function (req, res) {
   const action = req.params.action
-  let file = pathJsonFile + req.params.lang + '.json'
+  let file = pathJsonFile + req.params.language + '.json'
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let groupName = req.body.groupName
@@ -152,9 +152,9 @@ app.post(pathApi + '/:lang/group/:action', function (req, res) {
   })
 })
 
-app.post(pathApi + '/:lang/translation/:action', function (req, res) {
+app.post(pathApi + '/:language/translation/:action', function (req, res) {
   const action = req.params.action
-  let file = pathJsonFile + req.params.lang + '.json'
+  let file = pathJsonFile + req.params.language + '.json'
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let translation = req.body.translation
