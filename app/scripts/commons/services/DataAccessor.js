@@ -3,23 +3,23 @@
 angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http) {
   return {
 
-    getListLang: function () {
-      return $http.get($rootScope.endPoint + '/list-languageuages')
+    getListLanguages: function () {
+      return $http.get($rootScope.endPoint + '/list-languages')
     },
 
-    openLang: function (language) {
+    openLanguage: function (language) {
       return $http.get($rootScope.endPoint + '/open/' + language.toLowerCase())
     },
 
-    downloadLang: function (language) {
+    downloadLanguage: function (language) {
       return $http.get($rootScope.endPoint + '/download/' + language.toLowerCase())
     },
 
-    addLang: function (language) {
+    addLanguage: function (language) {
       return $http.get($rootScope.endPoint + '/create/' + language.toLowerCase())
     },
 
-    deleteLang: function (language) {
+    deleteLanguage: function (language) {
       return $http.get($rootScope.endPoint + '/delete/' + language.toLowerCase())
     },
 

@@ -16,11 +16,11 @@ angular
         templateUrl: 'views/hub/hub.html',
         controller: 'HubCtrl'
       })
-      .when('/language/:lang', {
+      .when('/language/:language', {
         templateUrl: 'views/level/level.html',
         controller: 'LevelCtrl'
       })
-      .when('/language/:lang/:levels*', {
+      .when('/language/:language/:levels*', {
         templateUrl: 'views/level/level.html',
         controller: 'LevelCtrl'
       })
