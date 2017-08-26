@@ -4,7 +4,7 @@ angular.module('serinaApp').factory('Breadcrumb', function () {
   return {
 
     init: function (label, href) {
-      return [{label: label, href: href}]
+      return [{ label: label, href: href }]
     },
 
     build: function (currentBreadcrumb, lang, levels) {
@@ -20,7 +20,7 @@ angular.module('serinaApp').factory('Breadcrumb', function () {
 
         breadcrumb.push({
           label: level,
-          href: '/lang/' + lang + hrefComputed
+          href: '/language/' + lang + hrefComputed
         })
         currentLevel++
       })

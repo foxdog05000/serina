@@ -1,35 +1,35 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center start">
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
-        <md-card ng-repeat="lang in listLangs track by lang">
+        <md-card ng-repeat="language in listLanguages track by language">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">{{'commons.translation' | i18next}} : {{lang | uppercase}}</span>
+                    <span class="md-headline">{{'commons.translation' | i18next}} : {{language | uppercase}}</span>
                     <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
                 </md-card-title-text>
                 <md-card-title-media>
                     <div class="md-media-sm card-media">
-                        <img ng-src="images/lang/{{lang}}.png" alt="Drapeau {{lang}}"/>
+                        <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}"/>
                     </div>
                 </md-card-title-media>
             </md-card-title>
             <md-card-actions layout="row">
-                <md-button ng-click="downloadLang(lang)" class="md-primary md-icon-button">
+                <md-button ng-click="downloadLanguage(language)" class="md-primary md-icon-button">
                     <md-tooltip md-direction="right">{{'commons.actions.download' | i18next}}</md-tooltip>
                     <md-icon>get_app</md-icon>
                 </md-button>
 
                 <span flex></span>
 
-                <md-button ng-click="openLang(lang)" class="md-raised md-primary">
+                <md-button ng-click="openLanguage(language)" class="md-raised md-primary">
                     <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
                 </md-button>
-                <md-button ng-click="deleteLang(lang, $event)" class="md-raised md-warn">
+                <md-button ng-click="deleteLanguage($event, language)" class="md-raised md-warn">
                     <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
                 </md-button>
             </md-card-actions>
         </md-card>
 
-        <md-card ng-if="listLangs.length === 0">
+        <md-card ng-if="listLanguages.length === 0">
           <p class="md-headline center">{{'pages.hub.noLanguages' | i18next}}</p>
           <img ng-src="images/no-languages.png" class="md-card-image" alt="">
         </md-card>
@@ -43,12 +43,12 @@
                     <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
                 </md-card-title-text>
             </md-card-title>
-            <form ng-submit="addLang()">
+            <form ng-submit="addLanguage()">
                 <md-card-content>
                     <md-input-container>
                         <label>{{'commons.language' | i18next}}</label>
                         <md-icon>translate</md-icon>
-                        <input type="text" ng-model="addLang.code" md-maxlength="2">
+                        <input type="text" ng-model="addLanguage.code" md-maxlength="2">
                     </md-input-container>
                     <md-button class="md-icon-button" aria-label="Help" href="https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1#Liste_des_codes_ISO_639-1.2F2.2F3" target="_blank">
                         <md-tooltip md-direction="right">Code ISO 639-1</md-tooltip>
@@ -56,7 +56,7 @@
                     </md-button>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button type="submit" ng-disabled="addLang.code.length < 2" ng-click="addLang()" class="md-raised md-primary">
+                    <md-button type="submit" ng-disabled="addLanguage.code.length < 2" ng-click="addLanguage()" class="md-raised md-primary">
                         <md-icon>add</md-icon> {{'commons.actions.add' | i18next}}
                     </md-button>
                 </md-card-actions>

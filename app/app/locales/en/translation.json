@@ -33,14 +33,14 @@
       "confirmTitle": "Are you sure ?"
     },
     "toast": {
-      "addLang": {
-        "success": "Lang '{{lang}}' added with success",
-        "fail": "Error adding lang '{{lang}}'",
-        "langExist": "Lang '{{lang}}' already exist"
+      "addLanguage": {
+        "success": "Language '{{language}}' added with success",
+        "fail": "Error adding language '{{language}}'",
+        "langExist": "Language '{{language}}' already exist"
       },
-      "deleteLang": {
-        "success": "Lang '{{lang}}' successfully deleted",
-        "fail": "Unable to delete lang '{{lang}}'"
+      "deleteLanguage": {
+        "success": "Language '{{language}}' successfully deleted",
+        "fail": "Unable to delete language '{{language}}'"
       },
       "addTranslation": {
         "success": "Translation '{{translation}}' added with success",

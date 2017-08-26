@@ -33,14 +33,14 @@
       "confirmTitle": "Êtes-vous sur ?"
     },
     "toast": {
-      "addLang": {
-        "success": "Langue '{{lang}}' ajouté avec succés",
-        "fail": "Erreur lors de l'ajout de la langue '{{lang}}'",
-        "langExist": "La langue '{{lang}}' existe déjà"
+      "addLanguage": {
+        "success": "Langue '{{language}}' ajouté avec succés",
+        "fail": "Erreur lors de l'ajout de la langue '{{language}}'",
+        "langExist": "La langue '{{language}}' existe déjà"
       },
-      "deleteLang": {
-        "success": "Langue '{{lang}}' supprimé avec succés",
-        "fail": "Impossible de supprimer la langue '{{lang}}'"
+      "deleteLanguage": {
+        "success": "Langue '{{language}}' supprimé avec succés",
+        "fail": "Impossible de supprimer la langue '{{language}}'"
       },
       "addTranslation": {
         "success": "Traduction '{{translation}}' ajouté avec succés",

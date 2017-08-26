@@ -16,13 +16,13 @@ angular
         templateUrl: 'views/hub/hub.html',
         controller: 'HubCtrl'
       })
-      .when('/lang/:lang', {
-        templateUrl: 'views/lang/lang.html',
-        controller: 'LangCtrl'
+      .when('/language/:lang', {
+        templateUrl: 'views/level/level.html',
+        controller: 'LevelCtrl'
       })
-      .when('/lang/:lang/:levels*', {
-        templateUrl: 'views/lang/lang.html',
-        controller: 'LangCtrl'
+      .when('/language/:lang/:levels*', {
+        templateUrl: 'views/level/level.html',
+        controller: 'LevelCtrl'
       })
       .when('/settings', {
         templateUrl: 'views/settings/settings.html',
