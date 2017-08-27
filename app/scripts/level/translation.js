@@ -9,18 +9,20 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
       scope.$watch('listTranslations', function (newValue, oldValue) {
         if (newValue !== oldValue && oldValue !== undefined) {
           for (var iterator = 0; iterator < oldValue.length; iterator++) {
-            if ((newValue[iterator].key === scope.listTranslations[iterator].key || newValue[iterator].value === scope.listTranslations[iterator].value) && (newValue[iterator].save && oldValue[iterator].save) && (newValue[iterator].modified && oldValue[iterator].modified)) {
-              scope.listTranslations[iterator].modified = false
-              scope.listTranslations[iterator].modified = 0
-              break
-            }
-
-            if ((newValue[iterator].key !== oldValue[iterator].key || newValue[iterator].value !== oldValue[iterator].value) && (newValue[iterator].save && oldValue[iterator].save)) {
-              if (scope.listTranslations[iterator].nbModified === 0) {
-                scope.listTranslations[iterator].originalKey = oldValue[iterator].key
+            if (newValue[iterator] !== undefined) {
+              if ((newValue[iterator].key === scope.listTranslations[iterator].key || newValue[iterator].value === scope.listTranslations[iterator].value) && (newValue[iterator].save && oldValue[iterator].save) && (newValue[iterator].modified && oldValue[iterator].modified)) {
+                scope.listTranslations[iterator].modified = false
+                scope.listTranslations[iterator].modified = 0
+                break
               }
-              scope.listTranslations[iterator].modified = true
-              scope.listTranslations[iterator].nbModified++
+
+              if ((newValue[iterator].key !== oldValue[iterator].key || newValue[iterator].value !== oldValue[iterator].value) && (newValue[iterator].save && oldValue[iterator].save)) {
+                if (scope.listTranslations[iterator].nbModified === 0) {
+                  scope.listTranslations[iterator].originalKey = oldValue[iterator].key
+                }
+                scope.listTranslations[iterator].modified = true
+                scope.listTranslations[iterator].nbModified++
+              }
             }
           }
         }
@@ -34,7 +36,7 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
         ev.stopPropagation()
         if (!translation.save) {
           if (translation.key !== '' && translation.value !== '' && !DataManager.find(scope.listTranslations, translation.key, 'trad')) {
-            DataAccessor.addTranslation(scope.currentLang, $routeParams.levels, translation).then(function () {
+            DataAccessor.addTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
               translation.save = true
               translation.nbModified = 0
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTranslation.success', { translation: translation.key }), 'good')
@@ -47,7 +49,7 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
           }
         } else {
-          DataAccessor.majTranslation(scope.currentLang, $routeParams.levels, translation).then(function () {
+          DataAccessor.majTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
             translation.modified = false
             Toast.showCustomToast('check', $i18next.t('commons.toast.majTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {
@@ -62,7 +64,7 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
         if (!translation.save) {
           scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
         } else {
-          DataAccessor.deleteTranslation(scope.currentLang, $routeParams.levels, translation).then(function () {
+          DataAccessor.deleteTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {
