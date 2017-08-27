@@ -28,7 +28,7 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     majGroup: function (language, levels, groupName, originalGroupName) {
-      return $http.post($rootScope.endPoint + '/' + language.toLowerCase() + '/group/maj', { groupName: groupName.toLowerCase(), levels: levels, originalGroupName: originalGroupName })
+      return $http.post($rootScope.endPoint + '/' + language.toLowerCase() + '/group/upd', { groupName: groupName.toLowerCase(), levels: levels, originalGroupName: originalGroupName })
     },
 
     deleteGroup: function (language, levels, groupName) {
@@ -40,7 +40,7 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     majTranslation: function (language, levels, translation) {
-      return $http.post($rootScope.endPoint + '/' + language.toLowerCase() + '/translation/maj', { translation: translation, levels: levels })
+      return $http.post($rootScope.endPoint + '/' + language.toLowerCase() + '/translation/upd', { translation: translation, levels: levels })
     },
 
     deleteTranslation: function (language, levels, translation) {

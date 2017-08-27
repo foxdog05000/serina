@@ -41,7 +41,16 @@ function targetLevelForAction (obj, levels, i, action, value, newValue) {
       if (key === levels[i] && i === levels.length - 1) {
         if (action === ADD || action === UPD) {
           if (isObject(value)) {
-            obj[key][value.key] = value.value
+            if (action === ADD) {
+              obj[key][value.key] = value.value
+            } else {
+              if (value.originalKey === value.key) {
+                obj[key][value.key] = value.value
+              } else {
+                delete obj[key][value.originalKey]
+                obj[key][value.key] = value.value
+              }
+            }
           } else {
             if (action === ADD) {
               obj[key][value] = {}
