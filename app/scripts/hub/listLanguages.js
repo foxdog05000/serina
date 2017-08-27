@@ -27,7 +27,7 @@ angular.module('serinaApp').directive('listLanguages', function ($i18next, $loca
           DataAccessor.addLanguage(codeLanguageAdd).then(function () {
             Toast.showCustomToast('check', $i18next.t('commons.toast.addLanguage.success', { language: codeLanguageAdd }), 'good', 'HubCtrl')
             scope.addLanguage.code = ''
-            scope.getListLanguage()
+            scope.getListLanguages()
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.addLanguage.fail', { language: codeLanguageAdd }), 'fail', 'HubCtrl')
             console.error('Unable to add language "' + codeLanguageAdd.toUpperCase() + '"', response)
@@ -41,11 +41,11 @@ angular.module('serinaApp').directive('listLanguages', function ($i18next, $loca
 
       scope.deleteLanguage = function (ev, language) {
         Dialog.showConfirm(ev).then(function () {
-          DataAccessor.deleteLang(language).then(function () {
-            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteLang.success', { language: language }), 'good', 'HubCtrl')
-            scope.getListLang()
+          DataAccessor.deleteLanguage(language).then(function () {
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteLanguage.success', { language: language }), 'good', 'HubCtrl')
+            scope.getListLanguages()
           }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteLang.fail', { language: language }), 'fail', 'HubCtrl')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteLanguage.fail', { language: language }), 'fail', 'HubCtrl')
             console.error('Unable to delete language "' + language + '"', response)
           })
         })
