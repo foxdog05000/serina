@@ -45,7 +45,7 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
               console.error('Error while adding translation', response)
             })
           } else {
-            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addTranslation.tradExist', { translation: translation.key }), 'medium')
+            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addTranslation.translationExist', { translation: translation.key }), 'medium')
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
           }
         } else {
