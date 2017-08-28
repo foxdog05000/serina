@@ -7,25 +7,13 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
     link: function (scope) {
 
       scope.switchDiplayFormat = true
-      scope.actualDisplayFormat = {
-        label: 'md-card',
-        icon: 'view_agenda'
-      }
       scope.selectedLanguage = $rootScope.locale
+      scope.selectedDisplayFormat = 'card'
 
-      scope.displayActualFormatOfLanguages = function (switchDiplayFormat) {
-        if (switchDiplayFormat) {
-          scope.actualDisplayFormat = {
-            label: 'md-card',
-            icon: 'view_agenda'
-          }
-        } else {
-          scope.actualDisplayFormat = {
-            label: 'md-list',
-            icon: 'list'
-          }
-        }
-      }
+      scope.displayFormat = [
+        { label: 'card', icon: 'view_agenda' },
+        { label: 'list', icon: 'list' }
+      ]
 
       scope.languages = [
         { code: 'en'},

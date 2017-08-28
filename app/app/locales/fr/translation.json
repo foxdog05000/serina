@@ -14,6 +14,7 @@
       "basic": {
         "title": "Paramétres basique",
         "choiceDisplayFormatOfLanguages": "Choix du format d'affichage des langues sur le hub",
+        "selectDisplayFormat": "Choisis un format",
         "choiceLanguageOfApp": "Choix de la langue de l'application",
         "selectLanguage": "Choisis une langue",
         "theming": "Thème de l'application",
