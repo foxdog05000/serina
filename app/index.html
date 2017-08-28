@@ -25,7 +25,9 @@
             </md-button>
 
             <h2 flex md-truncate class="breadcrumb">
-                <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">{{item.label | i18next}}</a>
+                <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">
+                    <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
+                </a>
             </h2>
         </div>
     </md-toolbar>
