@@ -15,6 +15,7 @@
         "title": "Basic settings",
         "choiceDisplayFormatOfLanguages": "Choice display format of languages on hub",
         "choiceLanguageOfApp": "Choice language of application",
+        "selectLanguage": "Choice language",
         "theming": "Theming",
         "choiceTheme": "Choice theme"
       },

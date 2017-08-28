@@ -8,8 +8,8 @@
 <md-list-item>
     <p>{{'pages.settings.basic.choiceLanguageOfApp' | i18next}}</p>
     <md-input-container>
-        <label>Language</label>
-        <md-select ng-model="selectedLanguage" ng-change="changeLocaleOfApplication()">
+        <label>{{'pages.settings.basic.selectLanguage' | i18next}}</label>
+        <md-select ng-model="selectedLanguage" ng-change="changeLocaleOfApplication()" class="select-language">
             <md-option ng-repeat="language in languages" ng-value="language.code">{{language.code}}</md-option>
         </md-select>
     </md-input-container>
