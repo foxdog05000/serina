@@ -69,7 +69,7 @@ angular
       $rootScope.$apply(function () {
         $rootScope.loading = false
       })
-    }, 1500)
+    }, 1000)
 
     function buildToggler (componentId) {
       return function () {
