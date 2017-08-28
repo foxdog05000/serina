@@ -1,6 +1,10 @@
 <md-divider></md-divider>
 
-<md-subheader class="md-no-sticky"><md-icon>settings</md-icon> {{'pages.settings.advanced.title' | i18next}}</md-subheader>
+<md-subheader class="md-no-sticky"><md-icon>settings</md-icon> {{'pages.settings.advanced.title' | i18next}} <i>"{{'commons.availableOnVersion' | i18next}} 0.3"</i></md-subheader>
 <md-list-item>
-    <p>...</p>
+    <p>{{'pages.settings.advanced.customPathOfFile' | i18next}}</p>
+    <md-input-container>
+       <label>Custom Path</label>
+       <input value=".../project/app/locales" placeholder="Custom path" readonly disabled>
+     </md-input-container>
 </md-list-item>

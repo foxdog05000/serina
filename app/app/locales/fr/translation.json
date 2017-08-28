@@ -21,7 +21,8 @@
         "choiceTheme": "Choisir un thème"
       },
       "advanced": {
-        "title": "Paramétres avancées"
+        "title": "Paramétres avancées",
+        "customPathOfFile": "Emplacement personnalisé des fichiers de langue"
       },
       "about": {
         "title": "A propos",
@@ -96,6 +97,7 @@
     "aGroup": "un groupe",
     "aTranslation": "une traduction",
     "key": "clé",
-    "message": "méssage"
+    "message": "méssage",
+    "availableOnVersion": "Disponible dans la version"
   }
 }

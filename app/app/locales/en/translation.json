@@ -21,7 +21,8 @@
         "choiceTheme": "Choice theme"
       },
       "advanced": {
-        "title": "Advanced settings"
+        "title": "Advanced settings",
+        "customPathOfFile": "Custom path of language files"
       },
       "about": {
         "title": "About",
@@ -96,6 +97,7 @@
     "aGroup": "a group",
     "aTranslation": "a translation",
     "key": "key",
-    "message": "message"
+    "message": "message",
+    "availableOnVersion": "Available in version"
   }
 }
