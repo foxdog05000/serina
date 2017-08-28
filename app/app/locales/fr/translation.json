@@ -20,6 +20,12 @@
       },
       "advanced": {
         "title": "Paramétres avancées"
+      },
+      "about": {
+        "title": "A propos",
+        "nameAppAndCreator": "Sérina by @foxdog05000",
+        "version": "Version",
+        "licenceAndDownload": "Serina est un logiciel Open Source sous licence MIT, il peut être téléchargé gratuitement à"
       }
     }
   },

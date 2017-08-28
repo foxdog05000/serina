@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('advancedSettings', function ($rootScope, $mdColorPalette) {
+angular.module('serinaApp').directive('advancedSettings', function () {
   return {
     restrict: 'E',
     templateUrl: 'views/settings/advanced-settings.html',
