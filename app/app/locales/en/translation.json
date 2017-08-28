@@ -9,6 +9,15 @@
     "hub": {
       "addLanguage": "Add new language",
       "noLanguages": "No languages"
+    },
+    "settings": {
+      "basicSettings": {
+        "title": "Basic settings",
+        "choiceDisplayFormatOfLanguages": "Choice display format of languages on hub",
+        "choiceLanguageOfApp": "Choice language",
+        "theming": "Theming",
+        "choiceTheme": "Choice theme"
+      }
     }
   },
   "commons": {

@@ -1,0 +1,28 @@
+<md-list>
+    <md-subheader class="md-no-sticky"><md-icon>widgets</md-icon> {{'pages.settings.basicSettings.title' | i18next}}</md-subheader>
+    <md-list-item>
+        <p>{{'pages.settings.basicSettings.choiceDisplayFormatOfLanguages' | i18next}}</p>
+        <md-switch ng-model="switchDiplayFormat" ng-change="displayActualFormatOfLanguages(switchDiplayFormat)" aria-label="Choice display format of languages">
+            <md-icon>{{actualDisplayFormat.icon}}</md-icon> {{actualDisplayFormat.label}}
+        </md-switch>
+    </md-list-item>
+    <md-list-item>
+        <p>{{'pages.settings.basicSettings.choiceLanguageOfApp' | i18next}}</p>
+        <md-input-container>
+            <label>Language</label>
+            <md-select ng-model="selectedLanguage">
+                <md-option ng-repeat="language in languages" ng-value="language.code">{{language.code}}</md-option>
+            </md-select>
+        </md-input-container>
+    </md-list-item>
+
+    <md-divider></md-divider>
+
+    <md-subheader class="md-no-sticky"><md-icon>color_lens</md-icon> {{'pages.settings.basicSettings.theming' | i18next}}</md-subheader>
+    <md-list-item>
+        <p>{{'pages.settings.basicSettings.choiceTheme' | i18next}}</p>
+        <div layout="row" layout-wrap layout-align="center center">
+            <md-button ng-repeat="color in colors" flex-gt-md="5" flex="10" md-colors="{background: '{{color}}'}">{{color}}</md-button>
+        </div>
+    </md-list-item>
+</md-list>
