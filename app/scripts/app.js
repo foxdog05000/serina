@@ -32,22 +32,6 @@ angular
         redirectTo: '/hub'
       })
 
-    window.i18next.use(window.i18nextXHRBackend)
-
-    window.i18next.init({
-      debug: false,
-      lng: 'en', // If not given, i18n will detect the browser language.
-      fallbackLng: '', // Default is dev
-      backend: {
-        loadPath: '../app/locales/{{lng}}/translation.json'
-      },
-      useCookie: false,
-      useLocalStorage: false
-    }, function (err, t) {
-      err ? console.error('error load translation', err) : null
-      console.log('Translation loaded')
-    })
-
     var customGreen = $mdThemingProvider.extendPalette('green', {
       'contrastDefaultColor': 'light'
     })
@@ -63,6 +47,23 @@ angular
     $rootScope.loading = true
     $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
+    $rootScope.locale = 'en'
+
+    window.i18next.use(window.i18nextXHRBackend)
+
+    window.i18next.init({
+      debug: false,
+      lng: $rootScope.locale, // If not given, i18n will detect the browser language.
+      fallbackLng: '', // Default is dev
+      backend: {
+        loadPath: '../app/locales/{{lng}}/translation.json'
+      },
+      useCookie: false,
+      useLocalStorage: false
+    }, function (err, t) {
+      err ? console.error('error load translation', err) : null
+      console.log('Translation loaded')
+    })
 
     setTimeout(function () {
       $rootScope.$apply(function () {
