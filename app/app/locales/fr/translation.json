@@ -11,12 +11,15 @@
       "noLanguages": "Aucunes langues"
     },
     "settings": {
-      "basicSettings": {
-        "title": "Paramètres basique",
+      "basic": {
+        "title": "Paramétres basique",
         "choiceDisplayFormatOfLanguages": "Choix du format d'affichage des langues sur le hub",
         "choiceLanguageOfApp": "Choisir la langue de l'application",
         "theming": "Thème de l'application",
         "choiceTheme": "Choisir un thème"
+      },
+      "advanced": {
+        "title": "Paramétres avancées"
       }
     }
   },

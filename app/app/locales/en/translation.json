@@ -11,12 +11,15 @@
       "noLanguages": "No languages"
     },
     "settings": {
-      "basicSettings": {
+      "basic": {
         "title": "Basic settings",
         "choiceDisplayFormatOfLanguages": "Choice display format of languages on hub",
         "choiceLanguageOfApp": "Choice language of application",
         "theming": "Theming",
         "choiceTheme": "Choice theme"
+      },
+      "advanced": {
+        "title": "Advanced settings"
       }
     }
   },
