@@ -38,10 +38,37 @@ angular
 
     $mdThemingProvider.definePalette('custom-green', customGreen)
 
-    $mdThemingProvider.theme('default')
+    $mdThemingProvider.theme('indigo')
+      .primaryPalette('indigo')
+      .accentPalette('orange')
+      .warnPalette('red')
+
+    $mdThemingProvider.theme('orange')
+      .primaryPalette('orange')
+      .accentPalette('orange')
+      .warnPalette('red')
+
+    $mdThemingProvider.theme('purple')
+      .primaryPalette('purple')
+      .accentPalette('orange')
+      .warnPalette('red')
+
+    $mdThemingProvider.theme('brown')
+      .primaryPalette('brown')
+      .accentPalette('orange')
+      .warnPalette('red')
+
+    $mdThemingProvider.theme('grey')
+      .primaryPalette('grey')
+      .accentPalette('orange')
+      .warnPalette('red')
+
+    $mdThemingProvider.theme('green')
       .primaryPalette('custom-green')
       .accentPalette('orange')
       .warnPalette('red')
+
+    $mdThemingProvider.alwaysWatchTheme(true)
   })
   .run(function ($rootScope, $mdSidenav) {
     $rootScope.loading = true
@@ -51,6 +78,7 @@ angular
     if (localStorage.getItem('serinaSettings') === null) {
       $rootScope.settings = {
         locale: 'en',
+        theme: 'green',
         selectedDisplayFormat: 'card'
       }
       localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))

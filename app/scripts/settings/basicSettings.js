@@ -30,9 +30,12 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
         localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
       }
 
-      scope.colors = Object.keys($mdColorPalette)
+      scope.colors = ['indigo', 'green', 'orange', 'purple', 'brown', 'grey']
 
-      scope.mdURL = 'https://material.google.com/style/color.html#color-color-palette'
+      scope.changeColor = function (color) {
+        $rootScope.settings.theme = color
+        localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
+      }
 
     }
   }
