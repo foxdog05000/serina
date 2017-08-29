@@ -47,14 +47,22 @@ angular
     $rootScope.loading = true
     $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
-    $rootScope.locale = 'en'
-    $rootScope.selectedDisplayFormat = 'card'
+
+    if (localStorage.getItem('serinaSettings') === null) {
+      $rootScope.settings = {
+        locale: 'en',
+        selectedDisplayFormat: 'card'
+      }
+      localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
+    } else {
+      $rootScope.settings = JSON.parse(localStorage.getItem('serinaSettings'))
+    }
 
     window.i18next.use(window.i18nextXHRBackend)
 
     window.i18next.init({
       debug: false,
-      lng: $rootScope.locale, // If not given, i18n will detect the browser language.
+      lng: $rootScope.settings.locale, // If not given, i18n will detect the browser language.
       fallbackLng: '', // Default is dev
       backend: {
         loadPath: '../app/locales/{{lng}}/translation.json'

@@ -6,7 +6,8 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
     templateUrl: 'views/settings/basic-settings.html',
     link: function (scope) {
 
-      scope.selectedLanguage = $rootScope.locale
+      scope.selectedLanguage = $rootScope.settings.locale
+      scope.selectedDisplayFormat = $rootScope.settings.selectedDisplayFormat
 
       scope.displayFormat = [
         { label: 'card', icon: 'view_agenda' },
@@ -14,7 +15,8 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
       ]
 
       scope.changeDisplayFormat = function () {
-        $rootScope.selectedDisplayFormat = scope.selectedDisplayFormat
+        $rootScope.settings.selectedDisplayFormat = scope.selectedDisplayFormat
+        localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
       }
 
       scope.languages = [
@@ -23,8 +25,9 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
       ]
 
       scope.changeLocaleOfApplication = function () {
-        $rootScope.locale = scope.selectedLanguage
-        window.i18next.changeLanguage($rootScope.locale);
+        $rootScope.settings.locale = scope.selectedLanguage
+        window.i18next.changeLanguage($rootScope.settings.locale)
+        localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
       }
 
       scope.colors = Object.keys($mdColorPalette)

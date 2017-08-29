@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center start">
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
-        <div ng-if="selectedDisplayFormat === 'card'">
+        <div ng-if="settings.selectedDisplayFormat === 'card'">
             <md-card ng-repeat="language in listLanguages track by language">
                 <md-card-title>
                     <md-card-title-text>
@@ -36,7 +36,7 @@
             </md-card>
         </div>
 
-        <md-list ng-if="selectedDisplayFormat === 'list'">
+        <md-list ng-if="settings.selectedDisplayFormat === 'list'">
             <div class="md-whiteframe-2dp">
                 <md-subheader>{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
                 <md-list-item ng-repeat="language in listLanguages track by language" ng-click="openLanguage(language)">
