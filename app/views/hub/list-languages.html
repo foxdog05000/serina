@@ -9,7 +9,7 @@
                     </md-card-title-text>
                     <md-card-title-media>
                         <div class="md-media-sm card-media">
-                            <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}"/>
+                            <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}" />
                         </div>
                     </md-card-title-media>
                 </md-card-title>
@@ -29,16 +29,11 @@
                     </md-button>
                 </md-card-actions>
             </md-card>
-
-            <md-card ng-if="listLanguages.length === 0">
-                <p class="md-headline center">{{'pages.hub.noLanguages' | i18next}}</p>
-                <img ng-src="images/no-languages.png" class="md-card-image" alt="">
-            </md-card>
         </div>
 
         <md-list ng-if="settings.selectedDisplayFormat === 'list'">
             <div class="md-whiteframe-2dp">
-                <md-subheader>{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
+                <md-subheader ng-if="listLanguages.length > 0">{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
                 <md-list-item ng-repeat="language in listLanguages track by language" ng-click="openLanguage(language)">
                     <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}" class="flag"/> <span>{{language | uppercase}}</span>
                     <span flex></span>
@@ -47,6 +42,11 @@
                 </md-list-item>
             </div>
         </md-list>
+
+        <md-card ng-if="listLanguages.length === 0">
+            <p class="md-headline center">{{'pages.hub.noLanguages' | i18next}}</p>
+            <img ng-src="images/no-languages.png" class="md-card-image no-languages" alt="">
+        </md-card>
     </div>
 
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
