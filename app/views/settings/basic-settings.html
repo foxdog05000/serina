@@ -3,7 +3,7 @@
     <p>{{'pages.settings.basic.choiceDisplayFormatOfLanguages' | i18next}}</p>
     <md-input-container>
         <label>{{'pages.settings.basic.selectDisplayFormat' | i18next}}</label>
-        <md-select ng-model="selectedDisplayFormat" class="select-item">
+        <md-select ng-model="selectedDisplayFormat" class="select-item" ng-change="changeDisplayFormat()">
             <md-option ng-repeat="format in displayFormat" ng-value="format.label"><md-icon>{{format.icon}}</md-icon> {{format.label}}</md-option>
         </md-select>
     </md-input-container>

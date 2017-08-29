@@ -6,14 +6,16 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
     templateUrl: 'views/settings/basic-settings.html',
     link: function (scope) {
 
-      scope.switchDiplayFormat = true
       scope.selectedLanguage = $rootScope.locale
-      scope.selectedDisplayFormat = 'card'
 
       scope.displayFormat = [
         { label: 'card', icon: 'view_agenda' },
         { label: 'list', icon: 'list' }
       ]
+
+      scope.changeDisplayFormat = function () {
+        $rootScope.selectedDisplayFormat = scope.selectedDisplayFormat
+      }
 
       scope.languages = [
         { code: 'en'},

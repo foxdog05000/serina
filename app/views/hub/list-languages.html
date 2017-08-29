@@ -1,38 +1,52 @@
 <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center start">
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
-        <md-card ng-repeat="language in listLanguages track by language">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{'commons.translation' | i18next}} : {{language | uppercase}}</span>
-                    <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                    <div class="md-media-sm card-media">
-                        <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}"/>
-                    </div>
-                </md-card-title-media>
-            </md-card-title>
-            <md-card-actions layout="row">
-                <md-button ng-click="downloadLanguage(language)" class="md-primary md-icon-button">
-                    <md-tooltip md-direction="right">{{'commons.actions.download' | i18next}}</md-tooltip>
-                    <md-icon>get_app</md-icon>
-                </md-button>
+        <div ng-if="selectedDisplayFormat === 'card'">
+            <md-card ng-repeat="language in listLanguages track by language">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{'commons.translation' | i18next}} : {{language | uppercase}}</span>
+                        <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media">
+                            <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}"/>
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row">
+                    <md-button ng-click="downloadLanguage(language)" class="md-primary md-icon-button">
+                        <md-tooltip md-direction="right">{{'commons.actions.download' | i18next}}</md-tooltip>
+                        <md-icon>get_app</md-icon>
+                    </md-button>
 
-                <span flex></span>
+                    <span flex></span>
 
-                <md-button ng-click="openLanguage(language)" class="md-raised md-primary">
-                    <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
-                </md-button>
-                <md-button ng-click="deleteLanguage($event, language)" class="md-raised md-warn">
-                    <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
-                </md-button>
-            </md-card-actions>
-        </md-card>
+                    <md-button ng-click="openLanguage(language)" class="md-raised md-primary">
+                        <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
+                    </md-button>
+                    <md-button ng-click="deleteLanguage($event, language)" class="md-raised md-warn">
+                        <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
+                    </md-button>
+                </md-card-actions>
+            </md-card>
 
-        <md-card ng-if="listLanguages.length === 0">
-          <p class="md-headline center">{{'pages.hub.noLanguages' | i18next}}</p>
-          <img ng-src="images/no-languages.png" class="md-card-image" alt="">
-        </md-card>
+            <md-card ng-if="listLanguages.length === 0">
+                <p class="md-headline center">{{'pages.hub.noLanguages' | i18next}}</p>
+                <img ng-src="images/no-languages.png" class="md-card-image" alt="">
+            </md-card>
+        </div>
+
+        <md-list ng-if="selectedDisplayFormat === 'list'">
+            <div class="md-whiteframe-2dp">
+                <md-subheader>{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
+                <md-list-item ng-repeat="language in listLanguages track by language" ng-click="openLanguage(language)">
+                    <img ng-src="images/flags/{{language}}.png" alt="Flag {{language}}" class="flag"/> <span>{{language | uppercase}}</span>
+                    <span flex></span>
+                    <md-button ng-click="downloadLanguage(language)" class="md-primary md-icon-button"><md-icon>get_app</md-icon></md-button>
+                    <md-button ng-click="deleteLanguage($event, language)" class="md-warn md-icon-button"><md-icon>delete</md-icon></md-button>
+                </md-list-item>
+            </div>
+        </md-list>
     </div>
 
     <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">

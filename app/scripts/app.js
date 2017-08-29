@@ -48,6 +48,7 @@ angular
     $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
     $rootScope.locale = 'en'
+    $rootScope.selectedDisplayFormat = 'card'
 
     window.i18next.use(window.i18nextXHRBackend)
 
