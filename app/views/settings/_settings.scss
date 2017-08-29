@@ -6,4 +6,21 @@
   .select-item {
     min-width: 12em;
   }
+
+  .theming {
+    .md-button.md-fab {
+      border-radius: 25%;
+      width: 60px;
+
+      .md-ripple-container {
+        border-radius: 25%;
+      }
+    }
+
+    .md-button {
+      border-radius: 0;
+      margin: 0 2px 15px 0;
+      padding: 0;
+    }
+  }
 }
