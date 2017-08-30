@@ -2,7 +2,7 @@
 
 describe('Breadcrumb Service', function () {
   var mock, Breadcrumb
-  var lang = 'en'
+  var language = 'en'
   beforeEach(module('serinaApp'))
 
   beforeEach(function () {
@@ -32,20 +32,20 @@ describe('Breadcrumb Service', function () {
   it('should append level is correct', function () {
     var currentBreadcrumb = [{ label: 'home', href: '/' }]
     var groups = 'dialog'
-    var breadcrumbResult = Breadcrumb.build(currentBreadcrumb, lang, groups)
+    var breadcrumbResult = Breadcrumb.build(currentBreadcrumb, language, groups)
 
-    expect(breadcrumbResult).toEqual([{ label: 'home', href: '/' }, { label: 'dialog', href: '/lang/en/dialog' }])
-    expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }, { label: '', href: '/lang/en' }])
+    expect(breadcrumbResult).toEqual([{ label: 'home', href: '/' }, { label: 'dialog', href: '/language/en/dialog' }])
+    expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }, { label: '', href: '/language/en' }])
     expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }])
   })
 
   it('should build 3 level is correct', function () {
     var currentBreadcrumb = Breadcrumb.init('home', '/')
     var groups = 'commons/dialog/action'
-    var breadcrumbResult = Breadcrumb.build(currentBreadcrumb, lang, groups)
+    var breadcrumbResult = Breadcrumb.build(currentBreadcrumb, language, groups)
 
-    expect(breadcrumbResult).toEqual([{ label: 'home', href: '/' }, { label: 'commons', href: '/lang/en/commons' }, { label: 'dialog', href: '/lang/en/commons/dialog' }, { label: 'action', href: '/lang/en/commons/dialog/action' }])
-    expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }, { label: 'commons', href: '/lang/en/commons' }])
+    expect(breadcrumbResult).toEqual([{ label: 'home', href: '/' }, { label: 'commons', href: '/language/en/commons' }, { label: 'dialog', href: '/language/en/commons/dialog' }, { label: 'action', href: '/language/en/commons/dialog/action' }])
+    expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }, { label: 'commons', href: '/language/en/commons' }])
     expect(breadcrumbResult).not.toEqual([{ label: 'home', href: '/' }])
   })
 })
