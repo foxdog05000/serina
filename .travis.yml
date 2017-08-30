@@ -10,7 +10,6 @@ before_install:
   - gem install compass
   - npm install -g yarn --cache-min 999999999
   - npm install -g bower grunt-cli
-  - npm install -g node-rcedit
 install:
   - yarn
 script:
