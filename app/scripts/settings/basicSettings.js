@@ -6,16 +6,13 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
     templateUrl: 'views/settings/basic-settings.html',
     link: function (scope) {
 
-      scope.selectedLanguage = $rootScope.settings.locale
-      scope.selectedDisplayFormat = $rootScope.settings.selectedDisplayFormat
-
       scope.displayFormat = [
         { label: 'card', icon: 'view_agenda' },
         { label: 'list', icon: 'list' }
       ]
 
-      scope.changeDisplayFormat = function () {
-        $rootScope.settings.selectedDisplayFormat = scope.selectedDisplayFormat
+      scope.changeDisplayFormat = function (format) {
+        $rootScope.settings.selectedDisplayFormat = format
         LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
       }
 
@@ -24,8 +21,8 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
         { code: 'fr'}
       ]
 
-      scope.changeLocaleOfApplication = function () {
-        $rootScope.settings.locale = scope.selectedLanguage
+      scope.changeLocaleOfApplication = function (language) {
+        $rootScope.settings.locale = language
         window.i18next.changeLanguage($rootScope.settings.locale)
         LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
       }

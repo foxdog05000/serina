@@ -3,8 +3,11 @@
     background-color: $white;
   }
 
-  .select-item {
-    min-width: 12em;
+  .flag {
+    width: 2em;
+    position: relative;
+    padding-right: 1em;
+    top: 4px;
   }
 
   .indigo, .green, .orange, .purple, .brown, .grey {

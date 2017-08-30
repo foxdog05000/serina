@@ -1,21 +1,15 @@
 <md-subheader class="md-no-sticky"><md-icon>widgets</md-icon> {{'pages.settings.basic.title' | i18next}}</md-subheader>
 <md-list-item>
     <p>{{'pages.settings.basic.choiceDisplayFormatOfLanguages' | i18next}}</p>
-    <md-input-container>
-        <label>{{'pages.settings.basic.selectDisplayFormat' | i18next}}</label>
-        <md-select ng-model="selectedDisplayFormat" class="select-item" ng-change="changeDisplayFormat()">
-            <md-option ng-repeat="format in displayFormat" ng-value="format.label"><md-icon>{{format.icon}}</md-icon> {{format.label}}</md-option>
-        </md-select>
-    </md-input-container>
+    <md-button ng-repeat="format in displayFormat" ng-class="{'md-raised md-primary': settings.selectedDisplayFormat === format.label}" ng-click="changeDisplayFormat(format.label)">
+        <md-icon>{{format.icon}}</md-icon> {{format.label}}
+    </md-button>
 </md-list-item>
 <md-list-item>
     <p>{{'pages.settings.basic.choiceLanguageOfApp' | i18next}}</p>
-    <md-input-container>
-        <label>{{'pages.settings.basic.selectLanguage' | i18next}}</label>
-        <md-select ng-model="selectedLanguage" ng-change="changeLocaleOfApplication()" class="select-item">
-            <md-option ng-repeat="language in languages" ng-value="language.code">{{language.code}}</md-option>
-        </md-select>
-    </md-input-container>
+    <md-button ng-repeat="language in languages" ng-class="{'md-raised md-primary': settings.locale === language.code}" ng-click="changeLocaleOfApplication(language.code)">
+        <img ng-src="images/flags/{{language.code}}.png" alt="" class="flag"/> {{language.code | uppercase}}
+    </md-button>
 </md-list-item>
 
 <md-divider></md-divider>
