@@ -70,20 +70,21 @@ angular
 
     $mdThemingProvider.alwaysWatchTheme(true)
   })
-  .run(function ($rootScope, $mdSidenav) {
+  .run(function ($rootScope, $mdSidenav, LocalStorage) {
     $rootScope.loading = true
     $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
+    $rootScope.keySettingsApp = 'serinaSettings'
 
-    if (localStorage.getItem('serinaSettings') === null) {
+    if (LocalStorage.itemExist($rootScope.keySettingsApp)) {
+      $rootScope.settings = LocalStorage.getItem($rootScope.keySettingsApp)
+    } else {
       $rootScope.settings = {
         locale: 'en',
         theme: 'green',
         selectedDisplayFormat: 'card'
       }
-      localStorage.setItem('serinaSettings', JSON.stringify($rootScope.settings))
-    } else {
-      $rootScope.settings = JSON.parse(localStorage.getItem('serinaSettings'))
+      LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
     }
 
     window.i18next.use(window.i18nextXHRBackend)
