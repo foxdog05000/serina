@@ -8,7 +8,7 @@ You're welcome to contribute to the source code, unit tests.
 
 ### Contributing to source code
 
-If you've found a bug and would like to fix it, submit a PR and include a fiddle with reproduces the bug.
+If you've found a bug and would like to fix it, submit a PR and include details or screens with reproduces the bug.
 
 If you want to bring a feature, consider writing and contributing to a feature, please create a tests units, submit your PR and enjoy !
 
