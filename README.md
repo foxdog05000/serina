@@ -1,4 +1,4 @@
-Serina
+Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 ======
 
 [![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
@@ -6,7 +6,7 @@ Serina
 
 > App for create translation files for i18next
 
-![Serina Screenshot](https://github.com/foxdog05000/serina/blob/master/sample.png)
+![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
 _Serina R0.1_
 
