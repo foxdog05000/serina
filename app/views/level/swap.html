@@ -1,0 +1,19 @@
+<md-content ng-if="breadcrumb.length === 1" class="swap md-padding md-whiteframe-2dp">
+    <md-input-container class="md-icon-float md-block">
+      <label>{{'commons.language' | i18next}}</label>
+      <md-icon>flag</md-icon>
+      <input ng-model="currentLanguage" type="text" readonly>
+    </md-input-container>
+
+    <md-icon>compare_arrows</md-icon>
+
+    <md-input-container class="md-icon-float md-block">
+      <label>{{'commons.language' | i18next}}</label>
+      <md-icon>flag</md-icon>
+      <input ng-model="secondLanguage" ng-change="getSecondLanguage(secondLanguage)" type="text">
+    </md-input-container>
+
+    <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="secondLanguage.length < 2">
+        <md-icon>done</md-icon> {{'commons.actions.validate' | i18next}}
+    </md-button>
+</md-content>

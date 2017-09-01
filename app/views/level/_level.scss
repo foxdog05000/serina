@@ -1,5 +1,19 @@
 .level {
-  md-list-item, .md-subheader {
+  .swap {
+    margin: 8px 8px 8px 0px;
+
+    > md-icon {
+      display: block;
+      margin: auto;
+      width: 1em;
+    }
+
+    input {
+      text-transform: uppercase;
+    }
+  }
+
+  md-list-item, .md-subheader, .swap {
     background-color: $white;
   }
 
