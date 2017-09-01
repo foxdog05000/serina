@@ -13,7 +13,7 @@
       <input ng-model="secondLanguage" ng-change="getSecondLanguage(secondLanguage)" type="text">
     </md-input-container>
 
-    <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="secondLanguage.length < 2">
+    <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="disabledSwap">
         <md-icon>done</md-icon> {{'commons.actions.validate' | i18next}}
     </md-button>
 </md-content>

@@ -6,8 +6,11 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
     templateUrl: 'views/level/swap.html',
     link: function (scope) {
 
+      scope.disabledSwap = false
+
       scope.getSecondLanguage = function (secondLanguage) {
         $rootScope.secondLanguage = secondLanguage
+        scope.disabledSwap = scope.currentLanguage === secondLanguage || secondLanguage.length < 2
       }
 
       var appendTranslationOfSecondLanguage = function (content, levels) {
