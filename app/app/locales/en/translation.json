@@ -97,7 +97,7 @@
     "aGroup": "a group",
     "aTranslation": "a translation",
     "key": "key",
-    "message": "message",
+    "value": "message",
     "availableOnVersion": "Available in version"
   }
 }
