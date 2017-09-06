@@ -1,5 +1,9 @@
-<md-card ng-if="listTranslations.length > 0">
+<md-card layout="row">
     <md-subheader>{{'commons.translation' | i18next}}<span ng-if="listTranslations.length > 1">s</span></md-subheader>
+    <span flex></span>
+    <md-button ng-click="addTranslation()" class="md-primary md-raised" flex="50" flex-sm="70" flex-xl="30">
+        <md-icon>add</md-icon> {{'commons.actions.add' | i18next}} {{'commons.aTranslation' | i18next}}
+    </md-button>
 </md-card>
 
 <md-card ng-repeat="translation in listTranslations | orderBy: 'key'">
@@ -27,7 +31,3 @@
         </md-input-container>
     </md-card-content>
 </md-card>
-
-<md-button ng-click="addTranslation()" class="md-primary md-raised">
-    <md-icon>add</md-icon> {{'commons.actions.add' | i18next}} {{'commons.aTranslation' | i18next}}
-</md-button>
