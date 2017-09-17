@@ -3,6 +3,10 @@
     background-color: $white;
   }
 
+  #buttonBackToTop {
+    visibility: hidden;
+  }
+
   translation {
     .layout-column {
       padding: 0 16px;
