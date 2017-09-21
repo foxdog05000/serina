@@ -3,7 +3,6 @@
 angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, $anchorScroll, DataAccessor, Breadcrumb) {
   $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
   var originatorEv
-  var pageOffset = document.documentElement.scrollTop || document.body.scrollTop
 
   var getListGroupsAndTranslations = function (content, levels) {
     $scope.listGroups = []
@@ -64,7 +63,6 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     console.error('Error on open language ' + $scope.currentLanguage, response)
   })
 
-  document.getElementById('buttonBackToTop').style.visibility = 'hidden'
   var scrollObject = {}
   window.onscroll = getScrollPosition
 
