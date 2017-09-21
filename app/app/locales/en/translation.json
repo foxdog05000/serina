@@ -96,6 +96,8 @@
     "format": "Format",
     "aGroup": "a group",
     "aTranslation": "a translation",
+    "noGroup": "Aucun groupe",
+    "noTranslation": "Aucune traduction",
     "key": "key",
     "value": "message",
     "availableOnVersion": "Available in version"

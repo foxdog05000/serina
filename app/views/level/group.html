@@ -12,5 +12,9 @@
             <md-icon class="md-secondary md-hue-3" ng-click="opendDialogUpdateGroupe($event, group)" aria-label="update group">edit</md-icon>
             <md-icon class="md-secondary md-hue-3 md-warn" ng-click="openDialogDeleteGroup($event, group)" aria-label="delete group">delete</md-icon>
         </md-list-item>
+
+        <md-list-item ng-if="listGroups.length === 0">
+            <p>{{'commons.noGroup' | i18next}}</p>
+        </md-list-item>
     </div>
 </md-list>
