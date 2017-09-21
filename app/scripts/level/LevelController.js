@@ -45,16 +45,19 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     console.error('Error on open language ' + $scope.currentLanguage, response)
   })
 
-  var scrollObject = {};
-  window.onscroll = getScrollPosition;
+  document.getElementById('buttonBackToTop').style.visibility = 'hidden'
+  var scrollObject = {}
+  window.onscroll = getScrollPosition
 
-  function getScrollPosition(){
+  function getScrollPosition () {
     scrollObject = {
        x: window.pageXOffset,
        y: window.pageYOffset
     }
-    if(scrollObject.y > 200) {
-      document.getElementById('buttonBackToTop').style.visibility = 'visible'
+    if (scrollObject.y > 200) {
+      if (document.getElementById('buttonBackToTop').style.visibility === 'hidden') {
+        document.getElementById('buttonBackToTop').style.visibility = 'visible'
+      }
     } else {
       document.getElementById('buttonBackToTop').style.visibility = 'hidden'
     }
