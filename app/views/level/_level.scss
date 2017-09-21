@@ -3,11 +3,18 @@
     background-color: $white;
   }
 
-  #buttonBackToTop {
+  .buttonReturn, #buttonBackToTop {
     bottom: 0;
     position: fixed;
-    right: 0;
     -webkit-transform: translate3d(0,0,0);
+  }
+
+  .buttonReturn {
+    left: 0;
+  }
+
+  #buttonBackToTop {
+    right: 0;
   }
 
   translation {
