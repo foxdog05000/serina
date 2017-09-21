@@ -53,7 +53,6 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
        x: window.pageXOffset,
        y: window.pageYOffset
     }
-    console.log('scrollObject', scrollObject);
     if(scrollObject.y > 200) {
       document.getElementById('buttonBackToTop').style.visibility = 'visible'
     } else {
