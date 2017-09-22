@@ -96,8 +96,10 @@
     "format": "Format",
     "aGroup": "a group",
     "aTranslation": "a translation",
+    "noGroup": "No group",
+    "noTranslation": "No translation",
     "key": "key",
-    "message": "message",
+    "value": "message",
     "availableOnVersion": "Available in version"
   }
 }

@@ -10,4 +10,5 @@
 @import "level/level";
 @import "settings/settings";
 
+body.md-toast-animating { overflow: auto !important; }
 .center { text-align: center;}

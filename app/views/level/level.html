@@ -8,9 +8,14 @@
         </div>
     </div>
     <div layout="row">
-      <div flex-xs flex-gt-xs="20"></div>
-      <md-button ng-click="btnBack()">
+      <md-button class="buttonReturn" ng-click="btnBack()">
         <md-icon>reply</md-icon> {{'commons.actions.return' | i18next}}
+      </md-button>
+
+      <div flex></div>
+
+      <md-button class="md-primary md-raised" id="buttonBackToTop" ng-click="gotoTop()">
+        <md-icon>eject</md-icon>
       </md-button>
     </div>
 </div>

@@ -15,6 +15,8 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+    minWidth: 800,
+    minHeight: 600,
     width: 1366,
     height: 768,
     icon: path.join(__dirname, '/icons/icon-x64.ico')

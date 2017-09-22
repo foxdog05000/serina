@@ -1,6 +1,21 @@
 .level {
-  md-list-item, .md-subheader {
+  md-list-item, .md-subheader, group div.layout-row {
     background-color: $white;
+  }
+
+  .buttonReturn, #buttonBackToTop {
+    bottom: 0;
+    position: fixed;
+    -webkit-transform: translate3d(0,0,0);
+  }
+
+  .buttonReturn {
+    left: 0;
+  }
+
+  #buttonBackToTop {
+    right: 0;
+    visibility: hidden;
   }
 
   translation {

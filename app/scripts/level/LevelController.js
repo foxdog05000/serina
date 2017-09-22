@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, DataAccessor, Breadcrumb) {
+angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, $anchorScroll, DataAccessor, Breadcrumb) {
   $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
   var originatorEv
 
@@ -23,7 +23,31 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   }
 
   $scope.btnBack = function () {
-    window.history.back()
+    var currentUrl = $location.$$url
+    if (currentUrl === '/language/' + $scope.currentLanguage) {
+      $location.path('/hub')
+    } else {
+      var currentUrlSplit = currentUrl.split('/')
+      currentUrlSplit.pop()
+      var newUrl = ''
+      var iterator = 0;
+      angular.forEach(currentUrlSplit, function (level) {
+        if (level === '') {
+          newUrl += '/'
+          iterator++
+        } else {
+          newUrl += level
+          newUrl += iterator < currentUrlSplit.length - 1 ? '/' : ''
+          iterator++
+        }
+      })
+      $location.path(newUrl)
+    }
+  }
+
+  $scope.gotoTop = function () {
+    $location.hash('backToTop')
+    $anchorScroll()
   }
 
   $scope.openMenu = function ($mdMenu, ev) {
@@ -38,4 +62,22 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   }, function (response) {
     console.error('Error on open language ' + $scope.currentLanguage, response)
   })
+
+  var scrollObject = {}
+  window.onscroll = getScrollPosition
+
+  function getScrollPosition () {
+    scrollObject = {
+       x: window.pageXOffset,
+       y: window.pageYOffset
+    }
+    if (scrollObject.y > 200) {
+      if (document.getElementById('buttonBackToTop').style.visibility === 'hidden') {
+        document.getElementById('buttonBackToTop').style.visibility = 'visible'
+      }
+    } else {
+      document.getElementById('buttonBackToTop').style.visibility = 'hidden'
+    }
+  }
+
 })
