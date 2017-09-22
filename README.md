@@ -8,7 +8,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.1_
+_Serina R0.1.1_
 
 ## Download
 Serina can be downloaded [here](https://github.com/foxdog05000/serina/releases). Available versions for Linux and Windows (64bits). _MacOS available to later_
