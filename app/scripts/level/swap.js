@@ -28,7 +28,6 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
       }
 
       var appendTranslationOfSecondLanguage = function (content, levels) {
-
         if (!angular.isUndefined(levels)) {
           levels = levels.replace(/\//g, '.')
           content = eval('content.' + levels)
