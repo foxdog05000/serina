@@ -8,6 +8,20 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
 
       scope.disabledSwap = false
 
+      var getListLanguagesForSwap = function () {
+        scope.languagesForSwap = []
+        DataAccessor.getListLanguages().then(function (response) {
+          var listAllLangages = response.data.listLanguages
+          angular.forEach(listAllLangages, function (language) {
+            if (language !== scope.currentLanguage) {
+              scope.languagesForSwap.push(language)
+            }
+          })
+        }, function (response) {
+          console.error('Error on recover list languages for swap', response)
+        })
+      }
+
       scope.getSecondLanguage = function (secondLanguage) {
         $rootScope.secondLanguage = secondLanguage
         scope.disabledSwap = scope.currentLanguage === secondLanguage || secondLanguage.length < 2
@@ -38,6 +52,8 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
           console.error('Error on open second language ' + $rootScope.secondLanguage, response)
         })
       }
+
+      getListLanguagesForSwap()
 
     }
   }

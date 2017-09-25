@@ -10,7 +10,11 @@
     <md-input-container class="md-icon-float md-block">
       <label>{{'commons.language' | i18next}}</label>
       <md-icon>flag</md-icon>
-      <input ng-model="secondLanguage" ng-change="getSecondLanguage(secondLanguage)" type="text">
+      <md-select ng-model="secondLanguage">
+        <md-option ng-repeat="language in languagesForSwap track by language" ng-value="{{language}}" ng-click="getSecondLanguage(language)" ng-selected="secondLanguage === language">
+          {{language}}
+        </md-option>
+      </md-select>
     </md-input-container>
 
     <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="disabledSwap">
