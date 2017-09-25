@@ -30,7 +30,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
       var currentUrlSplit = currentUrl.split('/')
       currentUrlSplit.pop()
       var newUrl = ''
-      var iterator = 0;
+      var iterator = 0
       angular.forEach(currentUrlSplit, function (level) {
         if (level === '') {
           newUrl += '/'
@@ -57,7 +57,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
 
   $scope.currentLanguage = $routeParams.language.toLowerCase()
   if (angular.isUndefined($rootScope.secondLanguage)) {
-    $rootScope.secondLanguage = '';
+    $rootScope.secondLanguage = ''
   }
   DataAccessor.openLanguage($scope.currentLanguage).then(function (response) {
     getListGroupsAndTranslations(response.data, $routeParams.levels)
@@ -74,8 +74,8 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
 
   function getScrollPosition () {
     scrollObject = {
-       x: window.pageXOffset,
-       y: window.pageYOffset
+      x: window.pageXOffset,
+      y: window.pageYOffset
     }
     if (scrollObject.y > 200) {
       if (document.getElementById('buttonBackToTop').style.visibility === 'hidden') {
