@@ -42,6 +42,14 @@
       "validate": "Valider",
       "cancel": "Annuler"
     },
+    "themeColor": {
+      "brown": "Marron",
+      "green": "Vert",
+      "grey": "Gris",
+      "indigo": "Indigo",
+      "orange": "Orange",
+      "purple": "Violet"
+    },
     "dialog": {
       "addGroup": {
         "title": "Ajouter un nouveau groupe",
