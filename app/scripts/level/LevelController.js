@@ -70,8 +70,6 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   })
 
   var scrollObject = {}
-  window.onscroll = getScrollPosition
-
   function getScrollPosition () {
     scrollObject = {
       x: window.pageXOffset,
@@ -85,5 +83,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
       document.getElementById('buttonBackToTop').style.visibility = 'hidden'
     }
   }
+
+  window.onscroll = getScrollPosition
 
 })
