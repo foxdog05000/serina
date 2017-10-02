@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, $anchorScroll, DataAccessor, Breadcrumb) {
+angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, DataAccessor, Breadcrumb) {
   $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
   var originatorEv
 
@@ -45,11 +45,6 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     }
   }
 
-  $scope.gotoTop = function () {
-    $location.hash('backToTop')
-    $anchorScroll()
-  }
-
   $scope.openMenu = function ($mdMenu, ev) {
     originatorEv = ev
     $mdMenu.open(ev)
@@ -68,22 +63,5 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   }, function (response) {
     console.error('Error on open language ' + $scope.currentLanguage, response)
   })
-
-  var scrollObject = {}
-  function getScrollPosition () {
-    scrollObject = {
-      x: window.pageXOffset,
-      y: window.pageYOffset
-    }
-    if (scrollObject.y > 200) {
-      if (document.getElementById('buttonBackToTop').style.visibility === 'hidden') {
-        document.getElementById('buttonBackToTop').style.visibility = 'visible'
-      }
-    } else {
-      document.getElementById('buttonBackToTop').style.visibility = 'hidden'
-    }
-  }
-
-  window.onscroll = getScrollPosition
 
 })
