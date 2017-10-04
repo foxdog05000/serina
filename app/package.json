@@ -15,6 +15,6 @@
   "author": "Florian Armand Alias Foxdog05000",
   "license": "MIT",
   "devDependencies": {
-    "electron": "~1.6.11"
+    "electron": "1.8.1"
   }
 }
