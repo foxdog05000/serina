@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('basicSettings', function ($rootScope, $mdColorPalette, LocalStorage) {
+angular.module('serinaApp').directive('basicSettings', function ($rootScope, $mdColorPalette, $i18next, LocalStorage) {
   return {
     restrict: 'E',
     templateUrl: 'views/settings/basic-settings.html',
@@ -27,7 +27,16 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
         LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
       }
 
-      scope.colors = ['indigo', 'green', 'orange', 'purple', 'brown', 'grey']
+      console.log($i18next.t('commons.themeColor.indigo'));
+
+      scope.colors = [
+        { label: 'commons.themeColor.indigo', value: 'indigo' },
+        { label: 'commons.themeColor.green', value: 'green' },
+        { label: 'commons.themeColor.orange', value: 'orange' },
+        { label: 'commons.themeColor.purple', value: 'purple' },
+        { label: 'commons.themeColor.brown', value: 'brown' },
+        { label: 'commons.themeColor.grey', value: 'grey' }
+      ]
 
       scope.changeColor = function (color) {
         $rootScope.settings.theme = color
