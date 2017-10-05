@@ -11,11 +11,12 @@ angular.module('serinaApp').factory('DataManager', function () {
             if (element === item) {
               itemFind = true
             }
-            break;
+            break
           case 'trad':
             if (element.key === item && element.save) {
               itemFind = true
             }
+            break
           default:
             if (element === item) {
               itemFind = true
