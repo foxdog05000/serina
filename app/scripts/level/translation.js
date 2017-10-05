@@ -40,7 +40,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         ev.stopPropagation()
         if (!translation.save) {
           if (translation.key !== '' && translation.value !== '' && !DataManager.find(scope.listTranslations, translation.key, 'trad')) {
-            DataAccessor.addTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
+            DataAccessor.addTranslation(scope.language[0], $routeParams.levels, translation).then(function () {
               translation.save = true
               translation.nbModified = 0
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTranslation.success', { translation: translation.key }), 'good')
@@ -53,7 +53,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
           }
         } else {
-          DataAccessor.majTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
+          DataAccessor.majTranslation(scope.language[0], $routeParams.levels, translation).then(function () {
             translation.modified = false
             Toast.showCustomToast('check', $i18next.t('commons.toast.majTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {
@@ -68,7 +68,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         if (!translation.save) {
           scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
         } else {
-          DataAccessor.deleteTranslation(scope.currentLanguage, $routeParams.levels, translation).then(function () {
+          DataAccessor.deleteTranslation(scope.language[0], $routeParams.levels, translation).then(function () {
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {

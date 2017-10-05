@@ -24,7 +24,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
 
   $scope.btnBack = function () {
     var currentUrl = $location.$$url
-    if (currentUrl === '/language/' + $scope.currentLanguage) {
+    if (currentUrl === '/language/' + $scope.language[0]) {
       $location.path('/hub')
     } else {
       var currentUrlSplit = currentUrl.split('/')
@@ -50,18 +50,19 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     $mdMenu.open(ev)
   }
 
-  $scope.currentLanguage = $routeParams.language.toLowerCase()
-  $rootScope.secondLanguage = SecondLanguage.definedSecondLanguage($rootScope.secondLanguage);
-  DataAccessor.openLanguage($scope.currentLanguage).then(function (response) {
+  $scope.language = []
+  $scope.language.push($routeParams.language.toLowerCase())
+  $rootScope.secondLanguage = SecondLanguage.definedSecondLanguage($rootScope.secondLanguage)
+  DataAccessor.openLanguage($scope.language[0]).then(function (response) {
     getListGroupsAndTranslations(response.data, $routeParams.levels)
 
     if ($rootScope.secondLanguageIsValid) {
-      $rootScope.secondLanguageIsValid = true;
+      $rootScope.secondLanguageIsValid = true
       $scope.recoverSecondaryLanguage($rootScope.secondLanguage)
     }
-    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLanguage, $routeParams.levels)
+    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.language[0], $routeParams.levels)
   }, function (response) {
-    console.error('Error on open language ' + $scope.currentLanguage, response)
+    console.error('Error on open language ' + $scope.language[0], response)
   })
 
 })
