@@ -117,92 +117,108 @@ app.get(pathApi + '/download/:language', function (req, res) {
   res.sendFile(pathJsonFile + req.params.language + '.json')
 })
 
-app.post(pathApi + '/:language/group/:action', function (req, res) {
+app.post(pathApi + '/group/:action', function (req, res) {
   const action = req.params.action
-  let file = pathJsonFile + req.params.language + '.json'
+  const languages = req.body.languages
+
+  let files = []
+  files.map((file, index) => {
+    files[index] = pathJsonFile + languages[index] + '.json'
+  })
+  console.log('files', files)
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let groupName = req.body.groupName
   let originalGroupName = req.body.originalGroupName
   let i = 0
 
-  jsonfile.readFile(file, function (err, obj) {
-    if (err) { console.log('Error on read json file', err) }
-    switch (action) {
-      case ADD:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, groupName)
-        } else {
-          obj[groupName] = {}
-        }
-        break
-      case UPD:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, originalGroupName, groupName)
-        } else {
-          let contentOfGroup = obj[originalGroupName]
-          delete obj[originalGroupName]
-          obj[groupName] = contentOfGroup
-        }
-        break
-      case DEL:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, groupName)
-        } else {
-          delete obj[groupName]
-        }
-        break
-    }
+  files.map((file, index) => {
+    jsonfile.readFile(file, function (err, obj) {
+      if (err) { console.log('Error on read json file : ' + file, 'err', err) }
+      switch (action) {
+        case ADD:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, groupName)
+          } else {
+            obj[groupName] = {}
+          }
+          break
+        case UPD:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, originalGroupName, groupName)
+          } else {
+            let contentOfGroup = obj[originalGroupName]
+            delete obj[originalGroupName]
+            obj[groupName] = contentOfGroup
+          }
+          break
+        case DEL:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, groupName)
+          } else {
+            delete obj[groupName]
+          }
+          break
+      }
 
-    jsonfile.writeFile(file, obj, function (err) {
-      if (err) { return console.log('Error on ' + action + ' group name on json file', err) }
-      res.sendStatus(200)
+      jsonfile.writeFile(file, obj, function (err) {
+        if (err) { return console.log('Error on ' + action + ' group name on json file : ' + file, 'err', err) }
+        res.sendStatus(200)
+      })
     })
   })
 })
 
-app.post(pathApi + '/:language/translation/:action', function (req, res) {
+app.post(pathApi + '/translation/:action', function (req, res) {
   const action = req.params.action
-  let file = pathJsonFile + req.params.language + '.json'
+  const languages = req.body.languages
+
+  let files = []
+  files.map((file, index) => {
+    files[index] = pathJsonFile + languages[index] + '.json'
+  })
+  console.log('files', files)
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let translation = req.body.translation
   let i = 0
 
-  jsonfile.readFile(file, function (err, obj) {
-    if (err) { console.log('Error on read json file', err) }
-    switch (action) {
-      case ADD:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, translation)
-        } else {
-          obj[translation.key] = translation.value
-        }
-        break
-      case UPD:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, translation)
-        } else {
-          if (translation.originalKey === translation.key) {
-            obj[translation.key] = translation.value
+  files.map((file, index) => {
+    jsonfile.readFile(file, function (err, obj) {
+      if (err) { console.log('Error on read json file : ' + file, 'err', err) }
+      switch (action) {
+        case ADD:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, translation)
           } else {
-            delete obj[translation.originalKey]
-            obj[translation.key] = translation.value
+            obj[translation.key] = translation.value[index]
           }
-        }
-        break
-      case DEL:
-        if (levelsIsDefined) {
-          targetLevelForAction(obj, levels, i, action, translation)
-        } else {
-          delete obj[translation.key]
-        }
-        break
-    }
+          break
+        case UPD:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, translation)
+          } else {
+            if (translation.originalKey === translation.key) {
+              obj[translation.key] = translation.value[index]
+            } else {
+              delete obj[translation.originalKey]
+              obj[translation.key] = translation.value[index]
+            }
+          }
+          break
+        case DEL:
+          if (levelsIsDefined) {
+            targetLevelForAction(obj, levels, i, action, translation)
+          } else {
+            delete obj[translation.key]
+          }
+          break
+      }
 
-    jsonfile.writeFile(file, obj, function (err) {
-      if (err) { return console.log('Error on ' + action + ' trad on json file', err) }
-      res.sendStatus(200)
+      jsonfile.writeFile(file, obj, function (err) {
+        if (err) { return console.log('Error on ' + action + ' trad on json file : ' + file, 'err', err) }
+        res.sendStatus(200)
+      })
     })
   })
 })
