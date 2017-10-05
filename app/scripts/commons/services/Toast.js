@@ -12,6 +12,6 @@ angular.module('serinaApp').factory('Toast', function ($mdToast) {
         template: '<md-toast><md-icon class="material-icons">' + icon + '</md-icon><span class="md-toast-text" flex>' + text + '</span></md-toast>'
       })
     }
-    
+
   }
 })
