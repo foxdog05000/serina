@@ -7,6 +7,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
     link: function (scope) {
 
       scope.disabledSwap = $rootScope.secondLanguage === ''
+      $rootScope.secondLanguageIsValid = false
 
       var getListLanguagesForSwap = function () {
         scope.languagesForSwap = []
@@ -45,8 +46,10 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
       }
 
       scope.recoverSecondaryLanguage = function () {
+        $rootScope.secondLanguageIsValid = false
         DataAccessor.openLanguage($rootScope.secondLanguage).then(function (response) {
           appendTranslationOfSecondLanguage(response.data, $routeParams.levels)
+          $rootScope.secondLanguageIsValid = true
         }, function (response) {
           console.error('Error on open second language ' + $rootScope.secondLanguage, response)
         })

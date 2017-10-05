@@ -55,7 +55,8 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   DataAccessor.openLanguage($scope.currentLanguage).then(function (response) {
     getListGroupsAndTranslations(response.data, $routeParams.levels)
 
-    if (SecondLanguage.secondLanguageIsValid()) {
+    if ($rootScope.secondLanguageIsValid) {
+      $rootScope.secondLanguageIsValid = true;
       $scope.recoverSecondaryLanguage($rootScope.secondLanguage)
     }
     $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLanguage, $routeParams.levels)
