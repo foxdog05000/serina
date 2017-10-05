@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('translation', function ($routeParams, $i18next, DataAccessor, DataManager, Toast) {
+angular.module('serinaApp').directive('translation', function ($rootScope, $routeParams, $i18next, DataAccessor, DataManager, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/level/translation.html',
@@ -29,7 +29,11 @@ angular.module('serinaApp').directive('translation', function ($routeParams, $i1
       }, true)
 
       scope.addTranslation = function () {
-        scope.listTranslations.push({ key: '', value: '', save: false, modified: false })
+        var patternTranslation = { key: '', value: '', save: false, modified: false }
+        if ($rootScope.secondLanguageIsValid) {
+          patternTranslation.secondValue = ''
+        }
+        scope.listTranslations.push(patternTranslation)
       }
 
       scope.sendTranslation = function (ev, translation) {
