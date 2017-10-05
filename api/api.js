@@ -125,7 +125,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
   languages.map((file, index) => {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
-  console.log('files', files)
+
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let groupName = req.body.groupName
@@ -172,13 +172,12 @@ app.post(pathApi + '/group/:action', function (req, res) {
 app.post(pathApi + '/translation/:action', function (req, res) {
   const action = req.params.action
   const languages = req.body.languages
-  console.log('languages', languages)
 
   let files = []
   languages.map((file, index) => {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
-  console.log('files', files)
+
   const levelsIsDefined = isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let translation = req.body.translation
