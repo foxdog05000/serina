@@ -17,14 +17,14 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
       if (angular.isObject(translation)) {
         $scope.listGroups.push(key)
       } else {
-        $scope.listTranslations.push({ key: key, value: translation, save: true, modified: false, nbModified: 0 })
+        $scope.listTranslations.push({ key: key, value: [translation], save: true, modified: false, nbModified: 0 })
       }
     })
   }
 
   $scope.btnBack = function () {
     var currentUrl = $location.$$url
-    if (currentUrl === '/language/' + $scope.language[0]) {
+    if (currentUrl === '/language/' + $scope.languages[0]) {
       $location.path('/hub')
     } else {
       var currentUrlSplit = currentUrl.split('/')
@@ -50,19 +50,19 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     $mdMenu.open(ev)
   }
 
-  $scope.language = []
-  $scope.language.push($routeParams.language.toLowerCase())
+  $scope.languages = []
+  $scope.languages.push($routeParams.language.toLowerCase())
   $rootScope.secondLanguage = SecondLanguage.definedSecondLanguage($rootScope.secondLanguage)
-  DataAccessor.openLanguage($scope.language[0]).then(function (response) {
+  DataAccessor.openLanguage($scope.languages[0]).then(function (response) {
     getListGroupsAndTranslations(response.data, $routeParams.levels)
 
-    if ($rootScope.secondLanguageIsValid) {
+    if (angular.isDefined($rootScope.secondLanguage) && $rootScope.secondLanguage.length === 2) {
       $rootScope.secondLanguageIsValid = true
       $scope.recoverSecondaryLanguage($rootScope.secondLanguage)
     }
-    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.language[0], $routeParams.levels)
+    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.languages[0], $routeParams.levels)
   }, function (response) {
-    console.error('Error on open language ' + $scope.language[0], response)
+    console.error('Error on open language ' + $scope.languages[0], response)
   })
 
 })

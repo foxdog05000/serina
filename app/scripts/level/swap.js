@@ -14,7 +14,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         DataAccessor.getListLanguages().then(function (response) {
           var listAllLangages = response.data.listLanguages
           angular.forEach(listAllLangages, function (language) {
-            if (language !== scope.language[0]) {
+            if (language !== scope.languages[0]) {
               scope.languagesForSwap.push(language)
             }
           })
@@ -25,7 +25,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
 
       scope.getSecondLanguage = function (secondLanguage) {
         $rootScope.secondLanguage = secondLanguage
-        scope.disabledSwap = scope.language[0] === secondLanguage || secondLanguage.length < 2
+        scope.disabledSwap = scope.languages[0] === secondLanguage || secondLanguage.length < 2
       }
 
       var appendTranslationOfSecondLanguage = function (content, levels) {
@@ -38,7 +38,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
           if (!angular.isObject(translation)) {
             angular.forEach(scope.listTranslations, function (translationInList) {
               if (key === translationInList.key) {
-                translationInList.secondValue = translation
+                translationInList.value.push(translation)
               }
             })
           }
@@ -50,6 +50,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         DataAccessor.openLanguage($rootScope.secondLanguage).then(function (response) {
           appendTranslationOfSecondLanguage(response.data, $routeParams.levels)
           $rootScope.secondLanguageIsValid = true
+          scope.languages.push($rootScope.secondLanguage)
         }, function (response) {
           console.error('Error on open second language ' + $rootScope.secondLanguage, response)
         })
