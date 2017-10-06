@@ -29,6 +29,12 @@
                     <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
                 </a>
             </h2>
+
+            <span flex></span>
+
+            <md-button ng-if="breadcrumb[0].href !== '/hub'" class="md-icon-button" aria-label="Home" href="#/hub">
+                <md-icon>home</md-icon>
+            </md-button>
         </div>
     </md-toolbar>
 
