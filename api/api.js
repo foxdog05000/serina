@@ -76,6 +76,52 @@ function targetLevelForAction (obj, levels, i, action, value, newValue) {
   }
 }
 
+function isArray (val) {
+  return Object.prototype.toString.call(val) === '[object Array]'
+}
+
+function isPlainObject (val) {
+  return Object.prototype.toString.call(val) === '[object Object]'
+}
+
+function sortJSON (un) {
+  let or = {}
+  if (isArray(un)) {
+    // Sort or don't sort arrays
+    if (document.getElementById('noarray').checked) {
+      or = un
+    } else {
+      or = un.sort()
+    }
+    or.forEach(function (v, i) {
+      or[i] = sortJSON(v)
+    })
+  } else if (isPlainObject(un)) {
+    or = {}
+    Object.keys(un).sort(function (a, b) {
+      if (a.toLowerCase() < b.toLowerCase()) return -1
+      if (a.toLowerCase() > b.toLowerCase()) return 1
+      return 0
+    }).forEach(function (key) {
+      or[key] = sortJSON(un[key])
+    })
+  } else {
+    or = un
+  }
+  return or
+}
+
+// Sort the JSON
+function sort (json) {
+  try {
+    let r = sortJSON(json)
+    return JSON.parse(JSON.stringify(r, null, 4))
+  } catch (ex) {
+    console.log('Incorrect JSON object')
+    return json
+  }
+}
+
 app.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
@@ -161,6 +207,8 @@ app.post(pathApi + '/group/:action', function (req, res) {
           break
       }
 
+      obj = sort(obj)
+
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' group name on json file : ' + file, 'err', err) }
       })
@@ -214,6 +262,8 @@ app.post(pathApi + '/translation/:action', function (req, res) {
           }
           break
       }
+
+      obj = sort(obj)
 
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' trad on json file : ' + file, 'err', err) }
