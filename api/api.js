@@ -1,3 +1,5 @@
+'use strict'
+
 let express = require('express')
 let bodyParser = require('body-parser')
 let jsonfile = require('jsonfile')
@@ -99,8 +101,8 @@ function sortJSON (un) {
   } else if (isPlainObject(un)) {
     or = {}
     Object.keys(un).sort(function (a, b) {
-      if (a.toLowerCase() < b.toLowerCase()) return -1
-      if (a.toLowerCase() > b.toLowerCase()) return 1
+      if (a.toLowerCase() < b.toLowerCase()) { return -1 }
+      if (a.toLowerCase() > b.toLowerCase()) { return 1 }
       return 0
     }).forEach(function (key) {
       or[key] = sortJSON(un[key])
@@ -144,7 +146,7 @@ app.get(pathApi + '/create/:language', function (req, res) {
 })
 
 app.get(pathApi + '/delete/:language', function (req, res) {
-  fs.stat(pathJsonFile + req.params.language + '.json', function (err, stats) {
+  fs.stat(pathJsonFile + req.params.language + '.json', function (err) {
     if (err) { return console.error(err) }
 
     fs.unlink(pathJsonFile + req.params.language + '.json', function (err) {
@@ -178,7 +180,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
   let originalGroupName = req.body.originalGroupName
   let i = 0
 
-  files.map((file, index) => {
+  files.map((file) => {
     jsonfile.readFile(file, function (err, obj) {
       if (err) { console.log('Error on read json file : ' + file, 'err', err) }
       switch (action) {
