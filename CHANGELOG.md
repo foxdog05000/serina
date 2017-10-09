@@ -6,6 +6,7 @@
 - Improvement of the translation and group management process in the application
 - Ui improvement to manage multiple languages
 - Add sortJson() for sort ASC json after CRUD
+- Improved download of the json file in order to keep the file formatting
 - Localize theme color on settings
 - Update version of electron (1.6.11 -> 1.8.1)
 - Add a home button
