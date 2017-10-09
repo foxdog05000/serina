@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('listLanguages', function ($i18next, $location, DataAccessor, Toast, Dialog) {
+angular.module('serinaApp').directive('listLanguages', function ($rootScope, $location, $i18next, DataAccessor, Toast, Dialog) {
   return {
     restrict: 'E',
     templateUrl: 'views/hub/list-languages.html',
@@ -56,10 +56,10 @@ angular.module('serinaApp').directive('listLanguages', function ($i18next, $loca
       }
 
       scope.downloadLanguage = function (language) {
-        DataAccessor.downloadLanguage(language).then(function (response) {
+        DataAccessor.downloadLanguage(language).then(function () {
           var anchor = angular.element('<a/>')
           anchor.attr({
-            href: 'data:attachment/json;charset=utf-8,' + encodeURI(JSON.stringify(response.data)),
+            href: $rootScope.endPoint + '/download/' + language,
             target: '_blank',
             download: 'translation.json'
           })[0].click()

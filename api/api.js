@@ -162,7 +162,8 @@ app.get(pathApi + '/open/:language', function (req, res) {
 })
 
 app.get(pathApi + '/download/:language', function (req, res) {
-  res.sendFile(pathJsonFile + req.params.language + '.json')
+  res.setHeader('Content-Type', 'application/json')
+  res.download(pathJsonFile + req.params.language + '.json')
 })
 
 app.post(pathApi + '/group/:action', function (req, res) {
