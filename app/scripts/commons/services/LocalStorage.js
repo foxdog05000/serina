@@ -4,7 +4,7 @@ angular.module('serinaApp').factory('LocalStorage', function () {
   return {
 
     itemExist: function (itemKey) {
-      return localStorage.getItem(itemKey) !== null;
+      return localStorage.getItem(itemKey) !== null
     },
 
     getItem: function (itemKey) {
