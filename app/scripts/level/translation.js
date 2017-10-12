@@ -49,6 +49,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
           if (translation.key !== '' && translation.value[0] !== '' && !DataManager.find(scope.listTranslations, translation.key, 'trad')) {
             DataAccessor.addTranslation(scope.languages, $routeParams.levels, translation).then(function () {
               translation.save = true
+              angular.copy(scope.listTranslations, scope.originalListTranslations)
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTranslation.success', { translation: translation.key }), 'good')
             }, function (response) {
               Toast.showCustomToast('warning', $i18next.t('commons.toast.addTranslation.fail', { translation: translation.key }), 'fail')
@@ -57,10 +58,12 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
           } else {
             Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addTranslation.translationExist', { translation: translation.key }), 'medium')
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
+            angular.copy(scope.listTranslations, scope.originalListTranslations)
           }
         } else {
           DataAccessor.majTranslation(scope.languages, $routeParams.levels, translation).then(function () {
             translation.modified = false
+            angular.copy(scope.listTranslations, scope.originalListTranslations)
             Toast.showCustomToast('check', $i18next.t('commons.toast.majTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.majTranslation.fail', { translation: translation.key }), 'fail')
@@ -76,6 +79,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         } else {
           DataAccessor.deleteTranslation(scope.languages, $routeParams.levels, translation).then(function () {
             scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
+            angular.copy(scope.listTranslations, scope.originalListTranslations)
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTranslation.fail', { translation: translation.key }), 'fail')
