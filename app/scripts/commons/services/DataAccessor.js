@@ -36,7 +36,6 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     addTranslation: function (languages, levels, translation) {
-      console.log('addTranslation', languages, levels, translation)
       return $http.post($rootScope.endPoint + '/translation/add', { languages: languages, levels: levels, translation: translation })
     },
 

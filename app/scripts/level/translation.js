@@ -12,20 +12,15 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
             if (!angular.isUndefined(newValue[iterator]) && (newValue[iterator].save && oldValue[iterator].save)) {
               if (!$rootScope.secondLanguageIsValid) {
                 if (angular.equals(newValue[iterator].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator].value[0], scope.originalListTranslations[iterator].value[0])) {
-                  console.log('item not modified')
                   scope.listTranslations[iterator].modified = false
                 } else {
-                  console.log('item modified')
                   scope.listTranslations[iterator].modified = true
                   scope.listTranslations[iterator].originalKey = scope.originalListTranslations[iterator].key
                 }
               } else {
-                console.log('secondLanguageIsValid', $rootScope.secondLanguage)
                 if (angular.equals(newValue[iterator].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator].value[0], scope.originalListTranslations[iterator].value[0])  && angular.equals(newValue[iterator].value[1], scope.originalListTranslations[iterator].value[1])) {
-                  console.log('item not modified')
                   scope.listTranslations[iterator].modified = false
                 } else {
-                  console.log('item modified')
                   scope.listTranslations[iterator].modified = true
                   scope.listTranslations[iterator].originalKey = scope.originalListTranslations[iterator].key
                 }
