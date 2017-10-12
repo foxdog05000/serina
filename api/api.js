@@ -50,7 +50,7 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
                 obj[key][value.key] = value.value[indexLanguage]
               } else {
                 delete obj[key][value.originalKey]
-                obj[key][value.key] = value.value
+                obj[key][value.key] = value.value[indexLanguage]
               }
             }
           } else {
