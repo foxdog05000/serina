@@ -27,8 +27,6 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
         LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
       }
 
-      console.log($i18next.t('commons.themeColor.indigo'));
-
       scope.colors = [
         { label: 'commons.themeColor.indigo', value: 'indigo' },
         { label: 'commons.themeColor.green', value: 'green' },
