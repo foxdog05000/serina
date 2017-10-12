@@ -7,6 +7,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
   var getListGroupsAndTranslations = function (content, levels) {
     $scope.listGroups = []
     $scope.listTranslations = []
+    $scope.originalListTranslations = []
 
     if (!angular.isUndefined(levels)) {
       levels = levels.replace(/\//g, '.')
@@ -17,9 +18,11 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
       if (angular.isObject(translation)) {
         $scope.listGroups.push(key)
       } else {
-        $scope.listTranslations.push({ key: key, value: [translation], save: true, modified: false, nbModified: 0 })
+        $scope.listTranslations.push({ key: key, value: [translation], save: true, modified: false })
       }
     })
+
+    angular.copy($scope.listTranslations, $scope.originalListTranslations)
   }
 
   $scope.btnBack = function () {

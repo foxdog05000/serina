@@ -10,9 +10,14 @@
     <md-card-content layout="column">
         <div layout layout-align="end start">
             <span flex></span>
-            <md-button class="md-icon-button" ng-click="sendTranslation($event, translation)" ng-if="!translation.save || translation.modified" ng-disabled="!translation.key || !translation.value">
+            <md-button ng-show="!secondLanguageIsValid" class="md-icon-button" ng-click="sendTranslation($event, translation)" ng-if="!translation.save || translation.modified" ng-disabled="!translation.key || !translation.value">
                 <md-icon>save</md-icon>
             </md-button>
+
+            <md-button ng-show="secondLanguageIsValid" class="md-icon-button" ng-click="sendTranslation($event, translation)" ng-if="!translation.save || translation.modified" ng-disabled="!translation.key || !translation.value[0] || !translation.value[1]">
+                <md-icon>save</md-icon>
+            </md-button>
+
             <md-button class="md-icon-button md-hue-3 md-warn" ng-click="deleteTranslation($event, translation)">
                 <md-icon>delete</md-icon>
             </md-button>

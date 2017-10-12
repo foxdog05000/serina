@@ -7,21 +7,28 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
     link: function (scope) {
 
       scope.$watch('listTranslations', function (newValue, oldValue) {
-        if (newValue !== oldValue && oldValue !== undefined) {
+        if (newValue !== oldValue && !angular.isUndefined(oldValue)) {
           for (var iterator = 0; iterator < oldValue.length; iterator++) {
-            if (newValue[iterator] !== undefined) {
-              if ((newValue[iterator].key === scope.listTranslations[iterator].key || newValue[iterator].value[0] === scope.listTranslations[iterator].value[0]) && (newValue[iterator].save && oldValue[iterator].save) && (newValue[iterator].modified && oldValue[iterator].modified)) {
-                scope.listTranslations[iterator].modified = false
-                scope.listTranslations[iterator].modified = 0
-                break
-              }
-
-              if ((newValue[iterator].key !== oldValue[iterator].key || newValue[iterator].value[0] !== oldValue[iterator].value[0]) && (newValue[iterator].save && oldValue[iterator].save)) {
-                if (scope.listTranslations[iterator].nbModified === 0) {
-                  scope.listTranslations[iterator].originalKey = oldValue[iterator].key
+            if (!angular.isUndefined(newValue[iterator]) && (newValue[iterator].save && oldValue[iterator].save)) {
+              if (!$rootScope.secondLanguageIsValid) {
+                if (angular.equals(newValue[iterator].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator].value[0], scope.originalListTranslations[iterator].value[0])) {
+                  console.log('item not modified')
+                  scope.listTranslations[iterator].modified = false
+                } else {
+                  console.log('item modified')
+                  scope.listTranslations[iterator].modified = true
+                  scope.listTranslations[iterator].originalKey = scope.originalListTranslations[iterator].key
                 }
-                scope.listTranslations[iterator].modified = true
-                scope.listTranslations[iterator].nbModified++
+              } else {
+                console.log('secondLanguageIsValid', $rootScope.secondLanguage)
+                if (angular.equals(newValue[iterator].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator].value[0], scope.originalListTranslations[iterator].value[0])  && angular.equals(newValue[iterator].value[1], scope.originalListTranslations[iterator].value[1])) {
+                  console.log('item not modified')
+                  scope.listTranslations[iterator].modified = false
+                } else {
+                  console.log('item modified')
+                  scope.listTranslations[iterator].modified = true
+                  scope.listTranslations[iterator].originalKey = scope.originalListTranslations[iterator].key
+                }
               }
             }
           }
@@ -42,7 +49,6 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
           if (translation.key !== '' && translation.value[0] !== '' && !DataManager.find(scope.listTranslations, translation.key, 'trad')) {
             DataAccessor.addTranslation(scope.languages, $routeParams.levels, translation).then(function () {
               translation.save = true
-              translation.nbModified = 0
               Toast.showCustomToast('check', $i18next.t('commons.toast.addTranslation.success', { translation: translation.key }), 'good')
             }, function (response) {
               Toast.showCustomToast('warning', $i18next.t('commons.toast.addTranslation.fail', { translation: translation.key }), 'fail')
