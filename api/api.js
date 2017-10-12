@@ -37,17 +37,17 @@ function createFolderIsNotExist (pathFolder) {
   }
 }
 
-function targetLevelForAction (obj, levels, i, action, value, newValue) {
+function targetLevelForAction (obj, levels, i, indexLanguage, action, value, newValue) {
   for (let key in obj) {
     if (key === levels[i]) {
       if (key === levels[i] && i === levels.length - 1) {
         if (action === ADD || action === UPD) {
           if (isObject(value)) {
             if (action === ADD) {
-              obj[key][value.key] = value.value
+              obj[key][value.key] = value.value[indexLanguage]
             } else {
               if (value.originalKey === value.key) {
-                obj[key][value.key] = value.value
+                obj[key][value.key] = value.value[indexLanguage]
               } else {
                 delete obj[key][value.originalKey]
                 obj[key][value.key] = value.value
@@ -73,7 +73,7 @@ function targetLevelForAction (obj, levels, i, action, value, newValue) {
         }
       }
       i++
-      targetLevelForAction(obj[key], levels, i, action, value, newValue)
+      targetLevelForAction(obj[key], levels, i, indexLanguage, action, value, newValue)
     }
   }
 }
@@ -181,20 +181,20 @@ app.post(pathApi + '/group/:action', function (req, res) {
   let originalGroupName = req.body.originalGroupName
   let i = 0
 
-  files.map((file) => {
+  files.map((file, index) => {
     jsonfile.readFile(file, function (err, obj) {
       if (err) { console.log('Error on read json file : ' + file, 'err', err) }
       switch (action) {
         case ADD:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, groupName)
+            targetLevelForAction(obj, levels, i, index, action, groupName)
           } else {
             obj[groupName] = {}
           }
           break
         case UPD:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, originalGroupName, groupName)
+            targetLevelForAction(obj, levels, i, index, action, originalGroupName, groupName)
           } else {
             let contentOfGroup = obj[originalGroupName]
             delete obj[originalGroupName]
@@ -203,7 +203,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
           break
         case DEL:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, groupName)
+            targetLevelForAction(obj, levels, i, index, action, groupName)
           } else {
             delete obj[groupName]
           }
@@ -240,14 +240,14 @@ app.post(pathApi + '/translation/:action', function (req, res) {
       switch (action) {
         case ADD:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, translation)
+            targetLevelForAction(obj, levels, i, index, action, translation)
           } else {
             obj[translation.key] = translation.value[index]
           }
           break
         case UPD:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, translation)
+            targetLevelForAction(obj, levels, i, index, action, translation)
           } else {
             if (translation.originalKey === translation.key) {
               obj[translation.key] = translation.value[index]
@@ -259,7 +259,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
           break
         case DEL:
           if (levelsIsDefined) {
-            targetLevelForAction(obj, levels, i, action, translation)
+            targetLevelForAction(obj, levels, i, index, action, translation)
           } else {
             delete obj[translation.key]
           }
