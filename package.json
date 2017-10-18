@@ -22,7 +22,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "jsonfile": "^4.0.0"
+    "jsonfile": "^2.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

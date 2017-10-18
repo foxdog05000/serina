@@ -9,7 +9,7 @@ let app = express()
 
 const pathJsonFile = path.join(__dirname, '/json/')
 const pathApi = '/api'
-const jsonSpaces = 2
+jsonfile.spaces = 2
 
 const ADD = 'add'
 const UPD = 'upd'
@@ -139,7 +139,7 @@ app.get(pathApi + '/create/:language', function (req, res) {
   let file = pathJsonFile + req.params.language + '.json'
   let obj = {}
 
-  jsonfile.writeFile(file, obj, { spaces: jsonSpaces }, function (err) {
+  jsonfile.writeFile(file, obj, function (err) {
     if (err) { return console.log('Error on create json file', err) }
     res.sendStatus(200)
   })
@@ -212,7 +212,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
 
       obj = sort(obj)
 
-      jsonfile.writeFile(file, obj, { spaces: jsonSpaces }, function (err) {
+      jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' group name on json file : ' + file, 'err', err) }
       })
     })
@@ -268,7 +268,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
 
       obj = sort(obj)
 
-      jsonfile.writeFile(file, obj, { space: jsonSpaces }, function (err) {
+      jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' trad on json file : ' + file, 'err', err) }
       })
     })
