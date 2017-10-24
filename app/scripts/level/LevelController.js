@@ -1,8 +1,13 @@
 'use strict'
 
 angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, DataAccessor, Breadcrumb, SecondLanguage) {
-  $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
   var originatorEv
+
+  if ($rootScope.secondLanguageIsValid) {
+    $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase() + ' / ' + $rootScope.secondLanguage.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
+  } else {
+    $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
+  }
 
   var getListGroupsAndTranslations = function (content, levels) {
     $scope.listGroups = []
