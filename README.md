@@ -17,6 +17,35 @@ To use, unzip in the desired location and execute Serina.
 
 If you need a different version, please follow the _development_ instructions to make your own build from the source code
 
+## Usage
+Serina allows you to create translations for each language, you can access the different languages by clicking on their map in the languages list.
+
+
+
+### Create translation for a language
+In order to add a new translation for a language, simply enter the code of that language (2 letters) in the add-in form and validate.
+The translation for this new language is available in the list of languages.
+
+Each translation can be downloaded in json format from the list of languages.
+
+### Edit translation
+
+[...]
+
+### Parameters
+
+The settings allow you to modify the app according to your preferences. A "About" section is also present to get details about the application.
+
+#### Basic parameters
+- The format of the language list (in map list or list)
+- The language of the application (EN or FR for the moment)
+
+#### Advanced parameters
+- Custom location of translation files (Available in version 0.3)
+
+#### Others parameters
+- The theme of the application
+
 ## Development
 If you want to contribute to Serina, create a new different version of Serina, or compile it from source code, follow these instructions.
 
