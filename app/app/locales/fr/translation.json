@@ -90,7 +90,7 @@
         "groupExist": "Le groupe '{{groupName}}' existe déjà"
       },
       "majGroup": {
-        "success": "Group '{{groupName}}' renommé avec succés",
+        "success": "Groupe '{{groupName}}' renommé avec succés",
         "fail": "Impossible de renommé le groupe '{{groupName}}'"
       },
       "deleteGroup": {
