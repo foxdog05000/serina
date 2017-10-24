@@ -20,15 +20,22 @@
             </div>
         </div>
         <div flex="20">
-            <div layout="column" layout-align="center center" class="swap-languages">
+            <div layout="column" layout-align="center end" class="swap-languages">
                 <div flex="10">
-                    <md-icon>compare_arrows</md-icon>
+                    <md-button class="md-icon-button md-primary">
+                        <md-icon>compare_arrows</md-icon>
+                    </md-button>
                 </div>
             </div>
         </div>
     </div>
 
-    <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="disabledSwap">
-        <md-icon>done</md-icon> {{'commons.actions.validate' | i18next}}
-    </md-button>
+    <div class="row">
+        <div layout="column" layout-align="center stretch">
+            <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="disabledSwap">
+                <md-icon>done</md-icon> {{'commons.actions.validate' | i18next}}
+            </md-button>
+        </div>
+    </div>
+
 </md-content>
