@@ -1,0 +1,114 @@
+{
+  "commons": {
+    "actions": {
+      "add": "Añadir",
+      "cancel": "Anulador",
+      "delete": "Borrar",
+      "download": "Descargar ahora",
+      "edit": "Editar",
+      "return": "Regreso",
+      "validate": "Confirmar"
+    },
+    "aGroup": "un grupo",
+    "aTranslation": "una traducción",
+    "availableOnVersion": "Disponible en la versión",
+    "dialog": {
+      "addGroup": {
+        "placeholder": "Nombre del grupo",
+        "title": "Añadir un nuevo grupo"
+      },
+      "confirmTitle": "Estás seguro de eso?",
+      "majGroup": {
+        "placeholder": "Nuevo nombre de grupo",
+        "title": "Renombrar el grupo"
+      }
+    },
+    "format": "Formato",
+    "group": "Grupo",
+    "key": "clé",
+    "language": "Idioma",
+    "noGroup": "Ningún grupo",
+    "noTranslation": "Sin traducción",
+    "secondLanguage": "Segundo idioma",
+    "themeColor": {
+      "brown": "Marrón Castaño",
+      "green": "Verde",
+      "grey": "Gris",
+      "indigo": "Indigo",
+      "orange": "Naranja",
+      "purple": "Morado"
+    },
+    "toast": {
+      "addGroup": {
+        "fail": "No se puede añadir el grupo '{{groupName}}'",
+        "groupExist": "El grupo '{{groupName}}' ya existe",
+        "success": "Grupo '{{groupName}}' añadido con éxito"
+      },
+      "addLanguage": {
+        "fail": "Error al añadir el lenguaje '{{language}}'",
+        "langExist": "El lenguaje '{{language}}' ya existe",
+        "success": "Lengua '{{idioma}}' añadido con éxito"
+      },
+      "addTranslation": {
+        "fail": "Error al añadir la traducción '{{translation}}'",
+        "success": "Se ha añadido con éxito el término '{{translation}}\"",
+        "translationExist": "La traducción '{{translation}}' ya es excitante"
+      },
+      "deleteGroup": {
+        "fail": "No se puede eliminar el grupo '{{groupName}}'",
+        "success": "Grupo eliminado con éxito"
+      },
+      "deleteLanguage": {
+        "fail": "No se puede borrar el idioma '{{language}}'",
+        "success": "Idioma '{{language}}' suprimido con éxito"
+      },
+      "deleteTranslation": {
+        "fail": "Impossible de supprimer la traduction '{{translation}}'",
+        "success": "Traducción suprimida con éxito"
+      },
+      "majGroup": {
+        "fail": "Imposible famebrar el nombre del grupo '{{groupName}}'",
+        "success": "Grupo '{{groupName}}' renombrado con éxito"
+      },
+      "majTranslation": {
+        "fail": "Incapaz de renombrar la traducción '{{translation}}'",
+        "success": "Cambió exitosamente el nombre por el de '{{translation}}'"
+      }
+    },
+    "translation": "Traducción",
+    "value": "mensaje"
+  },
+  "pages": {
+    "hub": {
+      "addLanguage": "Añadir un nuevo idioma",
+      "noLanguages": "No hay idiomas"
+    },
+    "settings": {
+      "about": {
+        "licenceAndDownload": "Serina es un software de código abierto con licencia MIT, se puede descargar gratuitamente en",
+        "nameAppAndCreator": "Serina por @foxdog05000",
+        "title": "Sobre nosotros",
+        "version": "Versión"
+      },
+      "advanced": {
+        "customPathOfFile": "Ubicación personalizada de los archivos de idioma",
+        "title": "Parámetros avanzados"
+      },
+      "basic": {
+        "choiceDisplayFormatOfLanguages": "Elección del formato de pantalla en el hub",
+        "choiceLanguageOfApp": "Elección del idioma de aplicación",
+        "choiceTheme": "Elija un tema",
+        "selectDisplayFormat": "Elija un formato",
+        "selectLanguage": "Seleccione un idioma",
+        "theming": "Tema de aplicación",
+        "title": "Parámetros básicos"
+      }
+    }
+  },
+  "sideMenu": {
+    "jsonOfLanguages": "JSON de idiomas",
+    "listOfLanguages": "Lista de idiomas",
+    "serina": "Serina",
+    "settings": "Parámetros"
+  }
+}
