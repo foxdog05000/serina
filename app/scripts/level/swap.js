@@ -23,7 +23,8 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         })
       }
 
-      scope.getSecondLanguage = function (secondLanguage) {
+      scope.selectSecondLanguage = function (secondLanguage) {
+        console.log('selectSecondLanguage', secondLanguage);
         $rootScope.secondLanguage = secondLanguage
         scope.disabledSwap = scope.languages[0] === secondLanguage || secondLanguage.length < 2
       }

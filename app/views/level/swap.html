@@ -11,7 +11,7 @@
       <label>{{'commons.language' | i18next}}</label>
       <md-icon>flag</md-icon>
       <md-select ng-model="secondLanguage">
-        <md-option ng-repeat="language in languagesForSwap track by language" ng-value="{{language}}" ng-click="getSecondLanguage(language)" ng-selected="secondLanguage === language">
+        <md-option ng-repeat="language in languagesForSwap track by language" ng-value="language" ng-click="selectSecondLanguage(language)" ng-selected="secondLanguage === language">
           {{language | uppercase}}
         </md-option>
       </md-select>
