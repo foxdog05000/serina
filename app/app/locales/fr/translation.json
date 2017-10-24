@@ -99,6 +99,7 @@
       }
     },
     "language": "Langue",
+    "secondLanguage": "Seconde langue",
     "translation": "Traduction",
     "group": "Groupe",
     "format": "Format",

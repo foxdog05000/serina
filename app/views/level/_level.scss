@@ -11,6 +11,14 @@
     input {
       text-transform: uppercase;
     }
+
+    .swap-languages {
+      height: 90%;
+
+      md-icon {
+        transform: rotate(90deg);
+      }
+    }
   }
 
   md-list-item, .md-subheader, .swap, group div.layout-row {
