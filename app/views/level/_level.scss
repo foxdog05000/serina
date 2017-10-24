@@ -2,12 +2,6 @@
   .swap {
     margin: 8px 8px 8px 0px;
 
-    > md-icon {
-      display: block;
-      margin: 0 auto 2em;
-      width: 1em;
-    }
-
     input {
       text-transform: uppercase;
     }
@@ -38,6 +32,19 @@
   #buttonBackToTop {
     right: 0;
     visibility: hidden;
+  }
+
+  group {
+    md-list-item {
+
+      &:hover md-icon {
+        visibility: visible;
+      }
+
+      md-icon {
+        visibility: hidden;
+      }
+    }
   }
 
   translation {
