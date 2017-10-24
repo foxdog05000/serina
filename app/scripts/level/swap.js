@@ -53,6 +53,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
           $rootScope.secondLanguageIsValid = true
           scope.languages.push($rootScope.secondLanguage)
           angular.copy(scope.listTranslations, scope.originalListTranslations)
+          $rootScope.breadcrumb = Breadcrumb.init(scope.languages[0].toUpperCase() + ' / ' + scope.languages[1].toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
         }, function (response) {
           console.error('Error on open second language ' + $rootScope.secondLanguage, response)
         })
