@@ -23,11 +23,6 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         })
       }
 
-      scope.selectSecondLanguage = function (secondLanguage) {
-        $rootScope.secondLanguage = secondLanguage
-        scope.disabledSwap = scope.languages[0] === secondLanguage || secondLanguage.length < 2
-      }
-
       var appendTranslationOfSecondLanguage = function (content, levels) {
         if (!angular.isUndefined(levels)) {
           levels = levels.replace(/\//g, '.')
@@ -43,6 +38,11 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
             })
           }
         })
+      }
+
+      scope.selectSecondLanguage = function (secondLanguage) {
+        $rootScope.secondLanguage = secondLanguage
+        scope.disabledSwap = scope.languages[0] === secondLanguage || secondLanguage.length < 2
       }
 
       scope.recoverSecondaryLanguage = function () {
