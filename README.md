@@ -11,6 +11,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 _Serina R0.1.1_
 
 ## Download
+
 Serina can be downloaded [here](https://github.com/foxdog05000/serina/releases). Available versions for Linux and Windows (64bits). _MacOS available to later_
 
 To use, unzip in the desired location and execute Serina.
@@ -20,25 +21,36 @@ If you need a different version, please follow the _development_ instructions to
 ## Usage
 Serina allows you to create translations for each language, you can access the different languages by clicking on their map in the languages list.
 
-
-
 ### Create translation for a language
-In order to add a new translation for a language, simply enter the code of that language (2 letters) in the add-in form and validate.
-The translation for this new language is available in the list of languages.
+This page displays the list of languages and allows you to add a new language via a form using the ISO 639-1 language code. Example:"FR" or "EN".
 
-Each translation can be downloaded in json format from the list of languages.
+The display of the languages is available in two versions (card list or list) that can be set on the parameter page. The number of elements in a language is displayed under the name of the language only in the "map list" format.
 
 ### Edit translation
 
-[...]
+This page displays the groups and translations of the first level of the translation and then recursively displays the sub-levels via access to a group allowing access to its content.
+
+Adding a group is done via a modal that allows you to enter the group name. The modification will also be done via a modal which will ask for the new name of the group. Deleting a group will ask for confirmation before deleting.
+
+The addition of a translation is done via a card added to the list of translations. The recording and deletion is done directly with the icons on the map.
+
+Changing a translation triggers a key or value change detection system to know whether to display the save button in order to have a good interface.
+
+#### Parallel edition of two languages
+
+Parallel entry of two languages is done via the "swap" (on the right-hand side of the groups and translations of the first level) comprising:
+the main language (the one selected in the list of languages)
+the second language that can be chosen from the other available languages.
+
+Then it is enough to validate and the second language is automatically added below each value of the main language. Parallel editing works exactly like simple language editing.
 
 ### Parameters
 
 The settings allow you to modify the app according to your preferences. A "About" section is also present to get details about the application.
 
 #### Basic parameters
-- The format of the language list (in map list or list)
-- The language of the application (EN or FR for the moment)
+- The format of the language list (in card list or list)
+- The language of the application (EN, ES or FR for the moment)
 
 #### Advanced parameters
 - Custom location of translation files (Available in version 0.3)
@@ -47,6 +59,7 @@ The settings allow you to modify the app according to your preferences. A "About
 - The theme of the application
 
 ## Development
+
 If you want to contribute to Serina, create a new different version of Serina, or compile it from source code, follow these instructions.
 
 Clone/download source code from the github repo. Make sure you have _node_, _npm_, _yarn_,  _bower_ already installed in your system:
@@ -62,9 +75,11 @@ Clone/download source code from the github repo. Make sure you have _node_, _npm
     * Please, ensure the tests are passing before creating a pull requests. Add tests for your changes.
 
 ## Acknowledgments
+
 * [Electron](https://electron.atom.io)  framework was used for the app development.
 
 ## License
+
 Serina is being developed and maintained as Open-Source software by @foxdog05000 (https://github.com/foxdog05000) licensed under [MIT LICENSE](https://github.com/foxdog05000/serina/blob/master/LICENSE)
 
 The original source code can be found at: <https://github.com/foxdog05000/serina>
