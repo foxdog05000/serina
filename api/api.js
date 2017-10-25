@@ -129,7 +129,8 @@ app.get(pathApi + '/list-languages', function (req, res) {
     if (err) { throw err }
     let languages = { listLanguages: [] }
     files.forEach(function (file) {
-      languages.listLanguages.push(file.substring(0, 2))
+      let nbEntities = 0
+      languages.listLanguages.push({ code: file.substring(0, 2), nbKeys: nbEntities })
     })
     res.send(languages)
   })
