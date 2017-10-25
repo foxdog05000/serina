@@ -4,7 +4,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 [![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/foxdog05000/serina/blob/master/LICENSE)
 
-> GUI for create translation files for i18next 
+> GUI for create translation files for i18next
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
@@ -24,7 +24,7 @@ Serina allows you to create translations for each language, you can access the d
 ### Create translation for a language
 This page displays the list of languages and allows you to add a new language via a form using the ISO 639-1 language code. Example:"FR" or "EN".
 
-The display of the languages is available in two versions (card list or list) that can be set on the parameter page. The number of elements in a language is displayed under the name of the language only in the "map list" format.
+The display of the languages is available in two versions (card list or list) that can be set on the parameter page. The number of elements in a language is displayed under the name of the language.
 
 ### Edit translation
 
