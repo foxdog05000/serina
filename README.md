@@ -4,7 +4,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 [![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/foxdog05000/serina/blob/master/LICENSE)
 
-> App for create translation files for i18next
+> GUI for create translation files for i18next 
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
