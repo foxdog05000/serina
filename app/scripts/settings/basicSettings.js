@@ -17,8 +17,8 @@ angular.module('serinaApp').directive('basicSettings', function ($rootScope, $md
       }
 
       scope.languages = [
-        { code: 'es' },
         { code: 'en' },
+        { code: 'es' },
         { code: 'fr' }
       ]
 
