@@ -124,15 +124,30 @@ function sortJSON (json) {
   }
 }
 
+function countProperties(obj) {
+  let count = 0
+  for( var x in obj ) if(obj.hasOwnProperty(x)) count++
+  return count
+}
+
 app.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
     let languages = { listLanguages: [] }
-    files.forEach(function (file) {
+    files.forEach(function (file, index) {
       let nbEntities = 0
-      languages.listLanguages.push({ code: file.substring(0, 2), nbKeys: nbEntities })
+      jsonfile.readFile(pathJsonFile + file, function (err, obj) {
+        if (err) { console.log('Error on read json file : ' + file, 'err', err) }
+        nbEntities = countProperties(obj)
+        console.log(countProperties(obj))
+
+        languages.listLanguages.push({ code: file.substring(0, 2), nbKeys: nbEntities })
+
+        if (index === files.length - 1) {
+          res.send(languages)
+        }
+      })
     })
-    res.send(languages)
   })
 })
 
