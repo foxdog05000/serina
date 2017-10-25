@@ -26,6 +26,7 @@
     "format": "Formato",
     "group": "Grupo",
     "key": "clé",
+    "key_plural": "claves",
     "language": "Idioma",
     "noGroup": "Ningún grupo",
     "noTranslation": "Sin traducción",
