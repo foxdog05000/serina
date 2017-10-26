@@ -101,6 +101,7 @@
     "language": "Language",
     "secondLanguage": "Second language",
     "translation": "Translation",
+    "translation_plural": "Translations",
     "group": "Group",
     "format": "Format",
     "aGroup": "a group",
@@ -108,7 +109,6 @@
     "noGroup": "No group",
     "noTranslation": "No translation",
     "key": "key",
-    "key_plural": "keys",
     "value": "message",
     "availableOnVersion": "Available in version"
   }

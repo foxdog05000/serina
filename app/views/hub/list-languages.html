@@ -6,7 +6,7 @@
                     <md-card-title-text>
                         <span class="md-headline">{{'commons.translation' | i18next}} : {{language.code | uppercase}}</span>
                         <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
-                        <span class="md-subhead">{{language.nbKeys}} <span ng-i18next="[i18next]({ count: language.nbKeys})commons.key"></span></span>
+                        <span class="md-subhead">{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
                     </md-card-title-text>
                     <md-card-title-media>
                         <div class="md-media-sm card-media">
@@ -38,7 +38,7 @@
                 <md-list-item ng-repeat="language in listLanguages track by language.code" ng-click="openLanguage(language.code)">
                     <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/> <span>{{language.code | uppercase}}</span>
                     <span flex></span>
-                    <span>{{language.nbKeys}} <span ng-i18next="[i18next]({ count: language.nbKeys})commons.key"></span></span>
+                    <span>{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
                     <md-button ng-click="downloadLanguage(language.code)" class="md-primary md-icon-button"><md-icon>get_app</md-icon></md-button>
                     <md-button ng-click="deleteLanguage($event, language.code)" class="md-warn md-icon-button"><md-icon>delete</md-icon></md-button>
                 </md-list-item>

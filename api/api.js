@@ -15,6 +15,8 @@ const ADD = 'add'
 const UPD = 'upd'
 const DEL = 'del'
 
+let nbEntities
+
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -113,7 +115,6 @@ function sortAsc (un) {
   return or
 }
 
-// Sort the JSON
 function sortJSON (json) {
   try {
     let r = sortAsc(json)
@@ -124,10 +125,17 @@ function sortJSON (json) {
   }
 }
 
-function countProperties(obj) {
-  let count = 0
-  for( var x in obj ) if(obj.hasOwnProperty(x)) count++
-  return count
+function countTranslations (obj) {
+  let item
+  if (obj instanceof Object) {
+    for (item in obj) {
+      if (obj.hasOwnProperty(item)) {
+        countTranslations(obj[item])
+      }
+    }
+  } else {
+		nbEntities++
+  }
 }
 
 app.get(pathApi + '/list-languages', function (req, res) {
@@ -135,13 +143,12 @@ app.get(pathApi + '/list-languages', function (req, res) {
     if (err) { throw err }
     let languages = { listLanguages: [] }
     files.forEach(function (file, index) {
-      let nbEntities = 0
       jsonfile.readFile(pathJsonFile + file, function (err, obj) {
         if (err) { console.log('Error on read json file : ' + file, 'err', err) }
-        nbEntities = countProperties(obj)
-        console.log(countProperties(obj))
+        nbEntities = 0
+        countTranslations(obj)
 
-        languages.listLanguages.push({ code: file.substring(0, 2), nbKeys: nbEntities })
+        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: nbEntities })
 
         if (index === files.length - 1) {
           res.send(languages)

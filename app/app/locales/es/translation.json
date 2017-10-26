@@ -26,7 +26,6 @@
     "format": "Formato",
     "group": "Grupo",
     "key": "clé",
-    "key_plural": "claves",
     "language": "Idioma",
     "noGroup": "Ningún grupo",
     "noTranslation": "Sin traducción",
@@ -77,6 +76,7 @@
       }
     },
     "translation": "Traducción",
+    "translation_plural": "traducciones",
     "value": "mensaje"
   },
   "pages": {
