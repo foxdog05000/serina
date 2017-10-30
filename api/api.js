@@ -102,7 +102,7 @@ function sortAsc (un) {
     })
   } else if (isPlainObject(un)) {
     or = {}
-    Object.keys(un).sortAsc(function (a, b) {
+    Object.keys(un).sort(function (a, b) {
       if (a.toLowerCase() < b.toLowerCase()) { return -1 }
       if (a.toLowerCase() > b.toLowerCase()) { return 1 }
       return 0
@@ -134,7 +134,7 @@ function countTranslations (obj) {
       }
     }
   } else {
-		nbEntities++
+    nbEntities++
   }
 }
 
