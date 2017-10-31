@@ -18,26 +18,7 @@
     <!-- endbuild -->
 </head>
 <body ng-app="serinaApp" ng-cloak md-theme="{{settings.theme}}" md-theme-watch="true">
-    <md-toolbar id="backToTop">
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
-                <md-icon>menu</md-icon>
-            </md-button>
-
-            <h2 flex md-truncate class="breadcrumb">
-                <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">
-                    <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
-                </a>
-            </h2>
-
-            <span flex></span>
-
-            <md-button ng-if="breadcrumb[0].href !== '/hub'" class="md-icon-button" aria-label="Home" href="#/hub">
-                <md-icon>home</md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
-
+    <toolbar></toolbar>
     <side-menu></side-menu>
 
     <spinner></spinner>
@@ -69,6 +50,7 @@
     <script src="scripts/commons/services/SecondLanguage.js"></script>
     <script src="scripts/commons/services/Toast.js"></script>
     <script src="scripts/commons/services/Dialog.js"></script>
+    <script src="scripts/commons/directives/toolbar.js"></script>
     <script src="scripts/commons/directives/spinner.js"></script>
     <script src="scripts/commons/directives/sideMenu.js"></script>
     <script src="scripts/commons/directives/goToTop.js"></script>

@@ -1,0 +1,13 @@
+.search-bar {
+  * {
+    color: $white !important;
+  }
+
+  input {
+    border-bottom-color: $white;
+  }
+
+  .md-errors-spacer {
+    display: none;
+  }
+}
