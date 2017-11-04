@@ -21,11 +21,14 @@ angular.module('serinaApp').directive('toolbar', function () {
       }
 
       scope.searchKey = function () {
-        var inputKeys = document.querySelectorAll('translation md-card .key')
-        for (var iterator = 0; iterator < inputKeys.length; iterator++) {
-          if (inputKeys[iterator].value === scope.search) {
-            inputKeys[iterator].focus()
+        if (!angular.isUndefined(scope.searchKey)) {
+          var inputKeys = document.querySelectorAll('translation md-card .key')
+          for (var iterator = 0; iterator < inputKeys.length; iterator++) {
+            if (inputKeys[iterator].value.indexOf(scope.search) !== -1) {
+              inputKeys[iterator].focus()
+            }
           }
+          scope.endSearch()
         }
       }
 
