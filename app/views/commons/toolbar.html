@@ -39,7 +39,7 @@
         </form>
 
         <div ng-if="matchingElements.length > 0" class="matching-elements">
-            <h2>{{matchingElements.length}} <span ng-i18next="[i18next]({count: matchingElements.length})commons.matchingElement"></span></h2>
+            <p>{{matchingElements.length}} <span ng-i18next="[i18next]({count: matchingElements.length})commons.matchingElement"></span></p>
 
             <div ng-if="matchingElements.length > 1">
                 <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('-')" ng-disabled="">

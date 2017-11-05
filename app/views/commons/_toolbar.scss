@@ -13,5 +13,9 @@
 
   .matching-elements {
     display: inline-flex;
+
+    .md-button {
+      padding-top: 1.4em;
+    }
   }
 }
