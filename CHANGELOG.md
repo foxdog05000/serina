@@ -10,6 +10,7 @@
 - Localize theme color on settings
 - Update version of electron (1.6.11 -> 1.8.1)
 - Add a home button
+- Add search bar on toolbar
 
 # [R0.1.1](https://github.com/foxdog05000/serina/releases/tag/R0.1.1) (2017-09-22)
 
