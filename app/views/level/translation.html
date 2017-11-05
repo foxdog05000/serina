@@ -6,7 +6,7 @@
     </md-button>
 </md-card>
 
-<md-card ng-repeat="translation in listTranslations | orderBy: 'key'">
+<md-card ng-repeat="translation in listTranslations track by $index">
     <md-card-content layout="column">
         <div layout layout-align="end start">
             <span flex></span>
