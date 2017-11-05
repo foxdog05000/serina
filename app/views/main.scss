@@ -12,9 +12,14 @@
 @import "settings/settings";
 
 body.md-toast-animating { overflow: auto !important; }
+
 .center { text-align: center;}
 .lowercase { text-transform: lowercase;}
 
 .md-sidenav-left .material-icons {
   line-height: .8;
+}
+
+md-toast {
+  position: fixed;
 }
