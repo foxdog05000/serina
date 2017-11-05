@@ -35,7 +35,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         if ($rootScope.secondLanguageIsValid) {
           patternTranslation.secondValue = ''
         }
-        scope.listTranslations.push(patternTranslation)
+        scope.listTranslations.unshift(patternTranslation)
       }
 
       scope.sendTranslation = function (ev, translation) {
