@@ -11,6 +11,7 @@
 - Update version of electron (1.6.11 -> 1.8.1)
 - Add a home button
 - Add search bar on toolbar
+- Fix : Toast does not handle the page scroll and is displayed at the top of the document and not at the top of the screen
 
 # [R0.1.1](https://github.com/foxdog05000/serina/releases/tag/R0.1.1) (2017-09-22)
 
