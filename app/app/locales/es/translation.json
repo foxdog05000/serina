@@ -9,6 +9,8 @@
       "return": "Regreso",
       "validate": "Confirmar"
     },
+    "matchingElement": "elemento coincidente",
+    "matchingElement_plural": "elementos coincidentes",
     "aGroup": "un grupo",
     "aTranslation": "una traducción",
     "availableOnVersion": "Disponible en la versión",

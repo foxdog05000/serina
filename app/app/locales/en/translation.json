@@ -98,6 +98,8 @@
         "fail": "Unable to delete group '{{groupName}}'"
       }
     },
+    "matchingElement": "matching element",
+    "matchingElement_plural": "matching elements",
     "language": "Language",
     "secondLanguage": "Second language",
     "translation": "Translation",

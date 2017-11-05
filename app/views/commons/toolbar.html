@@ -37,5 +37,18 @@
                 <md-icon>close</md-icon>
             </md-button>
         </form>
+
+        <div ng-if="matchingElements.length > 0" class="matching-elements">
+            <h2>{{matchingElements.length}} <span ng-i18next="[i18next]({count: matchingElements.length})commons.matchingElement"></span></h2>
+
+            <div ng-if="matchingElements.length > 1">
+                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('-')" ng-disabled="">
+                    <md-icon>keyboard_arrow_left</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('+')" ng-disabled="">
+                    <md-icon>keyboard_arrow_right</md-icon>
+                </md-button>
+            </div>
+        </div>
     </div>
 </md-toolbar>

@@ -8,8 +8,13 @@ angular.module('serinaApp').directive('toolbar', function () {
 
       scope.search = null
 
+      var clearMatchingElements = function () {
+        scope.matchingElements = []
+      }
+
       scope.initiateSearch = function () {
         scope.search = ''
+        clearMatchingElements()
       }
 
       scope.showPreSearchBar = function () {
@@ -18,22 +23,43 @@ angular.module('serinaApp').directive('toolbar', function () {
 
       scope.endSearch = function () {
         scope.search = null
+        clearMatchingElements()
+        scope.currentMatchingElement = 0
       }
 
       scope.searchKey = function () {
         if (scope.search !== '') {
           var inputKeys = document.querySelectorAll('translation md-card .key')
-          var searchMatch = false
+          scope.matchingElements = []
+          scope.currentMatchingElement = 0
           for (var iterator = 0; iterator < inputKeys.length; iterator++) {
-            if (inputKeys[iterator].value.indexOf(scope.search) !== -1) {
-              inputKeys[iterator].focus()
-              searchMatch = true
+            if (inputKeys[iterator].value.toLowerCase().indexOf(scope.search.toLowerCase()) !== -1) {
+              scope.matchingElements.push(inputKeys[iterator])
             }
           }
 
-          if (!searchMatch) {
+          if (scope.matchingElements.length === 0) {
             scope.endSearch()
+          } else {
+            scope.matchingElements[0].focus()
           }
+        }
+      }
+
+      scope.navigateBetweenMatchingElements = function (sign) {
+        if (sign === '-' || sign === '+') {
+          if (sign === '-') {
+            scope.currentMatchingElement--
+            if (scope.currentMatchingElement < 0) {
+              scope.currentMatchingElement = scope.matchingElements.length - 1
+            }
+          } else if (sign === '+') {
+            scope.currentMatchingElement++
+            if (scope.currentMatchingElement > scope.matchingElements.length - 1) {
+              scope.currentMatchingElement = 0
+            }
+          }
+          scope.matchingElements[scope.currentMatchingElement].focus()
         }
       }
 

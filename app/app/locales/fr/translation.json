@@ -98,6 +98,8 @@
         "fail": "Impossible de supprimer le groupe '{{groupName}}'"
       }
     },
+    "matchingElement": "élément correspondant",
+    "matchingElement_plural": "éléments correspondant",
     "language": "Langue",
     "secondLanguage": "Seconde langue",
     "translation": "Traduction",
