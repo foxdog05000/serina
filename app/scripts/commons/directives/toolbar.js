@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('toolbar', function () {
+angular.module('serinaApp').directive('toolbar', function ($timeout) {
   return {
     restrict: 'E',
     templateUrl: 'views/commons/toolbar.html',
@@ -14,6 +14,9 @@ angular.module('serinaApp').directive('toolbar', function () {
 
       scope.initiateSearch = function () {
         scope.search = ''
+        $timeout(function () {
+          document.getElementById('search-input').focus()
+        }, 10);
         clearMatchingElements()
       }
 
