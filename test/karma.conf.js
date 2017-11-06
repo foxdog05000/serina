@@ -32,6 +32,7 @@ module.exports = function(config) {
       'bower_components/i18next/i18next.min.js',
       'bower_components/ng-i18next/dist/ng-i18next.js',
       'bower_components/i18next-xhr-backend/i18nextXHRBackend.js',
+      'bower_components/mousetrap/mousetrap.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
