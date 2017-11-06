@@ -66,6 +66,18 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
         }
       }
 
+      Mousetrap.bind('ctrl+left', function () {
+        if (scope.matchingElements) {
+          scope.navigateBetweenMatchingElements('-')
+        }
+      })
+
+      Mousetrap.bind('ctrl+right', function () {
+        if (scope.matchingElements) {
+          scope.navigateBetweenMatchingElements('+')
+        }
+      })
+
     }
   }
 })
