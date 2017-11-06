@@ -5,4 +5,6 @@ angular.module('serinaApp').controller('HubCtrl', function ($rootScope, $i18next
   $rootScope.breadcrumb = Breadcrumb.init('sideMenu.listOfLanguages', '/hub')
   $rootScope.secondLanguage = ''
 
+  $rootScope.secondLanguageIsValid = false
+
 })

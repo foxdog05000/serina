@@ -5,4 +5,6 @@ angular.module('serinaApp').controller('SettingsCtrl', function ($rootScope, $i1
   $rootScope.breadcrumb = Breadcrumb.init('sideMenu.settings', '/settings')
   $rootScope.secondLanguage = ''
 
+  $rootScope.secondLanguageIsValid = false
+
 })
