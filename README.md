@@ -36,6 +36,11 @@ The addition of a translation is done via a card added to the list of translatio
 
 Changing a translation triggers a key or value change detection system to know whether to display the save button in order to have a good interface.
 
+#### Search
+
+A search bar represented by a magnifying glass is integrated in the toolbar. The research focuses on the "keys" of translations. 
+The first corresponding element will be selected to highlight it. And if several items match the search, a navigation between the corresponding items is displayed next to the search bar.
+
 #### Parallel edition of two languages
 
 Parallel entry of two languages is done via the "swap" (on the right-hand side of the groups and translations of the first level) comprising:
