@@ -16,7 +16,7 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
         scope.search = ''
         $timeout(function () {
           document.getElementById('search-input').focus()
-        }, 10);
+        }, 10)
         clearMatchingElements()
       }
 
@@ -66,13 +66,13 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
         }
       }
 
-      Mousetrap.bind('ctrl+left', function () {
+      Mousetrap.bindGlobal('ctrl+up', function () {
         if (scope.matchingElements) {
           scope.navigateBetweenMatchingElements('-')
         }
       })
 
-      Mousetrap.bind('ctrl+right', function () {
+      Mousetrap.bindGlobal('ctrl+down', function () {
         if (scope.matchingElements) {
           scope.navigateBetweenMatchingElements('+')
         }
