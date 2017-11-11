@@ -20,6 +20,11 @@
         "theming": "Theming",
         "choiceTheme": "Choice theme"
       },
+      "shortcuts": {
+        "keyboardShortcuts": "Keyboard shortcuts",
+        "navigateToPreviousCorrespondingItem": "Navigate to the previous corresponding item",
+        "navigateToNextCorrespondingItem": "Navigate to the next corresponding item"
+      },
       "advanced": {
         "title": "Advanced settings",
         "customPathOfFile": "Custom path of language files"

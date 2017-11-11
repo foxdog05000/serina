@@ -93,6 +93,11 @@
         "title": "Sobre nosotros",
         "version": "Versión"
       },
+      "shortcuts": {
+        "keyboardShortcuts": "Atajos de teclado",
+        "navigateToPreviousCorrespondingItem": "Navegue hasta el elemento correspondiente anterior",
+        "navigateToNextCorrespondingItem": "Navegar al siguiente elemento correspondiente"
+      },
       "advanced": {
         "customPathOfFile": "Ubicación personalizada de los archivos de idioma",
         "title": "Parámetros avanzados"

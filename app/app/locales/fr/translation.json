@@ -20,6 +20,11 @@
         "theming": "Thème de l'application",
         "choiceTheme": "Choisir un thème"
       },
+      "shortcuts": {
+        "keyboardShortcuts": "Raccourcis clavier",
+        "navigateToPreviousCorrespondingItem": "Naviguer vers l'élément correspondant précédent",
+        "navigateToNextCorrespondingItem": "Naviguer vers l'élément correspondant suivant"
+      },
       "advanced": {
         "title": "Paramétres avancées",
         "customPathOfFile": "Emplacement personnalisé des fichiers de langue"
