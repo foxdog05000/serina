@@ -16,7 +16,6 @@
     border-bottom-color: #CDD2D4;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba($black, .1);
-    color: #4d4d4d;
     cursor: default;
     display: inline-block;
     font-size: 1.3em;
@@ -31,7 +30,7 @@
     }
 
     .material-icons {
-      color: #4d4d4d;
+      color: rgba($black, .87);
       font-size: 21px;
     }
   }
