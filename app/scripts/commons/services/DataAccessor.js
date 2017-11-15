@@ -8,7 +8,7 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     countEntitiesListLanguages: function () {
-      return $http.get($rootScope.endPoint + '/count-entties-list-languages')
+      return $http.get($rootScope.endPoint + '/count-entities-list-languages')
     },
 
     openLanguage: function (language) {

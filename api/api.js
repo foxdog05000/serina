@@ -150,6 +150,7 @@ app.get(pathApi + '/list-languages', function (req, res) {
 })
 
 app.get(pathApi + '/count-entties-list-languages', function (req, res) {
+app.get(pathApi + '/count-entities-list-languages', function (req, res) {
   let languages = { listLanguages: [] }
   fs.readdirSync(pathJsonFile, function (err, files) {
     if (err) { throw err }
