@@ -484,6 +484,7 @@ module.exports = function (grunt) {
             'range-parser/**',
             'raw-body/**',
             'send/**',
+            'safe-buffer/**',
             'serve-static/**',
             'setprototypeof/**',
             'statuses/**',
