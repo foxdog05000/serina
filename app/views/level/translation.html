@@ -18,6 +18,10 @@
                 <md-icon>save</md-icon>
             </md-button>
 
+            <md-button class="md-icon-button" ng-click="duplicatedTranslation($event, translation)" ng-if="translation.save" ng-disabled="!translation.save || translation.modified">
+                <md-icon>content_copy</md-icon>
+            </md-button>
+
             <md-button class="md-icon-button md-hue-3 md-warn" ng-click="deleteTranslation($event, translation)">
                 <md-icon>delete</md-icon>
             </md-button>

@@ -42,6 +42,15 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         scope.listTranslations.unshift(patternTranslation)
       }
 
+      scope.duplicatedTranslation = function (ev, originalTranslation) {
+        var translationCopy = angular.copy(originalTranslation)
+        translationCopy.key += '_copy'
+        translationCopy.save = false
+        translationCopy.modified = false
+        scope.listTranslations.unshift(translationCopy)
+        translationCopy = null
+      }
+
       scope.sendTranslation = function (ev, translation) {
         ev.stopPropagation()
         if (!translation.save) {
