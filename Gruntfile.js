@@ -528,7 +528,7 @@ module.exports = function (grunt) {
           name: 'serina',
           dir: 'dist',
           out: 'packages',
-          electronVersion: '1.6.11',
+          electronVersion: '1.7.9',
           platform: 'win32',
           arch: 'x64',
           overwrite: true,
@@ -541,8 +541,21 @@ module.exports = function (grunt) {
           name: 'serina',
           dir: 'dist',
           out: 'packages',
-          electronVersion: '1.6.11',
+          electronVersion: '1.7.9',
           platform: 'linux',
+          arch: 'x64',
+          overwrite: true,
+          prune: false,
+          icon: 'icons/icon-x64.ico'
+        }
+      },
+      buildMacos: {
+        options: {
+          name: 'serina',
+          dir: 'dist',
+          out: 'packages',
+          electronVersion: '1.7.9',
+          platform: 'darwin',
           arch: 'x64',
           overwrite: true,
           prune: false,
@@ -623,12 +636,19 @@ module.exports = function (grunt) {
           'electron:buildWin32'
         ]);
         break;
+      case 'macos':
+        grunt.task.run([
+          'build',
+          'electron:buildMacos'
+        ]);
+        break;
       default:
-      grunt.task.run([
-        'build',
-        'electron:buildLinux',
-        'electron:buildWin32'
-      ]);
+        grunt.task.run([
+          'build',
+          'electron:buildLinux',
+          'electron:buildWin32',
+          'electron:buildMacos'
+        ]);
     }
   });
 
