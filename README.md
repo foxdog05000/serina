@@ -8,7 +8,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.1.1_
+_Serina R0.2_
 
 ## Download
 
@@ -38,7 +38,7 @@ Changing a translation triggers a key or value change detection system to know w
 
 #### Search
 
-A search bar represented by a magnifying glass is integrated in the toolbar. The research focuses on the "keys" of translations. 
+A search bar represented by a magnifying glass is integrated in the toolbar. The research focuses on the "keys" of translations.
 The first corresponding element will be selected to highlight it. And if several items match the search, a navigation between the corresponding items is displayed next to the search bar.
 
 #### Parallel edition of two languages
@@ -62,6 +62,7 @@ The settings allow you to modify the app according to your preferences. A "About
 
 #### Others parameters
 - The theme of the application
+- Keyboard shortcuts
 
 ## FAQ
 
