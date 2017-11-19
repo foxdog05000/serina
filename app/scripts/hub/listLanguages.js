@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('listLanguages', function ($i18next, $location, DataAccessor, Toast, Dialog) {
+angular.module('serinaApp').directive('listLanguages', function ($rootScope, $location, $i18next, DataAccessor, Toast, Dialog) {
   return {
     restrict: 'E',
     templateUrl: 'views/hub/list-languages.html',
@@ -9,6 +9,17 @@ angular.module('serinaApp').directive('listLanguages', function ($i18next, $loca
       scope.getListLanguages = function () {
         DataAccessor.getListLanguages().then(function (response) {
           scope.listLanguages = response.data.listLanguages
+
+          DataAccessor.countEntitiesListLanguages().then(function (response) {
+            var countEntitiesListLanguages = response.data.listLanguages
+            angular.forEach(scope.listLanguages, function (language, index) {
+              if (language.code === countEntitiesListLanguages[index].code) {
+                language.nbTranslations = countEntitiesListLanguages[index].nbTranslations
+              }
+            })
+          }, function (response) {
+            console.error('Unable to retrieve the number of translations per language', response)
+          })
         }, function (response) {
           console.error('Unable to retrieve languages list', response)
         })
@@ -56,10 +67,10 @@ angular.module('serinaApp').directive('listLanguages', function ($i18next, $loca
       }
 
       scope.downloadLanguage = function (language) {
-        DataAccessor.downloadLanguage(language).then(function (response) {
+        DataAccessor.downloadLanguage(language).then(function () {
           var anchor = angular.element('<a/>')
           anchor.attr({
-            href: 'data:attachment/json;charset=utf-8,' + encodeURI(JSON.stringify(response.data)),
+            href: $rootScope.endPoint + '/download/' + language,
             target: '_blank',
             download: 'translation.json'
           })[0].click()

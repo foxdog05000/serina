@@ -20,6 +20,11 @@
         "theming": "Thème de l'application",
         "choiceTheme": "Choisir un thème"
       },
+      "shortcuts": {
+        "keyboardShortcuts": "Raccourcis clavier",
+        "navigateToPreviousCorrespondingItem": "Naviguer vers l'élément correspondant précédent",
+        "navigateToNextCorrespondingItem": "Naviguer vers l'élément correspondant suivant"
+      },
       "advanced": {
         "title": "Paramétres avancées",
         "customPathOfFile": "Emplacement personnalisé des fichiers de langue"
@@ -41,6 +46,14 @@
       "return": "Retour",
       "validate": "Valider",
       "cancel": "Annuler"
+    },
+    "themeColor": {
+      "brown": "Marron",
+      "green": "Vert",
+      "grey": "Gris",
+      "indigo": "Indigo",
+      "orange": "Orange",
+      "purple": "Violet"
     },
     "dialog": {
       "addGroup": {
@@ -82,7 +95,7 @@
         "groupExist": "Le groupe '{{groupName}}' existe déjà"
       },
       "majGroup": {
-        "success": "Group '{{groupName}}' renommé avec succés",
+        "success": "Groupe '{{groupName}}' renommé avec succés",
         "fail": "Impossible de renommé le groupe '{{groupName}}'"
       },
       "deleteGroup": {
@@ -90,8 +103,12 @@
         "fail": "Impossible de supprimer le groupe '{{groupName}}'"
       }
     },
+    "matchingElement": "élément correspondant",
+    "matchingElement_plural": "éléments correspondant",
     "language": "Langue",
+    "secondLanguage": "Seconde langue",
     "translation": "Traduction",
+    "translation_plural": "Traductions",
     "group": "Groupe",
     "format": "Format",
     "aGroup": "un groupe",

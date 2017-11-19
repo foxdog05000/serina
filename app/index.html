@@ -18,20 +18,7 @@
     <!-- endbuild -->
 </head>
 <body ng-app="serinaApp" ng-cloak md-theme="{{settings.theme}}" md-theme-watch="true">
-    <md-toolbar id="backToTop">
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
-                <md-icon>menu</md-icon>
-            </md-button>
-
-            <h2 flex md-truncate class="breadcrumb">
-                <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">
-                    <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
-                </a>
-            </h2>
-        </div>
-    </md-toolbar>
-
+    <toolbar></toolbar>
     <side-menu></side-menu>
 
     <spinner></spinner>
@@ -51,7 +38,9 @@
     <script src="bower_components/i18next/i18next.min.js"></script>
     <script src="bower_components/ng-i18next/dist/ng-i18next.js"></script>
     <script src="bower_components/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+    <script src="bower_components/mousetrap/mousetrap.js"></script>
     <!-- endbower -->
+    <script src="bower_components/mousetrap/plugins/global-bind/mousetrap-global-bind.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -60,13 +49,17 @@
     <script src="scripts/commons/services/DataAccessor.js"></script>
     <script src="scripts/commons/services/DataManager.js"></script>
     <script src="scripts/commons/services/Breadcrumb.js"></script>
+    <script src="scripts/commons/services/SecondLanguage.js"></script>
     <script src="scripts/commons/services/Toast.js"></script>
     <script src="scripts/commons/services/Dialog.js"></script>
+    <script src="scripts/commons/directives/toolbar.js"></script>
     <script src="scripts/commons/directives/spinner.js"></script>
     <script src="scripts/commons/directives/sideMenu.js"></script>
+    <script src="scripts/commons/directives/goToTop.js"></script>
     <script src="scripts/hub/hubController.js"></script>
     <script src="scripts/hub/listLanguages.js"></script>
     <script src="scripts/level/LevelController.js"></script>
+    <script src="scripts/level/swap.js"></script>
     <script src="scripts/level/group.js"></script>
     <script src="scripts/level/translation.js"></script>
     <script src="scripts/settings/SettingsController.js"></script>

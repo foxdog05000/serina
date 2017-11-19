@@ -18,15 +18,15 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
         Dialog.showPrompt(options).then(function (groupName) {
           if (!DataManager.find(scope.listGroups, groupName, 'group')) {
-            DataAccessor.addGroup(scope.currentLanguage, $routeParams.levels, groupName).then(function () {
+            DataAccessor.addGroup(groupName, scope.languages, $routeParams.levels).then(function () {
               scope.listGroups.push(groupName)
-              Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', {'groupName': groupName}), 'good')
+              Toast.showCustomToast('check', $i18next.t('commons.toast.addGroup.success', { 'groupName': groupName }), 'good')
             }, function (response) {
-              Toast.showCustomToast('warning', $i18next.t('commons.toast.addGroup.fail', {'groupName': groupName}), 'fail')
+              Toast.showCustomToast('warning', $i18next.t('commons.toast.addGroup.fail', { 'groupName': groupName }), 'fail')
               console.error('Error on add new group', response)
             })
           } else {
-            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addGroup.groupExist', {'groupName': groupName}), 'medium')
+            Toast.showCustomToast('info_outline', $i18next.t('commons.toast.addGroup.groupExist', { 'groupName': groupName }), 'medium')
           }
         })
       }
@@ -45,15 +45,15 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
         Dialog.showPrompt(options).then(function (groupName) {
           if (originalGroupName !== groupName) {
-            DataAccessor.majGroup(scope.currentLanguage, $routeParams.levels, groupName, originalGroupName).then(function () {
-              Toast.showCustomToast('check', $i18next.t('commons.toast.majGroup.success', {'groupName': groupName}), 'good')
+            DataAccessor.majGroup(groupName, scope.languages, $routeParams.levels, originalGroupName).then(function () {
+              Toast.showCustomToast('check', $i18next.t('commons.toast.majGroup.success', { 'groupName': groupName }), 'good')
               angular.forEach(scope.listGroups, function (value, index) {
                 if (value === originalGroupName) {
                   scope.listGroups[index] = groupName
                 }
               })
             }, function (response) {
-              Toast.showCustomToast('warning', $i18next.t('commons.toast.majGroup.fail', {'groupName': groupName}), 'fail')
+              Toast.showCustomToast('warning', $i18next.t('commons.toast.majGroup.fail', { 'groupName': groupName }), 'fail')
               console.error('Error on rename group', response)
             })
           }
@@ -62,11 +62,11 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
       scope.openDialogDeleteGroup = function (ev, groupName) {
         Dialog.showConfirm(ev).then(function () {
-          DataAccessor.deleteGroup(scope.currentLanguage, $routeParams.levels, groupName).then(function () {
+          DataAccessor.deleteGroup(groupName, scope.languages, $routeParams.levels).then(function () {
             scope.listGroups = DataManager.remove(scope.listGroups, groupName)
-            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteGroup.success', {'groupName': groupName}), 'good')
+            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteGroup.success', { 'groupName': groupName }), 'good')
           }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteGroup.fail', {'groupName': groupName}), 'fail')
+            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteGroup.fail', { 'groupName': groupName }), 'fail')
             console.error('Error on delete group', response)
           })
         })

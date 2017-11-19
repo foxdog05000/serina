@@ -20,6 +20,11 @@
         "theming": "Theming",
         "choiceTheme": "Choice theme"
       },
+      "shortcuts": {
+        "keyboardShortcuts": "Keyboard shortcuts",
+        "navigateToPreviousCorrespondingItem": "Navigate to the previous corresponding item",
+        "navigateToNextCorrespondingItem": "Navigate to the next corresponding item"
+      },
       "advanced": {
         "title": "Advanced settings",
         "customPathOfFile": "Custom path of language files"
@@ -27,7 +32,7 @@
       "about": {
         "title": "About",
         "nameAppAndCreator": "Serina by @foxdog05000",
-        "version": "Version",
+        "version": "Release",
         "licenceAndDownload": "Serina is Open Source software licensed under MIT, it can be downloaded for free at"
       }
     }
@@ -41,6 +46,14 @@
       "return": "Return",
       "validate": "Validate",
       "cancel": "Cancel"
+    },
+    "themeColor": {
+      "brown": "Brown",
+      "green": "Green",
+      "grey": "Grey",
+      "indigo": "Indigo",
+      "orange": "Orange",
+      "purple": "Purple"
     },
     "dialog": {
       "addGroup": {
@@ -90,8 +103,12 @@
         "fail": "Unable to delete group '{{groupName}}'"
       }
     },
+    "matchingElement": "matching element",
+    "matchingElement_plural": "matching elements",
     "language": "Language",
+    "secondLanguage": "Second language",
     "translation": "Translation",
+    "translation_plural": "Translations",
     "group": "Group",
     "format": "Format",
     "aGroup": "a group",

@@ -1,0 +1,40 @@
+<md-content ng-if="breadcrumb.length === 1" class="swap md-padding md-whiteframe-2dp">
+    <div layout="row">
+        <div flex="80">
+            <div layout="column">
+                <md-input-container class="md-icon-float md-block">
+                    <label>{{'commons.language' | i18next}}</label>
+                    <md-icon>flag</md-icon>
+                    <input ng-model="languages[0]" type="text" readonly>
+                </md-input-container>
+
+                <md-input-container flex class="md-icon-float md-block">
+                    <label>{{'commons.secondLanguage' | i18next}}</label>
+                    <md-icon>flag</md-icon>
+                    <md-select ng-model="secondLanguage">
+                        <md-option ng-repeat="language in languagesForSwap track by $index" ng-value="language.code" ng-click="selectSecondLanguage(language.code)" ng-selected="secondLanguage === language.code">
+                            {{language.code | uppercase}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </div>
+        <div flex="20">
+            <div layout="column" layout-align="center end" class="swap-languages">
+                <div flex="10">
+                    <md-button class="md-icon-button md-primary" ng-disabled="disabledSwap">
+                        <md-icon>compare_arrows</md-icon>
+                    </md-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div layout="column" layout-align="center stretch">
+            <md-button class="md-primary md-raised" ng-click="recoverSecondaryLanguage()" ng-disabled="disabledSwap">
+                <md-icon>done</md-icon> {{'commons.actions.validate' | i18next}}
+            </md-button>
+        </div>
+    </div>
+</md-content>

@@ -1,12 +1,18 @@
 'use strict'
 
-angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, $anchorScroll, DataAccessor, Breadcrumb) {
-  $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
+angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, DataAccessor, Breadcrumb, SecondLanguage) {
   var originatorEv
+
+  if ($rootScope.secondLanguageIsValid) {
+    $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase() + ' / ' + $rootScope.secondLanguage.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
+  } else {
+    $rootScope.breadcrumb = Breadcrumb.init($routeParams.language.toUpperCase(), '/language/' + $routeParams.language.toLowerCase())
+  }
 
   var getListGroupsAndTranslations = function (content, levels) {
     $scope.listGroups = []
     $scope.listTranslations = []
+    $scope.originalListTranslations = []
 
     if (!angular.isUndefined(levels)) {
       levels = levels.replace(/\//g, '.')
@@ -17,20 +23,22 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
       if (angular.isObject(translation)) {
         $scope.listGroups.push(key)
       } else {
-        $scope.listTranslations.push({ key: key, value: translation, save: true, modified: false, nbModified: 0 })
+        $scope.listTranslations.push({ key: key, value: [translation], save: true, modified: false })
       }
     })
+
+    angular.copy($scope.listTranslations, $scope.originalListTranslations)
   }
 
   $scope.btnBack = function () {
     var currentUrl = $location.$$url
-    if (currentUrl === '/language/' + $scope.currentLanguage) {
+    if (currentUrl === '/language/' + $scope.languages[0]) {
       $location.path('/hub')
     } else {
       var currentUrlSplit = currentUrl.split('/')
       currentUrlSplit.pop()
       var newUrl = ''
-      var iterator = 0;
+      var iterator = 0
       angular.forEach(currentUrlSplit, function (level) {
         if (level === '') {
           newUrl += '/'
@@ -45,39 +53,24 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     }
   }
 
-  $scope.gotoTop = function () {
-    $location.hash('backToTop')
-    $anchorScroll()
-  }
-
   $scope.openMenu = function ($mdMenu, ev) {
     originatorEv = ev
     $mdMenu.open(ev)
   }
 
-  $scope.currentLanguage = $routeParams.language.toLowerCase()
-  DataAccessor.openLanguage($scope.currentLanguage).then(function (response) {
+  $scope.languages = []
+  $scope.languages.push($routeParams.language.toLowerCase())
+  $rootScope.secondLanguage = SecondLanguage.definedSecondLanguage($rootScope.secondLanguage)
+  DataAccessor.openLanguage($scope.languages[0]).then(function (response) {
     getListGroupsAndTranslations(response.data, $routeParams.levels)
-    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.currentLanguage, $routeParams.levels)
+
+    if (angular.isDefined($rootScope.secondLanguage) && $rootScope.secondLanguage.length === 2) {
+      $rootScope.secondLanguageIsValid = true
+      $scope.recoverSecondaryLanguage($rootScope.secondLanguage)
+    }
+    $rootScope.breadcrumb = Breadcrumb.build($rootScope.breadcrumb, $scope.languages[0], $routeParams.levels)
   }, function (response) {
-    console.error('Error on open language ' + $scope.currentLanguage, response)
+    console.error('Error on open language ' + $scope.languages[0], response)
   })
-
-  var scrollObject = {}
-  window.onscroll = getScrollPosition
-
-  function getScrollPosition () {
-    scrollObject = {
-       x: window.pageXOffset,
-       y: window.pageYOffset
-    }
-    if (scrollObject.y > 200) {
-      if (document.getElementById('buttonBackToTop').style.visibility === 'hidden') {
-        document.getElementById('buttonBackToTop').style.visibility = 'visible'
-      }
-    } else {
-      document.getElementById('buttonBackToTop').style.visibility = 'hidden'
-    }
-  }
 
 })

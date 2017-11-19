@@ -10,6 +10,31 @@
     top: 4px;
   }
 
+  .keyboard-key {
+    background: $white;
+    border: 1px solid #D6DADC;
+    border-bottom-color: #CDD2D4;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px rgba($black, .1);
+    cursor: default;
+    display: inline-block;
+    font-size: 1.3em;
+    margin: 0 5px 10px 0;
+    padding: 6px 10px;
+
+    md-icon {
+      height: 21px;
+      min-height: 21px;
+      min-width: 21px;
+      width: 21px;
+    }
+
+    .material-icons {
+      color: rgba($black, .87);
+      font-size: 21px;
+    }
+  }
+
   .indigo, .green, .orange, .purple, .brown, .grey {
     color: $white;
   }

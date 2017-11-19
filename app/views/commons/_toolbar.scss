@@ -1,0 +1,21 @@
+.search-bar {
+  * {
+    color: $white !important;
+  }
+
+  input {
+    border-bottom-color: $white;
+  }
+
+  .md-errors-spacer {
+    display: none;
+  }
+
+  .matching-elements {
+    display: inline-flex;
+
+    .md-button {
+      padding-top: 1.4em;
+    }
+  }
+}

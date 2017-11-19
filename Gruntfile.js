@@ -11,6 +11,7 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  var serveStatic = require('serve-static');
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
@@ -80,16 +81,16 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
+              serveStatic('.tmp'),
               connect().use(
                 '/bower_components',
-                connect.static('./bower_components')
+                serveStatic('./bower_components')
               ),
               connect().use(
                 '/app/views',
-                connect.static('./app/views')
+                serveStatic('./app/views')
               ),
-              connect.static(appConfig.app)
+              serveStatic(appConfig.app)
             ];
           }
         }
@@ -99,13 +100,13 @@ module.exports = function (grunt) {
           port: 9001,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
-              connect.static('test'),
+              serveStatic('.tmp'),
+              serveStatic('test'),
               connect().use(
                 '/bower_components',
-                connect.static('./bower_components')
+                serveStatic('./bower_components')
               ),
-              connect.static(appConfig.app)
+              serveStatic(appConfig.app)
             ];
           }
         }
@@ -178,7 +179,7 @@ module.exports = function (grunt) {
     postcss: {
       options: {
         processors: [
-          require('autoprefixer-core')({browsers: ['last 1 version']})
+          require('autoprefixer')({browsers: ['last 1 version']})
         ]
       },
       server: {
@@ -463,6 +464,10 @@ module.exports = function (grunt) {
             'inherits/**',
             'ipaddr.js/**',
             'jsonfile/**',
+            'http-errors/**',
+            'etag/**',
+            'fresh/**',
+            'cookie/**',
             'media-typer/**',
             'merge-descriptors/**',
             'methods/**',
@@ -479,6 +484,7 @@ module.exports = function (grunt) {
             'range-parser/**',
             'raw-body/**',
             'send/**',
+            'safe-buffer/**',
             'serve-static/**',
             'setprototypeof/**',
             'statuses/**',

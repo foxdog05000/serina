@@ -4,6 +4,7 @@
 @import "commons/colors";
 @import "commons/animations";
 @import "commons/mdToast";
+@import "commons/toolbar";
 @import "commons/breadcrumb";
 @import "commons/spinner";
 @import "hub/hub";
@@ -11,4 +12,14 @@
 @import "settings/settings";
 
 body.md-toast-animating { overflow: auto !important; }
+
 .center { text-align: center;}
+.lowercase { text-transform: lowercase;}
+
+.md-sidenav-left .material-icons {
+  line-height: .8;
+}
+
+md-toast {
+  position: fixed;
+}

@@ -1,0 +1,54 @@
+<md-toolbar id="backToTop">
+    <div ng-show="showPreSearchBar()" id="search-bar" class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+            <md-icon>menu</md-icon>
+        </md-button>
+
+        <h2 flex md-truncate class="breadcrumb">
+            <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">
+                <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
+            </a>
+        </h2>
+
+        <span flex></span>
+
+        <div ng-show="breadcrumb[0].href !== '/hub'">
+            <md-button class="md-icon-button" arial-label="search" ng-if="breadcrumb[0].href !== '/settings'" ng-click="initiateSearch()">
+                <md-icon>search</md-icon>
+            </md-button>
+
+            <md-button class="md-icon-button" aria-label="Home" href="#/hub">
+                <md-icon>home</md-icon>
+            </md-button>
+        </div>
+    </div>
+
+    <div ng-show="!showPreSearchBar()" class="md-toolbar-tools search-bar">
+        <form name="search" ng-submit="searchKey()">
+            <md-button type="submit" class="md-icon-button" ng-click="searchKey()">
+                <md-icon>search</md-icon>
+            </md-button>
+
+            <md-input-container>
+                <input type="search" ng-model="search" id="search-input" aria-label="search-input" />
+            </md-input-container>
+
+            <md-button class="md-icon-button" ng-click="endSearch()">
+                <md-icon>close</md-icon>
+            </md-button>
+        </form>
+
+        <div ng-if="matchingElements.length > 0" class="matching-elements">
+            <p>{{matchingElements.length}} <span ng-i18next="[i18next]({count: matchingElements.length})commons.matchingElement"></span></p>
+
+            <div ng-if="matchingElements.length > 1">
+                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('-')" ng-disabled="">
+                    <md-icon>keyboard_arrow_left</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('+')" ng-disabled="">
+                    <md-icon>keyboard_arrow_right</md-icon>
+                </md-button>
+            </div>
+        </div>
+    </div>
+</md-toolbar>
