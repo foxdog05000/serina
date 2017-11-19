@@ -23,11 +23,21 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         })
       }
 
-      var appendTranslationOfSecondLanguage = function (content, levels) {
+      var appendSecondLanguage = function (content, levels) {
         if (!angular.isUndefined(levels)) {
           levels = levels.replace(/\//g, '.')
           content = eval('content.' + levels)
         }
+
+        angular.forEach(scope.listGroups, function (groupName, index) {
+          if (angular.isUndefined(content[groupName])) {
+            DataAccessor.addGroup(groupName, scope.languages, $routeParams.levels).then(function () {
+              console.log('Successfully add missing group in second language')
+            }, function (response) {
+              console.error('Error on add missig group on second language', response)
+            })
+          }
+        })
 
         angular.forEach(content, function (translation, key) {
           if (!angular.isObject(translation)) {
@@ -48,7 +58,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
       scope.recoverSecondaryLanguage = function () {
         $rootScope.secondLanguageIsValid = false
         DataAccessor.openLanguage($rootScope.secondLanguage).then(function (response) {
-          appendTranslationOfSecondLanguage(response.data, $routeParams.levels)
+          appendSecondLanguage(response.data, $routeParams.levels)
           $rootScope.secondLanguageIsValid = true
           scope.languages.push($rootScope.secondLanguage)
           angular.copy(scope.listTranslations, scope.originalListTranslations)
