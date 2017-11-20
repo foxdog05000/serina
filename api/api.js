@@ -131,6 +131,8 @@ function countTranslations (obj) {
     for (item in obj) {
       if (obj.hasOwnProperty(item)) {
         countTranslations(obj[item])
+      } else {
+        break
       }
     }
   } else {
@@ -149,20 +151,17 @@ app.get(pathApi + '/list-languages', function (req, res) {
   })
 })
 
-app.get(pathApi + '/count-entties-list-languages', function (req, res) {
 app.get(pathApi + '/count-entities-list-languages', function (req, res) {
   let languages = { listLanguages: [] }
-  fs.readdirSync(pathJsonFile, function (err, files) {
+  fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
-    for (let index = 0; index < files.length; index++) {
-      jsonfile.readFile(pathJsonFile + files[index], function (err, obj) {
-        if (err) { console.log('Error on read json file : ' + files[index], 'err', err) }
+    for (const [iterator, file] of files.entries()) {
+      jsonfile.readFile(pathJsonFile + file, function (err, obj) {
+        if (err) { console.log('Error on read json file : ' + file, 'err', err) }
         nbEntities = 0
         countTranslations(obj)
-
-        languages.listLanguages.push({ code: files[index].substring(0, 2), nbTranslations: nbEntities })
-
-        if (index === files.length - 1) {
+        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: nbEntities })
+        if (iterator === files.length - 1) {
           res.send(languages)
         }
       })

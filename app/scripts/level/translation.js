@@ -8,21 +8,24 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
 
       scope.$watch('listTranslations', function (newValue, oldValue) {
         if (newValue !== oldValue && !angular.isUndefined(oldValue)) {
-          var firstEntitiesNotSave = 0
-          if (!newValue[0].save) {
-            firstEntitiesNotSave = 1
+          var nbEntitiesNotSave = 0
+          for (var iterator = 0; iterator < newValue.length; iterator++) {
+            if (!newValue[iterator].save) {
+              nbEntitiesNotSave++
+            }
           }
+
           for (var iterator = 0; iterator < oldValue.length; iterator++) {
-            if (!angular.isUndefined(newValue[iterator + firstEntitiesNotSave]) && (newValue[iterator + firstEntitiesNotSave].save && oldValue[iterator].save)) {
+            if (!angular.isUndefined(newValue[iterator + nbEntitiesNotSave]) && (newValue[iterator + nbEntitiesNotSave].save && oldValue[iterator].save)) {
               if (!$rootScope.secondLanguageIsValid) {
-                if (angular.equals(newValue[iterator + firstEntitiesNotSave].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator + firstEntitiesNotSave].value[0], scope.originalListTranslations[iterator].value[0])) {
+                if (angular.equals(newValue[iterator + nbEntitiesNotSave].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator + nbEntitiesNotSave].value[0], scope.originalListTranslations[iterator].value[0])) {
                   scope.listTranslations[iterator].modified = false
                 } else {
                   scope.listTranslations[iterator].modified = true
                   scope.listTranslations[iterator].originalKey = scope.originalListTranslations[iterator].key
                 }
               } else {
-                if (angular.equals(newValue[iterator + firstEntitiesNotSave].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator + firstEntitiesNotSave].value[0], scope.originalListTranslations[iterator].value[0])  && angular.equals(newValue[iterator + firstEntitiesNotSave].value[1], scope.originalListTranslations[iterator].value[1])) {
+                if (angular.equals(newValue[iterator + nbEntitiesNotSave].key, scope.originalListTranslations[iterator].key) && angular.equals(newValue[iterator + nbEntitiesNotSave].value[0], scope.originalListTranslations[iterator].value[0])  && angular.equals(newValue[iterator + nbEntitiesNotSave].value[1], scope.originalListTranslations[iterator].value[1])) {
                   scope.listTranslations[iterator].modified = false
                 } else {
                   scope.listTranslations[iterator].modified = true
@@ -40,6 +43,15 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
           patternTranslation.secondValue = ''
         }
         scope.listTranslations.unshift(patternTranslation)
+      }
+
+      scope.duplicatedTranslation = function (ev, originalTranslation) {
+        var translationCopy = angular.copy(originalTranslation)
+        translationCopy.key += '_copy'
+        translationCopy.save = false
+        translationCopy.modified = false
+        scope.listTranslations.unshift(translationCopy)
+        translationCopy = null
       }
 
       scope.sendTranslation = function (ev, translation) {

@@ -8,7 +8,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.1.1_
+_Serina R0.2_
 
 ## Download
 
@@ -38,7 +38,7 @@ Changing a translation triggers a key or value change detection system to know w
 
 #### Search
 
-A search bar represented by a magnifying glass is integrated in the toolbar. The research focuses on the "keys" of translations. 
+A search bar represented by a magnifying glass is integrated in the toolbar. The research focuses on the "keys" of translations.
 The first corresponding element will be selected to highlight it. And if several items match the search, a navigation between the corresponding items is displayed next to the search bar.
 
 #### Parallel edition of two languages
@@ -62,6 +62,7 @@ The settings allow you to modify the app according to your preferences. A "About
 
 #### Others parameters
 - The theme of the application
+- Keyboard shortcuts
 
 ## FAQ
 
@@ -81,9 +82,10 @@ Clone/download source code from the github repo. Make sure you have _node_, _npm
 2. `yarn start` to start _API_ on `localhost:7777`.
 3. `grunt serve` to start _Serina_ on `localhost:9000`.
 4. `yarn run package` to build _serina_ for linux (build will be placed in `packages` folder).
-    * `grunt package` to make builds for windows and linux.
+    * `grunt package` to make builds for windows, linux and mac os.
     * `grunt package:win32` to make build for windows (64bits).
     * `grunt package:linux` to make build for linux.
+    * `grunt package:macos` to make build for mac os (64bits).
 5. `grunt test` to run the automated tests.
     * Please, ensure the tests are passing before creating a pull requests. Add tests for your changes.
 
