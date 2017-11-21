@@ -1,0 +1,7 @@
+<md-subheader class="md-no-sticky"><md-icon>color_lens</md-icon> {{'pages.settings.basic.theming' | i18next}}</md-subheader>
+<md-list-item class="theming">
+    <p>{{'pages.settings.basic.choiceTheme' | i18next}}</p>
+    <div layout="row">
+        <md-button ng-repeat="color in colors" flex-gt-md="15" class="{{color.value}}" ng-click="changeColor(color.value)">{{color.label | i18next}}</md-button>
+    </div>
+</md-list-item>
