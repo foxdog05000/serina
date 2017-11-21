@@ -1,4 +1,9 @@
+# R0.2.1 (soon)
+
+- Fix : Navigate on home page or open group = search bar closed
+
 # [R0.2](https://github.com/foxdog05000/serina/releases/tag/R0.2) (2017-11-19)
+
 
 - Adding second language selection (swap)
 - CRUD improvement of groups and translations on the api side in order to manage several languages
