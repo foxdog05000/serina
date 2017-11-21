@@ -1,11 +1,12 @@
 'use strict'
 
-angular.module('serinaApp').directive('toolbar', function ($timeout) {
+angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope) {
   return {
     restrict: 'E',
     templateUrl: 'views/commons/toolbar.html',
     link: function (scope) {
 
+      scope.searchOpen = false;
       scope.search = null
 
       var clearMatchingElements = function () {
@@ -18,6 +19,7 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
           document.getElementById('search-input').focus()
         }, 10)
         clearMatchingElements()
+        scope.searchOpen = true;
       }
 
       scope.showPreSearchBar = function () {
@@ -28,6 +30,7 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
         scope.search = null
         clearMatchingElements()
         scope.currentMatchingElement = 0
+        scope.searchOpen = false;
       }
 
       scope.searchKey = function () {
@@ -65,6 +68,16 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
           scope.matchingElements[scope.currentMatchingElement].focus()
         }
       }
+
+      Mousetrap.bindGlobal('ctrl+f', function () {
+        if ($rootScope.breadcrumb[0].href !== '/hub' && $rootScope.breadcrumb[0].href !== '/settings') {
+          if (scope.searchOpen) {
+            scope.endSearch();
+          } else {
+            scope.initiateSearch();
+          }
+        }
+      })
 
       Mousetrap.bindGlobal('ctrl+up', function () {
         if (scope.matchingElements) {
