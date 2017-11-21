@@ -23,7 +23,8 @@
       "shortcuts": {
         "keyboardShortcuts": "Keyboard shortcuts",
         "navigateToPreviousCorrespondingItem": "Navigate to the previous corresponding item",
-        "navigateToNextCorrespondingItem": "Navigate to the next corresponding item"
+        "navigateToNextCorrespondingItem": "Navigate to the next corresponding item",
+        "toggleSearchBar": "Opening/Closing the search bar"
       },
       "advanced": {
         "title": "Advanced settings",

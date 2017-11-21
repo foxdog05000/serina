@@ -96,7 +96,8 @@
       "shortcuts": {
         "keyboardShortcuts": "Atajos de teclado",
         "navigateToPreviousCorrespondingItem": "Navegue hasta el elemento correspondiente anterior",
-        "navigateToNextCorrespondingItem": "Navegar al siguiente elemento correspondiente"
+        "navigateToNextCorrespondingItem": "Navegar al siguiente elemento correspondiente",
+        "toggleSearchBar": "Abrir/Cerrar la barra de búsqueda"
       },
       "advanced": {
         "customPathOfFile": "Ubicación personalizada de los archivos de idioma",
