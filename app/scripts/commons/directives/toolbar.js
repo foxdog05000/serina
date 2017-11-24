@@ -14,12 +14,14 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
       }
 
       scope.initiateSearch = function () {
-        scope.search = ''
-        $timeout(function () {
-          document.getElementById('search-input').focus()
-        }, 10)
-        clearMatchingElements()
-        scope.searchOpen = true;
+        scope.$apply(function () {
+          scope.search = ''
+          clearMatchingElements()
+          scope.searchOpen = true
+          $timeout(function () {
+            document.getElementById('search-input').focus()
+          }, 50)
+        })
       }
 
       scope.showPreSearchBar = function () {
@@ -29,6 +31,7 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
       scope.endSearch = function () {
         scope.search = null
         clearMatchingElements()
+        document.getElementById('search-input').blur()
         scope.currentMatchingElement = 0
         scope.searchOpen = false;
       }
@@ -69,12 +72,17 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
         }
       }
 
-      Mousetrap.bindGlobal('ctrl+f', function () {
+      Mousetrap.bindGlobal('ctrl+f', function (e) {
+        if (e.preventDefault) {
+          e.preventDefault()
+        }
         if ($rootScope.breadcrumb[0].href !== '/hub' && $rootScope.breadcrumb[0].href !== '/settings') {
           if (scope.searchOpen) {
-            scope.endSearch();
+            scope.$apply(function () {
+              scope.endSearch()
+            })
           } else {
-            scope.initiateSearch();
+            scope.initiateSearch()
           }
         }
       })
