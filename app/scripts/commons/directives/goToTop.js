@@ -26,7 +26,10 @@ angular.module('serinaApp').directive('goToTop', function ($location, $anchorScr
         $anchorScroll()
       }
 
-      window.onscroll = getScrollPosition
+      getScrollPosition()
+      window.addEventListener('scroll',function () {
+        getScrollPosition()
+      })
 
     }
   }

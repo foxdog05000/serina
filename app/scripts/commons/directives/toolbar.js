@@ -14,14 +14,12 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
       }
 
       scope.initiateSearch = function () {
-        scope.$apply(function () {
-          scope.search = ''
-          clearMatchingElements()
-          scope.searchOpen = true
-          $timeout(function () {
-            document.getElementById('search-input').focus()
-          }, 50)
-        })
+        scope.search = ''
+        clearMatchingElements()
+        scope.searchOpen = true
+        $timeout(function () {
+          document.getElementById('search-input').focus()
+        }, 50)
       }
 
       scope.showPreSearchBar = function () {
@@ -82,7 +80,9 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
               scope.endSearch()
             })
           } else {
-            scope.initiateSearch()
+            scope.$apply(function () {
+              scope.initiateSearch()
+            })
           }
         }
       })
