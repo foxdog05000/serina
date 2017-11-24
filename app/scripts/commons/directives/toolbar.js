@@ -77,7 +77,6 @@ angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope)
           e.preventDefault()
         }
         if ($rootScope.breadcrumb[0].href !== '/hub' && $rootScope.breadcrumb[0].href !== '/settings') {
-          console.log('search open : ' + scope.searchOpen)
           if (scope.searchOpen) {
             scope.$apply(function () {
               scope.endSearch()
