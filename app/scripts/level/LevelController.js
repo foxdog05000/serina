@@ -32,6 +32,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
 
   $scope.btnBack = function () {
     var currentUrl = $location.$$url
+    $scope.endSearch();
     if (currentUrl === '/language/' + $scope.languages[0]) {
       $location.path('/hub')
     } else {

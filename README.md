@@ -8,7 +8,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.2_
+_Serina R0.2.1_
 
 ## Download
 

@@ -2,7 +2,7 @@
   "name": "serina",
   "author": "Florian Armand Alias Foxdog05000",
   "license": "MIT",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "api/api.js",
   "repository": {
     "type": "git",

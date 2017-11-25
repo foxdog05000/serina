@@ -74,6 +74,7 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
       scope.openGroup = function (group) {
         var currentUrl = $location.path()
+        scope.endSearch();
         $location.path(currentUrl + '/' + group)
       }
 

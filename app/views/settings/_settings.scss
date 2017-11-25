@@ -35,44 +35,46 @@
     }
   }
 
-  .indigo, .green, .orange, .purple, .brown, .grey {
-    color: $white;
-  }
+  .theming {
+    .indigo, .green, .orange, .purple, .brown, .grey {
+      color: $white;
+    }
 
-  .indigo {
-    background-color: rgb(63, 81, 181);
-    &:hover {
-      background-color: rgba(63, 81, 181, 0.4) !important;
+    .indigo {
+      background-color: rgb(63, 81, 181);
+      &:hover {
+        background-color: rgba(63, 81, 181, 0.4) !important;
+      }
     }
-  }
-  .green {
-    background-color: rgb(76, 175, 80);
-    &:hover {
-      background-color: rgba(76, 175, 80, 0.4) !important;
+    .green {
+      background-color: rgb(76, 175, 80);
+      &:hover {
+        background-color: rgba(76, 175, 80, 0.4) !important;
+      }
     }
-  }
-  .orange {
-    background-color: rgb(255, 152, 0);
-    &:hover {
-      background-color: rgba(255, 152, 0, 0.4) !important;
+    .orange {
+      background-color: rgb(255, 152, 0);
+      &:hover {
+        background-color: rgba(255, 152, 0, 0.4) !important;
+      }
     }
-  }
-  .purple {
-    background-color: rgb(156, 39, 176);
-    &:hover {
-      background-color: rgba(156, 39, 176, 0.4) !important;
+    .purple {
+      background-color: rgb(156, 39, 176);
+      &:hover {
+        background-color: rgba(156, 39, 176, 0.4) !important;
+      }
     }
-  }
-  .brown {
-    background-color: rgb(121, 85, 72);
-    &:hover {
-      background-color: rgba(121, 85, 72, 0.4) !important;
+    .brown {
+      background-color: rgb(121, 85, 72);
+      &:hover {
+        background-color: rgba(121, 85, 72, 0.4) !important;
+      }
     }
-  }
-  .grey {
-    background-color: rgb(158, 158, 158);
-    &:hover {
-      background-color: rgba(158, 158, 158, 0.4) !important;
+    .grey {
+      background-color: rgb(158, 158, 158);
+      &:hover {
+        background-color: rgba(158, 158, 158, 0.4) !important;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('translation', function ($rootScope, $routeParams, $i18next, DataAccessor, DataManager, Toast) {
+angular.module('serinaApp').directive('translation', function ($rootScope, $routeParams, $i18next, DataAccessor, DataManager, Dialog, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/level/translation.html',
@@ -88,13 +88,15 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
         if (!translation.save) {
           scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
         } else {
-          DataAccessor.deleteTranslation(scope.languages, $routeParams.levels, translation).then(function () {
-            scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
-            angular.copy(scope.listTranslations, scope.originalListTranslations)
-            Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
-          }, function (response) {
-            Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTranslation.fail', { translation: translation.key }), 'fail')
-            console.error('Unable to delete translation', response)
+          Dialog.showConfirm(ev).then(function () {
+            DataAccessor.deleteTranslation(scope.languages, $routeParams.levels, translation).then(function () {
+              scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
+              angular.copy(scope.listTranslations, scope.originalListTranslations)
+              Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
+            }, function (response) {
+              Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTranslation.fail', { translation: translation.key }), 'fail')
+              console.error('Unable to delete translation', response)
+            })
           })
         }
       }

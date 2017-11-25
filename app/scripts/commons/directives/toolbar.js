@@ -1,11 +1,12 @@
 'use strict'
 
-angular.module('serinaApp').directive('toolbar', function ($timeout) {
+angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope) {
   return {
     restrict: 'E',
     templateUrl: 'views/commons/toolbar.html',
     link: function (scope) {
 
+      scope.searchOpen = false;
       scope.search = null
 
       var clearMatchingElements = function () {
@@ -14,10 +15,11 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
 
       scope.initiateSearch = function () {
         scope.search = ''
+        clearMatchingElements()
+        scope.searchOpen = true
         $timeout(function () {
           document.getElementById('search-input').focus()
-        }, 10)
-        clearMatchingElements()
+        }, 50)
       }
 
       scope.showPreSearchBar = function () {
@@ -27,7 +29,9 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
       scope.endSearch = function () {
         scope.search = null
         clearMatchingElements()
+        document.getElementById('search-input').blur()
         scope.currentMatchingElement = 0
+        scope.searchOpen = false;
       }
 
       scope.searchKey = function () {
@@ -65,6 +69,23 @@ angular.module('serinaApp').directive('toolbar', function ($timeout) {
           scope.matchingElements[scope.currentMatchingElement].focus()
         }
       }
+
+      Mousetrap.bindGlobal('ctrl+f', function (e) {
+        if (e.preventDefault) {
+          e.preventDefault()
+        }
+        if ($rootScope.breadcrumb[0].href !== '/hub' && $rootScope.breadcrumb[0].href !== '/settings') {
+          if (scope.searchOpen) {
+            scope.$apply(function () {
+              scope.endSearch()
+            })
+          } else {
+            scope.$apply(function () {
+              scope.initiateSearch()
+            })
+          }
+        }
+      })
 
       Mousetrap.bindGlobal('ctrl+up', function () {
         if (scope.matchingElements) {

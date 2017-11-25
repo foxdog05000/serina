@@ -23,7 +23,8 @@
       "shortcuts": {
         "keyboardShortcuts": "Raccourcis clavier",
         "navigateToPreviousCorrespondingItem": "Naviguer vers l'élément correspondant précédent",
-        "navigateToNextCorrespondingItem": "Naviguer vers l'élément correspondant suivant"
+        "navigateToNextCorrespondingItem": "Naviguer vers l'élément correspondant suivant",
+        "toggleSearchBar": "Ouverture/Fermeture de la barre de recherche"
       },
       "advanced": {
         "title": "Paramétres avancées",
