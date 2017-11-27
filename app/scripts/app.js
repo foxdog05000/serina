@@ -24,6 +24,10 @@ angular
         templateUrl: 'views/level/level.html',
         controller: 'LevelCtrl'
       })
+      .when('/preview', {
+        templateUrl: 'views/preview/preview.html',
+        controller: 'PreviewCtrl'
+      })
       .when('/settings', {
         templateUrl: 'views/settings/settings.html',
         controller: 'SettingsCtrl'
