@@ -8,7 +8,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngMaterial',
-    'jm.i18next'
+    'jm.i18next',
+    'jsonFormatter'
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
