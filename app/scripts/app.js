@@ -11,7 +11,7 @@ angular
     'jm.i18next',
     'jsonFormatter'
   ])
-  .config(function ($routeProvider, $mdThemingProvider) {
+  .config(function ($routeProvider, $mdThemingProvider, JSONFormatterConfigProvider) {
     $routeProvider
       .when('/hub', {
         templateUrl: 'views/hub/hub.html',
@@ -74,6 +74,10 @@ angular
       .warnPalette('red')
 
     $mdThemingProvider.alwaysWatchTheme(true)
+
+    JSONFormatterConfigProvider.hoverPreviewEnabled = true
+    JSONFormatterConfigProvider.hoverPreviewArrayCount = 100
+    JSONFormatterConfigProvider.hoverPreviewFieldCount = 5
   })
   .run(function ($rootScope, $mdSidenav, LocalStorage) {
     $rootScope.loading = true
