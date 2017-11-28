@@ -14,6 +14,15 @@ angular.module('serinaApp').directive('listLanguagesForPreview', function (DataA
         })
       }
 
+      scope.previewLanguage = function (languageCode) {
+        scope.selectedLanguage = languageCode
+        DataAccessor.openLanguage(languageCode).then(function (response) {
+          scope.previewJson = response.data
+        }, function (response) {
+          // TODO error
+        })
+      }
+
       recoverListLanguagesForPreview()
 
     }
