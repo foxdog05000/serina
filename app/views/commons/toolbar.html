@@ -13,7 +13,7 @@
         <span flex></span>
 
         <div ng-show="breadcrumb[0].href !== '/hub'">
-            <md-button class="md-icon-button" arial-label="search" ng-if="breadcrumb[0].href !== '/settings'" ng-click="initiateSearch()">
+            <md-button class="md-icon-button" arial-label="search" ng-if="breadcrumb[0].href !== '/preview' && breadcrumb[0].href !== '/settings'" ng-click="initiateSearch()">
                 <md-icon>search</md-icon>
             </md-button>
 
