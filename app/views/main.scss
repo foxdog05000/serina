@@ -21,6 +21,10 @@ body.md-toast-animating { overflow: auto !important; }
   line-height: .8;
 }
 
+md-list-item, .md-subheader, .md-subheader.md-green-theme {
+  background-color: $white;
+}
+
 md-toast {
   position: fixed;
 }
