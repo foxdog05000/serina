@@ -314,3 +314,5 @@ const server = app.listen(7777, 'localhost', function () {
   console.log('API listen on ' + server.address().address + ':' + server.address().port + ' !')
   createFolderIsNotExist('/json/')
 })
+
+module.exports = app

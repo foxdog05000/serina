@@ -1,6 +1,7 @@
 'use strict'
 
-let assert = require('assert')
+const chai = require('chai')
+const expect = chai.expect
 
 describe('Array', () => {
   describe('#indexOf()', () => {
