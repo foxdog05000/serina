@@ -619,8 +619,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'postcss',
     'connect:test',
-    'karma',
-    'coveralls'
+    'karma'
   ]);
 
   grunt.registerTask('build', [
@@ -639,8 +638,7 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'coveralls'
+    'htmlmin'
   ]);
 
   grunt.registerTask('package', 'Package electron app', function (target) {
