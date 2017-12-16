@@ -69,6 +69,7 @@
   "scripts": {
     "build": "rimraf api/dist/ && babel ./api/ --out-dir api/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node api/dist/api.js",
+    "test": "cd api && mocha",
     "package": "npm run build && grunt package:linux",
     "postinstall": "bower install"
   }

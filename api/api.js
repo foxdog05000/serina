@@ -24,8 +24,8 @@ app.use(function (req, res, next) {
 })
 app.use(bodyParser.json())
 
-function isDefined (value) { return value !== undefined }
-function isObject (value) { return typeof value === 'object' }
+app.isDefined = function (value) { return value !== undefined }
+app.isObject = function (value) { return typeof value === 'object' }
 
 function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
@@ -44,7 +44,7 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
     if (key === levels[i]) {
       if (key === levels[i] && i === levels.length - 1) {
         if (action === ADD || action === UPD) {
-          if (isObject(value)) {
+          if (app.isObject(value)) {
             if (action === ADD) {
               obj[key][value.key] = value.value[indexLanguage]
             } else {
@@ -66,7 +66,7 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
           }
           return obj
         } else if (action === DEL) {
-          if (isObject(value)) {
+          if (app.isObject(value)) {
             delete obj[key][value.key]
           } else {
             delete obj[key][value]
@@ -209,7 +209,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
 
-  const levelsIsDefined = isDefined(req.body.levels)
+  const levelsIsDefined = app.isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let groupName = req.body.groupName
   let originalGroupName = req.body.originalGroupName
@@ -263,7 +263,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
 
-  const levelsIsDefined = isDefined(req.body.levels)
+  const levelsIsDefined = app.isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let translation = req.body.translation
   let i = 0
