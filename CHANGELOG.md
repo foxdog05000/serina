@@ -1,4 +1,4 @@
-# R0.2.1 (soon)
+# [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
 
 - Fix : Navigate on home page or open group = search bar closed
 - Fix : Buton go to top not constantly display

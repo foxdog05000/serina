@@ -3,6 +3,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 [![Build Status](https://travis-ci.org/foxdog05000/serina.svg?branch=master)](https://travis-ci.org/foxdog05000/serina)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/foxdog05000/serina/blob/master/LICENSE)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/)
 
 > GUI for create translation files for i18next
 
