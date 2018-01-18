@@ -66,17 +66,6 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
         $location.path('/language/' + language.toLowerCase())
       }
 
-      scope.downloadLanguage = function (language) {
-        DataAccessor.downloadLanguage(language).then(function () {
-          var anchor = angular.element('<a/>')
-          anchor.attr({
-            href: $rootScope.endPoint + '/download/' + language,
-            target: '_blank',
-            download: 'translation.json'
-          })[0].click()
-        })
-      }
-
       scope.getListLanguages()
 
     }

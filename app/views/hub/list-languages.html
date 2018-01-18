@@ -15,10 +15,7 @@
                     </md-card-title-media>
                 </md-card-title>
                 <md-card-actions layout="row">
-                    <md-button ng-click="downloadLanguage(language.code)" class="md-primary md-icon-button">
-                        <md-tooltip md-direction="right">{{'commons.actions.download' | i18next}}</md-tooltip>
-                        <md-icon>get_app</md-icon>
-                    </md-button>
+                    <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
 
                     <span flex></span>
 
@@ -39,7 +36,7 @@
                     <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/> <span>{{language.code | uppercase}}</span>
                     <span flex></span>
                     <span>{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
-                    <md-button ng-click="downloadLanguage(language.code)" class="md-primary md-icon-button"><md-icon>get_app</md-icon></md-button>
+                    <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
                     <md-button ng-click="deleteLanguage($event, language.code)" class="md-warn md-icon-button"><md-icon>delete</md-icon></md-button>
                 </md-list-item>
             </div>
