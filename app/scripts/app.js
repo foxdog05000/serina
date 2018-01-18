@@ -11,7 +11,9 @@ angular
     'jm.i18next',
     'jsonFormatter'
   ])
-  .config(function ($routeProvider, $mdThemingProvider, JSONFormatterConfigProvider) {
+  .config(function ($locationProvider, $mdThemingProvider, $routeProvider, JSONFormatterConfigProvider) {
+    $locationProvider.hashPrefix('');
+
     $routeProvider
       .when('/hub', {
         templateUrl: 'views/hub/hub.html',
@@ -108,7 +110,7 @@ angular
       useCookie: false,
       useLocalStorage: false
     }, function (err, t) {
-      err ? console.error('error load translation', err) : null
+      if (err) { console.error('unable to load translation', err); }
       console.log('Translation loaded')
     })
 
