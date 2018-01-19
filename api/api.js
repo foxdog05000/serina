@@ -88,15 +88,20 @@ function isPlainObject (val) {
   return Object.prototype.toString.call(val) === '[object Object]'
 }
 
+app.sortJSON = function (json) {
+  try {
+    let r = sortAsc(json)
+    return JSON.parse(JSON.stringify(r, null, 4))
+  } catch (ex) {
+    console.log('Incorrect JSON object')
+    return json
+  }
+}
+
 function sortAsc (un) {
   let or = {}
   if (isArray(un)) {
-    // Sort or don't sort arrays
-    if (document.getElementById('noarray').checked) {
-      or = un
-    } else {
-      or = un.sortAsc()
-    }
+    or = un.sortAsc()
     or.forEach(function (v, i) {
       or[i] = sortAsc(v)
     })
@@ -107,7 +112,7 @@ function sortAsc (un) {
       if (a.toLowerCase() > b.toLowerCase()) { return 1 }
       return 0
     }).forEach(function (key) {
-      or[key] = sortJSON(un[key])
+      or[key] = app.sortJSON(un[key])
     })
   } else {
     or = un
@@ -115,29 +120,22 @@ function sortAsc (un) {
   return or
 }
 
-function sortJSON (json) {
-  try {
-    let r = sortAsc(json)
-    return JSON.parse(JSON.stringify(r, null, 4))
-  } catch (ex) {
-    console.log('Incorrect JSON object')
-    return json
-  }
-}
-
-function countTranslations (obj) {
+app.countTranslations = function (obj) {
   let item
+  let nbTranslations = 0;
   if (obj instanceof Object) {
     for (item in obj) {
       if (obj.hasOwnProperty(item)) {
-        countTranslations(obj[item])
+        nbTranslations += app.countTranslations(obj[item])
       } else {
         break
       }
     }
   } else {
-    nbEntities++
+    nbTranslations++
   }
+  console.log(nbTranslations);
+  return nbTranslations
 }
 
 app.get(pathApi + '/list-languages', function (req, res) {
@@ -158,9 +156,7 @@ app.get(pathApi + '/count-entities-list-languages', function (req, res) {
     for (const [iterator, file] of files.entries()) {
       jsonfile.readFile(pathJsonFile + file, function (err, obj) {
         if (err) { console.log('Error on read json file : ' + file, 'err', err) }
-        nbEntities = 0
-        countTranslations(obj)
-        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: nbEntities })
+        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: app.countTranslations(obj) })
         if (iterator === files.length - 1) {
           res.send(languages)
         }
@@ -244,7 +240,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
           break
       }
 
-      obj = sortJSON(obj)
+      obj = app.sortJSON(obj)
 
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' group name on json file : ' + file, 'err', err) }
@@ -300,7 +296,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
           break
       }
 
-      obj = sortJSON(obj)
+      obj = app.sortJSON(obj)
 
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' trad on json file : ' + file, 'err', err) }
