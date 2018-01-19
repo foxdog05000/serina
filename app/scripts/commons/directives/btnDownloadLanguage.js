@@ -3,7 +3,7 @@
 angular.module('serinaApp').directive('btnDownloadLanguage', function ($rootScope, DataAccessor) {
   return {
     restrict: 'E',
-    templateUrl: 'views/commons/btn-download-language.html',
+    templateUrl: 'views/commons/directives/btn-download-language.html',
     link: function (scope) {
 
       scope.downloadLanguage = function (language) {

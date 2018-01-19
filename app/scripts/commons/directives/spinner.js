@@ -3,6 +3,6 @@
 angular.module('serinaApp').directive('spinner', function () {
   return {
     restrict: 'E',
-    templateUrl: 'views/commons/spinner.html'
+    templateUrl: 'views/commons/directives/spinner.html'
   }
 })

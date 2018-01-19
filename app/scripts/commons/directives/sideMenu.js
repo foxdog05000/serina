@@ -3,6 +3,6 @@
 angular.module('serinaApp').directive('sideMenu', function () {
   return {
     restrict: 'E',
-    templateUrl: 'views/commons/side-menu.html'
+    templateUrl: 'views/commons/directives/side-menu.html'
   }
 })

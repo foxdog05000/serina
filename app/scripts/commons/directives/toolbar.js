@@ -3,7 +3,7 @@
 angular.module('serinaApp').directive('toolbar', function ($timeout, $rootScope) {
   return {
     restrict: 'E',
-    templateUrl: 'views/commons/toolbar.html',
+    templateUrl: 'views/commons/directives/toolbar.html',
     link: function (scope) {
 
       scope.searchOpen = false;

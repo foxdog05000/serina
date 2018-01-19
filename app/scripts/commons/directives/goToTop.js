@@ -3,7 +3,7 @@
 angular.module('serinaApp').directive('goToTop', function ($location, $anchorScroll) {
   return {
     restrict: 'E',
-    templateUrl: 'views/commons/go-to-top.html',
+    templateUrl: 'views/commons/directives/go-to-top.html',
     link: function (scope) {
 
       var scrollObject = {}

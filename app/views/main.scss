@@ -3,10 +3,10 @@
 
 @import "commons/scss/colors";
 @import "commons/scss/animations";
-@import "commons/mdToast";
-@import "commons/toolbar";
-@import "commons/breadcrumb";
-@import "commons/spinner";
+@import "commons/directives/mdToast";
+@import "commons/directives/toolbar";
+@import "commons/directives/breadcrumb";
+@import "commons/directives/spinner";
 @import "hub/hub";
 @import "level/level";
 @import "preview/preview";
