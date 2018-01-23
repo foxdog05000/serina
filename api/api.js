@@ -11,11 +11,10 @@ const pathJsonFile = path.join(__dirname, '/json/')
 const pathApi = '/api'
 jsonfile.spaces = 2
 
+const FOLDER_EXIST = 'EEXIST'
 const ADD = 'add'
 const UPD = 'upd'
 const DEL = 'del'
-
-let nbEntities
 
 api.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
@@ -30,10 +29,10 @@ api.isObject = function (value) { return typeof value === 'object' }
 function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
     fs.mkdir(path.join(__dirname, pathFolder), function (err) {
-      if (!err || (err && err.code === 'EEXIST')) {
+      if (!err || (err && err.code === FOLDER_EXIST)) {
         console.log('Successful creation for the', pathFolder, 'folder on path', __dirname)
       } else {
-        console.log('Error on create folder', pathFolder, 'on path', __dirname, err)
+        console.error('Error on create folder', pathFolder, 'on path', __dirname, err)
       }
     })
   }
