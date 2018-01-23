@@ -5,7 +5,7 @@ let bodyParser = require('body-parser')
 let jsonfile = require('jsonfile')
 let path = require('path')
 let fs = require('fs')
-let app = express()
+let api = express()
 
 const pathJsonFile = path.join(__dirname, '/json/')
 const pathApi = '/api'
@@ -17,15 +17,15 @@ const DEL = 'del'
 
 let nbEntities
 
-app.use(function (req, res, next) {
+api.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
-app.use(bodyParser.json())
+api.use(bodyParser.json())
 
-app.isDefined = function (value) { return value !== undefined && value !== null }
-app.isObject = function (value) { return typeof value === 'object' }
+api.isDefined = function (value) { return value !== undefined && value !== null }
+api.isObject = function (value) { return typeof value === 'object' }
 
 function createFolderIsNotExist (pathFolder) {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
@@ -44,7 +44,7 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
     if (key === levels[i]) {
       if (key === levels[i] && i === levels.length - 1) {
         if (action === ADD || action === UPD) {
-          if (app.isObject(value)) {
+          if (api.isObject(value)) {
             if (action === ADD) {
               obj[key][value.key] = value.value[indexLanguage]
             } else {
@@ -66,7 +66,7 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
           }
           return obj
         } else if (action === DEL) {
-          if (app.isObject(value)) {
+          if (api.isObject(value)) {
             delete obj[key][value.key]
           } else {
             delete obj[key][value]
@@ -80,15 +80,15 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
   }
 }
 
-app.isArray = function (val) {
+api.isArray = function (val) {
   return Object.prototype.toString.call(val) === '[object Array]'
 }
 
-app.isPlainObject = function (val) {
+api.isPlainObject = function (val) {
   return Object.prototype.toString.call(val) === '[object Object]'
 }
 
-app.sortJSON = function (json) {
+api.sortJSON = function (json) {
   try {
     let r = sortAsc(json)
     return JSON.parse(JSON.stringify(r, null, 4))
@@ -100,19 +100,19 @@ app.sortJSON = function (json) {
 
 function sortAsc (un) {
   let or = {}
-  if (app.isArray(un)) {
+  if (api.isArray(un)) {
     or = un.sortAsc()
     or.forEach(function (v, i) {
       or[i] = sortAsc(v)
     })
-  } else if (app.isPlainObject(un)) {
+  } else if (api.isPlainObject(un)) {
     or = {}
     Object.keys(un).sort(function (a, b) {
       if (a.toLowerCase() < b.toLowerCase()) { return -1 }
       if (a.toLowerCase() > b.toLowerCase()) { return 1 }
       return 0
     }).forEach(function (key) {
-      or[key] = app.sortJSON(un[key])
+      or[key] = api.sortJSON(un[key])
     })
   } else {
     or = un
@@ -120,13 +120,13 @@ function sortAsc (un) {
   return or
 }
 
-app.countTranslations = function (obj) {
+api.countTranslations = function (obj) {
   let item, nbTranslations = 0;
-  if (app.isDefined(obj) && obj !== '') {
+  if (api.isDefined(obj) && obj !== '') {
     if (obj instanceof Object) {
       for (item in obj) {
         if (obj.hasOwnProperty(item)) {
-          nbTranslations += app.countTranslations(obj[item])
+          nbTranslations += api.countTranslations(obj[item])
         } else {
           break
         }
@@ -138,7 +138,7 @@ app.countTranslations = function (obj) {
   return nbTranslations
 }
 
-app.get(pathApi + '/list-languages', function (req, res) {
+api.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
     let languages = { listLanguages: [] }
@@ -149,14 +149,14 @@ app.get(pathApi + '/list-languages', function (req, res) {
   })
 })
 
-app.get(pathApi + '/count-entities-list-languages', function (req, res) {
+api.get(pathApi + '/count-entities-list-languages', function (req, res) {
   let languages = { listLanguages: [] }
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
     for (const [iterator, file] of files.entries()) {
       jsonfile.readFile(pathJsonFile + file, function (err, obj) {
         if (err) { console.log('Error on read json file : ' + file, 'err', err) }
-        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: app.countTranslations(obj) })
+        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: api.countTranslations(obj) })
         if (iterator === files.length - 1) {
           res.send(languages)
         }
@@ -165,7 +165,7 @@ app.get(pathApi + '/count-entities-list-languages', function (req, res) {
   })
 })
 
-app.get(pathApi + '/create/:language', function (req, res) {
+api.get(pathApi + '/create/:language', function (req, res) {
   let file = pathJsonFile + req.params.language + '.json'
   let obj = {}
 
@@ -175,7 +175,7 @@ app.get(pathApi + '/create/:language', function (req, res) {
   })
 })
 
-app.get(pathApi + '/delete/:language', function (req, res) {
+api.get(pathApi + '/delete/:language', function (req, res) {
   fs.stat(pathJsonFile + req.params.language + '.json', function (err) {
     if (err) { return console.error(err) }
 
@@ -187,16 +187,16 @@ app.get(pathApi + '/delete/:language', function (req, res) {
   })
 })
 
-app.get(pathApi + '/open/:language', function (req, res) {
+api.get(pathApi + '/open/:language', function (req, res) {
   res.sendFile(pathJsonFile + req.params.language + '.json')
 })
 
-app.get(pathApi + '/download/:language', function (req, res) {
-  res.setHeader('Content-Type', 'application/json')
+api.get(pathApi + '/download/:language', function (req, res) {
+  res.setHeader('Content-Type', 'apilication/json')
   res.download(pathJsonFile + req.params.language + '.json')
 })
 
-app.post(pathApi + '/group/:action', function (req, res) {
+api.post(pathApi + '/group/:action', function (req, res) {
   const action = req.params.action
   const languages = req.body.languages
 
@@ -205,7 +205,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
 
-  const levelsIsDefined = app.isDefined(req.body.levels)
+  const levelsIsDefined = api.isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let groupName = req.body.groupName
   let originalGroupName = req.body.originalGroupName
@@ -240,7 +240,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
           break
       }
 
-      obj = app.sortJSON(obj)
+      obj = api.sortJSON(obj)
 
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' group name on json file : ' + file, 'err', err) }
@@ -250,7 +250,7 @@ app.post(pathApi + '/group/:action', function (req, res) {
   res.sendStatus(200)
 })
 
-app.post(pathApi + '/translation/:action', function (req, res) {
+api.post(pathApi + '/translation/:action', function (req, res) {
   const action = req.params.action
   const languages = req.body.languages
 
@@ -259,7 +259,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
     files[index] = pathJsonFile + languages[index] + '.json'
   })
 
-  const levelsIsDefined = app.isDefined(req.body.levels)
+  const levelsIsDefined = api.isDefined(req.body.levels)
   const levels = levelsIsDefined ? req.body.levels.split('/') : undefined
   let translation = req.body.translation
   let i = 0
@@ -296,7 +296,7 @@ app.post(pathApi + '/translation/:action', function (req, res) {
           break
       }
 
-      obj = app.sortJSON(obj)
+      obj = api.sortJSON(obj)
 
       jsonfile.writeFile(file, obj, function (err) {
         if (err) { return console.log('Error on ' + action + ' trad on json file : ' + file, 'err', err) }
@@ -306,9 +306,9 @@ app.post(pathApi + '/translation/:action', function (req, res) {
   res.sendStatus(200)
 })
 
-const server = app.listen(7777, 'localhost', function () {
+const server = api.listen(7777, 'localhost', function () {
   console.log('API listen on ' + server.address().address + ':' + server.address().port + ' !')
   createFolderIsNotExist('/json/')
 })
 
-module.exports = app
+module.exports = api
