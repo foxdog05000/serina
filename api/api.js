@@ -80,11 +80,11 @@ function targetLevelForAction (obj, levels, i, indexLanguage, action, value, new
   }
 }
 
-function isArray (val) {
+app.isArray = function (val) {
   return Object.prototype.toString.call(val) === '[object Array]'
 }
 
-function isPlainObject (val) {
+app.isPlainObject = function (val) {
   return Object.prototype.toString.call(val) === '[object Object]'
 }
 
@@ -100,12 +100,12 @@ app.sortJSON = function (json) {
 
 function sortAsc (un) {
   let or = {}
-  if (isArray(un)) {
+  if (app.isArray(un)) {
     or = un.sortAsc()
     or.forEach(function (v, i) {
       or[i] = sortAsc(v)
     })
-  } else if (isPlainObject(un)) {
+  } else if (app.isPlainObject(un)) {
     or = {}
     Object.keys(un).sort(function (a, b) {
       if (a.toLowerCase() < b.toLowerCase()) { return -1 }

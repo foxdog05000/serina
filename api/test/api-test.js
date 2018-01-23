@@ -21,10 +21,36 @@ describe('check entities', () => {
   it('check entities is a object', () => {
     expect(api.isObject({ key: 'hello', value: 'hello' })).to.equal(true)
 
-    expect(api.isObject(null)).to.equal(true)
     expect(api.isObject(['en'])).to.equal(true)
     expect(api.isObject('hello')).to.equal(false)
+    expect(api.isObject(null)).to.equal(true)
     expect(api.isObject(undefined)).to.equal(false)
+  })
+
+  it('check is array', () => {
+    expect(api.isArray(['en', 'fr'])).to.equal(true)
+    expect(api.isArray([{ a: 1 }, { b: 2 }])).to.equal(true)
+
+    expect(api.isArray({ key: 'hello', value: 'hello' })).to.equal(false)
+    expect(api.isArray(1)).to.equal(false)
+    expect(api.isArray('en')).to.equal(false)
+    expect(api.isArray('')).to.equal(false)
+    expect(api.isArray(undefined)).to.equal(false)
+    expect(api.isArray(null)).to.equal(false)
+  })
+
+  it('check is plain object', () => {
+    expect(api.isPlainObject({ key: 'hello', value: 'hello' })).to.equal(true)
+    expect(api.isPlainObject({})).to.equal(true)
+
+    expect(api.isPlainObject(['en', 'fr'])).to.equal(false)
+    expect(api.isPlainObject([{ a: 1 }, { b: 2 }])).to.equal(false)
+    expect(api.isPlainObject(1)).to.equal(false)
+    expect(api.isPlainObject('en')).to.equal(false)
+    expect(api.isPlainObject('')).to.equal(false)
+    expect(api.isPlainObject()).to.equal(false)
+    expect(api.isPlainObject(undefined)).to.equal(false)
+    expect(api.isPlainObject(null)).to.equal(false)
   })
 })
 
@@ -37,11 +63,11 @@ describe('sort json', () => {
     expect(api.sortJSON({})).to.deep.equal({})
     expect(api.sortJSON([])).to.deep.equal([])
 
+    expect(api.sortJSON(0)).to.deep.equal(0)
     expect(api.sortJSON('hello')).to.deep.equal('hello')
     expect(api.sortJSON('')).to.deep.equal('')
     expect(api.sortJSON(null)).to.deep.equal(null)
     expect(api.sortJSON(undefined)).to.deep.equal(undefined)
-    expect(api.sortJSON(0)).to.deep.equal(0)
   })
 })
 
