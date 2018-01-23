@@ -2,6 +2,7 @@
 
 - Add preview for json files
 - Maj Electron version 1.7.9 -> 1.7.10
+- Fix : Problem with count translation return 0 when the files are not empty
 
 # [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
 

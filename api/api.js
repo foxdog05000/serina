@@ -120,7 +120,7 @@ function sortAsc (un) {
 }
 
 api.countTranslations = function (obj) {
-  let item, nbTranslations = 0;
+  let item, nbTranslations = 0
   if (api.isDefined(obj) && obj !== '') {
     if (obj instanceof Object) {
       for (item in obj) {
@@ -138,7 +138,7 @@ api.countTranslations = function (obj) {
 }
 
 api.get(pathApi + '/', function (req, res) {
-  let address = req.protocol + '://' + req.headers.host + pathApi;
+  let address = req.protocol + '://' + req.headers.host + pathApi
   let map = {
     "GET": [
       address + "/list-languages",
@@ -169,18 +169,13 @@ api.get(pathApi + '/list-languages', function (req, res) {
 
 api.get(pathApi + '/count-entities-list-languages', function (req, res) {
   let languages = { listLanguages: [] }
-  fs.readdir(pathJsonFile, function (err, files) {
-    if (err) { throw err }
-    for (const [iterator, file] of files.entries()) {
-      jsonfile.readFile(pathJsonFile + file, function (err, obj) {
-        if (err) { console.log('Error on read json file : ' + file, 'err', err) }
-        languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: api.countTranslations(obj) })
-        if (iterator === files.length - 1) {
-          res.send(languages)
-        }
-      })
-    }
+  let files = fs.readdirSync(pathJsonFile)
+
+  files.forEach((fileName) => {
+    let content = jsonfile.readFileSync(pathJsonFile + fileName)
+    languages.listLanguages.push({ code: fileName.substring(0, 2), nbTranslations: api.countTranslations(content) })
   })
+  res.send(languages)
 })
 
 api.get(pathApi + '/create/:language', function (req, res) {
