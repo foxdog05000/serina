@@ -20,10 +20,10 @@ describe('check entities', () => {
 
   it('check entities is a object', () => {
     expect(api.isObject({ key: 'hello', value: 'hello' })).to.equal(true)
-
     expect(api.isObject(['en'])).to.equal(true)
-    expect(api.isObject('hello')).to.equal(false)
     expect(api.isObject(null)).to.equal(true)
+
+    expect(api.isObject('hello')).to.equal(false)
     expect(api.isObject(undefined)).to.equal(false)
   })
 
