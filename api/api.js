@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 })
 app.use(bodyParser.json())
 
-app.isDefined = function (value) { return value !== undefined }
+app.isDefined = function (value) { return value !== undefined && value !== null }
 app.isObject = function (value) { return typeof value === 'object' }
 
 function createFolderIsNotExist (pathFolder) {
@@ -121,20 +121,20 @@ function sortAsc (un) {
 }
 
 app.countTranslations = function (obj) {
-  let item
-  let nbTranslations = 0;
-  if (obj instanceof Object) {
-    for (item in obj) {
-      if (obj.hasOwnProperty(item)) {
-        nbTranslations += app.countTranslations(obj[item])
-      } else {
-        break
+  let item, nbTranslations = 0;
+  if (app.isDefined(obj) && obj !== '') {
+    if (obj instanceof Object) {
+      for (item in obj) {
+        if (obj.hasOwnProperty(item)) {
+          nbTranslations += app.countTranslations(obj[item])
+        } else {
+          break
+        }
       }
+    } else {
+      nbTranslations++
     }
-  } else {
-    nbTranslations++
   }
-  console.log(nbTranslations);
   return nbTranslations
 }
 

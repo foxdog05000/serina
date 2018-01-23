@@ -11,9 +11,10 @@ describe('check entities', () => {
     expect(api.isDefined(['en', 'fr'])).to.equal(true)
     expect(api.isDefined({ code: 'fr', nbEntities: 75 })).to.equal(true)
 
-    expect(api.isDefined(null)).to.equal(true)
     expect(api.isDefined(0)).to.equal(true)
     expect(api.isDefined('')).to.equal(true)
+
+    expect(api.isDefined(null)).to.equal(false)
     expect(api.isDefined(undefined)).to.equal(false)
   })
 
@@ -53,5 +54,10 @@ describe('manipulate translations', () => {
     expect(api.countTranslations({ "actions": { "validate": "validate", "cancel": "cancel" }, "toast": {}, "welcome": "welcome" })).to.equal(3)
 
     expect(api.countTranslations({})).to.equal(0)
+    expect(api.countTranslations([])).to.equal(0)
+    expect(api.countTranslations(undefined)).to.equal(0)
+    expect(api.countTranslations(null)).to.equal(0)
+    expect(api.countTranslations('')).to.equal(0)
+    expect(api.countTranslations()).to.equal(0)
   })
 })
