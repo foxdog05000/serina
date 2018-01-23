@@ -137,6 +137,25 @@ api.countTranslations = function (obj) {
   return nbTranslations
 }
 
+api.get(pathApi + '/', function (req, res) {
+  let address = req.protocol + '://' + req.headers.host + pathApi;
+  let map = {
+    "GET": [
+      address + "/list-languages",
+      address + "/count-entities-list-languages",
+      address + "/create/:language",
+      address + "/delete/:language",
+      address + "/open/:language",
+      address + "/download/:language",
+    ],
+    "POST": [
+      address + "/group/:action",
+      address + "/translation/:action"
+    ]
+  }
+  res.send(map)
+})
+
 api.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
