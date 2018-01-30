@@ -88,6 +88,7 @@ Clone/download source code from the github repo. Make sure you have _node_, _npm
     * `grunt package:linux` to make build for linux.
     * `grunt package:macos` to make build for mac os (64bits).
 5. `grunt test` to run the automated tests.
+    * `grunt test:loop` for loop automated tests.
     * Please, ensure the tests are passing before creating a pull requests. Add tests for your changes.
 
 ## Acknowledgments
