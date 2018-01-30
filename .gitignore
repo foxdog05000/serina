@@ -3,7 +3,6 @@
 /packages
 /.tmp
 /.sass-cache
-/bower_components
 /api/json/translate/*.json
 /coverage
 

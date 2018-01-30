@@ -77,7 +77,7 @@ You can open a issue to explain your problem with a screenshot if possible.
 
 If you want to contribute to Serina, create a new different version of Serina, or compile it from source code, follow these instructions.
 
-Clone/download source code from the github repo. Make sure you have _node_, _npm_, _yarn_,  _bower_ already installed in your system:
+Clone/download source code from the github repo. Make sure you have _node_, _npm_, _yarn_ already installed in your system:
 
 1. `yarn` to install all the dependencies.
 2. `yarn start` to start _API_ on `localhost:7777`.
