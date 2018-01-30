@@ -588,6 +588,10 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
+      },
+      loop: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false
       }
     }
   });
@@ -599,6 +603,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'test',
       'clean:server',
       'wiredep',
       'concurrent:server',
@@ -613,16 +618,24 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'wiredep',
-    'concurrent:test',
-    'postcss',
-    'connect:test',
-    'karma'
-  ]);
+  grunt.registerTask('test', 'Execute TU', function (target) {
+    if (target === 'loop') {
+      target = ':' + target;
+    } else {
+      target = ':unit';
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'concurrent:test',
+      'postcss',
+      'connect:test',
+      'karma' + target
+    ]);
+  });
 
   grunt.registerTask('build', [
+    'test',
     'clean:dist',
     'clean:package',
     'wiredep',
