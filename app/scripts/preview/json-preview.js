@@ -1,8 +1,8 @@
 'use strict'
 
-angular.module('serinaApp').directive('jsonPreview', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/preview/json-preview.html'
-  }
+angular.module('serinaApp').component('jsonPreview', {
+  bindings: {
+    data: '<'
+  },
+  templateUrl: 'views/preview/json-preview.html'
 })
