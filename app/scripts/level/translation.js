@@ -38,7 +38,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
       }, true)
 
       scope.addTranslation = function () {
-        var patternTranslation = { key: '', value: '', save: false, modified: false }
+        var patternTranslation = { key: '', value: [], save: false, modified: false }
         if ($rootScope.secondLanguageIsValid) {
           patternTranslation.secondValue = ''
         }

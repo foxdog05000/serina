@@ -19,23 +19,21 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // bower:js
-      'bower_components/angular/angular.js',
-      'bower_components/angular-aria/angular-aria.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
-      'bower_components/angular-messages/angular-messages.js',
-      'bower_components/angular-material/angular-material.js',
-      'bower_components/i18next/i18next.min.js',
-      'bower_components/ng-i18next/dist/ng-i18next.js',
-      'bower_components/i18next-xhr-backend/i18nextXHRBackend.js',
-      'bower_components/mousetrap/mousetrap.js',
-      'bower_components/json-formatter/dist/json-formatter.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      // endbower
+      'node_modules/angular/angular.js',
+      'node_modules/angular-aria/angular-aria.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'node_modules/angular-cookies/angular-cookies.js',
+      'node_modules/angular-resource/angular-resource.js',
+      'node_modules/angular-route/angular-route.js',
+      'node_modules/angular-sanitize/angular-sanitize.js',
+      'node_modules/angular-messages/angular-messages.js',
+      'node_modules/angular-material/angular-material.js',
+      'node_modules/i18next/i18next.min.js',
+      'node_modules/ng-i18next/dist/ng-i18next.js',
+      'node_modules/i18next-xhr-backend/i18nextXHRBackend.js',
+      'node_modules/mousetrap/mousetrap.js',
+      'node_modules/jsonformatter/dist/json-formatter.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'app/scripts/**/*.js',
       'test/spec/**/*.js'
     ],
@@ -83,12 +81,12 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_INFO,
 
     // Uncomment the following lines if you are using grunt's server to run the tests
-    // proxies: {
-    //   '/': 'http://localhost:9000/'
-    // },
+    proxies: {
+      '/app/locales/': 'http://localhost:9000/app/app/locales/'
+    },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
   });

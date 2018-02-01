@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 
   // Configurable paths for the application
   var appConfig = {
-    app: require('./bower.json').appPath || 'app',
+    app: 'app',
     dist: 'dist'
   };
 
@@ -37,10 +37,6 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep']
-      },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
@@ -86,8 +82,8 @@ module.exports = function (grunt) {
             return [
               serveStatic('.tmp'),
               connect().use(
-                '/bower_components',
-                serveStatic('./bower_components')
+                '/node_modules',
+                serveStatic('./node_modules')
               ),
               connect().use(
                 '/app/views',
@@ -106,8 +102,8 @@ module.exports = function (grunt) {
               serveStatic('.tmp'),
               serveStatic('test'),
               connect().use(
-                '/bower_components',
-                serveStatic('./bower_components')
+                '/node_modules',
+                serveStatic('./node_modules')
               ),
               serveStatic(appConfig.app)
             ];
@@ -216,34 +212,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
-      },
-      test: {
-        devDependencies: true,
-        src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
-          js: {
-            block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
-            }
-          }
-      },
-      sass: {
-        src: ['<%= yeoman.app %>/views/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//
-      }
-    },
-
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
@@ -253,7 +221,6 @@ module.exports = function (grunt) {
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/views/fonts',
-        importPath: './bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
         httpFontsPath: '/views/fonts',
@@ -508,7 +475,7 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: 'bower_components/material-design-icons/iconfont',
+          cwd: 'node_modules/material-design-icons/iconfont',
           dest: '<%= yeoman.dist %>/styles',
           src: [
             'MaterialIcons-Regular.ttf',
@@ -588,6 +555,10 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
+      },
+      loop: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false
       }
     }
   });
@@ -599,8 +570,8 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'test',
       'clean:server',
-      'wiredep',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
@@ -613,19 +584,22 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'wiredep',
-    'concurrent:test',
-    'postcss',
-    'connect:test',
-    'karma'
-  ]);
+  grunt.registerTask('test', 'Execute TU', function (target) {
+    target = (target === 'loop') ? ':' + target : ':unit';
+
+    grunt.task.run([
+      'clean:server',
+      'concurrent:test',
+      'postcss',
+      'connect:test',
+      'karma' + target
+    ]);
+  });
 
   grunt.registerTask('build', [
+    'test',
     'clean:dist',
     'clean:package',
-    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'postcss',
@@ -633,7 +607,6 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
     'filerev',
