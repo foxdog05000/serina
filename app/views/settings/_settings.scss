@@ -3,13 +3,6 @@
     background-color: $white;
   }
 
-  .flag {
-    width: 2em;
-    position: relative;
-    padding-right: 1em;
-    top: 4px;
-  }
-
   .keyboard-key {
     background: $white;
     border: 1px solid #D6DADC;
@@ -20,7 +13,9 @@
     display: inline-block;
     font-size: 1.3em;
     margin: 0 5px 10px 0;
+    min-width: 1.5em;
     padding: 6px 10px;
+    text-align: center;
 
     md-icon {
       height: 21px;

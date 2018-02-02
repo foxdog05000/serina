@@ -22,6 +22,13 @@ md-list-item, .md-subheader, .md-subheader.md-green-theme {
   background-color: $white;
 }
 
+md-list-item .flag {
+  width: 2em;
+  position: relative;
+  padding-right: 1em;
+  top: 4px;
+}
+
 md-toast {
   position: fixed;
 }
