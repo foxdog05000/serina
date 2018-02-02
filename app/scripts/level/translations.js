@@ -1,9 +1,9 @@
 'use strict'
 
-angular.module('serinaApp').directive('translation', function ($rootScope, $routeParams, $i18next, DataAccessor, DataManager, Dialog, Toast) {
+angular.module('serinaApp').directive('translations', function ($rootScope, $routeParams, $i18next, DataAccessor, DataManager, Dialog, Toast) {
   return {
     restrict: 'E',
-    templateUrl: 'views/level/translation.html',
+    templateUrl: 'views/level/translations.html',
     link: function (scope) {
 
       scope.$watch('listTranslations', function (newValue, oldValue) {
