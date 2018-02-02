@@ -1,13 +1,8 @@
 <md-subheader>{{'pages.settings.shortcuts.keyboardShortcuts' | i18next}}</md-subheader>
-<md-list-item>
-    <p>{{'pages.settings.shortcuts.toggleSearchBar' | i18next}}</p>
-    <span class="keyboard-key">CTRL</span> <span class="keyboard-key">F</span>
-</md-list-item>
-<md-list-item>
-    <p>{{'pages.settings.shortcuts.navigateToPreviousCorrespondingItem' | i18next}}</p>
-    <span class="keyboard-key">CTRL</span> <span class="keyboard-key"><md-icon>arrow_upward</md-icon></span>
-</md-list-item>
-<md-list-item>
-    <p>{{'pages.settings.shortcuts.navigateToNextCorrespondingItem' | i18next}}</p>
-    <span class="keyboard-key">CTRL</span> <span class="keyboard-key"><md-icon>arrow_downward</md-icon></span>
+
+<md-list-item ng-repeat="shortcut in $ctrl.shortcuts">
+    <p>{{'pages.settings.shortcuts.' + shortcut.descriptionKey | i18next}}</p>
+    <span class="keyboard-key">CTRL</span>
+    <span ng-if="shortcut.key" class="keyboard-key">{{shortcut.key}}</span>
+    <span ng-if="shortcut.icon" class="keyboard-key"><md-icon>{{shortcut.icon}}</md-icon></span>
 </md-list-item>
