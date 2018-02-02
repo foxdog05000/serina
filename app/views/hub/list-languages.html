@@ -1,76 +1,43 @@
-<md-content class="md-padding" layout-xs="column" layout="row" layout-align="center start">
-    <div flex-xs flex-gt-xs="50" flex-gt-lg="30" flex-lg="30" layout="column">
-        <div ng-if="settings.selectedDisplayFormat === 'card'">
-            <md-card ng-repeat="language in listLanguages track by language.code">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{'commons.translation' | i18next}} : {{language.code | uppercase}}</span>
-                        <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
-                        <span class="md-subhead">{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
-                    </md-card-title-text>
-                    <md-card-title-media>
-                        <div class="md-media-sm card-media">
-                            <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" />
-                        </div>
-                    </md-card-title-media>
-                </md-card-title>
-                <md-card-actions layout="row">
-                    <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
+<div ng-if="settings.selectedDisplayFormat === 'card'">
+    <md-card ng-repeat="language in listLanguages track by language.code">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{'commons.translation' | i18next}} : {{language.code | uppercase}}</span>
+                <span class="md-subhead">{{'commons.format' | i18next}} : i18next</span>
+                <span class="md-subhead">{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media">
+                    <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" />
+                </div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row">
+            <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
 
-                    <span flex></span>
+            <span flex></span>
 
-                    <md-button ng-click="openLanguage(language.code)" class="md-raised md-primary">
-                        <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
-                    </md-button>
-                    <md-button ng-click="deleteLanguage($event, language.code)" class="md-raised md-warn">
-                        <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
-                    </md-button>
-                </md-card-actions>
-            </md-card>
-        </div>
+            <md-button ng-click="openLanguage(language.code)" class="md-raised md-primary">
+                <md-icon>edit</md-icon> {{'commons.actions.edit' | i18next}}
+            </md-button>
+            <md-button ng-click="deleteLanguage($event, language.code)" class="md-raised md-warn">
+                <md-icon>delete</md-icon> {{'commons.actions.delete' | i18next}}
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</div>
 
-        <md-list ng-if="settings.selectedDisplayFormat === 'list'">
-            <div class="md-whiteframe-2dp">
-                <md-subheader ng-if="listLanguages.length > 0">{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
-                <md-list-item ng-repeat="language in listLanguages track by language.code" ng-click="openLanguage(language.code)">
-                    <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/> <span>{{language.code | uppercase}}</span>
-                    <span flex></span>
-                    <span>{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
-                    <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
-                    <md-button ng-click="deleteLanguage($event, language.code)" class="md-warn md-icon-button"><md-icon>delete</md-icon></md-button>
-                </md-list-item>
-            </div>
-        </md-list>
-
-        <message-no-language ng-if="listLanguages.length === 0"></message-no-language>
+<md-list ng-if="settings.selectedDisplayFormat === 'list'">
+    <div class="md-whiteframe-2dp">
+        <md-subheader ng-if="listLanguages.length > 0">{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
+        <md-list-item ng-repeat="language in listLanguages track by language.code" ng-click="openLanguage(language.code)">
+            <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/> <span>{{language.code | uppercase}}</span>
+            <span flex></span>
+            <span>{{language.nbTranslations}} <span ng-i18next="[i18next]({ count: language.nbTranslations})commons.translation" class="lowercase"></span></span>
+            <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
+            <md-button ng-click="deleteLanguage($event, language.code)" class="md-warn md-icon-button"><md-icon>delete</md-icon></md-button>
+        </md-list-item>
     </div>
+</md-list>
 
-    <div flex-xs flex-gt-xs="40" flex-gt-lg="30" layout="column">
-        <md-card>
-            <img ng-src="images/languages.jpg" class="md-card-image" alt="">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <form ng-submit="addLanguage()">
-                <md-card-content>
-                    <md-input-container>
-                        <label>{{'commons.language' | i18next}}</label>
-                        <md-icon>translate</md-icon>
-                        <input type="text" ng-model="addLanguage.code" md-maxlength="2">
-                    </md-input-container>
-                    <md-button class="md-icon-button" aria-label="Help">
-                        <md-tooltip md-direction="right">Code ISO 639-1</md-tooltip>
-                        <md-icon>help</md-icon>
-                    </md-button>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button type="submit" ng-disabled="addLanguage.code.length < 2" ng-click="addLanguage()" class="md-raised md-primary">
-                        <md-icon>add</md-icon> {{'commons.actions.add' | i18next}}
-                    </md-button>
-                </md-card-actions>
-            </form>
-        </md-card>
-    </div>
-</md-content>
+<message-no-language ng-if="listLanguages.length === 0"></message-no-language>

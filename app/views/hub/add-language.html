@@ -1,0 +1,26 @@
+<md-card>
+    <img ng-src="images/languages.jpg" class="md-card-image" alt="">
+    <md-card-title>
+        <md-card-title-text>
+            <span class="md-headline">{{'pages.hub.addLanguage' | i18next}}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <form ng-submit="addLanguage()">
+        <md-card-content>
+            <md-input-container>
+                <label>{{'commons.language' | i18next}}</label>
+                <md-icon>translate</md-icon>
+                <input type="text" ng-model="addLanguage.code" md-maxlength="2">
+            </md-input-container>
+            <md-button class="md-icon-button" aria-label="Help">
+                <md-tooltip md-direction="right">Code ISO 639-1</md-tooltip>
+                <md-icon>help</md-icon>
+            </md-button>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button type="submit" ng-disabled="addLanguage.code.length < 2" ng-click="addLanguage()" class="md-raised md-primary">
+                <md-icon>add</md-icon> {{'commons.actions.add' | i18next}}
+            </md-button>
+        </md-card-actions>
+    </form>
+</md-card>
