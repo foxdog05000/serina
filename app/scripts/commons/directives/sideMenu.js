@@ -1,8 +1,5 @@
 'use strict'
 
-angular.module('serinaApp').directive('sideMenu', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/commons/directives/side-menu.html'
-  }
+angular.module('serinaApp').component('sideMenu', {
+  templateUrl: 'views/commons/directives/side-menu.html'
 })

@@ -1,8 +1,8 @@
 'use strict'
 
-angular.module('serinaApp').directive('spinner', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/commons/directives/spinner.html'
-  }
+angular.module('serinaApp').component('spinner', {
+  bindings: {
+    loading: '<'
+  },
+  templateUrl: 'views/commons/directives/spinner.html'
 })

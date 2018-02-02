@@ -5,18 +5,18 @@
 
     <md-content>
         <md-list>
-            <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/hub">
+            <md-list-item class="secondary-button-padding" ng-click="$root.toggleLeft()" ng-href="#/hub">
                 <md-icon>list</md-icon>
                 <p>{{'sideMenu.listOfLanguages' | i18next}}</p>
             </md-list-item>
-            <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/preview">
+            <md-list-item class="secondary-button-padding" ng-click="$root.toggleLeft()" ng-href="#/preview">
                 <md-icon>insert_drive_file</md-icon>
                 <p>{{'sideMenu.jsonOfLanguages' | i18next}}</p>
             </md-list-item>
 
             <md-divider></md-divider>
 
-            <md-list-item class="secondary-button-padding" ng-click="toggleLeft()" ng-href="#/settings">
+            <md-list-item class="secondary-button-padding" ng-click="$root.toggleLeft()" ng-href="#/settings">
                 <md-icon>settings</md-icon>
                 <p>{{'sideMenu.settings' | i18next}}</p>
             </md-list-item>
