@@ -108,7 +108,8 @@ angular
         loadPath: '../app/locales/{{lng}}/translation.json'
       },
       useCookie: false,
-      useLocalStorage: false
+      useLocalStorage: false,
+      initImmediate: false
     }, function (err, t) {
       if (err) { console.error('unable to load translation', err); }
       console.log('Translation loaded')
