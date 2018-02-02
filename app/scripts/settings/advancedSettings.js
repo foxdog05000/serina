@@ -1,8 +1,5 @@
 'use strict'
 
-angular.module('serinaApp').directive('advancedSettings', function () {
-  return {
-    restrict: 'E',
-    templateUrl: 'views/settings/advanced-settings.html'
-  }
+angular.module('serinaApp').component('advancedSettings', {
+  templateUrl: 'views/settings/advanced-settings.html'
 })

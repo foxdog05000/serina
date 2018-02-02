@@ -2,6 +2,6 @@
 <md-list-item class="theming">
     <p>{{'pages.settings.basic.choiceTheme' | i18next}}</p>
     <div layout="row">
-        <md-button ng-repeat="color in colors" flex-gt-md="15" class="{{color.value}}" ng-click="changeColor(color.value)">{{color.label | i18next}}</md-button>
+        <md-button ng-repeat="color in ::$ctrl.colors" flex-gt-md="15" class="{{color.value}}" ng-click="$ctrl.changeColor(color.value)">{{color.label | i18next}}</md-button>
     </div>
 </md-list-item>
