@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('listLanguagesForPreview', function (DataAccessor) {
+angular.module('serinaApp').directive('listLanguagesForPreview', function ($log, DataAccessor) {
   return {
     restrict: 'E',
     templateUrl: 'views/preview/list-languages-for-preview.html',
@@ -19,7 +19,7 @@ angular.module('serinaApp').directive('listLanguagesForPreview', function (DataA
         DataAccessor.openLanguage(languageCode).then(function (response) {
           scope.previewJson = response.data
         }, function (response) {
-          // TODO error
+          $log.error('Unable to preview language ' + languageCode, response)
         })
       }
 
