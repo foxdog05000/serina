@@ -4,7 +4,7 @@
         <md-list-item ng-repeat="language in listLanguages track by language.code" ng-click="previewLanguage(language.code)">
             <p><img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/><span>{{language.code | uppercase}}</span></p>
 
-            <btn-download-language ng-click="downloadLanguage(language.code)"></btn-download-language>
+            <btn-download-language locale="language.code"></btn-download-language>
 
             <md-icon>{{selectedLanguage === language.code ? 'visibility' : 'visibility_off'}}</md-icon>
         </md-list-item>
