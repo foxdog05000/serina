@@ -1,4 +1,11 @@
+# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2018-??-??)
+
+- Added code for the language swap button
+- Fix : Language swap button isn't working
+- Fix : Bad name of file HubController in index.html
+
 # [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
+
 
 - Fix : Navigate on home page or open group = search bar closed
 - Fix : Buton go to top not constantly display
