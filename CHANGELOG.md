@@ -1,6 +1,7 @@
 # [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2018-??-??)
 
 - Added code for the language swap button
+- Added rel="noopener" on links \_blank for security and performance
 - Fix : Language swap button isn't working
 - Fix : Bad name of file HubController in index.html
 
