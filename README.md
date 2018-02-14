@@ -68,7 +68,7 @@ The settings allow you to modify the app according to your preferences. A "About
 ## FAQ
 
 #### Your language is not available in the app ?
-You can translate the application and submit your translation in PR.
+You can translate the application and submit your translation in PR. Or create issue.
 
 #### Your language doesn't have its flag displayed ?
 You can open a issue to explain your problem with a screenshot if possible.
