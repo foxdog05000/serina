@@ -2,6 +2,7 @@
 
 - Added code for the language swap button
 - Added rel="noopener" on links \_blank for security and performance
+- Update Electron version for security reason (1.7.9 -> 1.8.2)
 - Fix : Language swap button isn't working
 - Fix : Bad name of file HubController in index.html
 
