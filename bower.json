@@ -1,6 +1,6 @@
 {
   "name": "serina",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "dependencies": {
     "angular": "1.5.11",
     "angular-aria": "1.5.11",
