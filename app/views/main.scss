@@ -1,9 +1,11 @@
 @import "commons/scss/colors";
 @import "commons/scss/animations";
-@import "commons/directives/mdToast";
-@import "commons/directives/toolbar";
-@import "commons/directives/breadcrumb";
-@import "commons/directives/spinner";
+
+@import "commons/components/mdToast";
+@import "commons/components/toolbar";
+@import "commons/components/breadcrumb";
+@import "commons/components/spinner";
+
 @import "hub/hub";
 @import "level/level";
 @import "preview/preview";
