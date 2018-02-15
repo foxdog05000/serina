@@ -12,7 +12,7 @@ angular
     'jsonFormatter'
   ])
   .config(function ($locationProvider, $mdThemingProvider, $routeProvider, JSONFormatterConfigProvider) {
-    $locationProvider.hashPrefix('');
+    $locationProvider.hashPrefix('')
 
     $routeProvider
       .when('/hub', {
@@ -82,6 +82,12 @@ angular
     JSONFormatterConfigProvider.hoverPreviewFieldCount = 5
   })
   .run(function ($rootScope, $mdSidenav, LocalStorage) {
+    function buildToggler (componentId) {
+      return function () {
+        $mdSidenav(componentId).toggle()
+      }
+    }
+
     $rootScope.loading = true
     $rootScope.endPoint = 'http://localhost:7777/api'
     $rootScope.toggleLeft = buildToggler('left')
@@ -110,8 +116,8 @@ angular
       useCookie: false,
       useLocalStorage: false,
       initImmediate: false
-    }, function (err, t) {
-      if (err) { console.error('unable to load translation', err); }
+    }, function (err) {
+      if (err) { console.error('unable to load translation', err) }
       console.log('Translation loaded')
     })
 
@@ -120,10 +126,4 @@ angular
         $rootScope.loading = false
       })
     }, 1000)
-
-    function buildToggler (componentId) {
-      return function () {
-        $mdSidenav(componentId).toggle()
-      }
-    }
   })

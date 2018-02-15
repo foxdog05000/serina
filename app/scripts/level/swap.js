@@ -59,7 +59,7 @@ angular.module('serinaApp').directive('swap', function ($location, $rootScope, $
         scope.languages = scope.languages.reverse()
         $rootScope.secondLanguage = scope.languages[1]
         $location.path($location.path().replace(scope.languages[1], scope.languages[0]))
-      };
+      }
 
       scope.recoverSecondaryLanguage = function () {
         $rootScope.secondLanguageIsValid = false

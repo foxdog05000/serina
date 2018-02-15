@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 angular.module('serinaApp').directive('translation', function () {
   return {
