@@ -1,9 +1,19 @@
 # R0.3 Comming soon
 
+
 - Add preview for json files
 - Migration from Bower to Yarn
 - Maj Electron version 1.7.9 -> 1.7.10
 - Fix : Problem with count translation return 0 when the files are not empty
+
+# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-??)
+
+
+- Added code for the language swap button
+- Added rel="noopener" on links \_blank for security and performance
+- Update Electron version for security reason (1.7.9 -> 1.8.2)
+- Fix : Language swap button isn't working
+- Fix : Bad name of file HubController in index.html
 
 # [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
 

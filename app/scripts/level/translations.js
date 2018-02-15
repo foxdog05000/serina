@@ -9,8 +9,8 @@ angular.module('serinaApp').directive('translations', function ($rootScope, $rou
       scope.$watch('listTranslations', function (newValue, oldValue) {
         if (newValue !== oldValue && !angular.isUndefined(oldValue)) {
           var nbEntitiesNotSave = 0
-          for (var iterator = 0; iterator < newValue.length; iterator++) {
-            if (!newValue[iterator].save) {
+          for (var nbEntitiesNotSaveIterator = 0; nbEntitiesNotSaveIterator < newValue.length; nbEntitiesNotSaveIterator++) {
+            if (!newValue[nbEntitiesNotSaveIterator].save) {
               nbEntitiesNotSave++
             }
           }

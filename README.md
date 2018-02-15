@@ -9,7 +9,7 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.2.1_
+_Serina R0.2.2_
 
 ## Download
 
@@ -68,7 +68,7 @@ The settings allow you to modify the app according to your preferences. A "About
 ## FAQ
 
 #### Your language is not available in the app ?
-You can translate the application and submit your translation in PR.
+You can translate the application and submit your translation in PR. Or create issue.
 
 #### Your language doesn't have its flag displayed ?
 You can open a issue to explain your problem with a screenshot if possible.

@@ -12,6 +12,7 @@ angular.module('serinaApp').component('btnDownloadLanguage', {
         anchor.attr({
           href: $rootScope.endPoint + '/download/' + language,
           target: '_blank',
+          rel: 'noopener',
           download: 'translation.json'
         })[0].click()
       })

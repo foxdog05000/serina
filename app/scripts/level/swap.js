@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams, Breadcrumb, DataAccessor) {
+angular.module('serinaApp').directive('swap', function ($location, $rootScope, $routeParams, Breadcrumb, DataAccessor) {
   return {
     restrict: 'E',
     templateUrl: 'views/level/swap.html',
@@ -29,7 +29,7 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
           content = eval('content.' + levels)
         }
 
-        angular.forEach(scope.listGroups, function (groupName, index) {
+        angular.forEach(scope.listGroups, function (groupName) {
           if (angular.isUndefined(content[groupName])) {
             DataAccessor.addGroup(groupName, scope.languages, $routeParams.levels).then(function () {
               console.log('Successfully add missing group in second language')
@@ -54,6 +54,12 @@ angular.module('serinaApp').directive('swap', function ($rootScope, $routeParams
         $rootScope.secondLanguage = secondLanguage
         scope.disabledSwap = scope.languages[0] === secondLanguage || secondLanguage.length < 2
       }
+
+      scope.swapLanguages = function () {
+        scope.languages = scope.languages.reverse()
+        $rootScope.secondLanguage = scope.languages[1]
+        $location.path($location.path().replace(scope.languages[1], scope.languages[0]))
+      };
 
       scope.recoverSecondaryLanguage = function () {
         $rootScope.secondLanguageIsValid = false
