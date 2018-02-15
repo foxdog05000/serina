@@ -1,13 +1,12 @@
 # R0.3 Comming soon
 
-
 - Add preview for json files
 - Migration from Bower to Yarn
 - Maj Electron version 1.7.9 -> 1.7.10
 - Fix : Problem with count translation return 0 when the files are not empty
 
-# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-??)
 
+# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-??)
 
 - Added code for the language swap button
 - Added rel="noopener" on links \_blank for security and performance
@@ -15,8 +14,8 @@
 - Fix : Language swap button isn't working
 - Fix : Bad name of file HubController in index.html
 
-# [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
 
+# [R0.2.1](https://github.com/foxdog05000/serina/releases/tag/R0.2.1) (2017-11-25)
 
 - Fix : Navigate on home page or open group = search bar closed
 - Fix : Buton go to top not constantly display
@@ -25,8 +24,8 @@
 - Remove external link on wiki page language
 - Added keyboard shortcuts for toggle search bar
 
-# [R0.2](https://github.com/foxdog05000/serina/releases/tag/R0.2) (2017-11-19)
 
+# [R0.2](https://github.com/foxdog05000/serina/releases/tag/R0.2) (2017-11-19)
 
 - Adding second language selection (swap)
 - CRUD improvement of groups and translations on the api side in order to manage several languages
@@ -43,8 +42,8 @@
 - Ability to duplicate a translation
 - Update Grunt 0.4.5 -> 1.0.0
 
-# [R0.1.1](https://github.com/foxdog05000/serina/releases/tag/R0.1.1) (2017-09-22)
 
+# [R0.1.1](https://github.com/foxdog05000/serina/releases/tag/R0.1.1) (2017-09-22)
 
 - Move button add group + translation on header of list
 - Add button go to top
@@ -53,8 +52,8 @@
 - Button "return" : truly return precedent level
 - Toast animation conflit with overflow
 
-# [R0.1](https://github.com/foxdog05000/serina/releases/tag/R0.1) / (2017-08-31)
 
+# [R0.1](https://github.com/foxdog05000/serina/releases/tag/R0.1) / (2017-08-31)
 
 - Electron package
 - Basic UI with Angular Material integration
