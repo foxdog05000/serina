@@ -13,7 +13,6 @@
     "matchingElement_plural": "elementos coincidentes",
     "aGroup": "un grupo",
     "aTranslation": "una traducción",
-    "availableOnVersion": "Disponible en la versión",
     "dialog": {
       "addGroup": {
         "placeholder": "Nombre del grupo",

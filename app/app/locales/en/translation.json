@@ -117,7 +117,6 @@
     "noGroup": "No group",
     "noTranslation": "No translation",
     "key": "key",
-    "value": "message",
-    "availableOnVersion": "Available in version"
+    "value": "message"
   }
 }
