@@ -1,19 +1,19 @@
 <md-toolbar id="backToTop">
-    <div ng-show="showPreSearchBar()" id="search-bar" class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+    <div ng-show="$ctrl.showPreSearchBar()" id="search-bar" class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="$root.toggleLeft()">
             <md-icon>menu</md-icon>
         </md-button>
 
         <h2 flex md-truncate class="breadcrumb">
-            <a ng-repeat="item in breadcrumb track by $index" href="#{{item.href}}">
+            <a ng-repeat="item in $root.breadcrumb track by $index" href="#{{item.href}}">
                 <span ng-if="$index == 0">{{item.label | i18next}}</span> <span ng-if="$index > 0">{{item.label}}</span>
             </a>
         </h2>
 
         <span flex></span>
 
-        <div ng-show="breadcrumb[0].href !== '/hub'">
-            <md-button class="md-icon-button" arial-label="search" ng-if="breadcrumb[0].href !== '/preview' && breadcrumb[0].href !== '/settings'" ng-click="initiateSearch()">
+        <div ng-show="$root.breadcrumb[0].href !== '/hub'">
+            <md-button class="md-icon-button" arial-label="search" ng-if="$root.breadcrumb[0].href !== '/preview' && $root.breadcrumb[0].href !== '/settings'" ng-click="$ctrl.initiateSearch()">
                 <md-icon>search</md-icon>
             </md-button>
 
@@ -23,29 +23,29 @@
         </div>
     </div>
 
-    <div ng-show="!showPreSearchBar()" class="md-toolbar-tools search-bar">
-        <form name="search" ng-submit="searchKey()">
-            <md-button type="submit" class="md-icon-button" ng-click="searchKey()">
+    <div ng-show="!$ctrl.showPreSearchBar()" class="md-toolbar-tools search-bar">
+        <form name="search" ng-submit="$ctrl.searchKey()">
+            <md-button type="submit" class="md-icon-button" ng-click="$ctrl.searchKey()">
                 <md-icon>search</md-icon>
             </md-button>
 
             <md-input-container>
-                <input type="search" ng-model="search" id="search-input" aria-label="search-input" />
+                <input type="search" ng-model="$ctrl.search" id="search-input" aria-label="$ctrl.search-input" />
             </md-input-container>
 
-            <md-button class="md-icon-button" ng-click="endSearch()">
+            <md-button class="md-icon-button" ng-click="$root.endSearch()">
                 <md-icon>close</md-icon>
             </md-button>
         </form>
 
-        <div ng-if="matchingElements.length > 0" class="matching-elements">
-            <p>{{matchingElements.length}} <span ng-i18next="[i18next]({count: matchingElements.length})commons.matchingElement"></span></p>
+        <div ng-if="$ctrl.matchingElements.length > 0" class="matching-elements">
+            <p>{{$ctrl.matchingElements.length}} <span ng-i18next="[i18next]({count: $ctrl.matchingElements.length})commons.matchingElement"></span></p>
 
-            <div ng-if="matchingElements.length > 1">
-                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('-')" ng-disabled="">
+            <div ng-if="$ctrl.matchingElements.length > 1">
+                <md-button class="md-icon-button" ng-click="$ctrl.navigateBetweenMatchingElements('-')" ng-disabled="">
                     <md-icon>keyboard_arrow_left</md-icon>
                 </md-button>
-                <md-button class="md-icon-button" ng-click="navigateBetweenMatchingElements('+')" ng-disabled="">
+                <md-button class="md-icon-button" ng-click="$ctrl.navigateBetweenMatchingElements('+')" ng-disabled="">
                     <md-icon>keyboard_arrow_right</md-icon>
                 </md-button>
             </div>

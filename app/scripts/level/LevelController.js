@@ -1,6 +1,7 @@
 'use strict'
 
-angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope, $routeParams, $location, DataAccessor, Breadcrumb, SecondLanguage) {
+angular.module('serinaApp').controller('LevelCtrl', ['$location', '$rootScope', '$routeParams', '$scope', 'Breadcrumb', 'DataAccessor', 'SecondLanguage',
+function ($location, $rootScope, $routeParams, $scope, Breadcrumb, DataAccessor, SecondLanguage) {
   var originatorEv
 
   if ($rootScope.secondLanguageIsValid) {
@@ -32,7 +33,7 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
 
   $scope.btnBack = function () {
     var currentUrl = $location.$$url
-    $scope.endSearch();
+    $rootScope.endSearch()
     if (currentUrl === '/language/' + $scope.languages[0]) {
       $location.path('/hub')
     } else {
@@ -74,4 +75,4 @@ angular.module('serinaApp').controller('LevelCtrl', function ($rootScope, $scope
     console.error('Error on open language ' + $scope.languages[0], response)
   })
 
-})
+}])

@@ -1,6 +1,7 @@
 'use strict'
 
-angular.module('serinaApp').directive('group', function ($location, $routeParams, $i18next, DataAccessor, DataManager, Dialog, Toast) {
+angular.module('serinaApp').directive('group', ['$location', '$routeParams', '$rootScope', '$i18next', 'DataAccessor', 'DataManager', 'Dialog', 'Toast',
+function ($location, $routeParams, $rootScope, $i18next, DataAccessor, DataManager, Dialog, Toast) {
   return {
     restrict: 'E',
     templateUrl: 'views/level/group.html',
@@ -74,10 +75,10 @@ angular.module('serinaApp').directive('group', function ($location, $routeParams
 
       scope.openGroup = function (group) {
         var currentUrl = $location.path()
-        scope.endSearch();
+        $rootScope.endSearch()
         $location.path(currentUrl + '/' + group)
       }
 
     }
   }
-})
+}])
