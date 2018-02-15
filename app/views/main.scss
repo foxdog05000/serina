@@ -20,7 +20,7 @@ body.md-toast-animating { overflow: auto !important; }
   line-height: .8;
 }
 
-md-list-item, .md-subheader, .md-subheader.md-green-theme {
+md-list-item, .md-subheader {
   background-color: $white;
 }
 
@@ -33,4 +33,10 @@ md-list-item .flag {
 
 md-toast {
   position: fixed;
+}
+
+.md-subheader {
+  &.md-indigo-theme, &.md-green-theme, &.md-orange-theme &.md-purple-theme, &.md-brown-theme, &.md-grey-theme {
+    background-color: $white;
+  }
 }
