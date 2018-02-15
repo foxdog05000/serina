@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('serinaApp').component('basicSettings', {
-  controller: function ($rootScope, $mdColorPalette, $i18next, LocalStorage) {
+  controller: function BasicSettingsCtrl ($rootScope) {
 
     this.displayFormat = [
       { label: 'card', icon: 'view_agenda' },
@@ -10,7 +10,7 @@ angular.module('serinaApp').component('basicSettings', {
 
     this.changeDisplayFormat = function (format) {
       $rootScope.settings.selectedDisplayFormat = format
-      LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
+      $rootScope.saveSettings()
     }
 
     this.languages = [
@@ -22,7 +22,12 @@ angular.module('serinaApp').component('basicSettings', {
     this.changeLocaleOfApplication = function (language) {
       $rootScope.settings.locale = language
       window.i18next.changeLanguage($rootScope.settings.locale)
-      LocalStorage.setItem($rootScope.keySettingsApp, $rootScope.settings)
+      $rootScope.saveSettings()
+    }
+
+    this.changeKeepLanguagesEdit = function (keepLanguagesEdit) {
+      $rootScope.settings.keepLanguagesEdit = keepLanguagesEdit
+      $rootScope.saveSettings()
     }
 
   },

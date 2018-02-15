@@ -97,6 +97,7 @@ angular
       $rootScope.settings = LocalStorage.getItem($rootScope.keySettingsApp)
     } else {
       $rootScope.settings = {
+        keepLanguagesEdit: false,
         locale: 'en',
         theme: 'green',
         selectedDisplayFormat: 'card'

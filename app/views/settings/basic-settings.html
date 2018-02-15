@@ -5,9 +5,15 @@
         <md-icon>{{format.icon}}</md-icon> {{format.label}}
     </md-button>
 </md-list-item>
+
 <md-list-item>
     <p>{{'pages.settings.basic.choiceLanguageOfApp' | i18next}}</p>
     <md-button ng-repeat="language in $ctrl.languages" ng-class="{'md-raised md-primary': $root.settings.locale === language.code}" ng-click="$ctrl.changeLocaleOfApplication(language.code)">
         <img ng-src="images/flags/{{language.code}}.png" alt="" class="flag"/> {{language.code | uppercase}}
     </md-button>
+</md-list-item>
+
+<md-list-item>
+    <p>{{'pages.settings.basic.keepCurrentLanguagesEditOnPageChange'}}</p>
+    <md-switch class="md-primary" ng-model="$root.settings.keepLanguagesEdit" ng-change="$ctrl.changeKeepLanguagesEdit($root.settings.keepLanguagesEdit)"></md-switch>
 </md-list-item>

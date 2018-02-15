@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('serinaApp').component('theming', {
-  controller: function ($rootScope, LocalStorage) {
+  controller: function ThemingCtrl ($rootScope, LocalStorage) {
 
     this.colors = [
       { label: 'commons.themeColor.indigo', value: 'indigo' },
