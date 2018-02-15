@@ -19,5 +19,5 @@ angular.module('serinaApp').component('btnDownloadLanguage', {
     }
 
   },
-  templateUrl: 'views/commons/directives/btn-download-language.html'
+  templateUrl: 'views/commons/components/btn-download-language.html'
 })

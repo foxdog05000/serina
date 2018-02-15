@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('serinaApp').component('goToTop', {
-  templateUrl: 'views/commons/directives/go-to-top.html',
+  templateUrl: 'views/commons/components/go-to-top.html',
   controller: function goToTopCtrl ($location, $anchorScroll) {
 
     var scrollObject = {}

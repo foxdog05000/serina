@@ -95,5 +95,5 @@ angular.module('serinaApp').component('toolbar', {
     })
 
   },
-  templateUrl: 'views/commons/directives/toolbar.html'
+  templateUrl: 'views/commons/components/toolbar.html'
 })

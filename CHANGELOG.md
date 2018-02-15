@@ -2,6 +2,7 @@
 
 - Add preview for json files
 - Migration from Bower to Yarn
+- Convert commons directives to components
 - Maj Electron version 1.7.9 -> 1.7.10
 - Fix : Problem with count translation return 0 when the files are not empty
 
