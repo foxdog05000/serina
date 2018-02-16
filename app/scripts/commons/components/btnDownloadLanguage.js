@@ -1,6 +1,9 @@
 'use strict'
 
 angular.module('serinaApp').component('btnDownloadLanguage', {
+  bindings: {
+    locale: '<',
+  },
   controller: function btnDownloadLanguageCtrl ($rootScope, DataAccessor) {
 
     this.downloadLanguage = function (language) {
