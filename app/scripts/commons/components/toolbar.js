@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('serinaApp').component('toolbar', {
-  controller: function ToolbarCtrl ($timeout, $rootScope) {
+  controller: function toolbarCtrl ($timeout, $rootScope) {
 
     var self = this
 
