@@ -14,6 +14,6 @@
 </md-list-item>
 
 <md-list-item>
-    <p>{{'pages.settings.basic.keepCurrentLanguagesEditOnPageChange'}}</p>
+    <p>{{'pages.settings.basic.keepLanguagesBeingEditedWhenChangingPages' | i18next}}</p>
     <md-switch class="md-primary" ng-model="$root.settings.keepLanguagesEdit" ng-change="$ctrl.changeKeepLanguagesEdit($root.settings.keepLanguagesEdit)"></md-switch>
 </md-list-item>

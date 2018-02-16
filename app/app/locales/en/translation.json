@@ -18,7 +18,8 @@
         "choiceLanguageOfApp": "Choice language of application",
         "selectLanguage": "Choice language",
         "theming": "Theming",
-        "choiceTheme": "Choice theme"
+        "choiceTheme": "Choice theme",
+        "keepLanguagesBeingEditedWhenChangingPages": "Keep the languages being edited when changing pages"
       },
       "shortcuts": {
         "keyboardShortcuts": "Keyboard shortcuts",

@@ -109,7 +109,8 @@
         "selectDisplayFormat": "Elija un formato",
         "selectLanguage": "Seleccione un idioma",
         "theming": "Tema de aplicación",
-        "title": "Parámetros básicos"
+        "title": "Parámetros básicos",
+        "keepLanguagesBeingEditedWhenChangingPages": "Mantener los idiomas que se están editando al cambiar de página"
       }
     }
   },
