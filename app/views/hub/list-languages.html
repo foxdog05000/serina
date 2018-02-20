@@ -29,7 +29,7 @@
 
 <md-list ng-if="settings.selectedDisplayFormat === 'list'">
     <div class="md-whiteframe-2dp">
-        <md-subheader ng-if="listLanguages.length > 0">{{'commons.language' | i18next}}<span ng-if="listLanguages.length > 1">s</span></md-subheader>
+        <md-subheader ng-if="listLanguages.length > 0"><span ng-i18next="[i18next]({ count: listLanguages.length})commons.language"></span></md-subheader>
         <md-list-item ng-repeat="language in listLanguages track by language.code" ng-click="openLanguage(language.code)">
             <img ng-src="images/flags/{{language.code}}.png" alt="Flag {{language.code}}" class="flag"/> <span>{{language.code | uppercase}}</span>
             <span flex></span>

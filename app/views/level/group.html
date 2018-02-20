@@ -1,7 +1,7 @@
 <md-list flex>
     <div class="md-whiteframe-2dp">
         <div layout="row">
-            <md-subheader class="md-no-sticky">{{'commons.group' | i18next}}<span ng-if="listGroups.length > 1">s</span></md-subheader>
+            <md-subheader class="md-no-sticky"><span ng-i18next="[i18next]({ count: listGroups.length})commons.group"></span></md-subheader>
             <span flex></span>
             <md-button ng-click="openDialogAddGroup($event)" class="md-primary md-raised">
                 <md-icon>add</md-icon>

@@ -1,5 +1,5 @@
 <md-card layout="row">
-    <md-subheader>{{'commons.translation' | i18next}}<span ng-if="listTranslations.length > 1">s</span></md-subheader>
+    <md-subheader><span ng-i18next="[i18next]({ count: listTranslations.length})commons.translation"></span></md-subheader>
     <span flex></span>
     <md-button ng-click="addTranslation()" class="md-primary md-raised">
         <md-icon>add</md-icon>
