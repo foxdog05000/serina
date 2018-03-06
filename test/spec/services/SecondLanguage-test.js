@@ -23,11 +23,12 @@ describe('Breadcrumb Service', function () {
       expect(SecondLanguage.definedSecondLanguage('en')).toEqual('en')
     })
 
-    it("don't defined second language because no second language set")
-    expect(SecondLanguage.definedSecondLanguage('')).toEqual('')
-    expect(SecondLanguage.definedSecondLanguage(undefined)).toEqual('')
-    expect(SecondLanguage.definedSecondLanguage(null)).toEqual('')
-    expect(SecondLanguage.definedSecondLanguage({ label: 'EN' })).toEqual('')
-    expect(SecondLanguage.definedSecondLanguage(['EN', 'FR'])).toEqual('')
+    it("don't defined second language because no second language set", function () {
+      expect(SecondLanguage.definedSecondLanguage('')).toEqual('')
+      expect(SecondLanguage.definedSecondLanguage(undefined)).toEqual('')
+      expect(SecondLanguage.definedSecondLanguage(null)).toEqual('')
+      expect(SecondLanguage.definedSecondLanguage({ label: 'EN' })).toEqual('')
+      expect(SecondLanguage.definedSecondLanguage(['EN', 'FR'])).toEqual('')
+    })
   })
 })
