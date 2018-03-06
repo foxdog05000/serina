@@ -3,4 +3,22 @@
     font-family: 'Roboto';
     padding: .1em .5em;
   }
+
+  .drop-box {
+    background: #F8F8F8;
+    border: 1px solid transparent;
+    height: 4em;
+    margin: 1em 0;
+    padding-top: 2em;
+    text-align: center;
+    width: 100%;
+
+    &:hover {
+      border: 1px solid #c5c5c5;
+    }
+  }
+
+  .dragover {
+    border: 1px solid #242424;
+  }
 }

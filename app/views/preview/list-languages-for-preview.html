@@ -8,6 +8,14 @@
 
             <md-icon>{{selectedLanguage === language.code ? 'visibility' : 'visibility_off'}}</md-icon>
         </md-list-item>
+
+        <md-divider></md-divider>
+
+        <md-list-item>
+            <div ngf-drop ngf-select ng-model="files" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+            accept="application/json" ngf-pattern="'application/json'">Drop json or click to upload</div>
+            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+        </md-list-item>
     </div>
 </md-list>
 
