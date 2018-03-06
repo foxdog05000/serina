@@ -9,7 +9,8 @@ angular
     'ngSanitize',
     'ngMaterial',
     'jm.i18next',
-    'jsonFormatter'
+    'jsonFormatter',
+    'ngFileUpload'
   ])
   .config(function ($locationProvider, $mdThemingProvider, $routeProvider, JSONFormatterConfigProvider) {
     $locationProvider.hashPrefix('')
