@@ -331,9 +331,13 @@ module.exports = function (grunt) {
     //     }
     //   }
     // },
-    // concat: {
-    //   dist: {}
-    // },
+    concat: {
+      dist: {
+        files: {
+          'dist/main.js': ['api/api.js', '<%= yeoman.app %>/main.js']
+        }
+      }
+    },
 
     imagemin: {
       dist: {
@@ -421,7 +425,6 @@ module.exports = function (grunt) {
             'images/{,*/}*.{webp}',
             'icons/icon-x64.ico',
             'views/fonts/{,*/}*.*',
-            'main.js',
             'package.json'
           ]
         }, {
@@ -434,11 +437,6 @@ module.exports = function (grunt) {
           cwd: 'app/app/',
           dest: '<%= yeoman.dist %>',
           src: '**'
-        }, {
-          expand: true,
-          cwd: 'api/dist',
-          dest: '<%= yeoman.dist %>',
-          src: 'api.js'
         }, {
           expand: true,
           cwd: 'node_modules/',
