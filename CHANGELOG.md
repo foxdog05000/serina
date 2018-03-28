@@ -1,4 +1,10 @@
+# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.3) (Comming soon)
+
+
+- Fix : Match items on search isn't be update after delete a translation #29
+
 # [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-16)
+
 
 - Added code for the language swap button
 - Added rel="noopener" on links \_blank for security and performance
