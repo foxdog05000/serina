@@ -43,6 +43,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
           patternTranslation.secondValue = ''
         }
         scope.listTranslations.unshift(patternTranslation)
+        scope.endSearch()
       }
 
       scope.duplicatedTranslation = function (ev, originalTranslation) {
@@ -92,6 +93,7 @@ angular.module('serinaApp').directive('translation', function ($rootScope, $rout
             DataAccessor.deleteTranslation(scope.languages, $routeParams.levels, translation).then(function () {
               scope.listTranslations = DataManager.remove(scope.listTranslations, translation)
               angular.copy(scope.listTranslations, scope.originalListTranslations)
+              scope.endSearch()
               Toast.showCustomToast('check', $i18next.t('commons.toast.deleteTranslation.success', { translation: translation.key }), 'good')
             }, function (response) {
               Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteTranslation.fail', { translation: translation.key }), 'fail')
