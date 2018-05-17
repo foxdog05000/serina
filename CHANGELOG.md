@@ -1,4 +1,3 @@
-# [R0.2.3](https://github.com/foxdog05000/serina/releases/tag/R0.2.3) (2018-05-17)
 # R0.3 Comming soon
 
 - Add preview for json files
@@ -8,11 +7,12 @@
 - Fix : Problem with count translation return 0 when the files are not empty
 
 
-# [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-??)
+# [R0.2.3](https://github.com/foxdog05000/serina/releases/tag/R0.2.3) (2018-05-17)
 
 - Fix : Bad translation "noLanguage" with "s"
 - Fix : Match items on search isn't be update after delete a translation #29
 - Fix : Error opening app on Mac OS #24
+
 
 # [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-16)
 

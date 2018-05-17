@@ -2,8 +2,6 @@ language: node_js
 dist: trusty
 node_js:
   - "8"
-sudo: false
-  - "stable"
 sudo: required
 notifications:
   email: false
