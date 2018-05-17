@@ -2,7 +2,7 @@
 
 
 - Fix : Match items on search isn't be update after delete a translation #29
-- Fix: Error opening app on Mac OS #24
+- Fix : Error opening app on Mac OS #24
 
 # [R0.2.2](https://github.com/foxdog05000/serina/releases/tag/R0.2.2) (2018-02-16)
 
