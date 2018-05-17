@@ -1,6 +1,6 @@
 # [R0.2.3](https://github.com/foxdog05000/serina/releases/tag/R0.2.3) (Comming soon)
 
-
+- Fix : Bad translation "noLanguage" with "s"
 - Fix : Match items on search isn't be update after delete a translation #29
 - Fix : Error opening app on Mac OS #24
 
