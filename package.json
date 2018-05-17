@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/foxdog05000/serina.git"
   },
+  "description": "GUI for create translation files for i18next",
   "keywords": [
     "electron",
     "translation",
