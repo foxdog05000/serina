@@ -1,10 +1,12 @@
 Hello,
 
-Thank you for your interest in contributing to `serina`!
+Thank you for your interest in contributing to `serina` !
+
 
 ## What to contribute
 
 You're welcome to contribute to the source code, unit tests.
+
 
 ### Contributing to source code
 
@@ -22,7 +24,6 @@ How to submit a pull request:
 6. Ensure that all the tests pass by running `grunt test`
 7. **Commit only the changes to `app` and `test` or `api.js` for the API (if applicable)**, then `git push`
 8. https://github.com/foxdog05000/serina/compare
-
 
 
 ## License

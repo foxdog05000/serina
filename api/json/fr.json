@@ -7,7 +7,7 @@
   "pages": {
     "hub": {
       "addLanguage": "Ajouter une nouvelle langue",
-      "noLanguages": "Aucunes langues"
+      "noLanguage": "Aucune langue"
     }
   },
   "commons": {

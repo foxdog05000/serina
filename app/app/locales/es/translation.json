@@ -84,7 +84,7 @@
   "pages": {
     "hub": {
       "addLanguage": "Añadir un nuevo idioma",
-      "noLanguages": "No hay idiomas"
+      "noLanguage": "No hay idioma"
     },
     "settings": {
       "about": {
