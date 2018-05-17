@@ -4,9 +4,9 @@ const app = electron.app
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
-const path = require('path')
+// Path is declared in api.js and not here. The api.js file is concatenated at the beginning of this file when building the application.
+// const path = require('path')
 const url = require('url')
-let api = require('./api')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

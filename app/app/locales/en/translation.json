@@ -8,7 +8,7 @@
   "pages": {
     "hub": {
       "addLanguage": "Add new language",
-      "noLanguages": "No languages"
+      "noLanguage": "No language"
     },
     "settings": {
       "basic": {
