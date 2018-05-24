@@ -33,6 +33,8 @@ module.exports = function(config) {
       'node_modules/i18next-xhr-backend/i18nextXHRBackend.js',
       'node_modules/mousetrap/mousetrap.js',
       'node_modules/jsonformatter/dist/json-formatter.js',
+      'node_modules/mousetrap/plugins/global-bind/mousetrap-global-bind.js',
+      'node_modules/ng-file-upload/dist/ng-file-upload.js',
       'node_modules/angular-mocks/angular-mocks.js',
       'app/scripts/**/*.js',
       'test/spec/**/*.js'
