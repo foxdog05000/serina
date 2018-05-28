@@ -7,11 +7,11 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 > GUI for create translation files for i18next
 
+## 🖼 Preview (_Serina R0.2.3_)
+
 ![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
 
-_Serina R0.2.3_
-
-## Download
+## 💾 Download
 
 Serina can be downloaded [here](https://github.com/foxdog05000/serina/releases). Available versions for Linux and Windows (64bits). _MacOS available to later_
 
@@ -19,7 +19,7 @@ To use, unzip in the desired location and execute Serina.
 
 If you need a different version, please follow the _development_ instructions to make your own build from the source code
 
-## Usage
+## 📖 Usage
 Serina allows you to create translations for each language, you can access the different languages by clicking on their map in the languages list.
 
 ### Create translation for a language
@@ -67,7 +67,7 @@ The settings allow you to modify the app according to your preferences. A "About
 - The theme of the application
 - Keyboard shortcuts
 
-## FAQ
+## ⁉️ FAQ
 
 #### Your language is not available in the app ?
 You can translate the application and submit your translation in PR. Or create issue.
@@ -75,7 +75,7 @@ You can translate the application and submit your translation in PR. Or create i
 #### Your language doesn't have its flag displayed ?
 You can open a issue to explain your problem with a screenshot if possible.
 
-## Development
+## 🔨 Development
 
 If you want to contribute to Serina, create a new different version of Serina, or compile it from source code, follow these instructions.
 
@@ -93,12 +93,13 @@ Clone/download source code from the github repo. Make sure you have _node_, _npm
     * `grunt test:loop` for loop automated tests.
     * Please, ensure the tests are passing before creating a pull requests. Add tests for your changes.
 
-## Acknowledgments
+## 👏Acknowledgments
 
 * [Electron](https://electron.atom.io)  framework was used for the app development.
 
-## License
+## 📖 License
 
 Serina is being developed and maintained as Open-Source software by @foxdog05000 (https://github.com/foxdog05000) licensed under [MIT LICENSE](https://github.com/foxdog05000/serina/blob/master/LICENSE)
 
+## 📝 Source Code
 The original source code can be found at: <https://github.com/foxdog05000/serina>
