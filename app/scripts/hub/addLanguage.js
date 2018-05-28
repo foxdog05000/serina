@@ -19,7 +19,7 @@ angular.module('serinaApp').directive('addLanguage', function ($i18next, DataAcc
           DataAccessor.addLanguage(codeLanguageAdd).then(function () {
             Toast.showCustomToast('check', $i18next.t('commons.toast.addLanguage.success', { language: codeLanguageAdd }), 'good', 'HubCtrl')
             scope.addLanguage.code = ''
-            scope.getListLanguages()
+            scope.getLanguages()
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.addLanguage.fail', { language: codeLanguageAdd }), 'fail', 'HubCtrl')
             console.error('Unable to add language "' + codeLanguageAdd.toUpperCase() + '"', response)

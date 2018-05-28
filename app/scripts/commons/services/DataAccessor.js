@@ -3,24 +3,24 @@
 angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http) {
   return {
 
-    getListLanguages: function () {
-      return $http.get($rootScope.endPoint + '/list-languages')
+    getLanguages: function () {
+      return $http.get($rootScope.endPoint + '/languages')
     },
 
     openLanguage: function (language) {
-      return $http.get($rootScope.endPoint + '/open/' + language.toLowerCase())
+      return $http.get($rootScope.endPoint + '/language/' + language.toLowerCase() + '/open')
     },
 
     downloadLanguage: function (language) {
-      return $http.get($rootScope.endPoint + '/download/' + language.toLowerCase())
+      return $http.get($rootScope.endPoint + '/language/' + language.toLowerCase() + '/download')
     },
 
     addLanguage: function (language) {
-      return $http.get($rootScope.endPoint + '/create/' + language.toLowerCase())
+      return $http.get($rootScope.endPoint + '/language/' + language.toLowerCase() + '/create')
     },
 
     deleteLanguage: function (language) {
-      return $http.get($rootScope.endPoint + '/delete/' + language.toLowerCase())
+      return $http.get($rootScope.endPoint + '/language/' + language.toLowerCase() + '/delete')
     },
 
     addGroup: function (groupName, languages, levels) {
@@ -28,11 +28,11 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     majGroup: function (groupName, languages, levels, originalGroupName) {
-      return $http.post($rootScope.endPoint + '/group/upd', { groupName: groupName, languages: languages, levels: levels, originalGroupName: originalGroupName })
+      return $http.post($rootScope.endPoint + '/group/update', { groupName: groupName, languages: languages, levels: levels, originalGroupName: originalGroupName })
     },
 
     deleteGroup: function (groupName, languages, levels) {
-      return $http.post($rootScope.endPoint + '/group/del', { groupName: groupName, languages: languages, levels: levels })
+      return $http.post($rootScope.endPoint + '/group/delete', { groupName: groupName, languages: languages, levels: levels })
     },
 
     addTranslation: function (languages, levels, translation) {
@@ -40,11 +40,11 @@ angular.module('serinaApp').factory('DataAccessor', function ($rootScope, $http)
     },
 
     majTranslation: function (languages, levels, translation) {
-      return $http.post($rootScope.endPoint + '/translation/upd', { languages: languages, levels: levels, translation: translation })
+      return $http.post($rootScope.endPoint + '/translation/update', { languages: languages, levels: levels, translation: translation })
     },
 
     deleteTranslation: function (languages, levels, translation) {
-      return $http.post($rootScope.endPoint + '/translation/del', { languages: languages, levels: levels, translation: translation })
+      return $http.post($rootScope.endPoint + '/translation/delete', { languages: languages, levels: levels, translation: translation })
     }
 
   }

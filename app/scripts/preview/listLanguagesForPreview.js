@@ -7,7 +7,7 @@ angular.module('serinaApp').directive('listLanguagesForPreview', function ($log,
     link: function (scope) {
 
       var recoverListLanguagesForPreview = function () {
-        DataAccessor.getListLanguages().then(function (response) {
+        DataAccessor.getLanguages().then(function (response) {
           scope.listLanguages = response.data
         }, function (response) {
           console.error('Unable to retrieve languages list', response)
@@ -40,7 +40,7 @@ angular.module('serinaApp').directive('listLanguagesForPreview', function ($log,
                   scope.log = 'file: ' +
                   resp.config.data.file.name +
                   ', Response: ' + JSON.stringify(resp.data) +
-                  '\n' + $scope.log;
+                  '\n' + scope.log;
                 });
               }, null, function (evt) {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);

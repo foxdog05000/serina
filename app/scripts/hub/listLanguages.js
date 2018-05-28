@@ -6,8 +6,8 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
     templateUrl: 'views/hub/list-languages.html',
     link: function (scope) {
 
-      scope.getListLanguages = function () {
-        DataAccessor.getListLanguages().then(function (response) {
+      scope.getLanguages = function () {
+        DataAccessor.getLanguages().then(function (response) {
           scope.listLanguages = response.data
         }, function (response) {
           console.error('Unable to retrieve languages list', response)
@@ -18,7 +18,7 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
         Dialog.showConfirm(ev).then(function () {
           DataAccessor.deleteLanguage(language).then(function () {
             Toast.showCustomToast('check', $i18next.t('commons.toast.deleteLanguage.success', { language: language }), 'good', 'HubCtrl')
-            scope.getListLanguages()
+            scope.getLanguages()
           }, function (response) {
             Toast.showCustomToast('warning', $i18next.t('commons.toast.deleteLanguage.fail', { language: language }), 'fail', 'HubCtrl')
             console.error('Unable to delete language "' + language + '"', response)
@@ -30,7 +30,7 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
         $location.path('/language/' + language.toLowerCase())
       }
 
-      scope.getListLanguages()
+      scope.getLanguages()
 
     }
   }
