@@ -8,7 +8,7 @@ angular.module('serinaApp').directive('listLanguagesForPreview', function ($log,
 
       var recoverListLanguagesForPreview = function () {
         DataAccessor.getListLanguages().then(function (response) {
-          scope.listLanguages = response.data.listLanguages
+          scope.listLanguages = response.data
         }, function (response) {
           console.error('Unable to retrieve languages list', response)
         })

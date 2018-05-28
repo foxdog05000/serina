@@ -12,7 +12,7 @@ angular.module('serinaApp').directive('swap', function ($location, $rootScope, $
       var getListLanguagesForSwap = function () {
         scope.languagesForSwap = []
         DataAccessor.getListLanguages().then(function (response) {
-          var listAllLangages = response.data.listLanguages
+          var listAllLangages = response.data
           angular.forEach(listAllLangages, function (language) {
             if (language.code !== scope.languages[0]) {
               scope.languagesForSwap.push(language)

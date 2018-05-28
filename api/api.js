@@ -159,21 +159,21 @@ api.get(pathApi + '/', function (req, res) {
 api.get(pathApi + '/list-languages', function (req, res) {
   fs.readdir(pathJsonFile, function (err, files) {
     if (err) { throw err }
-    let languages = { listLanguages: [] }
+    let languages = []
     files.forEach(function (file) {
-      languages.listLanguages.push({ code: file.substring(0, 2), nbTranslations: 0 })
+      languages.push({ code: file.substring(0, 2) })
     })
     res.send(languages)
   })
 })
 
 api.get(pathApi + '/count-entities-list-languages', function (req, res) {
-  let languages = { listLanguages: [] }
+  let languages = []
   let files = fs.readdirSync(pathJsonFile)
 
   files.forEach((fileName) => {
     let content = jsonfile.readFileSync(pathJsonFile + fileName)
-    languages.listLanguages.push({ code: fileName.substring(0, 2), nbTranslations: api.countTranslations(content) })
+    languages.push({ code: fileName.substring(0, 2), nbTranslations: api.countTranslations(content) })
   })
   res.send(languages)
 })

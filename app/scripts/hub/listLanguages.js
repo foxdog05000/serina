@@ -8,10 +8,10 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
 
       scope.getListLanguages = function () {
         DataAccessor.getListLanguages().then(function (response) {
-          scope.listLanguages = response.data.listLanguages
+          scope.listLanguages = response.data
 
           DataAccessor.countEntitiesListLanguages().then(function (response) {
-            var countEntitiesListLanguages = response.data.listLanguages
+            var countEntitiesListLanguages = response.data
             angular.forEach(scope.listLanguages, function (language, index) {
               if (language.code === countEntitiesListLanguages[index].code) {
                 language.nbTranslations = countEntitiesListLanguages[index].nbTranslations
