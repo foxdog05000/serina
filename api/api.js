@@ -139,35 +139,22 @@ api.countTranslations = (obj) => {
 
 api.get(pathApi + '/', (req, res) => {
   let address = req.protocol + '://' + req.headers.host + pathApi
-  let map = {
-    "GET": [
-      address + "/list-languages",
-      address + "/count-entities-list-languages",
-      address + "/create/:language",
-      address + "/delete/:language",
-      address + "/open/:language",
-      address + "/download/:language",
+  res.send({
+    'GET': [
+      address + '/list-languages',
+      address + '/create/:language',
+      address + '/delete/:language',
+      address + '/open/:language',
+      address + '/download/:language',
     ],
-    "POST": [
-      address + "/group/:action",
-      address + "/translation/:action"
+    'POST': [
+      address + '/group/:action',
+      address + '/translation/:action'
     ]
-  }
-  res.send(map)
-})
-
-api.get(pathApi + '/list-languages', (req, res) => {
-  fs.readdir(pathJsonFile, (err, files) => {
-    if (err) { throw err }
-    let languages = []
-    files.forEach((file) => {
-      languages.push({ code: file.substring(0, 2) })
-    })
-    res.send(languages)
   })
 })
 
-api.get(pathApi + '/count-entities-list-languages', (req, res) => {
+api.get(pathApi + '/list-languages', (req, res) => {
   let languages = []
   let files = fs.readdirSync(pathJsonFile)
 

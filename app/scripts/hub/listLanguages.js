@@ -9,17 +9,6 @@ angular.module('serinaApp').directive('listLanguages', function ($rootScope, $lo
       scope.getListLanguages = function () {
         DataAccessor.getListLanguages().then(function (response) {
           scope.listLanguages = response.data
-
-          DataAccessor.countEntitiesListLanguages().then(function (response) {
-            var countEntitiesListLanguages = response.data
-            angular.forEach(scope.listLanguages, function (language, index) {
-              if (language.code === countEntitiesListLanguages[index].code) {
-                language.nbTranslations = countEntitiesListLanguages[index].nbTranslations
-              }
-            })
-          }, function (response) {
-            console.error('Unable to retrieve the number of translations per language', response)
-          })
         }, function (response) {
           console.error('Unable to retrieve languages list', response)
         })
