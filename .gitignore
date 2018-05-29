@@ -3,7 +3,5 @@
 /packages
 /.tmp
 /.sass-cache
-/api/json/translate/*.json
-/coverage
 
 api/dist/

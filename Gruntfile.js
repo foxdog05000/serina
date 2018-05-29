@@ -17,11 +17,8 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
-    coveralls: 'grunt-coveralls'
+    cdnify: 'grunt-google-cdn'
   });
-
-  grunt.loadNpmTasks('grunt-karma-coveralls');
 
   // Configurable paths for the application
   var appConfig = {
@@ -115,16 +112,6 @@ module.exports = function (grunt) {
           open: true,
           base: '<%= yeoman.dist %>'
         }
-      }
-    },
-
-    coveralls: {
-      options: {
-        debug: true,
-        coverageDir: 'coverage',
-        dryRun: true,
-        force: true,
-        recursive: true
       }
     },
 
