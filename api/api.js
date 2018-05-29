@@ -11,7 +11,7 @@ let utilities = require('./modules/utilities')
 let constants = require('./modules/constants')
 let languages = require('./modules/languages')
 
-jsonfile.spaces = constants.JSON_SPACES
+jsonfile.spaces = constants.JSON_NB_SPACES_INDENT
 
 api.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

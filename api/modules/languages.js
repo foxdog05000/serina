@@ -8,7 +8,7 @@ let fs = require('fs')
 let constants = require('./constants')
 let utilities = require('./utilities')
 
-jsonfile.spaces = constants.JSON_SPACES;
+jsonfile.spaces = constants.JSON_NB_SPACES_INDENT;
 
 let createLanguage = (res, languageCode) => {
   jsonfile.writeFile(constants.PATH_JSON_FOLDER + '/' + languageCode + '.json', {}, (err) => {
