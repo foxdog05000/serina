@@ -1,15 +1,16 @@
 'use strict'
 
-let express = require('express')
-let bodyParser = require('body-parser')
+const express = require('express')
+const bodyParser = require('body-parser')
 let jsonfile = require('jsonfile')
-let path = require('path')
-let fs = require('fs')
-let api = express()
+const path = require('path')
+const fs = require('fs')
+const api = express()
 
-let utilities = require('./modules/utilities')
-let constants = require('./modules/constants')
-let languages = require('./modules/languages')
+const constants = require('./modules/constants')
+
+const utilities = require('./modules/utilities')
+const languages = require('./modules/languages')
 
 jsonfile.spaces = constants.JSON_NB_SPACES_INDENT
 
