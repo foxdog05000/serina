@@ -9,7 +9,10 @@ Serina | GitHub page [here](https://foxdog05000.github.io/serina/)
 
 ## 🖼 Preview (_Serina R0.2.3_)
 
-![Serina Screenshot](https://raw.githubusercontent.com/foxdog05000/serina/master/sample.png)
+![Serina Screenshot Home](https://raw.githubusercontent.com/foxdog05000/serina/master/samples/home.jpg)
+![Serina Screenshot Edit translations](https://raw.githubusercontent.com/foxdog05000/serina/master/samples/edit-translation.jpg)
+![Serina Screenshot View json](https://raw.githubusercontent.com/foxdog05000/serina/master/samples/view-json.jpg)
+![Serina Screenshot Settings](https://raw.githubusercontent.com/foxdog05000/serina/master/samples/settings.jpg)
 
 ## 💾 Download
 
