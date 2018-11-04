@@ -8,7 +8,7 @@ let fs = require('fs')
 let constants = require('./constants')
 let utilities = require('./utilities')
 
-jsonfile.spaces = constants.JSON_NB_SPACES_INDENT;
+jsonfile.spaces = constants.JSON_NB_SPACES_INDENT
 
 let createLanguage = (res, languageCode) => {
   jsonfile.writeFile(constants.PATH_JSON_FOLDER + '/' + languageCode + '.json', {}, (err) => {
@@ -69,23 +69,23 @@ moduleLanguages.get(constants.PATH_API + '/language/:code/:action', (req, res) =
   if (moduleLanguages.isValidLanguageCode(languageCode)) {
     switch (action) {
       case 'create':
-        createLanguage(res, languageCode);
-        break;
+        createLanguage(res, languageCode)
+        break
       case 'delete':
-        deleteLanguage(res, languageCode);
-        break;
+        deleteLanguage(res, languageCode)
+        break
       case 'download':
         res.setHeader('Content-Type', 'apilication/json')
         res.download(constants.PATH_JSON_FOLDER + '/' + languageCode + '.json')
-        break;
+        break
       case 'open':
         res.sendFile(constants.PATH_JSON_FOLDER + '/' + languageCode + '.json')
-        break;
+        break
     }
   } else {
     console.error('Language code is not valid', languageCode)
     res.sendStatus(400)
   }
-});
+})
 
-module.exports = moduleLanguages;
+module.exports = moduleLanguages

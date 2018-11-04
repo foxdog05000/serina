@@ -20,7 +20,7 @@ api.use((req, res, next) => {
   next()
 })
 api.use(bodyParser.json())
-api.use('/', languages);
+api.use('/', languages)
 
 let createFolderIsNotExist = (pathFolder) => {
   if (!fs.existsSync(path.join(__dirname, pathFolder))) {
