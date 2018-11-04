@@ -1,6 +1,6 @@
 {
   "name": "serina",
-  "author": "Florian Armand Alias Foxdog05000",
+  "author": "foxdog05000",
   "license": "MIT",
   "version": "0.3.0",
   "main": "api/api.js",
