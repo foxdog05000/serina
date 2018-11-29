@@ -13,8 +13,5 @@
     "manager"
   ],
   "author": "foxdog05000",
-  "license": "MIT",
-  "devDependencies": {
-    "electron": "1.8.2-beta.4"
-  }
+  "license": "MIT"
 }

@@ -406,6 +406,11 @@ module.exports = function (grunt) {
           src: '**'
         }, {
           expand: true,
+          cwd: 'api/',
+          dest: '<%= yeoman.dist %>',
+          src: ['modules/*']
+        }, {
+          expand: true,
           cwd: 'node_modules/',
           dest: '<%= yeoman.dist %>/node_modules',
           src: [
@@ -450,6 +455,7 @@ module.exports = function (grunt) {
             'raw-body/**',
             'send/**',
             'safe-buffer/**',
+            'safer-buffer/**',
             'serve-static/**',
             'setprototypeof/**',
             'statuses/**',
@@ -499,12 +505,10 @@ module.exports = function (grunt) {
           name: 'serina',
           dir: 'dist',
           out: 'packages',
-          electronVersion: '1.8.2-beta.4',
           platform: 'win32',
           arch: 'x64',
           overwrite: true,
-          prune: false,
-          icon: 'icons/icon-x64.ico'
+          prune: false
         }
       },
       buildLinux: {
@@ -512,12 +516,10 @@ module.exports = function (grunt) {
           name: 'serina',
           dir: 'dist',
           out: 'packages',
-          electronVersion: '1.8.2-beta.4',
           platform: 'linux',
           arch: 'x64',
           overwrite: true,
-          prune: false,
-          icon: 'icons/icon-x64.ico'
+          prune: false
         }
       },
       buildMacos: {
@@ -525,12 +527,10 @@ module.exports = function (grunt) {
           name: 'serina',
           dir: 'dist',
           out: 'packages',
-          electronVersion: '1.8.2-beta.4',
           platform: 'darwin',
           arch: 'x64',
           overwrite: true,
-          prune: false,
-          icon: 'icons/icon-x64.ico'
+          prune: false
         }
       }
     },
