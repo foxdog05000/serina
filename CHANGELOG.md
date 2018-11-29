@@ -3,6 +3,7 @@
 - Add preview for json files
 - Migration from Bower to Yarn
 - Convert commons directives to components
+- Added more shortcuts in package.json
 - Maj dependencies :
   - Electron version (1.7.9 -> 1.8.7)
   - AngularJS version (1.6.8 -> 1.7.5)

@@ -90,7 +90,10 @@
   "scripts": {
     "build": "rimraf api/dist/ && babel ./api/ --out-dir api/dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node api/dist/api.js",
-    "test": "cd api && mocha",
-    "package": "npm run build && grunt package:linux"
+    "test": "grunt test",
+    "test api": "cd api && mocha",
+    "package": "npm run build && grunt package:linux",
+    "package win": "npm run build && grunt package:win32",
+    "package mac": "npm run build && grunt package:macos"
   }
 }
