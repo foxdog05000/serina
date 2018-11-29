@@ -29,7 +29,8 @@
       },
       "advanced": {
         "title": "Advanced settings",
-        "customPathOfFile": "Custom path of language files"
+        "customPathOfFile": "Custom path of language files",
+        "folderPath": "Folder path"
       },
       "about": {
         "title": "About",

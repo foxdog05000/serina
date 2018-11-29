@@ -103,7 +103,8 @@
       },
       "advanced": {
         "customPathOfFile": "Ubicación personalizada de los archivos de idioma",
-        "title": "Parámetros avanzados"
+        "title": "Parámetros avanzados",
+        "folderPath": "Ruta de la carpeta"
       },
       "basic": {
         "choiceDisplayFormatOfLanguages": "Elección del formato de pantalla en el hub",
