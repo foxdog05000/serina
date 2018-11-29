@@ -93,7 +93,7 @@
     "test": "grunt test",
     "test api": "cd api && mocha",
     "package": "npm run build && grunt package:linux",
-    "package win": "npm run build && grunt package:win32",
-    "package mac": "npm run build && grunt package:macos"
+    "package:win": "npm run build && grunt package:win32",
+    "package:mac": "npm run build && grunt package:macos"
   }
 }
